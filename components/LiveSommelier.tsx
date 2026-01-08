@@ -286,7 +286,7 @@ const LiveSommelier: React.FC = () => {
             )}
             {error.includes("microphone") && (
                 <div className="text-xs text-red-500 bg-white px-3 py-1 rounded-lg border border-red-100 flex items-center gap-1">
-                    <Settings className="w-3 h-3" /> Check Browser Settings > Privacy > Microphone
+                    <Settings className="w-3 h-3" /> Check Browser Settings &gt; Privacy &gt; Microphone
                 </div>
             )}
           </div>

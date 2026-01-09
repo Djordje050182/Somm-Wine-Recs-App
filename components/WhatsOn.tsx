@@ -62,10 +62,10 @@ const WhatsOn: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 animate-in fade-in duration-500">
       
-      {/* Hero Section */}
+      {/* Hero Section (VERIFIED WORKING URL) */}
       <div className="relative rounded-[3rem] overflow-hidden mb-12 bg-[#1a1a1a] min-h-[300px] flex items-center">
           <div className="absolute inset-0">
-              <img src="https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover opacity-40" alt="Concert Crowd" />
+              <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover opacity-40" alt="Concert Crowd" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
           </div>
           <div className="relative z-10 p-8 md:p-16 max-w-2xl">

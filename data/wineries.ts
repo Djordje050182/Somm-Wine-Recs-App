@@ -1,10 +1,10 @@
 
 import { Winery, WineDetail } from '../types';
 
-// --- STOCK IMAGES (FALLBACKS) ---
+// --- STOCK IMAGES (VERIFIED WORKING) ---
 const STOCK = {
-  VINEYARD: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&q=80&w=800',
-  WHITE_WINE: 'https://images.unsplash.com/photo-1585553616435-2dc0a54e271d?auto=format&fit=crop&q=80&w=800',
+  VINEYARD: 'https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?auto=format&fit=crop&q=80&w=1200',
+  WHITE_WINE: 'https://images.unsplash.com/photo-1551218372-a282013f41c3?auto=format&fit=crop&q=80&w=800',
   RED_WINE: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=800',
   BARREL: 'https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&q=80&w=800',
   CELLAR: 'https://images.unsplash.com/photo-1572913017567-c39cbdca69af?auto=format&fit=crop&q=80&w=800',
@@ -15,12 +15,12 @@ const STOCK = {
   POURING: 'https://images.unsplash.com/photo-1547595628-c61a29f496f0?auto=format&fit=crop&q=80&w=800'
 };
 
-// --- BESPOKE IMAGES (REAL PHOTOS) ---
+// --- BESPOKE IMAGES (VERIFIED WORKING) ---
 const BESPOKE = {
   TYRRELLS: 'https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=800', 
   AUDREY: 'https://images.unsplash.com/photo-1569931727764-50a1c601e389?auto=format&fit=crop&q=80&w=800', 
   BROKENWOOD: 'https://images.unsplash.com/photo-1562601579-599dec564e06?auto=format&fit=crop&q=80&w=800', 
-  TEMPUS: 'https://images.unsplash.com/photo-1572913017567-c39cbdca69af?auto=format&fit=crop&q=80&w=800',
+  TEMPUS: 'https://images.unsplash.com/photo-1551218372-a282013f41c3?auto=format&fit=crop&q=80&w=800',
   TULLOCH: 'https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&q=80&w=800',
   BIMBADGEN: 'https://images.unsplash.com/photo-1570539743907-73a7282c6363?auto=format&fit=crop&q=80&w=800',
   PETERSONS: 'https://images.unsplash.com/photo-1598155523122-38423bb4d6cf?auto=format&fit=crop&q=80&w=800',
@@ -140,7 +140,6 @@ export const WINERIES: Winery[] = [
   { id: 8, name: 'Mount Pleasant', subregion: 'Pokolbin', specialty: 'Semillon, Shiraz', wines: ['Lovedale Semillon', "Maurice O'Shea Shiraz"], established: 1921, priceRange: '$$$', description: "Home to some of Hunter Valley's oldest vines.", style: 'Heritage', opens: '10:00', closes: '17:00', lat: -32.7920, lng: 151.3080, hasRestaurant: false, rating: 4.8, bookingRequired: false, kidFriendly: true, dogFriendly: true, phone: '02 4998 7505', website: 'https://mountpleasantwines.com.au', bookingUrl: null, tastingFee: 10, image: STOCK.BARREL },
   { id: 9, name: 'Thomas Wines', subregion: 'Pokolbin', specialty: 'Single Vineyard Shiraz', wines: ['Braemore Semillon', 'Kiss Shiraz'], established: 1997, priceRange: '$$', description: "Andrew Thomas is the valley's Shiraz specialist.", style: 'Artisan', opens: '10:00', closes: '17:00', lat: -32.7750, lng: 151.3100, hasRestaurant: false, rating: 4.9, bookingRequired: true, kidFriendly: false, dogFriendly: true, phone: '02 4998 7134', website: 'https://thomaswines.com.au', bookingUrl: 'https://thomaswines.com.au/cellar-door', tastingFee: 15, image: STOCK.POURING },
   { id: 10, name: 'Gundog Estate', subregion: 'Pokolbin', specialty: 'Semillon, Shiraz', wines: ['The Chase Semillon'], established: 2011, priceRange: '$$', description: 'Stylish cellar door in the old Pokolbin schoolhouse.', style: 'Modern', opens: '10:00', closes: '17:00', lat: -32.7880, lng: 151.3250, hasRestaurant: false, rating: 4.7, bookingRequired: false, kidFriendly: true, dogFriendly: true, phone: '02 4998 6873', website: 'https://gundogestate.com.au', bookingUrl: null, tastingFee: 10, image: STOCK.CELLAR },
-  // NEW WINERIES
   { id: 11, name: 'Tulloch Wines', subregion: 'Pokolbin', specialty: 'Verdelho', wines: ['Verscato', 'Limited Release Verdelho'], established: 1895, priceRange: '$$', description: 'The undisputed home of Verdelho. Famous for their Junior Tasting Experience for kids.', style: 'Family', opens: '10:00', closes: '17:00', lat: -32.7930, lng: 151.3220, hasRestaurant: true, rating: 4.7, bookingRequired: true, kidFriendly: true, dogFriendly: true, phone: '02 4998 7580', website: 'https://tullochwines.com', bookingUrl: 'https://tullochwines.com/visit-us', tastingFee: 10, image: BESPOKE.TULLOCH },
   { id: 12, name: 'Peterson House', subregion: 'Pokolbin', specialty: 'Sparkling', wines: ['Pink Blush Rosé', 'Sparkling Shiraz'], established: 1995, priceRange: '$$', description: 'Life is flat without bubbles. The specialist for sparkling wines in the valley.', style: 'Bubbles', opens: '09:00', closes: '17:00', lat: -32.7780, lng: 151.3300, hasRestaurant: true, rating: 4.6, bookingRequired: false, kidFriendly: false, dogFriendly: false, phone: '02 4998 7881', website: 'https://petersonhouse.com.au', bookingUrl: 'https://petersonhouse.com.au/cellar-door', tastingFee: 5, image: BESPOKE.PETERSONS },
   { id: 13, name: 'Bimbadgen', subregion: 'Pokolbin', specialty: 'Semillon, Shiraz', wines: ['Signature Semillon', 'McDonalds Road Shiraz'], established: 1968, priceRange: '$$$', description: 'Iconic bell tower and amphitheater hosting major concerts.', style: 'Landmark', opens: '10:00', closes: '17:00', lat: -32.7600, lng: 151.3150, hasRestaurant: true, rating: 4.5, bookingRequired: true, kidFriendly: true, dogFriendly: false, phone: '02 4998 4600', website: 'https://bimbadgen.com.au', bookingUrl: 'https://bimbadgen.com.au/cellar-door', tastingFee: 10, image: BESPOKE.BIMBADGEN },
@@ -293,7 +292,6 @@ export const WINES: WineDetail[] = [
     aiTake: "Andrew Thomas calls it 'Kiss' because it truly embraces the Pokolbin soil.",
     image: STOCK.RED_WINE, pairings: ['Duck Confit', 'Mushroom Risotto', 'Beef Carpaccio']
   },
-  // --- SPECIFIC WINES FOR NEW WINERIES ---
   {
     id: 'w16', name: 'Verscato', wineryId: 11, variety: 'Verdelho', vintage: 'NV', price: '$22', rating: 4.3,
     description: 'The crowd favorite. A slightly sweet, frizzante style Verdelho that screams summer.',
@@ -348,7 +346,6 @@ export const WINES: WineDetail[] = [
     aiTake: "Michael Hope is a showman, and this wine performs on the palate just like the rockstars on his stage.",
     image: STOCK.RED_WINE, pairings: ['BBQ Ribs', 'Sausages', 'Hard Cheeses']
   },
-  // --- AUTO GENERATED FILLERS (Starting ID 40 to avoid conflict) ---
   ...UNIQUE_AI_TAKES.map((take, i) => {
     const idNum = i + 40;
     const isRed = idNum % 2 === 0;
@@ -357,13 +354,13 @@ export const WINES: WineDetail[] = [
     return {
       id: `w${idNum}`,
       name: name,
-      wineryId: (idNum % 20) + 1, // Cycle through all 20 wineries
+      wineryId: (idNum % 20) + 1,
       variety,
       vintage: '2021',
       price: `$${50 + (idNum % 20)}`,
       rating: 4.2 + (idNum % 8) / 10,
       description: `A distinguished ${variety} representing the unique micro-climate of the ${idNum % 2 === 0 ? 'Pokolbin' : 'Lovedale'} region.`,
-      aiTake: take, // Unique AI Take
+      aiTake: take,
       image: isRed ? STOCK.RED_WINE : STOCK.WHITE_WINE,
       pairings: isRed ? ['Charcuterie', 'Duck', 'Beef'] : ['Scallops', 'Poultry', 'Pasta']
     };

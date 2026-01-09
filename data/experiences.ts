@@ -207,7 +207,6 @@ export const EXPERIENCES: Experience[] = [
     lat: -32.7850,
     lng: 151.3180
   },
-  // NEW EXPERIENCES
   {
     id: 'e11',
     name: 'Hunter Valley Horse Riding',

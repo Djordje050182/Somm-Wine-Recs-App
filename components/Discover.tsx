@@ -132,29 +132,33 @@ const Discover: React.FC<DiscoverProps> = ({ onNavigate }) => {
         </div>
       )}
       
-      {/* Modern Hero Section */}
-      <section className="relative h-[700px] flex items-center justify-center overflow-hidden">
+      {/* 
+        REFACTORED HERO SECTION:
+        1. Used min-h instead of fixed height for responsiveness.
+        2. Added increased bottom padding (pb-32 lg:pb-48) to push buttons away from overlapping cards.
+        3. Increased z-index (z-20) to ensure content remains above background.
+      */}
+      <section className="relative min-h-[700px] lg:min-h-[850px] flex items-center justify-center overflow-hidden pt-20 pb-32 sm:pb-40 lg:pb-56">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
             <img 
-              src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=2000" 
+              src="https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?auto=format&fit=crop&q=80&w=2000" 
               className="w-full h-full object-cover"
               alt="Hunter Valley Landscape"
             />
-            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-black/40" /> 
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-[#1a1a1a]/60 to-transparent" />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-10">
+        {/* Hero Content Wrapper: Container safety max-w-screen-xl */}
+        <div className="relative z-20 max-w-screen-xl mx-auto px-4 sm:px-6 w-full">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-lg">
               <span className="w-2 h-2 bg-[#a68d60] rounded-full animate-pulse" />
               AI-Powered Discovery
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-serif text-white mb-6 leading-[1.1] tracking-tight shadow-sm">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif text-white mb-6 leading-[1.1] tracking-tight shadow-sm">
               The Future of <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a68d60] to-[#e5e1da]">Taste.</span>
             </h1>
@@ -184,16 +188,22 @@ const Discover: React.FC<DiscoverProps> = ({ onNavigate }) => {
               </div>
             )}
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* 
+              BUTTON CONTAINER:
+              1. Added relative z-30 to ensure buttons sit on top of everything.
+              2. Used sm:flex-row to handle stacking on small devices.
+              3. Min-h-12 (48px) ensures touch targets meet standards.
+            */}
+            <div className="flex flex-col sm:flex-row gap-4 relative z-30">
               <button 
                 onClick={() => onNavigate(AppTab.PLANNER)}
-                className="bg-white text-[#1a1a1a] px-8 py-4 rounded-full font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:scale-105 transition-all flex items-center justify-center gap-2"
+                className="bg-white text-[#1a1a1a] px-8 py-4 rounded-full font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:scale-105 transition-all flex items-center justify-center gap-2 min-h-[48px]"
               >
                 Plan My Trip <ArrowRight className="w-5 h-5" />
               </button>
               <button 
                 onClick={() => onNavigate(AppTab.SCANNER)}
-                className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-2"
+                className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-2 min-h-[48px]"
               >
                 <ScanLine className="w-5 h-5" /> Scan a Bottle
               </button>
@@ -202,68 +212,76 @@ const Discover: React.FC<DiscoverProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Feature Pills */}
-      <section className="relative z-20 -mt-16 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div onClick={() => onNavigate(AppTab.SCANNER)} className="bg-white/95 backdrop-blur p-6 rounded-3xl border border-[#e5e1da] shadow-xl hover:-translate-y-1 transition-transform cursor-pointer group">
-                <div className="w-12 h-12 bg-[#f8f4f0] rounded-2xl flex items-center justify-center text-[#6b1e2e] mb-4 group-hover:bg-[#6b1e2e] group-hover:text-white transition-colors">
-                    <ScanLine className="w-6 h-6" />
+      {/* 
+        REFACTORED FEATURE GRID:
+        1. Mobile First: 1 column by default.
+        2. Tablet: md:grid-cols-2.
+        3. Desktop: lg:grid-cols-4.
+        4. Added gap-6 for consistent spacing between cards.
+        5. Adjusted negative margin to -mt-20/lg:-mt-24 to balance with hero padding.
+      */}
+      <section className="relative z-10 -mt-20 sm:-mt-24 lg:-mt-32 px-4 sm:px-6">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div onClick={() => onNavigate(AppTab.SCANNER)} className="bg-white/95 backdrop-blur p-8 rounded-[2rem] border border-[#e5e1da] shadow-xl hover:-translate-y-1 transition-transform cursor-pointer group flex flex-col h-full">
+                <div className="w-14 h-14 bg-[#f8f4f0] rounded-2xl flex items-center justify-center text-[#6b1e2e] mb-6 group-hover:bg-[#6b1e2e] group-hover:text-white transition-colors">
+                    <ScanLine className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">Visual Scanner</h3>
-                <p className="text-sm text-gray-500">Instant label analysis.</p>
+                <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2 font-serif">Visual Scanner</h3>
+                <p className="text-sm text-gray-500">Instant label analysis and vintage insights.</p>
             </div>
-            {/* BOOK A TASTING: Direct Link Logic */}
-            <div onClick={handleBookTasting} className="bg-white/95 backdrop-blur p-6 rounded-3xl border border-[#e5e1da] shadow-xl hover:-translate-y-1 transition-transform cursor-pointer group">
-                <div className="w-12 h-12 bg-[#f8f4f0] rounded-2xl flex items-center justify-center text-[#6b1e2e] mb-4 group-hover:bg-[#6b1e2e] group-hover:text-white transition-colors">
-                    <CalendarCheck className="w-6 h-6" />
+            {/* BOOK A TASTING */}
+            <div onClick={handleBookTasting} className="bg-white/95 backdrop-blur p-8 rounded-[2rem] border border-[#e5e1da] shadow-xl hover:-translate-y-1 transition-transform cursor-pointer group flex flex-col h-full">
+                <div className="w-14 h-14 bg-[#f8f4f0] rounded-2xl flex items-center justify-center text-[#6b1e2e] mb-6 group-hover:bg-[#6b1e2e] group-hover:text-white transition-colors">
+                    <CalendarCheck className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">Book a Tasting</h3>
-                <p className="text-sm text-gray-500">Reserve your spot instantly.</p>
+                <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2 font-serif">Book a Tasting</h3>
+                <p className="text-sm text-gray-500">Reserve your spot at iconic cellar doors.</p>
             </div>
-            <div onClick={() => onNavigate(AppTab.LIVE)} className="bg-white/95 backdrop-blur p-6 rounded-3xl border border-[#e5e1da] shadow-xl hover:-translate-y-1 transition-transform cursor-pointer group">
-                <div className="w-12 h-12 bg-[#f8f4f0] rounded-2xl flex items-center justify-center text-[#6b1e2e] mb-4 group-hover:bg-[#6b1e2e] group-hover:text-white transition-colors">
-                    <MessageCircle className="w-6 h-6" />
+            <div onClick={() => onNavigate(AppTab.LIVE)} className="bg-white/95 backdrop-blur p-8 rounded-[2rem] border border-[#e5e1da] shadow-xl hover:-translate-y-1 transition-transform cursor-pointer group flex flex-col h-full">
+                <div className="w-14 h-14 bg-[#f8f4f0] rounded-2xl flex items-center justify-center text-[#6b1e2e] mb-6 group-hover:bg-[#6b1e2e] group-hover:text-white transition-colors">
+                    <MessageCircle className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">Live Sommelier</h3>
-                <p className="text-sm text-gray-500">Real-time voice chat.</p>
+                <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2 font-serif">Live Sommelier</h3>
+                <p className="text-sm text-gray-500">Voice-first expert advice in real-time.</p>
             </div>
-            <div onClick={() => onNavigate(AppTab.CONCIERGE)} className="bg-white/95 backdrop-blur p-6 rounded-3xl border border-[#e5e1da] shadow-xl hover:-translate-y-1 transition-transform cursor-pointer group">
-                <div className="w-12 h-12 bg-[#f8f4f0] rounded-2xl flex items-center justify-center text-[#6b1e2e] mb-4 group-hover:bg-[#6b1e2e] group-hover:text-white transition-colors">
-                    <MapIcon className="w-6 h-6" />
+            <div onClick={() => onNavigate(AppTab.CONCIERGE)} className="bg-white/95 backdrop-blur p-8 rounded-[2rem] border border-[#e5e1da] shadow-xl hover:-translate-y-1 transition-transform cursor-pointer group flex flex-col h-full">
+                <div className="w-14 h-14 bg-[#f8f4f0] rounded-2xl flex items-center justify-center text-[#6b1e2e] mb-6 group-hover:bg-[#6b1e2e] group-hover:text-white transition-colors">
+                    <MapIcon className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">Intelligent Trips</h3>
-                <p className="text-sm text-gray-500">AI itinerary planning.</p>
+                <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2 font-serif">Intelligent Trips</h3>
+                <p className="text-sm text-gray-500">AI-optimized routes tailored to your palate.</p>
             </div>
         </div>
       </section>
 
       {/* Sommelier Sets */}
-      <section className="py-20 px-4 md:px-20 max-w-7xl mx-auto">
+      <section className="py-24 px-4 sm:px-6 lg:px-12 max-w-screen-xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="inline-flex items-center gap-2 mb-2 text-[#a68d60] font-bold text-xs uppercase tracking-widest">
                 <Layers className="w-4 h-4" />
                 Editorial Picks
             </div>
-            <h3 className="text-4xl font-bold mb-3 text-[#1a1a1a] font-serif">Sommelier Sets</h3>
+            <h3 className="text-4xl md:text-5xl font-bold mb-3 text-[#1a1a1a] font-serif">Sommelier Sets</h3>
             <p className="text-gray-500 text-lg max-w-xl">
                 Expertly grouped collections to help you find your perfect vibe, from historic estates to hidden gems.
             </p>
           </div>
           <button 
             onClick={() => onNavigate(AppTab.WINES)}
-            className="text-[#1a1a1a] font-bold bg-[#f8f4f0] px-6 py-3 rounded-full hover:bg-[#e5e1da] transition-all flex items-center gap-2"
+            className="text-[#1a1a1a] font-bold bg-[#f8f4f0] px-8 py-4 rounded-full hover:bg-[#e5e1da] transition-all flex items-center gap-2 w-fit min-h-[44px]"
           >
             Browse Full Library <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Mobile-first grid for Collections */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {COLLECTIONS.map((collection) => (
             <div 
                 key={collection.id} 
                 onClick={() => setActiveCollection(collection)}
-                className="group cursor-pointer relative h-[450px] rounded-[2.5rem] overflow-hidden shadow-lg transition-transform hover:-translate-y-2"
+                className="group cursor-pointer relative h-[450px] md:h-[500px] rounded-[3rem] overflow-hidden shadow-lg transition-transform hover:-translate-y-2"
             >
               <img 
                 src={collection.image} 
@@ -272,11 +290,11 @@ const Discover: React.FC<DiscoverProps> = ({ onNavigate }) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90" />
               
-              <div className="absolute top-6 right-6 bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-full text-white group-hover:bg-white group-hover:text-black transition-all">
+              <div className="absolute top-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-full text-white group-hover:bg-white group-hover:text-black transition-all">
                 <ArrowRight className="w-6 h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+              <div className="absolute bottom-0 left-0 right-0 p-10 text-white">
                 <div className="flex items-center gap-2 mb-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     <Sparkles className="w-4 h-4 text-[#a68d60]" />
                     <span className="text-xs font-bold uppercase tracking-widest text-[#a68d60]">{collection.wineryIds.length} Wineries</span>
@@ -293,10 +311,10 @@ const Discover: React.FC<DiscoverProps> = ({ onNavigate }) => {
       </section>
 
       {/* Vintage News / Insights */}
-      <section className="bg-[#1a1a1a] py-20 px-4 md:px-20 text-white relative overflow-hidden">
+      <section className="bg-[#1a1a1a] py-24 px-4 sm:px-6 lg:px-12 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#6b1e2e] rounded-full blur-[150px] opacity-20 -mr-20 -mt-20 pointer-events-none"></div>
         
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
           <div className="flex-1">
             <div className="inline-block px-3 py-1 border border-[#a68d60] text-[#a68d60] rounded-full text-xs font-bold uppercase tracking-widest mb-6">Vintage Report</div>
             <h3 className="text-5xl font-bold mb-6 font-serif">2025 Growing Season</h3>
@@ -317,7 +335,7 @@ const Discover: React.FC<DiscoverProps> = ({ onNavigate }) => {
           <div className="flex-1 relative">
             <img 
               src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&q=80&w=800" 
-              className="rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 border-8 border-white/5"
+              className="rounded-[3rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 border-8 border-white/5"
               alt="Wine barrels"
             />
           </div>

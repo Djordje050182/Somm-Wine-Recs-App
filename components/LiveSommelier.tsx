@@ -65,7 +65,7 @@ const LiveSommelier: React.FC = () => {
     setLastAction(null);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GOOGLE_API_KEY as string });
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
       
       if (!audioContextRef.current) {
         audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
@@ -286,7 +286,7 @@ const LiveSommelier: React.FC = () => {
             )}
             {error.includes("microphone") && (
                 <div className="text-xs text-red-500 bg-white px-3 py-1 rounded-lg border border-red-100 flex items-center gap-1">
-                    <Settings className="w-3 h-3" /> Check Browser Settings &gt; Privacy &gt; Microphone
+                    <Settings className="w-3 h-3" /> Check Browser Settings > Privacy > Microphone
                 </div>
             )}
           </div>

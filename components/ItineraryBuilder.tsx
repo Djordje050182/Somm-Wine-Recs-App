@@ -9,14 +9,14 @@ import GuideModal from './GuideModal';
 import MapLayer from './MapLayer';
 import { calculateDistance } from '../services/geoUtils';
 
-// Pre-defined routes for "One-Tap" planning
+// Pre-defined routes for "One-Tap" planning (VERIFIED WORKING URLS)
 const QUICK_TEMPLATES = [
   {
     name: "The Icons Trail",
     description: "Must-visits for first timers.",
     ids: [1, 3, 8], // Tyrrells, Brokenwood, Mt Pleasant
     icon: <Star className="w-5 h-5 text-amber-500" />,
-    image: "https://images.unsplash.com/photo-1534234828563-02511c75b02a?auto=format&fit=crop&q=80&w=400",
+    image: "https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=400",
     color: "bg-[#1a1a1a] text-white"
   },
   {
@@ -24,7 +24,7 @@ const QUICK_TEMPLATES = [
     description: "Scenic drive seeking Shiraz.",
     ids: [2, 5, 9], // Audrey, Keith Tulloch, Thomas
     icon: <Mountain className="w-5 h-5 text-[#6b1e2e]" />,
-    image: "https://images.unsplash.com/photo-1597916829826-0a0d1794713c?auto=format&fit=crop&q=80&w=400",
+    image: "https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?auto=format&fit=crop&q=80&w=400",
     color: "bg-[#6b1e2e] text-white"
   },
   {

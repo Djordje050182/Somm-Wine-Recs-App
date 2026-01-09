@@ -123,7 +123,7 @@ const Discover: React.FC<DiscoverProps> = ({ onNavigate }) => {
       )}
       
       {/* HERO SECTION: Refactored for Safety and Overlap Fix */}
-      <section className="relative min-h-[750px] lg:min-h-[850px] flex items-center justify-center overflow-hidden pt-20 pb-32 sm:pb-40 lg:pb-56">
+      <section className="relative min-h-[750px] lg:min-h-[850px] flex items-center justify-center overflow-hidden pt-20 pb-40 sm:pb-48 lg:pb-64">
         <div className="absolute inset-0 z-0">
             <img 
               src="https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?auto=format&fit=crop&q=80&w=2000" 
@@ -170,7 +170,7 @@ const Discover: React.FC<DiscoverProps> = ({ onNavigate }) => {
               </div>
             )}
             
-            {/* HERO BUTTONS: Added high relative z-index to stay above overlapping cards */}
+            {/* HERO BUTTONS: High relative z-index ensures clickability even on smaller desktops */}
             <div className="flex flex-col sm:flex-row gap-4 relative z-30">
               <button 
                 onClick={() => onNavigate(AppTab.PLANNER)}
@@ -190,7 +190,7 @@ const Discover: React.FC<DiscoverProps> = ({ onNavigate }) => {
       </section>
 
       {/* FEATURE GRID: Mobile-first stacked, then md:2-col, then lg:4-col row */}
-      <section className="relative z-10 -mt-20 sm:-mt-24 lg:-mt-32 px-4 sm:px-6">
+      <section className="relative z-10 -mt-24 sm:-mt-28 lg:-mt-36 px-4 sm:px-6">
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div onClick={() => onNavigate(AppTab.SCANNER)} className="bg-white/95 backdrop-blur p-8 rounded-[2rem] border border-[#e5e1da] shadow-xl hover:-translate-y-1 transition-transform cursor-pointer group flex flex-col h-full min-h-[160px]">
                 <div className="w-14 h-14 bg-[#f8f4f0] rounded-2xl flex items-center justify-center text-[#6b1e2e] mb-6 group-hover:bg-[#6b1e2e] group-hover:text-white transition-colors">

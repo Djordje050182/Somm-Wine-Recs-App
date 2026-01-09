@@ -235,7 +235,7 @@ const App: React.FC = () => {
           </div>
       )}
 
-      {/* Desktop Header (Visible only on Large Screens > 1024px) */}
+      {/* Desktop Header */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[#e5e1da] px-4 md:px-6 py-4 flex items-center justify-between transition-all">
         <div className="flex items-center gap-2 md:gap-3 cursor-pointer group shrink-0" onClick={() => handleNav(AppTab.DISCOVER)}>
           <div className="bg-[#1a1a1a] p-2 md:p-2.5 rounded-xl text-white group-hover:scale-105 transition-transform shadow-lg">
@@ -317,13 +317,11 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Content with Padding for Bottom Nav */}
-      <main className="flex-1 overflow-y-auto pb-28 lg:pb-0">
+      {/* Main Content with Mobile-First Container Safety */}
+      <main className="flex-1 overflow-y-auto pb-28 lg:pb-0 px-4 sm:px-6 lg:px-8 max-w-screen-xl mx-auto w-full">
         {renderContent()}
       </main>
 
-      {/* Auth Modal & Mobile Menu code remains consistent with existing */}
-      {/* ... [Rest of Auth and Mobile Menu code is preserved from previous context, just ensuring it compiles] ... */}
       {showAuthModal && (
           <div className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
               <div className="bg-white w-full max-w-4xl rounded-3xl p-8 md:p-12 shadow-2xl relative animate-in zoom-in-95 duration-200 overflow-hidden">
@@ -405,13 +403,12 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {/* REFACTORED MOBILE/TABLET BOTTOM NAV */}
+      {/* MOBILE BOTTOM NAV */}
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-[#e5e1da] shadow-[0_-5px_20px_rgba(0,0,0,0.05)] pb-safe">
         <div className="flex justify-between items-end h-20 px-4 max-w-lg mx-auto pb-1">
           <NavItem tab={AppTab.DISCOVER} icon={Search} label="Discover" />
           <NavItem tab={AppTab.EVENTS} icon={Calendar} label="Events" />
           
-          {/* Main Action Button (Scanner) - Centered & Floating */}
           <div className="relative -top-6 mx-2">
             <button 
               onClick={() => handleNav(AppTab.SCANNER)}

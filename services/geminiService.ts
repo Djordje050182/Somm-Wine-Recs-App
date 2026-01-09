@@ -5,10 +5,9 @@ import { getWeatherContextString } from './weatherService';
 
 // --- SECURITY CONFIGURATION ---
 // ⚠️ SECURITY WARNING: 
-// When false: API_KEY is exposed in the browser (Insecure, Dev only).
-// When true: Calls are routed to /api/generate (Secure, requires server.js running).
+// In this execution context, process.env.API_KEY is pre-configured and valid.
 const USE_SECURE_PROXY = false; 
-const PROXY_BASE_URL = 'http://localhost:3000/api'; // Update this to your deployed server URL
+const PROXY_BASE_URL = 'http://localhost:3000/api'; 
 
 // --- UTILITIES ---
 
@@ -35,12 +34,7 @@ const safeJsonParse = <T>(text: string, fallback: T): T => {
 
 // Client Initialization (Only used if USE_SECURE_PROXY is false)
 const getGeminiClient = () => {
-  const key = process.env.API_KEY;
-  if (!key) {
-      console.error("API_KEY is missing.");
-      throw new Error("Application configuration error: API Key missing.");
-  }
-  return new GoogleGenAI({ apiKey: key });
+  return new GoogleGenAI({ apiKey: process.env.API_KEY });
 };
 
 // --- PROXY HANDLER ---
@@ -53,7 +47,7 @@ const callGemini = async (params: { model: string, contents: any[], config?: any
             body: JSON.stringify(params)
         });
         if (!response.ok) throw new Error("Proxy Server Error");
-        return await response.json(); // Expected structure: { text: string }
+        return await response.json(); 
     } else {
         // INSECURE PATH: Direct Client Call
         const ai = getGeminiClient();
@@ -342,13 +336,10 @@ export const searchLocalEvents = async (): Promise<{events: any[], groundingMeta
         config: { tools: [{googleSearch: {}}] }
       });
 
-      // Note: Proxy might return different structure for groundingMetadata depending on implementation
-      // Here we assume consistent structure or fallback
       const text = response.text || '';
       const events = safeJsonParse(text, []);
       
       let groundingMetadata = null;
-      // If using raw client, we get candidates. If using proxy, check response structure.
       if (!USE_SECURE_PROXY) {
           // @ts-ignore
           groundingMetadata = response.raw?.candidates?.[0]?.groundingMetadata;
@@ -363,7 +354,6 @@ export const searchLocalEvents = async (): Promise<{events: any[], groundingMeta
   }
 };
 
-// ... (Audio Helpers remain unchanged) ...
 export function encodeAudio(bytes: Uint8Array): string {
   let binary = '';
   const len = bytes.byteLength;

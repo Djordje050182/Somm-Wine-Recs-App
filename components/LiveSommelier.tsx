@@ -19,7 +19,6 @@ const LiveSommelier: React.FC = () => {
   const sourcesRef = useRef<Set<AudioBufferSourceNode>>(new Set());
   const sessionRef = useRef<any>(null);
 
-  // Check key state on mount
   useEffect(() => {
     const checkKeyStatus = async () => {
       if (window.aistudio?.hasSelectedApiKey) {
@@ -65,7 +64,8 @@ const LiveSommelier: React.FC = () => {
     setLastAction(null);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
+      // System Prompt Rule: MUST use process.env.API_KEY
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
       if (!audioContextRef.current) {
         audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
@@ -91,7 +91,7 @@ const LiveSommelier: React.FC = () => {
           systemInstruction: "You are a world-class Master Sommelier for the Hunter Valley. You are refined, witty, and deeply knowledgeable. You can also use tools to add wineries to the user's planner or favorites if they ask.",
           outputAudioTranscription: {},
           inputAudioTranscription: {},
-          tools: toolsDef, // Add tool definitions here
+          tools: toolsDef, 
         },
         callbacks: {
           onopen: () => {
@@ -121,12 +121,10 @@ const LiveSommelier: React.FC = () => {
             scriptProcessor.connect(audioContextRef.current!.destination);
           },
           onmessage: async (message: LiveServerMessage) => {
-            // Handle Transcription
             if (message.serverContent?.outputTranscription) {
               setTranscription(prev => prev + ' ' + message.serverContent?.outputTranscription?.text);
             }
 
-            // Handle Tool Calls
             if (message.toolCall) {
                 for (const fc of message.toolCall.functionCalls) {
                     let result = "Failed to execute.";
@@ -143,7 +141,6 @@ const LiveSommelier: React.FC = () => {
                         }
                     } catch(e) { console.error(e); }
                     
-                    // Send response back
                     sessionPromise.then((session) => {
                         session.sendToolResponse({
                             functionResponses: {
@@ -156,7 +153,6 @@ const LiveSommelier: React.FC = () => {
                 }
             }
 
-            // Handle Audio Output
             const base64Audio = message.serverContent?.modelTurn?.parts[0]?.inlineData?.data;
             if (base64Audio && outputAudioContextRef.current) {
               const ctx = outputAudioContextRef.current;
@@ -202,7 +198,6 @@ const LiveSommelier: React.FC = () => {
 
     } catch (err: any) {
       console.error("Session Startup Error", err);
-      // Specific Mic Permission Handling
       if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
           setError("Microphone access denied. Please unblock the microphone in your browser settings to talk to the Sommelier.");
       } else if (err.name === 'NotFoundError') {
@@ -218,7 +213,7 @@ const LiveSommelier: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] px-4 animate-in fade-in duration-500">
+    <div className="flex flex-col items-center justify-center min-h-[80vh] px-4 animate-in fade-in duration-500 overflow-y-auto">
       <div className="max-w-2xl w-full text-center space-y-8">
         <div className="space-y-4">
           <div className="inline-flex p-4 bg-[#6b1e2e]/10 rounded-full">
@@ -256,7 +251,6 @@ const LiveSommelier: React.FC = () => {
           )}
         </div>
         
-        {/* Action Toast */}
         {lastAction && (
              <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full font-bold text-sm inline-flex items-center gap-2 animate-in zoom-in slide-in-from-bottom-2">
                  {lastAction.includes('Planner') ? <MapPin className="w-4 h-4" /> : <Heart className="w-4 h-4" />}
@@ -279,14 +273,14 @@ const LiveSommelier: React.FC = () => {
             {!hasSelectedKey && !error.includes("microphone") && (
               <button 
                 onClick={handleKeySetup}
-                className="bg-red-600 text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-all"
+                className="bg-red-600 text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-all min-h-[44px]"
               >
                 Reset API Key
               </button>
             )}
             {error.includes("microphone") && (
                 <div className="text-xs text-red-500 bg-white px-3 py-1 rounded-lg border border-red-100 flex items-center gap-1">
-                    <Settings className="w-3 h-3" /> Check Browser Settings > Privacy > Microphone
+                    <Settings className="w-3 h-3" /> Check Browser Settings &gt; Privacy &gt; Microphone
                 </div>
             )}
           </div>
@@ -303,7 +297,7 @@ const LiveSommelier: React.FC = () => {
               <div className="flex flex-col gap-3">
                 <button 
                   onClick={handleKeySetup}
-                  className="w-full bg-[#1a1a1a] text-white py-4 rounded-full font-bold shadow-lg flex items-center justify-center gap-2 hover:bg-black transition-all"
+                  className="w-full bg-[#1a1a1a] text-white py-4 rounded-full font-bold shadow-lg flex items-center justify-center gap-2 hover:bg-black transition-all min-h-[48px]"
                 >
                   <Key className="w-4 h-4 text-[#a68d60]" />
                   Select Key & Connect
@@ -319,7 +313,7 @@ const LiveSommelier: React.FC = () => {
                 <button 
                   disabled={isConnecting}
                   onClick={startSession}
-                  className="bg-[#6b1e2e] text-white px-12 py-5 rounded-full text-xl font-bold shadow-[0_10px_30px_rgba(107,30,46,0.3)] hover:bg-[#852539] transition-all flex items-center gap-4 disabled:opacity-50 hover:scale-105 active:scale-95"
+                  className="bg-[#6b1e2e] text-white px-12 py-5 rounded-full text-xl font-bold shadow-[0_10px_30px_rgba(107,30,46,0.3)] hover:bg-[#852539] transition-all flex items-center gap-4 disabled:opacity-50 hover:scale-105 active:scale-95 min-h-[56px]"
                 >
                   {isConnecting ? <Loader2 className="w-6 h-6 animate-spin" /> : <Mic className="w-6 h-6" />}
                   {isConnecting ? 'Establishing Connection...' : 'Enter the Cellar Door'}
@@ -327,7 +321,7 @@ const LiveSommelier: React.FC = () => {
               ) : (
                 <button 
                   onClick={cleanup}
-                  className="bg-white border-2 border-[#e5e1da] text-[#1a1a1a] px-12 py-5 rounded-full text-xl font-bold hover:bg-[#f8f4f0] transition-all flex items-center gap-4 shadow-sm"
+                  className="bg-white border-2 border-[#e5e1da] text-[#1a1a1a] px-12 py-5 rounded-full text-xl font-bold hover:bg-[#f8f4f0] transition-all flex items-center gap-4 shadow-sm min-h-[56px]"
                 >
                   <MicOff className="w-6 h-6" />
                   Close Conversation
@@ -337,7 +331,7 @@ const LiveSommelier: React.FC = () => {
           )}
         </div>
 
-        <div className="flex items-center justify-center gap-10 pt-8 border-t border-[#e5e1da] max-w-md mx-auto">
+        <div className="flex items-center justify-center gap-6 md:gap-10 pt-8 border-t border-[#e5e1da] max-w-md mx-auto">
           <div className="flex flex-col items-center gap-1">
             <Volume2 className="w-5 h-5 text-gray-400" />
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Low Latency</span>

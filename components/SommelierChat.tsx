@@ -27,8 +27,6 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
   const [isListening, setIsListening] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<any>(null);
-  
-  // Timeout ref to handle hanging requests
   const timeoutRef = useRef<any>(null);
 
   useEffect(() => {
@@ -93,11 +91,10 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
     setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
     setIsLoading(true);
 
-    // Set a safety timeout
     timeoutRef.current = setTimeout(() => {
         setIsLoading(false);
         setMessages(prev => [...prev, { role: 'model', content: "I'm having trouble connecting to the cellar. Please check your connection and try again." }]);
-    }, 12000); // 12 second timeout
+    }, 12000); 
 
     try {
       const weatherContext = await getWeatherContextString();
@@ -129,10 +126,9 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
       }));
       history.push({ role: 'user', parts: [{ text: userMsg }] });
 
-      const client = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
+      // System Prompt Rule: MUST use process.env.API_KEY
+      const client = new GoogleGenAI({ apiKey: process.env.API_KEY });
       
-      // STREAMING IMPLEMENTATION
-      // We add a placeholder message for the model that we will update as chunks arrive
       setMessages(prev => [...prev, { role: 'model', content: '' }]);
 
       const result = await client.models.generateContentStream({
@@ -149,13 +145,11 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
       let firstChunkReceived = false;
 
       for await (const chunk of result) {
-        // Clear timeout on first byte
         if (!firstChunkReceived) {
             if (timeoutRef.current) clearTimeout(timeoutRef.current);
             firstChunkReceived = true;
         }
 
-        // Accumulate Text
         const chunkText = chunk.text;
         if (chunkText) {
             fullText += chunkText;
@@ -172,7 +166,6 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
         }
       }
 
-      // Handle Function Calls (Post-Stream)
       if (functionCalls.length > 0) {
          setMessages(prev => [...prev, { role: 'model', content: "Processing your request..." }]);
          
@@ -213,7 +206,6 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
 
     } catch (err) {
       console.error(err);
-      // Remove the empty placeholder if we failed before streaming text
       setMessages(prev => {
           if (prev[prev.length - 1].content === '') {
               return [...prev.slice(0, -1), { role: 'model', content: "My apologies, the cellar door seems to be stuck. Please try again in a moment." }];
@@ -228,7 +220,6 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
 
   return (
     <div className="flex flex-col h-full max-w-5xl mx-auto bg-white shadow-2xl md:my-10 md:rounded-3xl border border-[#e5e1da] overflow-hidden">
-      {/* Header */}
       <div className={`p-6 flex items-center justify-between ${isOffline ? 'bg-gray-800' : 'bg-[#6b1e2e]'}`}>
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#6b1e2e] shadow-lg">
@@ -250,7 +241,6 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
         </div>
       </div>
 
-      {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 md:p-10 space-y-8 bg-[#fdfcfb]">
         {messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -259,7 +249,6 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
                 {msg.role === 'user' ? <User className="w-5 h-5" /> : <Sparkles className="w-5 h-5" />}
               </div>
               <div className={`p-6 rounded-3xl text-sm leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-[#a68d60] text-white rounded-tr-none' : 'bg-white border border-[#e5e1da] text-[#1a1a1a] rounded-tl-none font-serif italic text-lg'}`}>
-                {/* Simple markdown rendering */}
                 <div className="prose prose-sm max-w-none text-inherit">
                     {msg.content.split('\n').map((line, idx) => {
                       if (line.trim().startsWith('-') || line.trim().startsWith('*')) {
@@ -298,16 +287,14 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
         )}
       </div>
 
-      {/* Input */}
       <div className="p-6 bg-[#fdfcfb] border-t border-[#e5e1da]">
-        {/* New Suggestions Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
           {SUGGESTIONS.map((suggestion) => (
             <button 
               key={suggestion.label}
               onClick={() => handleSend(suggestion.query)}
               disabled={isOffline || isLoading}
-              className={`flex items-center gap-2 justify-center p-3 rounded-xl bg-white border border-[#e5e1da] hover:border-[#6b1e2e] hover:bg-[#6b1e2e]/5 transition-all group ${isOffline ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`flex items-center gap-2 justify-center p-3 rounded-xl bg-white border border-[#e5e1da] hover:border-[#6b1e2e] hover:bg-[#6b1e2e]/5 transition-all group ${isOffline ? 'opacity-50 cursor-not-allowed' : ''} min-h-[44px]`}
             >
               <div className="w-6 h-6 rounded-full bg-[#f8f4f0] group-hover:bg-[#6b1e2e] text-[#6b1e2e] group-hover:text-white flex items-center justify-center transition-colors">
                 {suggestion.icon}
@@ -318,10 +305,9 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
         </div>
 
         <div className="relative flex items-center gap-3 max-w-4xl mx-auto">
-          {/* DICTATION BUTTON */}
           <button
             onClick={toggleDictation}
-            className={`p-4 rounded-full transition-all shadow-md active:scale-95 ${isListening ? 'bg-red-500 text-white animate-pulse' : 'bg-white border border-[#e5e1da] text-[#6b1e2e] hover:bg-gray-50'}`}
+            className={`p-4 rounded-full transition-all shadow-md active:scale-95 min-h-[48px] ${isListening ? 'bg-red-500 text-white animate-pulse' : 'bg-white border border-[#e5e1da] text-[#6b1e2e] hover:bg-gray-50'}`}
             title="Voice Dictation"
           >
               {isListening ? <StopCircle className="w-6 h-6" /> : <Mic className="w-6 h-6" />}
@@ -333,12 +319,12 @@ const SommelierChat: React.FC<SommelierChatProps> = ({ user }) => {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSend()}
             placeholder={isOffline ? "You are offline." : isListening ? "Listening..." : "Ask me anything..."}
-            className={`flex-1 bg-white border border-[#e5e1da] rounded-full py-4 px-6 focus:outline-none focus:ring-4 focus:ring-[#6b1e2e]/10 text-lg shadow-inner ${isOffline ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : ''}`}
+            className={`flex-1 bg-white border border-[#e5e1da] rounded-full py-4 px-6 focus:outline-none focus:ring-4 focus:ring-[#6b1e2e]/10 text-lg shadow-inner ${isOffline ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : ''} min-h-[56px]`}
           />
           <button 
             onClick={() => handleSend()}
             disabled={isLoading || !input.trim() || isOffline}
-            className="p-4 bg-[#6b1e2e] text-white rounded-full hover:bg-[#852539] disabled:opacity-50 transition-all shadow-xl hover:scale-110 active:scale-95"
+            className="p-4 bg-[#6b1e2e] text-white rounded-full hover:bg-[#852539] disabled:opacity-50 transition-all shadow-xl hover:scale-110 active:scale-95 min-h-[56px]"
           >
             {isOffline ? <WifiOff className="w-6 h-6" /> : <Send className="w-6 h-6" />}
           </button>

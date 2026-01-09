@@ -65,7 +65,7 @@ const LiveSommelier: React.FC = () => {
 
     try {
       // System Prompt Rule: MUST use process.env.API_KEY
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GOOGLE_API_KEY });
       
       if (!audioContextRef.current) {
         audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });

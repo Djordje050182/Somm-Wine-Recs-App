@@ -248,8 +248,8 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
                         <div className="flex flex-col items-center text-center">
                             <span className="text-[10px] uppercase font-bold text-gray-400 tracking-widest mb-1">Guests</span>
                             <div className="flex gap-2">
-                                {currentItem.kidFriendly && <Baby className="w-4 h-4 text-[#6b1e2e]" title="Kid Friendly" />}
-                                {currentItem.dogFriendly && <Dog className="w-4 h-4 text-[#6b1e2e]" title="Dog Friendly" />}
+                                {currentItem.kidFriendly && <Baby className="w-4 h-4 text-[#6b1e2e]" />}
+                                {currentItem.dogFriendly && <Dog className="w-4 h-4 text-[#6b1e2e]" />}
                                 {!currentItem.kidFriendly && !currentItem.dogFriendly && <span className="text-sm font-bold text-gray-600">-</span>}
                             </div>
                         </div>

@@ -1,4 +1,10 @@
 
+export interface UserProfile {
+  name: string;
+  email: string;
+  tier?: string;
+}
+
 export interface Winery {
   id: number;
   name: string;
@@ -61,6 +67,18 @@ export interface Experience {
   lng: number;
 }
 
+export interface Itinerary {
+  wineries: ItineraryStop[];
+  totalDriveTime: number;
+  startLocation: string;
+  estimatedEnd: string;
+}
+
+export interface CartItem {
+  wineId: string;
+  quantity: number;
+}
+
 export interface ItineraryStop {
   id: number | string;
   name: string;
@@ -77,33 +95,6 @@ export interface ItineraryStop {
   type: 'winery' | 'experience';
 }
 
-export interface Itinerary {
-  wineries: ItineraryStop[];
-  totalDriveTime: number;
-  startLocation: string;
-  estimatedEnd: string;
-}
-
-export interface UserProfile {
-  name: string;
-  likes: string[];
-  dislikes: string[];
-  adventurousness: 'Safe' | 'Curious' | 'Wild';
-  experienceLevel: 'Novice' | 'Enthusiast' | 'Sommelier';
-}
-
-export interface TastingMenuItem {
-  wineName: string;
-  matchScore: number; // 0-100
-  reasoning: string; // Why it matches the user
-  flavorTags: string[];
-}
-
-export interface CartItem {
-  wineId: string;
-  quantity: number;
-}
-
 export enum AppTab {
   DISCOVER = 'discover',
   PLANNER = 'planner',
@@ -116,5 +107,6 @@ export enum AppTab {
   LIVE = 'live',
   FAVORITES = 'favorites',
   PARTNERS = 'partners',
-  EVENTS = 'events'
+  EVENTS = 'events',
+  STUDIO = 'studio'
 }

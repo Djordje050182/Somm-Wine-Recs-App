@@ -1,358 +1,376 @@
 
-import { GoogleGenAI, Type, GenerateContentResponse, Modality } from "@google/genai";
-import { UserProfile } from '../types';
-import { getWeatherContextString } from './weatherService';
+import { GoogleGenAI, Type, Modality } from "@google/genai";
 
-// --- SECURITY CONFIGURATION ---
-// ⚠️ SECURITY WARNING: 
-// In this execution context, process.env.API_KEY is pre-configured and valid.
-const USE_SECURE_PROXY = false; 
-const PROXY_BASE_URL = 'http://localhost:3000/api'; 
+// --- CORE UTILS ---
 
-// --- UTILITIES ---
-
-const safeJsonParse = <T>(text: string, fallback: T): T => {
-  if (!text) return fallback;
-  try {
-    let clean = text.replace(/```json\s*/g, "").replace(/```\s*/g, "");
-    return JSON.parse(clean);
-  } catch (e) {
-    console.warn("JSON Parse Warning: Attempting repairs...", e);
-    try {
-        const firstOpen = text.indexOf('{');
-        const lastClose = text.lastIndexOf('}');
-        if (firstOpen !== -1 && lastClose !== -1) {
-            const substring = text.substring(firstOpen, lastClose + 1);
-            return JSON.parse(substring);
-        }
-    } catch (e2) {
-        console.error("Critical JSON Parse Error.", e2);
-    }
-    return fallback;
-  }
-};
-
-// Client Initialization (Only used if USE_SECURE_PROXY is false)
+// Using process.env.API_KEY as per the guidelines.
 const getGeminiClient = () => {
   return new GoogleGenAI({ apiKey: process.env.API_KEY });
 };
 
-// --- PROXY HANDLER ---
-const callGemini = async (params: { model: string, contents: any[], config?: any }) => {
-    if (USE_SECURE_PROXY) {
-        // SECURE PATH: Call our own backend
-        const response = await fetch(`${PROXY_BASE_URL}/generate`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(params)
-        });
-        if (!response.ok) throw new Error("Proxy Server Error");
-        return await response.json(); 
-    } else {
-        // INSECURE PATH: Direct Client Call
-        const ai = getGeminiClient();
-        const response = await ai.models.generateContent({
-            model: params.model,
-            contents: params.contents,
-            config: params.config
-        });
-        return { text: response.text, raw: response };
-    }
-};
+// --- GENERATION FUNCTIONS ---
 
-// --- API FUNCTIONS ---
-
-export const analyzeWineLabel = async (base64Image: string): Promise<string> => {
-  try {
-    const response = await callGemini({
-      model: 'gemini-3-flash-preview',
-      contents: [
-          { parts: [
-            { inlineData: { data: base64Image, mimeType: 'image/jpeg' } },
-            { text: "Analyze this image. Is it a wine label? If NO, return JSON with 'isWine': false. If YES, identify producer, name, vintage, etc. Return pure JSON." }
-          ]}
-      ],
-      config: {
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            isWine: { type: Type.BOOLEAN },
-            producer: { type: Type.STRING },
-            wineName: { type: Type.STRING },
-            vintage: { type: Type.STRING },
-            region: { type: Type.STRING },
-            variety: { type: Type.STRING },
-            sommelierNotes: { type: Type.STRING },
-            pairings: { type: Type.ARRAY, items: { type: Type.STRING } }
-          },
-          required: ["isWine"]
-        }
+// Updated to use the correct model name and config structure for gemini-3-pro-image-preview.
+export const generateProImage = async (prompt: string, aspectRatio: string = "1:1", imageSize: string = "1K") => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-pro-image-preview',
+    contents: { parts: [{ text: prompt }] },
+    config: {
+      imageConfig: {
+        aspectRatio: aspectRatio as any,
+        imageSize: imageSize as any
       }
-    });
-    
-    return response.text || '{"isWine": false}';
-  } catch (error) {
-    console.error("Gemini Analysis Failed:", error);
-    throw new Error("Unable to analyze image. Please try again.");
+    }
+  });
+
+  const candidates = response.candidates || [];
+  for (const candidate of candidates) {
+    for (const part of candidate.content.parts) {
+      if (part.inlineData) {
+        return `data:image/png;base64,${part.inlineData.data}`;
+      }
+    }
   }
+  throw new Error("No image generated");
 };
 
-export const analyzeTastingMenu = async (base64Image: string, userProfile: UserProfile): Promise<string> => {
-  try {
-    const weatherContext = await getWeatherContextString();
-    const prompt = `
-      You are a personal AI Sommelier.
-      USER PROFILE: Likes: ${userProfile.likes.join(', ')}, Dislikes: ${userProfile.dislikes.join(', ')}.
-      CONTEXT: ${weatherContext}.
-      TASK: Read the menu. Identify wines. Score them 0-100 based on the profile.
-      Output JSON.
-    `;
+// Updated to use the correct model for image editing.
+export const editImageWithPrompt = async (base64Image: string, prompt: string) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash-image',
+    contents: {
+      parts: [
+        { inlineData: { data: base64Image, mimeType: 'image/jpeg' } },
+        { text: prompt }
+      ]
+    }
+  });
 
-    const response = await callGemini({
-      model: 'gemini-3-flash-preview',
-      contents: [
-          { parts: [
-            { inlineData: { data: base64Image, mimeType: 'image/jpeg' } },
-            { text: prompt }
-          ]}
-      ],
-      config: {
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            wines: {
-              type: Type.ARRAY,
-              items: {
-                type: Type.OBJECT,
-                properties: {
-                  wineName: { type: Type.STRING },
-                  matchScore: { type: Type.NUMBER },
-                  reasoning: { type: Type.STRING },
-                  flavorTags: { type: Type.ARRAY, items: { type: Type.STRING } }
-                },
-                required: ["wineName", "matchScore", "reasoning", "flavorTags"]
+  const candidates = response.candidates || [];
+  for (const candidate of candidates) {
+    for (const part of candidate.content.parts) {
+      if (part.inlineData) {
+        return `data:image/png;base64,${part.inlineData.data}`;
+      }
+    }
+  }
+  throw new Error("Editing failed");
+};
+
+// Updated video generation with proper operation polling and download link fetching.
+export const generateVeoVideo = async (prompt: string, imageBase64?: string, aspectRatio: "16:9" | "9:16" = "16:9") => {
+  const ai = getGeminiClient();
+  const config = {
+    numberOfVideos: 1,
+    resolution: '720p',
+    aspectRatio
+  };
+
+  const videoParams: any = {
+    model: 'veo-3.1-fast-generate-preview',
+    prompt,
+    config
+  };
+
+  if (imageBase64) {
+    videoParams.image = {
+      imageBytes: imageBase64,
+      mimeType: 'image/jpeg'
+    };
+  }
+
+  let operation = await ai.models.generateVideos(videoParams);
+  
+  while (!operation.done) {
+    await new Promise(resolve => setTimeout(resolve, 10000));
+    operation = await ai.operations.getVideosOperation({ operation: operation });
+  }
+
+  const downloadLink = operation.response?.generatedVideos?.[0]?.video?.uri;
+  return `${downloadLink}&key=${process.env.API_KEY}`;
+};
+
+// Correctly use Modality.AUDIO and return the extracted audio data.
+export const generateSpeech = async (text: string) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash-preview-tts",
+    contents: [{ parts: [{ text }] }],
+    config: {
+      responseModalities: [Modality.AUDIO],
+      speechConfig: {
+        voiceConfig: {
+          prebuiltVoiceConfig: { voiceName: 'Kore' },
+        },
+      },
+    },
+  });
+
+  const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+  return base64Audio;
+};
+
+// Added missing analyzeWineLabel for vision-based wine identification.
+export const analyzeWineLabel = async (base64: string) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: {
+      parts: [
+        { inlineData: { data: base64, mimeType: 'image/jpeg' } },
+        { text: "Analyze this wine label. Return a JSON object with: isWine (boolean), wineName, producer, sommelierNotes. If not a wine label, set isWine to false." }
+      ]
+    },
+    config: {
+      responseMimeType: 'application/json',
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          isWine: { type: Type.BOOLEAN },
+          wineName: { type: Type.STRING },
+          producer: { type: Type.STRING },
+          sommelierNotes: { type: Type.STRING }
+        },
+        required: ['isWine']
+      }
+    }
+  });
+  return response.text;
+};
+
+// Added missing generateTrailArt for map souvenir generation.
+export const generateTrailArt = async (wineryNames: string[]) => {
+  const ai = getGeminiClient();
+  const prompt = `A beautiful, whimsical, and artistic map-style illustration of a wine trail in the Hunter Valley, specifically highlighting these locations: ${wineryNames.join(', ')}. No text labels, just symbolic icons for vineyards, barrels, and landscapes.`;
+  
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash-image',
+    contents: { parts: [{ text: prompt }] },
+    config: {
+      imageConfig: {
+        aspectRatio: "16:9"
+      }
+    }
+  });
+
+  const candidates = response.candidates || [];
+  for (const candidate of candidates) {
+    for (const part of candidate.content.parts) {
+      if (part.inlineData) {
+        return `data:image/png;base64,${part.inlineData.data}`;
+      }
+    }
+  }
+  throw new Error("Trail art generation failed");
+};
+
+// Added missing getCoordinatesForLocation utility.
+export const getCoordinatesForLocation = async (locationName: string) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: `Find the approximate latitude and longitude for the location: ${locationName} in the Hunter Valley, NSW. Return as JSON.`,
+    config: {
+      responseMimeType: 'application/json',
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          name: { type: Type.STRING },
+          lat: { type: Type.NUMBER },
+          lng: { type: Type.NUMBER }
+        },
+        required: ['name', 'lat', 'lng']
+      }
+    }
+  });
+  return JSON.parse(response.text);
+};
+
+// Added missing generateInsiderGuide for winery info modals.
+export const generateInsiderGuide = async (name: string, type: string, details: string) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: `Generate an insider guide for ${name} (${type}). Context: ${details}. Include an icebreaker, a pro move, and a hidden gem.`,
+    config: {
+      responseMimeType: 'application/json',
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          icebreaker: { type: Type.STRING },
+          proMove: { type: Type.STRING },
+          hiddenGem: { type: Type.STRING }
+        },
+        required: ['icebreaker', 'proMove', 'hiddenGem']
+      }
+    }
+  });
+  return response.text;
+};
+
+// Added missing generateReviewSummary for community sentiment analysis.
+export const generateReviewSummary = async (name: string) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: `Generate a community pulse summary for ${name}. Include service, atmosphere, and value scores (out of 5), a summary of opinions, and frequent mentions.`,
+    config: {
+      responseMimeType: 'application/json',
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          serviceScore: { type: Type.NUMBER },
+          atmosphereScore: { type: Type.NUMBER },
+          valueScore: { type: Type.NUMBER },
+          summary: { type: Type.STRING },
+          frequentMentions: { type: Type.ARRAY, items: { type: Type.STRING } }
+        },
+        required: ['serviceScore', 'atmosphereScore', 'valueScore', 'summary', 'frequentMentions']
+      }
+    }
+  });
+  return response.text;
+};
+
+// Added missing generateTripItinerary for complex multi-day planning.
+export const generateTripItinerary = async (days: number, group: string, vibe: string, wineryNames: string[]) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-pro-preview',
+    contents: `Create a ${days}-day itinerary for a ${group} with a ${vibe} vibe in the Hunter Valley. Use these wineries as primary options: ${wineryNames.join(', ')}. Include arrival times and descriptions.`,
+    config: {
+      responseMimeType: 'application/json',
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          tripName: { type: Type.STRING },
+          summary: { type: Type.STRING },
+          days: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                dayTitle: { type: Type.STRING },
+                activities: {
+                  type: Type.ARRAY,
+                  items: {
+                    type: Type.OBJECT,
+                    properties: {
+                      time: { type: Type.STRING },
+                      activity: { type: Type.STRING },
+                      description: { type: Type.STRING },
+                      type: { type: Type.STRING }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        required: ['tripName', 'summary', 'days']
+      }
+    }
+  });
+  return response.text;
+};
+
+// Added missing searchLocalEvents using Google Search grounding.
+export const searchLocalEvents = async () => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: 'Find current and upcoming events, concerts, and festivals in the Hunter Valley, NSW for 2025. Return as a list of events with title, category, date, location, description, and link.',
+    config: {
+      tools: [{ googleSearch: {} }],
+      responseMimeType: 'application/json',
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          events: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                title: { type: Type.STRING },
+                category: { type: Type.STRING },
+                date: { type: Type.STRING },
+                location: { type: Type.STRING },
+                description: { type: Type.STRING },
+                link: { type: Type.STRING }
               }
             }
           }
         }
       }
-    });
-
-    return response.text || '{}';
-  } catch (error) {
-    console.error("Menu Analysis Failed:", error);
-    return JSON.stringify({ wines: [] }); 
-  }
-};
-
-export const generateInsiderGuide = async (name: string, type: string, details: string): Promise<string> => {
-  try {
-    const prompt = `Create an Insider's Guide for ${type}: "${name}". Details: ${details}. Return JSON with icebreaker, proMove, hiddenGem.`;
-
-    const response = await callGemini({
-      model: 'gemini-3-flash-preview',
-      contents: [{ parts: [{ text: prompt }] }],
-      config: {
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            icebreaker: { type: Type.STRING },
-            proMove: { type: Type.STRING },
-            hiddenGem: { type: Type.STRING }
-          },
-          required: ["icebreaker", "proMove", "hiddenGem"]
-        }
-      }
-    });
-
-    return response.text || '{}';
-  } catch (error) {
-    return JSON.stringify({
-        icebreaker: `Ask the staff about the history of ${name}.`,
-        proMove: "Book in advance for weekends.",
-        hiddenGem: "This spot is a local favorite."
-    });
-  }
-};
-
-export const generateTripItinerary = async (days: number, groupType: string, vibe: string, knownWineries: string[]): Promise<string> => {
-  const weatherContext = await getWeatherContextString();
-  const prompt = `
-    Create a ${days}-day Hunter Valley Itinerary for ${groupType} (${vibe}).
-    CONTEXT: ${weatherContext}.
-    USE ONLY THESE WINERIES: ${knownWineries.join(', ')}.
-    Output pure JSON matching the schema.
-  `;
-
-  try {
-      const response = await callGemini({
-        model: 'gemini-3-pro-preview',
-        contents: [{ parts: [{ text: prompt }] }],
-        config: {
-          thinkingConfig: { thinkingBudget: 4000 },
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: Type.OBJECT,
-            properties: {
-              tripName: { type: Type.STRING },
-              summary: { type: Type.STRING },
-              days: {
-                type: Type.ARRAY,
-                items: {
-                  type: Type.OBJECT,
-                  properties: {
-                    dayTitle: { type: Type.STRING },
-                    activities: {
-                      type: Type.ARRAY,
-                      items: {
-                        type: Type.OBJECT,
-                        properties: {
-                          time: { type: Type.STRING },
-                          activity: { type: Type.STRING },
-                          type: { type: Type.STRING }, 
-                          description: { type: Type.STRING }
-                        },
-                        required: ["time", "activity", "type", "description"]
-                      }
-                    }
-                  },
-                  required: ["dayTitle", "activities"]
-                }
-              }
-            },
-            required: ["tripName", "summary", "days"]
-          }
-        }
-      });
-
-      return response.text || '{}';
-  } catch (error) {
-      console.error("Itinerary Generation Error", error);
-      throw new Error("Unable to plan trip. Please reduce the number of days or try again.");
-  }
-};
-
-export const generateTrailArt = async (wineryNames: string[]): Promise<string> => {
-  const prompt = `Watercolor illustrated map: HUNTER VALLEY WINE RAMBLE. Wineries: ${wineryNames.join(', ')}. 16:9 ratio.`;
+    }
+  });
   
-  if (USE_SECURE_PROXY) {
-      try {
-          const response = await fetch(`${PROXY_BASE_URL}/generate-image`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ prompt, aspectRatio: "16:9" })
-          });
-          const data = await response.json();
-          return data.imageUrl || '';
-      } catch (e) {
-          return '';
-      }
-  }
-
-  // Insecure Fallback
-  try {
-      const ai = getGeminiClient();
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image',
-        contents: [{ parts: [{ text: prompt }] }],
-        config: { imageConfig: { aspectRatio: "16:9" } }
-      });
-
-      const parts = response.candidates?.[0]?.content?.parts || [];
-      for (const part of parts) {
-        if (part.inlineData) {
-          return `data:image/png;base64,${part.inlineData.data}`;
-        }
-      }
-      return '';
-  } catch (e) {
-      return '';
-  }
+  return {
+    events: JSON.parse(response.text).events || [],
+    groundingMetadata: response.candidates?.[0]?.groundingMetadata
+  };
 };
 
-export const generateReviewSummary = async (wineryName: string): Promise<string> => {
-  const prompt = `Community Pulse for "${wineryName}". Score Service/Atmosphere/Value (0-5). Summary. Frequent Mentions. JSON.`;
-
-  try {
-      const response = await callGemini({
-        model: 'gemini-3-flash-preview',
-        contents: [{ parts: [{ text: prompt }] }],
-        config: {
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: Type.OBJECT,
-            properties: {
-              serviceScore: { type: Type.NUMBER },
-              atmosphereScore: { type: Type.NUMBER },
-              valueScore: { type: Type.NUMBER },
-              summary: { type: Type.STRING },
-              frequentMentions: { type: Type.ARRAY, items: { type: Type.STRING } }
-            },
-            required: ["serviceScore", "atmosphereScore", "valueScore", "summary", "frequentMentions"]
-          }
-        }
-      });
-      return response.text || '{}';
-  } catch (e) {
-      return JSON.stringify({
-          serviceScore: 0, atmosphereScore: 0, valueScore: 0, 
-          summary: "Reviews currently unavailable.", frequentMentions: []
-      });
-  }
+export const transcribeAudio = async (base64Audio: string) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: [{
+      parts: [
+        { inlineData: { data: base64Audio, mimeType: 'audio/wav' } },
+        { text: "Transcribe this audio clip accurately." }
+      ]
+    }]
+  });
+  return response.text;
 };
 
-export const getCoordinatesForLocation = async (locationName: string): Promise<{ lat: number, lng: number, name: string }> => {
-  const prompt = `Coordinates for "${locationName}" in Hunter Valley NSW. Return JSON lat/lng/name. Default to Pokolbin if unknown.`;
-  
-  try {
-      const response = await callGemini({
-        model: 'gemini-3-flash-preview',
-        contents: [{ parts: [{ text: prompt }] }],
-        config: {
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: Type.OBJECT,
-            properties: { lat: { type: Type.NUMBER }, lng: { type: Type.NUMBER }, name: { type: Type.STRING } },
-            required: ["lat", "lng", "name"]
-          }
-        }
-      });
-      return safeJsonParse(response.text || '{}', { lat: -32.7850, lng: 151.3150, name: 'Pokolbin Central (Default)' });
-  } catch (e) {
-      return { lat: -32.7850, lng: 151.3150, name: 'Pokolbin Central (Default)' };
-  }
+// --- ENHANCED ANALYSIS ---
+
+export const analyzeVideoContent = async (base64Data: string, prompt: string) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-pro-preview',
+    contents: [{
+      parts: [
+        { inlineData: { data: base64Data, mimeType: 'video/mp4' } },
+        { text: prompt }
+      ]
+    }]
+  });
+  return response.text;
 };
 
-export const searchLocalEvents = async (): Promise<{events: any[], groundingMetadata: any}> => {
-  const prompt = `Upcoming events in Hunter Valley NSW (next 4 weeks). JSON array: title, date, location, category, description, link.`;
+export const deepSommelierQuery = async (query: string, context: string) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: "gemini-3-pro-preview",
+    contents: query,
+    config: {
+      systemInstruction: `You are a Master Sommelier with advanced reasoning capabilities. Use the following context: ${context}`,
+      thinkingConfig: { thinkingBudget: 32768 },
+      tools: [{ googleSearch: {} }]
+    }
+  });
 
-  try {
-      const response = await callGemini({
-        model: 'gemini-3-flash-preview',
-        contents: [{ parts: [{ text: prompt }] }],
-        config: { tools: [{googleSearch: {}}] }
-      });
-
-      const text = response.text || '';
-      const events = safeJsonParse(text, []);
-      
-      let groundingMetadata = null;
-      if (!USE_SECURE_PROXY) {
-          // @ts-ignore
-          groundingMetadata = response.raw?.candidates?.[0]?.groundingMetadata;
-      }
-
-      return {
-          events: Array.isArray(events) ? events : [],
-          groundingMetadata
-      };
-  } catch (e) {
-      return { events: [], groundingMetadata: null };
-  }
+  return {
+    text: response.text,
+    sources: response.candidates?.[0]?.groundingMetadata?.groundingChunks || []
+  };
 };
+
+export const fastResponse = async (prompt: string) => {
+  const ai = getGeminiClient();
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash-lite-latest',
+    contents: prompt
+  });
+  return response.text;
+};
+
+// --- AUDIO HELPERS ---
 
 export function encodeAudio(bytes: Uint8Array): string {
   let binary = '';

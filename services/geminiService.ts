@@ -5,7 +5,7 @@ import { GoogleGenAI, Type, Modality } from "@google/genai";
 
 // Using process.env.API_KEY as per the guidelines.
 const getGeminiClient = () => {
-  return new GoogleGenAI({ apiKey: process.env.API_KEY });
+  return new GoogleGenAI({ apiKey: AIzaSyARQhkNVq4wOI8CdEeHxzPIqCc4EeinVqc });
 };
 
 // --- GENERATION FUNCTIONS ---

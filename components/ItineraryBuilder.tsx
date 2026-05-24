@@ -3,7 +3,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { WINERIES } from '../data/wineries';
 import { EXPERIENCES } from '../data/experiences';
 import { Itinerary, ItineraryStop } from '../types';
-import { generateTrailArt, getCoordinatesForLocation } from '../services/geminiService';
+// Trail art and geocoding removed (Gemini-specific); future: use Claude service
 import { MapPin, Clock, Navigation, Palette, Download, Share2, Wine, Trash2, Plus, Loader2, Star, ChevronRight, X, Sparkles, Image as ImageIcon, Map as MapIcon, Calendar, Baby, Dog, DollarSign, Info, Search, Filter, ArrowUpDown, Heart, ExternalLink, Save, LocateFixed, Compass, Utensils, Flag, ShoppingBag, Bird, Mountain, Copy, Check, Car, ArrowRight } from 'lucide-react';
 import GuideModal from './GuideModal';
 import MapLayer from './MapLayer';
@@ -179,15 +179,10 @@ const ItineraryBuilder: React.FC = () => {
     }
   };
 
-  const handleLocationSearch = async () => {
-    if(!startInput.trim()) return;
-    setIsLocating(true);
-    try {
-        const coords = await getCoordinatesForLocation(startInput);
-        setStartLocation(coords);
-        setStartInput(coords.name);
-    } catch(e) { console.error(e); } 
-    finally { setIsLocating(false); }
+  const handleLocationSearch = () => {
+    if (!startInput.trim()) return;
+    // Use Pokolbin Central as default fallback when geocoding unavailable
+    setStartLocation({ name: startInput, lat: -32.785, lng: 151.318 });
   };
 
   const generateItinerary = () => {
@@ -302,18 +297,9 @@ const ItineraryBuilder: React.FC = () => {
     }
   };
 
-  const handleGenerateAIArt = async () => {
-    if (!navigator.onLine || !itinerary) return;
-    setGeneratingAIArt(true);
-    setAiArtUrl(null);
-    try {
-      const url = await generateTrailArt(itinerary.wineries.map(w => w.name));
-      if (url) {
-          setAiArtUrl(url);
-      } else {
-          alert("Couldn't generate art right now. Please try again later.");
-      }
-    } catch (err) { console.error(err); } finally { setGeneratingAIArt(false); }
+  const handleGenerateAIArt = () => {
+    // Trail art generation requires image model — coming in future update
+    alert('Trail art generation coming soon!');
   };
 
   const getExperienceIcon = (category: string) => {

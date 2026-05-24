@@ -106,6 +106,7 @@ export enum AppTab {
   REGIONS = 'regions',
   LIVE = 'live',
   FAVORITES = 'favorites',
+  CELLAR = 'cellar',
   PARTNERS = 'partners',
   EVENTS = 'events',
   STUDIO = 'studio'

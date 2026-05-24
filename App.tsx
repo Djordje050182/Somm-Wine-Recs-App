@@ -17,8 +17,9 @@ import PartnerPortal from './components/PartnerPortal';
 import CartDrawer from './components/CartDrawer';
 import WhatsOn from './components/WhatsOn';
 import CreativeCellar from './components/CreativeCellar';
+import CellarTracker from './components/CellarTracker';
 import { getCart } from './services/commerceService';
-import { Wine, MessageSquare, Camera, Map as MapIcon, Mic, Sparkles, Heart, Menu, X, BookOpen, Globe, Search, User, LogIn, LogOut, Compass, WifiOff, Check, Cloud, Smartphone, Zap, MapPin, Navigation, Building2, ShoppingBag, Calendar, Palette } from 'lucide-react';
+import { Wine, MessageSquare, Camera, Map as MapIcon, Mic, Sparkles, Heart, Menu, X, BookOpen, Globe, Search, User, Compass, WifiOff, ShoppingBag, Calendar, Palette, Package } from 'lucide-react';
 import { WINERIES } from './data/wineries';
 import { calculateDistance } from './services/geoUtils';
 
@@ -124,6 +125,7 @@ const App: React.FC = () => {
       case AppTab.LIVE: return <LiveSommelier />;
       case AppTab.WINES: return <WineLibrary />;
       case AppTab.FAVORITES: return <Favorites user={user} />;
+      case AppTab.CELLAR: return <CellarTracker />;
       case AppTab.PARTNERS: return <PartnerPortal />;
       case AppTab.EVENTS: return <WhatsOn />;
       case AppTab.STUDIO: return <CreativeCellar />;
@@ -161,13 +163,14 @@ const App: React.FC = () => {
         </div>
         
         <div className="hidden xl:flex items-center gap-8 text-sm font-bold tracking-wide">
-          <button onClick={() => handleNav(AppTab.DISCOVER)} className={`${activeTab === AppTab.DISCOVER ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e]`}>Discover</button>
-          <button onClick={() => handleNav(AppTab.STUDIO)} className={`flex items-center gap-1 ${activeTab === AppTab.STUDIO ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e]`}>
-            <Palette className="w-4 h-4" /> AI Studio
+          <button onClick={() => handleNav(AppTab.DISCOVER)} className={`${activeTab === AppTab.DISCOVER ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e] transition-colors`}>Discover</button>
+          <button onClick={() => handleNav(AppTab.WINES)} className={`${activeTab === AppTab.WINES ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e] transition-colors`}>Library</button>
+          <button onClick={() => handleNav(AppTab.PLANNER)} className={`${activeTab === AppTab.PLANNER ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e] transition-colors`}>Map & Plan</button>
+          <button onClick={() => handleNav(AppTab.CONCIERGE)} className={`${activeTab === AppTab.CONCIERGE ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e] transition-colors`}>Concierge</button>
+          <button onClick={() => handleNav(AppTab.SOMMELIER)} className={`${activeTab === AppTab.SOMMELIER ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e] transition-colors`}>AI Sommelier</button>
+          <button onClick={() => handleNav(AppTab.CELLAR)} className={`flex items-center gap-1 ${activeTab === AppTab.CELLAR ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e] transition-colors`}>
+            <Package className="w-4 h-4" /> My Cellar
           </button>
-          <button onClick={() => handleNav(AppTab.WINES)} className={`${activeTab === AppTab.WINES ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e]`}>Library</button>
-          <button onClick={() => handleNav(AppTab.PLANNER)} className={`${activeTab === AppTab.PLANNER ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e]`}>Map & Plan</button>
-          <button onClick={() => handleNav(AppTab.SOMMELIER)} className={`${activeTab === AppTab.SOMMELIER ? 'text-[#6b1e2e]' : 'text-gray-500'} hover:text-[#6b1e2e]`}>Sommelier Chat</button>
         </div>
 
         <div className="flex gap-2 md:gap-3 items-center shrink-0">
@@ -184,7 +187,7 @@ const App: React.FC = () => {
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-[#e5e1da] shadow-[0_-5px_20px_rgba(0,0,0,0.05)] pb-safe">
         <div className="flex justify-between items-end h-20 px-4 max-w-lg mx-auto pb-1">
           <NavItem tab={AppTab.DISCOVER} icon={Search} label="Discover" />
-          <NavItem tab={AppTab.STUDIO} icon={Palette} label="Studio" />
+          <NavItem tab={AppTab.CELLAR} icon={Package} label="Cellar" />
           <div className="relative -top-6 mx-2">
             <button onClick={() => handleNav(AppTab.SCANNER)} className="w-16 h-16 rounded-full flex items-center justify-center text-white shadow-xl shadow-black/30 active:scale-95 bg-[#1a1a1a] border-4 border-[#fdfcfb]"><Camera className="w-7 h-7" /></button>
           </div>

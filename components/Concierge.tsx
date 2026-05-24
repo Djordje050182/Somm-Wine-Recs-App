@@ -1,455 +1,150 @@
-
 import React, { useState } from 'react';
-import { generateTripItinerary, generateTrailArt } from '../services/geminiService';
+import { generateTripItinerary, isAIEnabled } from '../services/claudeService';
 import { WINERIES } from '../data/wineries';
-import { Sparkles, Loader2, Calendar, Users, Briefcase, MapPin, Coffee, Wine, Footprints, ChevronRight, AlertCircle, DollarSign, Grape, RefreshCcw, Map as MapIcon, List, ExternalLink, Share2, Image as ImageIcon, Download, Gauge, X } from 'lucide-react';
-import GuideModal from './GuideModal';
-import MapLayer from './MapLayer';
+import { Sparkles, Loader2, Calendar, Users, MapPin, Coffee, Wine, AlertCircle, DollarSign, RefreshCcw, ChevronRight } from 'lucide-react';
+
+const OPTIONS = {
+  days: [1, 2, 3],
+  group: ['Solo', 'Couple', 'Small Group', 'Family with Kids', 'Corporate'],
+  vibe: ['Relaxed', 'Adventure', 'Romantic', 'Foodie', 'Education'],
+  style: ['Mix', 'Reds', 'Whites', 'Sparkling'],
+  budget: ['Any', 'Save', 'Moderate', 'Splurge'],
+};
+
+const ACTIVITY_ICONS: Record<string, string> = { winery: '🍷', dining: '🍽️', experience: '🌿', travel: '🚗' };
 
 const Concierge: React.FC = () => {
-  const [days, setDays] = useState(1);
-  const [group, setGroup] = useState('Couple');
-  const [vibe, setVibe] = useState('Relaxed');
-  const [wineStyle, setWineStyle] = useState('Mix');
-  const [budget, setBudget] = useState('Any');
-  const [pace, setPace] = useState('Balanced'); 
-  
-  const [generating, setGenerating] = useState(false);
+  const [params, setParams] = useState({ days: 1, group: 'Couple', vibe: 'Relaxed', style: 'Mix', budget: 'Any' });
   const [trip, setTrip] = useState<any>(null);
-  const [selectedActivity, setSelectedActivity] = useState<any>(null);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
-  
-  const [generatingArt, setGeneratingArt] = useState(false);
-  const [aiArtUrl, setAiArtUrl] = useState<string | null>(null);
+  const [generating, setGenerating] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const aiEnabled = isAIEnabled();
 
-  const getFilteredWineries = () => {
+  const set = (key: string) => (val: any) => setParams(p => ({ ...p, [key]: val }));
+
+  const getWineries = () => {
     return WINERIES.filter(w => {
-      let matchesBudget = true;
-      if (budget === 'Save') matchesBudget = w.priceRange === '$' || w.tastingFee <= 10;
-      if (budget === 'Splurge') matchesBudget = w.priceRange === '$$$' || w.tastingFee >= 20;
-
-      let matchesStyle = true;
-      const specialties = (w.specialty + w.wines.join(' ')).toLowerCase();
-      if (wineStyle === 'Reds') matchesStyle = specialties.includes('shiraz') || specialties.includes('cabernet') || specialties.includes('red');
-      if (wineStyle === 'Whites') matchesStyle = specialties.includes('semillon') || specialties.includes('chardonnay') || specialties.includes('verdelho');
-      if (wineStyle === 'Sparkling') matchesStyle = specialties.includes('sparkling') || specialties.includes('bubbles') || specialties.includes('frizzante');
-
-      let matchesGroup = true;
-      if (group.includes('Kids') || group.includes('Family')) matchesGroup = w.kidFriendly;
-
-      return matchesBudget && matchesStyle && matchesGroup;
+      if (params.budget === 'Save') return w.tastingFee <= 10;
+      if (params.budget === 'Splurge') return w.priceRange === '$$$' || w.tastingFee >= 20;
+      if (params.group.includes('Kids') || params.group.includes('Family')) return w.kidFriendly;
+      const spec = (w.specialty + w.wines.join(' ')).toLowerCase();
+      if (params.style === 'Reds') return spec.includes('shiraz') || spec.includes('cabernet');
+      if (params.style === 'Whites') return spec.includes('semillon') || spec.includes('chardonnay');
+      if (params.style === 'Sparkling') return spec.includes('sparkling');
+      return true;
     });
   };
 
-  const handleGenerate = async () => {
+  const generate = async () => {
+    if (!aiEnabled) return;
     setGenerating(true);
     setTrip(null);
-    setAiArtUrl(null);
-    setErrorMessage(null);
-    setViewMode('list'); 
+    setError(null);
     try {
-      const relevantWineries = getFilteredWineries();
-      const finalWineryList = relevantWineries.length < 3 ? WINERIES : relevantWineries;
-      const wineryNames = finalWineryList.map(w => w.name);
-
-      const augmentedVibe = `${vibe} with a ${pace} pace`;
-
-      const jsonStr = await generateTripItinerary(days, group, augmentedVibe, wineryNames);
-      
-      if (!jsonStr || jsonStr === '{}') {
-        throw new Error("No itinerary received. Please try again.");
-      }
-
-      let parsedTrip: any;
-      try {
-        parsedTrip = JSON.parse(jsonStr);
-      } catch (parseErr) {
-        console.error("Parse Error:", parseErr);
-        throw new Error("Received malformed data. Let's try once more.");
-      }
-      
-      const findDays = (obj: any): any[] | null => {
-        if (obj.days && Array.isArray(obj.days)) return obj.days;
-        for (const key in obj) {
-          if (typeof obj[key] === 'object' && obj[key] !== null) {
-            const found = findDays(obj[key]);
-            if (found) return found;
-          }
-        }
-        return null;
-      };
-
-      const itineraryDays = findDays(parsedTrip);
-      
-      if (!itineraryDays || itineraryDays.length === 0) {
-        throw new Error("The AI failed to build a valid route. Retrying often helps!");
-      }
-
-      setTrip({
-        tripName: parsedTrip.tripName || `${days}-Day ${vibe} Trip`,
-        summary: parsedTrip.summary || "A custom wine-country escape.",
-        days: itineraryDays
-      });
-
+      const wineries = getWineries();
+      const names = (wineries.length >= 3 ? wineries : WINERIES).map(w => w.name);
+      const result = await generateTripItinerary(params.days, params.group, params.vibe, names);
+      if (!result?.days?.length) throw new Error('Invalid itinerary returned');
+      setTrip(result);
     } catch (e: any) {
-      console.error("Concierge Error:", e);
-      setErrorMessage(e.message || "Something went wrong. The cellar doors are busy!");
-    } finally {
-      setGenerating(false);
+      setError(e.message || 'Could not generate itinerary. Please try again.');
     }
+    setGenerating(false);
   };
 
-  const getActivityIcon = (type: string) => {
-    const t = (type || '').toLowerCase();
-    if (t.includes('winery') || t.includes('wine')) return <Wine className="w-5 h-5 text-[#6b1e2e]" />;
-    if (t.includes('food') || t.includes('lunch') || t.includes('dinner')) return <Coffee className="w-5 h-5 text-amber-600" />;
-    return <Footprints className="w-5 h-5 text-green-600" />;
-  };
-
-  const handleActivityClick = (activityName: string) => {
-    const winery = WINERIES.find(w => activityName.toLowerCase().includes(w.name.toLowerCase()) || w.name.toLowerCase().includes(activityName.toLowerCase()));
-    if (winery) setSelectedActivity(winery);
-  };
-
-  const handleRemoveActivity = (dayIndex: number, activityIndex: number) => {
-      const newTrip = { ...trip };
-      newTrip.days[dayIndex].activities.splice(activityIndex, 1);
-      setTrip(newTrip);
-  };
-
-  const getAllStops = () => {
-      if (!trip) return [];
-      const stops: any[] = [];
-      trip.days.forEach((day: any) => {
-          day.activities.forEach((act: any) => {
-              const winery = WINERIES.find(w => act.activity.toLowerCase().includes(w.name.toLowerCase()));
-              if (winery) {
-                  stops.push({
-                      id: winery.id,
-                      name: winery.name,
-                      lat: winery.lat,
-                      lng: winery.lng,
-                      arrival: act.time,
-                      type: 'winery'
-                  });
-              }
-          });
-      });
-      return stops;
-  };
-
-  const handleOpenMaps = () => {
-      const stops = getAllStops();
-      if (stops.length === 0) return;
-      
-      const origin = "My+Location";
-      const destination = `${stops[stops.length-1].lat},${stops[stops.length-1].lng}`;
-      const waypoints = stops.slice(0, stops.length-1).map(s => `${s.lat},${s.lng}`).join('|');
-      
-      const url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${waypoints}&travelmode=driving`;
-      window.open(url, '_blank');
-  };
-
-  const handleShare = async () => {
-      if (!trip) return;
-      const text = `Check out my ${trip.tripName} in the Hunter Valley!\n${trip.summary}`;
-      if (navigator.share) {
-          await navigator.share({ title: trip.tripName, text: text, url: window.location.href });
-      } else {
-          navigator.clipboard.writeText(text);
-          alert("Trip summary copied to clipboard!");
-      }
-  };
-
-  const handleGenerateArt = async () => {
-      if (!navigator.onLine || !trip) return;
-      setGeneratingArt(true);
-      const stops = getAllStops().map(s => s.name);
-      const names = stops.length > 0 ? stops : trip.days.flatMap((d:any) => d.activities.map((a:any) => a.activity)).slice(0,5);
-      
-      try {
-          const url = await generateTrailArt(names);
-          setAiArtUrl(url);
-      } catch(e) {
-          console.error(e);
-          alert("Could not generate art at this time.");
-      } finally {
-          setGeneratingArt(false);
-      }
-  };
+  const Pill = ({ opts, val, onChange }: { opts: any[]; val: any; onChange: (v: any) => void }) => (
+    <div className="flex flex-wrap gap-2">
+      {opts.map(o => (
+        <button key={o} onClick={() => onChange(o)} className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${val === o ? 'bg-[#1a1a1a] text-white shadow' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>{o}</button>
+      ))}
+    </div>
+  );
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12 animate-in fade-in duration-500">
-      
-      {selectedActivity && (
-        <GuideModal 
-          item={selectedActivity} 
-          type="winery" 
-          onClose={() => setSelectedActivity(null)} 
-        />
-      )}
-
-      {/* Header */}
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center justify-center p-3 bg-[#a68d60]/10 rounded-full mb-4">
-          <Sparkles className="w-8 h-8 text-[#a68d60]" />
-        </div>
-        <h2 className="text-5xl font-bold text-[#6b1e2e] mb-4 font-serif italic">AI Concierge</h2>
-        <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-          Personalized planning using Gemini 3 Pro reasoning. We optimize routes across the Hunter Valley based on your palate.
-        </p>
+    <div className="p-4 md:p-8 max-w-3xl mx-auto min-h-screen">
+      <div className="mb-8">
+        <h2 className="text-3xl font-black text-wine font-serif">Trip Concierge</h2>
+        <p className="text-gray-500 text-sm mt-1">Describe your perfect day and let AI plan the route.</p>
       </div>
 
-      {/* Input Form */}
       {!trip && (
-        <div className="bg-white rounded-[2rem] border border-[#e5e1da] shadow-xl p-8 mb-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="space-y-4">
-                <label className="flex items-center gap-2 font-bold text-gray-700 uppercase tracking-wider text-xs">
-                <Calendar className="w-4 h-4 text-[#a68d60]" /> Duration
-                </label>
-                <div className="flex bg-[#f8f4f0] p-1.5 rounded-xl">
-                {[1, 2, 3].map(d => (
-                    <button
-                    key={d}
-                    onClick={() => setDays(d)}
-                    className={`flex-1 py-3 rounded-lg font-bold text-sm transition-all ${days === d ? 'bg-white text-[#6b1e2e] shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
-                    >
-                    {d} Day{d > 1 ? 's' : ''}
-                    </button>
-                ))}
-                </div>
+        <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 md:p-8 space-y-6">
+          {[
+            { label: 'How many days?', icon: <Calendar className="w-4 h-4" />, key: 'days', opts: OPTIONS.days },
+            { label: 'Who\'s coming?', icon: <Users className="w-4 h-4" />, key: 'group', opts: OPTIONS.group },
+            { label: 'What\'s the vibe?', icon: <Sparkles className="w-4 h-4" />, key: 'vibe', opts: OPTIONS.vibe },
+            { label: 'Wine style', icon: <Wine className="w-4 h-4" />, key: 'style', opts: OPTIONS.style },
+            { label: 'Budget', icon: <DollarSign className="w-4 h-4" />, key: 'budget', opts: OPTIONS.budget },
+          ].map(({ label, icon, key, opts }) => (
+            <div key={key}>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3 flex items-center gap-1.5">{icon} {label}</p>
+              <Pill opts={opts} val={(params as any)[key]} onChange={set(key)} />
             </div>
+          ))}
 
-            <div className="space-y-4">
-                <label className="flex items-center gap-2 font-bold text-gray-700 uppercase tracking-wider text-xs">
-                <Users className="w-4 h-4 text-[#a68d60]" /> Who's Coming?
-                </label>
-                <select 
-                value={group}
-                onChange={(e) => setGroup(e.target.value)}
-                className="w-full bg-[#f8f4f0] p-4 rounded-xl font-bold text-[#1a1a1a] focus:outline-none focus:ring-2 focus:ring-[#6b1e2e]/10 appearance-none"
-                >
-                <option value="Couple">Couple (Romantic)</option>
-                <option value="Family with Kids">Family (Kid Friendly)</option>
-                <option value="Group of Friends">Group of Friends</option>
-                <option value="Solo Traveler">Solo Traveler</option>
-                <option value="Corporate">Corporate Team</option>
-                </select>
+          {!aiEnabled && (
+            <div className="flex items-start gap-2 text-sm text-amber-600 bg-amber-50 rounded-xl px-4 py-3">
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+              <span>AI proxy not configured. Set VITE_AI_PROXY_URL to enable trip planning.</span>
             </div>
+          )}
 
-            <div className="space-y-4">
-                <label className="flex items-center gap-2 font-bold text-gray-700 uppercase tracking-wider text-xs">
-                <Briefcase className="w-4 h-4 text-[#a68d60]" /> The Vibe
-                </label>
-                <select 
-                value={vibe}
-                onChange={(e) => setVibe(e.target.value)}
-                className="w-full bg-[#f8f4f0] p-4 rounded-xl font-bold text-[#1a1a1a] focus:outline-none focus:ring-2 focus:ring-[#6b1e2e]/10 appearance-none"
-                >
-                <option value="Relaxed & Scenic">Relaxed & Scenic</option>
-                <option value="Foodie & Luxe">Foodie & Luxe</option>
-                <option value="Adventure & Active">Adventure & Active</option>
-                <option value="History & Heritage">History & Heritage</option>
-                <option value="Hidden Gems">Hidden Gems (Off-beat)</option>
-                <option value="Instagram Worthy">Instagram Worthy</option>
-                </select>
-            </div>
-
-            <div className="space-y-4">
-                <label className="flex items-center gap-2 font-bold text-gray-700 uppercase tracking-wider text-xs">
-                <Gauge className="w-4 h-4 text-[#a68d60]" /> The Pace
-                </label>
-                <div className="flex bg-[#f8f4f0] p-1.5 rounded-xl">
-                {['Chill', 'Balanced', 'Packed'].map(p => (
-                    <button
-                    key={p}
-                    onClick={() => setPace(p)}
-                    className={`flex-1 py-3 rounded-lg font-bold text-sm transition-all ${pace === p ? 'bg-white text-[#6b1e2e] shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
-                    >
-                    {p}
-                    </button>
-                ))}
-                </div>
-            </div>
-
-            <div className="space-y-4">
-                <label className="flex items-center gap-2 font-bold text-gray-700 uppercase tracking-wider text-xs">
-                <Grape className="w-4 h-4 text-[#a68d60]" /> Wine Preference
-                </label>
-                <select 
-                value={wineStyle}
-                onChange={(e) => setWineStyle(e.target.value)}
-                className="w-full bg-[#f8f4f0] p-4 rounded-xl font-bold text-[#1a1a1a] focus:outline-none focus:ring-2 focus:ring-[#6b1e2e]/10 appearance-none"
-                >
-                <option value="Mix">Anything Good</option>
-                <option value="Reds">Big Reds (Shiraz/Cab)</option>
-                <option value="Whites">Crisp Whites (Sem/Chard)</option>
-                <option value="Sparkling">Sparkling & Bubbles</option>
-                <option value="Natural">Organic / Natural</option>
-                </select>
-            </div>
-
-            <div className="space-y-4">
-                <label className="flex items-center gap-2 font-bold text-gray-700 uppercase tracking-wider text-xs">
-                <DollarSign className="w-4 h-4 text-[#a68d60]" /> Budget Tier
-                </label>
-                <div className="flex bg-[#f8f4f0] p-1.5 rounded-xl">
-                {['Any', 'Save', 'Splurge'].map(b => (
-                    <button
-                    key={b}
-                    onClick={() => setBudget(b)}
-                    className={`flex-1 py-3 rounded-lg font-bold text-sm transition-all ${budget === b ? 'bg-white text-[#6b1e2e] shadow-sm' : 'text-gray-400 hover:text-gray-600'}`}
-                    >
-                    {b}
-                    </button>
-                ))}
-                </div>
-            </div>
-            </div>
-
-            <div className="mt-8 pt-8 border-t border-[#f8f4f0] flex justify-center">
-            <button 
-                onClick={handleGenerate}
-                disabled={generating}
-                className="bg-[#6b1e2e] text-white px-12 py-4 rounded-full font-bold shadow-lg hover:bg-[#852539] transition-all disabled:opacity-50 active:scale-95 flex items-center gap-3 w-full md:w-auto justify-center disabled:cursor-not-allowed"
-            >
-                {generating ? <Loader2 className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5" />}
-                {generating ? 'Thinking & Planning Route...' : 'Generate Itinerary'}
-            </button>
-            </div>
-        </div>
-      )}
-
-      {errorMessage && (
-        <div className="max-w-2xl mx-auto mb-8 p-6 bg-red-50 text-red-600 rounded-[2rem] flex flex-col items-center gap-4 border border-red-100 text-center animate-in fade-in slide-in-from-top-2">
-          <AlertCircle className="w-8 h-8 shrink-0" />
-          <p className="font-bold text-lg">{errorMessage}</p>
-          <button 
-            onClick={handleGenerate}
-            className="flex items-center gap-2 text-sm font-black uppercase tracking-widest bg-white px-6 py-2 rounded-full shadow-sm hover:shadow-md transition-all"
+          <button
+            onClick={generate}
+            disabled={generating || !aiEnabled}
+            className="w-full py-4 bg-[#1a1a1a] text-white rounded-2xl font-bold flex items-center justify-center gap-2 shadow-xl hover:bg-black transition disabled:opacity-40"
           >
-            <RefreshCcw className="w-4 h-4" /> Retry AI Generation
+            {generating ? <Loader2 className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5 text-gold" />}
+            {generating ? 'Planning your trip...' : 'Generate My Itinerary'}
           </button>
         </div>
       )}
 
+      {error && (
+        <div className="mt-4 p-5 bg-red-50 text-red-600 rounded-2xl border border-red-100 flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+          <div>
+            <p className="font-bold text-sm">Couldn't generate trip</p>
+            <p className="text-xs mt-0.5">{error}</p>
+          </div>
+        </div>
+      )}
+
       {trip && (
-        <div className="animate-in slide-in-from-bottom duration-700">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
-             <div className="text-center md:text-left flex-1">
-                <h3 className="text-4xl font-bold text-[#1a1a1a] mb-2 font-serif">{trip.tripName}</h3>
-                <p className="text-[#a68d60] italic font-serif text-xl mb-4">"{trip.summary}"</p>
-                <div className="flex gap-2 flex-wrap justify-center md:justify-start">
-                    <button onClick={handleOpenMaps} className="flex items-center gap-2 bg-[#6b1e2e] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#852539] transition-all shadow-md">
-                        <ExternalLink className="w-4 h-4" /> Open in Maps
-                    </button>
-                    <button onClick={handleShare} className="flex items-center gap-2 bg-white text-[#1a1a1a] border border-[#e5e1da] px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#f8f4f0] transition-all shadow-sm">
-                        <Share2 className="w-4 h-4" /> Share
-                    </button>
-                    <button onClick={handleGenerateArt} disabled={generatingArt} className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-all shadow-md disabled:opacity-50">
-                        {generatingArt ? <Loader2 className="w-4 h-4 animate-spin" /> : <ImageIcon className="w-4 h-4" />}
-                        Visualize
-                    </button>
-                </div>
-             </div>
-             
-             {/* VIEW TOGGLE */}
-             <div className="flex bg-[#f8f4f0] p-1 rounded-xl shrink-0">
-                 <button 
-                    onClick={() => setViewMode('list')}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all ${viewMode === 'list' ? 'bg-white text-[#6b1e2e] shadow-sm' : 'text-gray-500'}`}
-                 >
-                     <List className="w-4 h-4" /> Schedule
-                 </button>
-                 <button 
-                    onClick={() => setViewMode('map')}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all ${viewMode === 'map' ? 'bg-white text-[#6b1e2e] shadow-sm' : 'text-gray-500'}`}
-                 >
-                     <MapIcon className="w-4 h-4" /> Map View
-                 </button>
-             </div>
+        <div className="animate-slide-up space-y-5">
+          <div className="bg-wine text-white rounded-3xl p-6">
+            <h3 className="text-2xl font-black font-serif mb-2">{trip.tripName}</h3>
+            <p className="text-white/80 text-sm leading-relaxed">{trip.summary}</p>
           </div>
 
-          {/* AI ART DISPLAY */}
-          {aiArtUrl && (
-            <div className="mb-10 bg-[#fdfcfb] border-2 border-[#e5e1da] rounded-3xl p-6 shadow-2xl animate-in zoom-in duration-500">
-                <div className="flex justify-between items-center mb-4">
-                    <h4 className="text-xl font-bold text-[#6b1e2e] font-serif italic flex items-center gap-2">
-                        <Sparkles className="w-5 h-5" /> Your Visual Journey
-                    </h4>
-                    <button onClick={() => {const link = document.createElement('a'); link.href = aiArtUrl; link.download='my-trip.png'; link.click();}} className="text-gray-400 hover:text-[#6b1e2e]">
-                        <Download className="w-5 h-5" />
-                    </button>
-                </div>
-                <img src={aiArtUrl} className="w-full rounded-2xl shadow-inner" alt="AI Generated Map" />
-            </div>
-          )}
-
-          {viewMode === 'list' ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {trip.days.map((day: any, idx: number) => (
-                <div key={idx} className="bg-white p-6 rounded-[2rem] border border-[#e5e1da] shadow-lg relative overflow-hidden flex flex-col h-full">
-                    <div className="absolute top-0 left-0 w-full h-2 bg-[#6b1e2e]"></div>
-                    <h4 className="font-bold text-xl mb-6 text-[#1a1a1a] font-serif">{day.dayTitle}</h4>
-                    
-                    <div className="space-y-8 relative flex-1">
-                    <div className="absolute left-[19px] top-2 bottom-2 w-0.5 bg-gray-100"></div>
-
-                    {day.activities && day.activities.map((act: any, aIdx: number) => {
-                        const isWinery = WINERIES.some(w => act.activity.toLowerCase().includes(w.name.toLowerCase()));
-                        
-                        return (
-                        <div key={aIdx} className="relative pl-12 group">
-                            <div className={`absolute left-0 top-0 w-10 h-10 border rounded-full flex items-center justify-center z-10 shadow-sm transition-colors ${isWinery ? 'bg-[#6b1e2e] text-white border-[#6b1e2e]' : 'bg-white border-[#e5e1da]'}`}>
-                            {getActivityIcon(act.type)}
-                            </div>
-                            
-                            <div 
-                                onClick={() => handleActivityClick(act.activity)}
-                                className={`p-3 -ml-3 rounded-xl transition-all relative ${isWinery ? 'cursor-pointer hover:bg-gray-50' : ''}`}
-                            >
-                                <div className="flex justify-between items-start">
-                                    <span className="bg-[#f8f4f0] text-gray-500 text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider">{act.time}</span>
-                                    {/* Remove Button - Only visible on hover */}
-                                    <button 
-                                        onClick={(e) => { e.stopPropagation(); handleRemoveActivity(idx, aIdx); }}
-                                        className="opacity-0 group-hover:opacity-100 p-1 bg-red-100 text-red-500 rounded-full hover:bg-red-500 hover:text-white transition-all absolute top-2 right-2 z-20"
-                                        title="Remove item"
-                                    >
-                                        <X className="w-3 h-3" />
-                                    </button>
-                                </div>
-                                <h5 className={`font-bold text-lg mt-1 ${isWinery ? 'text-[#6b1e2e] underline decoration-dotted decoration-1 underline-offset-4' : 'text-[#1a1a1a]'}`}>
-                                    {act.activity}
-                                </h5>
-                                <p className="text-sm text-gray-500 mt-1 leading-relaxed">{act.description}</p>
-                            </div>
-                        </div>
-                        );
-                    })}
-                    </div>
-                </div>
-                ))}
-            </div>
-          ) : (
-              <div className="bg-white p-2 rounded-[2rem] border border-[#e5e1da] shadow-lg h-[500px] animate-in fade-in relative">
-                  <MapLayer stops={getAllStops()} onMarkerClick={(stop) => setSelectedActivity(WINERIES.find(w => w.id === stop.id))} />
-                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-bold shadow-lg pointer-events-none text-gray-600">
-                      Showing stops found in database
-                  </div>
+          {trip.days.map((day: any, i: number) => (
+            <div key={i} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+              <div className="px-5 py-3 bg-gray-50 border-b border-gray-100">
+                <p className="font-black text-sm text-gray-700 uppercase tracking-wide">{day.dayTitle || `Day ${i + 1}`}</p>
               </div>
-          )}
-          
-          <div className="mt-12 text-center">
-              <button 
-                onClick={() => setTrip(null)} 
-                className="text-sm text-gray-400 font-bold underline hover:text-[#6b1e2e] transition-colors"
-              >
-                  Start Over
-              </button>
-          </div>
+              <div className="divide-y divide-gray-50">
+                {(day.activities || []).map((act: any, j: number) => (
+                  <div key={j} className="flex gap-4 px-5 py-4">
+                    <div className="text-right shrink-0 pt-0.5">
+                      <p className="text-xs font-bold text-gold">{act.time}</p>
+                    </div>
+                    <div className="w-px bg-gray-100 shrink-0" />
+                    <div className="min-w-0">
+                      <p className="font-bold text-sm text-gray-900 flex items-center gap-1.5">
+                        <span>{ACTIVITY_ICONS[act.type] || '📍'}</span>
+                        {act.activity}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{act.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          <button onClick={() => { setTrip(null); setError(null); }} className="w-full py-3.5 flex items-center justify-center gap-2 border-2 border-gray-200 text-gray-600 rounded-2xl font-bold hover:border-wine hover:text-wine transition">
+            <RefreshCcw className="w-4 h-4" /> Plan a Different Trip
+          </button>
         </div>
       )}
     </div>

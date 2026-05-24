@@ -1,166 +1,165 @@
-
 import React, { useState, useRef, useEffect } from 'react';
-import { deepSommelierQuery, generateSpeech, decodeAudio } from '../services/geminiService';
+import { sommelierChat, isAIEnabled } from '../services/claudeService';
 import { WINERIES } from '../data/wineries';
-import { addToPlanner, addToFavorites } from '../services/actionService';
-import { Send, User, Bot, Sparkles, Loader2, Info, Compass, Wine, WifiOff, MapPin, Heart, Mic, StopCircle, Volume2, Globe, List } from 'lucide-react';
+import { Send, User, Bot, Sparkles, Loader2, Globe, WifiOff } from 'lucide-react';
 import { getWeatherContextString } from '../services/weatherService';
 
+interface Message {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
+const SUGGESTIONS = [
+  'Best Semillon producers for cellaring?',
+  'What food pairs with Hunter Shiraz?',
+  'Plan a romantic afternoon in Pokolbin',
+  'Hidden gem wineries locals love?',
+];
+
 const SommelierChat: React.FC = () => {
-  const [messages, setMessages] = useState<{ role: 'user' | 'model', content: string, sources?: any[] }[]>([
-    { role: 'model', content: "Welcome to your premium cellar door companion. I am powered by Gemini 3 Pro reasoning. How may I assist your palate today?" }
+  const [messages, setMessages] = useState<Message[]>([
+    { role: 'assistant', content: "Welcome. I'm your AI sommelier for the Hunter Valley — ask me anything about wine, wineries, food pairings, or planning your visit." }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const audioContextRef = useRef<AudioContext | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const aiEnabled = isAIEnabled();
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, isLoading]);
 
-  const playTTS = async (text: string) => {
-    try {
-      const base64 = await generateSpeech(text);
-      if (!base64) return;
-      
-      if (!audioContextRef.current) {
-        audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
-      }
-      
-      const audioData = decodeAudio(base64);
-      const dataInt16 = new Int16Array(audioData.buffer);
-      const buffer = audioContextRef.current.createBuffer(1, dataInt16.length, 24000);
-      const channelData = buffer.getChannelData(0);
-      for (let i = 0; i < dataInt16.length; i++) {
-        channelData[i] = dataInt16[i] / 32768.0;
-      }
-      
-      const source = audioContextRef.current.createBufferSource();
-      source.buffer = buffer;
-      source.connect(audioContextRef.current.destination);
-      source.start();
-    } catch (e) {
-      console.error("TTS failed", e);
-    }
-  };
+  useEffect(() => {
+    const up = () => setIsOffline(false);
+    const down = () => setIsOffline(true);
+    window.addEventListener('online', up);
+    window.addEventListener('offline', down);
+    return () => { window.removeEventListener('online', up); window.removeEventListener('offline', down); };
+  }, []);
 
-  const handleSend = async () => {
-    if (isOffline || !input.trim() || isLoading) return;
-
-    const userMsg = input;
+  const handleSend = async (text = input) => {
+    if (isOffline || !text.trim() || isLoading) return;
     setInput('');
-    setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
+    const userMsg: Message = { role: 'user', content: text };
+    setMessages(prev => [...prev, userMsg]);
     setIsLoading(true);
 
     try {
       const weather = await getWeatherContextString();
-      const context = `
-        Current Weather: ${weather}
-        Hunter Valley Knowledge Base: ${WINERIES.map(w => w.name).join(', ')}
-        Capabilities: You can analyze deep vintages, search real-time news, and think critically about pairings.
-      `;
-
-      const { text, sources } = await deepSommelierQuery(userMsg, context);
-      
-      setMessages(prev => [...prev, { 
-        role: 'model', 
-        content: text || "I've carefully considered your request, but the cellar doors seem quiet. Try another query.",
-        sources: sources
-      }]);
-      
-      // Auto-play TTS for model response if short
-      if (text && text.length < 300) {
-        playTTS(text);
-      }
-
-    } catch (err) {
-      setMessages(prev => [...prev, { role: 'model', content: "My reasoning engine encountered a vintage anomaly. Please try again." }]);
+      const context = `Weather: ${weather}. Wineries available: ${WINERIES.map(w => w.name).join(', ')}.`;
+      const history = messages.map(m => ({ role: m.role as 'user' | 'assistant', content: m.content }));
+      const reply = await sommelierChat(text, history, context);
+      setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
+    } catch {
+      setMessages(prev => [...prev, { role: 'assistant', content: "The cellar doors seem quiet right now. Please try again in a moment." }]);
     } finally {
       setIsLoading(false);
+      inputRef.current?.focus();
     }
   };
 
   return (
-    <div className="flex flex-col h-[85vh] max-w-5xl mx-auto bg-white shadow-2xl md:my-6 md:rounded-3xl border border-[#e5e1da] overflow-hidden">
-      <div className="p-6 bg-[#1a1a1a] flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-[#6b1e2e] rounded-full flex items-center justify-center text-white shadow-lg">
-            <Sparkles className="w-6 h-6" />
+    <div className="flex flex-col h-[85vh] max-w-4xl mx-auto bg-white shadow-2xl md:my-6 md:rounded-3xl border border-gray-100 overflow-hidden">
+      {/* Header */}
+      <div className="p-5 bg-[#1a1a1a] flex items-center justify-between shrink-0">
+        <div className="flex items-center gap-3">
+          <div className="w-11 h-11 bg-wine rounded-full flex items-center justify-center shadow-lg">
+            <Sparkles className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-white text-xl font-bold font-serif">Deep Somm Pro</h2>
+            <h2 className="text-white text-lg font-bold font-serif">Somm AI</h2>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
-              <span className="text-[10px] text-white/70 uppercase font-black tracking-widest">Thinking Mode Active</span>
+              <span className={`w-1.5 h-1.5 rounded-full ${aiEnabled && !isOffline ? 'bg-emerald-400 animate-pulse' : 'bg-gray-500'}`} />
+              <span className="text-[10px] text-white/60 uppercase font-bold tracking-widest">
+                {isOffline ? 'Offline' : aiEnabled ? 'Claude Sonnet · Active' : 'AI Proxy Not Configured'}
+              </span>
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-           <div className="bg-white/10 px-3 py-1 rounded-full text-[10px] font-bold text-[#a68d60] border border-white/20 uppercase">
-             Search Grounded
-           </div>
-        </div>
+        <Globe className="w-4 h-4 text-white/30" />
       </div>
 
-      <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 md:p-10 space-y-8 bg-[#fdfcfb]">
+      {/* Suggestions */}
+      {messages.length === 1 && (
+        <div className="px-5 pt-4 pb-2 flex flex-wrap gap-2 shrink-0 border-b border-gray-50">
+          {SUGGESTIONS.map(s => (
+            <button
+              key={s}
+              onClick={() => handleSend(s)}
+              className="text-xs bg-cream-dark text-gray-600 hover:bg-wine hover:text-white px-3 py-1.5 rounded-full transition-colors font-medium"
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Messages */}
+      <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 md:p-8 space-y-6 bg-cream">
         {messages.map((msg, i) => (
-          <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`flex gap-4 max-w-[85%] ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-sm ${msg.role === 'user' ? 'bg-[#a68d60] text-white' : 'bg-white border border-[#e5e1da] text-[#6b1e2e]'}`}>
-                {msg.role === 'user' ? <User className="w-5 h-5" /> : <Bot className="w-5 h-5" />}
+          <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-slide-up`}>
+            <div className={`flex gap-3 max-w-[85%] ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
+              <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 shadow-sm ${msg.role === 'user' ? 'bg-gold text-white' : 'bg-white border border-gray-200 text-wine'}`}>
+                {msg.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
               </div>
-              <div className="space-y-2">
-                <div className={`p-6 rounded-3xl text-sm leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-[#a68d60] text-white rounded-tr-none' : 'bg-white border border-[#e5e1da] text-[#1a1a1a] rounded-tl-none font-serif italic text-lg'}`}>
-                  {msg.content}
-                </div>
-                {msg.sources && msg.sources.length > 0 && (
-                  <div className="flex flex-wrap gap-2 animate-in fade-in slide-in-from-top-2">
-                    {msg.sources.map((s, idx) => s.web && (
-                      <a key={idx} href={s.web.uri} target="_blank" rel="noreferrer" className="text-[9px] font-bold bg-gray-100 text-gray-500 px-2 py-1 rounded-md hover:bg-gray-200 flex items-center gap-1">
-                        <Globe className="w-3 h-3" /> {s.web.title}
-                      </a>
-                    ))}
-                  </div>
-                )}
+              <div className={`p-4 rounded-2xl text-sm leading-relaxed shadow-sm whitespace-pre-wrap ${
+                msg.role === 'user'
+                  ? 'bg-[#1a1a1a] text-white rounded-tr-sm'
+                  : 'bg-white border border-gray-100 text-gray-800 rounded-tl-sm font-serif'
+              }`}>
+                {msg.content}
               </div>
             </div>
           </div>
         ))}
+
         {isLoading && (
-          <div className="flex justify-start">
-            <div className="flex gap-4 items-center">
-              <div className="w-10 h-10 rounded-full bg-white border border-[#e5e1da] flex items-center justify-center text-[#6b1e2e] animate-pulse">
-                <Loader2 className="w-5 h-5 animate-spin" />
+          <div className="flex justify-start animate-fade-in">
+            <div className="flex gap-3 items-center">
+              <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-wine">
+                <Loader2 className="w-4 h-4 animate-spin" />
               </div>
-              <div className="bg-white border border-[#e5e1da] p-4 rounded-2xl flex flex-col gap-1">
-                <span className="text-xs font-black text-purple-600 uppercase tracking-widest flex items-center gap-1">
-                   <Sparkles className="w-3 h-3" /> Analyzing Vintages & Web Sources
+              <div className="bg-white border border-gray-100 px-5 py-3 rounded-2xl rounded-tl-sm">
+                <span className="text-xs font-bold text-wine/70 uppercase tracking-widest flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3" /> Consulting the cellar...
                 </span>
-                <span className="text-sm italic text-gray-400">Gemini 3 Pro is thinking...</span>
+                <div className="flex gap-1 mt-2">
+                  {[0, 1, 2].map(i => (
+                    <div key={i} className="w-1.5 h-1.5 bg-wine/30 rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         )}
       </div>
 
-      <div className="p-6 bg-white border-t border-[#e5e1da]">
-        <div className="relative flex items-center gap-3 max-w-4xl mx-auto">
-          <input 
+      {/* Input */}
+      <div className="p-4 bg-white border-t border-gray-100 shrink-0">
+        {(isOffline || !aiEnabled) && (
+          <div className="flex items-center gap-2 text-xs text-amber-600 bg-amber-50 rounded-xl px-4 py-2.5 mb-3">
+            <WifiOff className="w-3.5 h-3.5 shrink-0" />
+            {isOffline ? 'You\'re offline — connect to chat with the sommelier.' : 'AI proxy not configured. Set VITE_AI_PROXY_URL to enable.'}
+          </div>
+        )}
+        <div className="flex gap-2">
+          <input
+            ref={inputRef}
             value={input}
-            disabled={isOffline || isLoading}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-            placeholder="Ask a complex question about Hunter Valley vintages..."
-            className="flex-1 bg-gray-50 border border-[#e5e1da] rounded-2xl py-5 px-6 focus:outline-none focus:ring-4 focus:ring-[#6b1e2e]/5 text-lg"
+            disabled={isOffline || isLoading || !aiEnabled}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={e => e.key === 'Enter' && !e.shiftKey && handleSend()}
+            placeholder={aiEnabled ? "Ask anything about Hunter Valley wine..." : "AI not configured"}
+            className="flex-1 bg-gray-50 border border-gray-200 rounded-xl py-3.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-wine/20 focus:border-wine/40 disabled:opacity-50 transition"
           />
-          <button 
-            onClick={handleSend}
-            disabled={isLoading || !input.trim() || isOffline}
-            className="p-5 bg-[#1a1a1a] text-white rounded-2xl hover:bg-black transition-all shadow-xl active:scale-95 disabled:opacity-50"
+          <button
+            onClick={() => handleSend()}
+            disabled={isLoading || !input.trim() || isOffline || !aiEnabled}
+            className="p-3.5 bg-[#1a1a1a] text-white rounded-xl hover:bg-black transition-all shadow-lg active:scale-95 disabled:opacity-40"
           >
-            <Send className="w-6 h-6" />
+            <Send className="w-4 h-4" />
           </button>
         </div>
       </div>

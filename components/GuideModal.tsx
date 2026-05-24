@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState, useMemo } from 'react';
 import { X, MessageCircleQuestion, Lightbulb, Sparkles, Loader2, Wine, MapPin, Quote, Phone, Globe, CalendarCheck, Clock, AlertCircle, Star, Users, CheckCircle, ArrowRight, Camera, Utensils, Bird, Image as ImageIcon, ExternalLink, ChevronLeft, Building2, ShoppingBag, Copy, Check, Ticket, Baby, Dog } from 'lucide-react';
-import { generateInsiderGuide, generateReviewSummary } from '../services/geminiService';
+import { generateInsiderGuide, generateReviewSummary } from '../services/claudeService';
 import { WINERIES } from '../data/wineries';
 import { addToCart, getWinePricing } from '../services/commerceService';
 import ImageWithLoader from './ImageWithLoader';
@@ -108,8 +108,7 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
 
         try {
             const details = currentItem.description + (currentItem.specialty ? ` Known for ${currentItem.specialty}.` : '') + (currentItem.category ? ` Category: ${currentItem.category}` : '');
-            const jsonStr = await generateInsiderGuide(currentItem.name, currentType, details);
-            const parsed = JSON.parse(jsonStr);
+            const parsed = await generateInsiderGuide(currentItem.name, currentType, details);
             setInsiderInfo(parsed);
         } catch (e) { 
             console.error("Failed to fetch guide", e);
@@ -129,8 +128,8 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
     if (reviewSummary) return;
     setLoadingReviews(true);
     try {
-        const jsonStr = await generateReviewSummary(currentItem.name);
-        setReviewSummary(JSON.parse(jsonStr));
+        const result = await generateReviewSummary(currentItem.name);
+        setReviewSummary(result);
     } catch (e) { console.error(e); } 
     finally { setLoadingReviews(false); }
   };

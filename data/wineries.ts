@@ -150,6 +150,33 @@ export const WINERIES: Winery[] = [
   { id: 18, name: 'Krinklewood Biodynamic', subregion: 'Broke Fordwich', specialty: 'Biodynamic, Rosé', wines: ['Wild Red', 'Francesca Rosé'], established: 1998, priceRange: '$$', description: 'French-inspired boutique winery run entirely biodynamically.', style: 'Organic', opens: '10:00', closes: '16:30', lat: -32.7300, lng: 151.2500, hasRestaurant: false, rating: 4.8, bookingRequired: true, kidFriendly: true, dogFriendly: true, phone: '02 6579 1322', website: 'https://krinklewood.com', bookingUrl: 'https://krinklewood.com/visit', tastingFee: 15, image: STOCK.WHITE_WINE },
   { id: 19, name: 'First Creek Wines', subregion: 'Pokolbin', specialty: 'Winemaking', wines: ['Winemakers Reserve'], established: 1996, priceRange: '$$', description: 'See the action. They make wine for over 25 other local brands.', style: 'Industrial', opens: '10:00', closes: '17:00', lat: -32.7860, lng: 151.3140, hasRestaurant: false, rating: 4.6, bookingRequired: true, kidFriendly: false, dogFriendly: true, phone: '02 4998 7293', website: 'https://firstcreekwines.com.au', bookingUrl: 'https://firstcreekwines.com.au/visit', tastingFee: 5, image: STOCK.BARREL },
   { id: 20, name: 'Hope Estate', subregion: 'Pokolbin', specialty: 'Shiraz, Beer', wines: ['The Ripper Shiraz'], established: 1994, priceRange: '$$', description: 'Massive venue known for major rock concerts, brewery, and bold wines.', style: 'Entertainment', opens: '10:00', closes: '17:00', lat: -32.7700, lng: 151.3300, hasRestaurant: true, rating: 4.4, bookingRequired: false, kidFriendly: true, dogFriendly: true, phone: '02 4993 3555', website: 'https://hopeestate.com.au', bookingUrl: null, tastingFee: 5, image: STOCK.CELLAR },
+  {
+    id: 21,
+    name: 'Thomas Allen Wines',
+    subregion: 'Pokolbin',
+    specialty: 'Chardonnay, Shiraz, Cabernet Sauvignon',
+    wines: ['Mango Tree Chardonnay', 'The Doctor Cabernet Sauvignon', 'Old School Shiraz Cabernet', 'Alasdair Shiraz'],
+    established: 2009,
+    priceRange: '$$$',
+    description: 'Boutique owner-operated estate on the historic Moon Mountain Vineyard at 1733 Broke Road, with old vines planted in 1969. Founders Craig Brown-Thomas and Steve Allen produce tiny quantities using dry-farming, natural fertilisers, and cork closures under the philosophy of "wines without compromise." The appointment-only cellar door is one of the Hunter Valley\'s best-kept secrets.',
+    style: 'Traditional',
+    opens: '10:00',
+    closes: '17:00',
+    lat: -32.7677,
+    lng: 151.2643,
+    hasRestaurant: false,
+    rating: 4.2,
+    bookingRequired: true,
+    kidFriendly: false,
+    dogFriendly: false,
+    phone: '02 4998 7250',
+    website: 'https://thomasallenwines.com.au',
+    bookingUrl: 'https://thomasallenwines.com.au/reservation/',
+    tastingFee: 0,
+    image: STOCK.VINEYARD,
+    gallery: [STOCK.VINEYARD, STOCK.BARREL, STOCK.RED_WINE],
+    aiTake: 'A by-appointment-only gem on Broke Road — old vines, zero compromise, and the kind of intimate personalised tasting that feels like visiting a friend who just happens to make exceptional wine.'
+  },
 ];
 
 // Curated unique anecdotes for the extended list to ensure every wine feels distinct
@@ -345,6 +372,30 @@ export const WINES: WineDetail[] = [
     description: 'A classic, full-bodied Hunter Shiraz from a great vintage.',
     aiTake: "Michael Hope is a showman, and this wine performs on the palate just like the rockstars on his stage.",
     image: STOCK.RED_WINE, pairings: ['BBQ Ribs', 'Sausages', 'Hard Cheeses']
+  },
+  {
+    id: 'w25', name: 'Mango Tree Chardonnay', wineryId: 21, variety: 'Chardonnay', vintage: '2023', price: '$40', rating: 4.0,
+    description: 'Sourced from old-vine dry-farmed Chardonnay vines planted in 1969 on Moon Mountain Vineyard. Generous stone fruit and melon character is balanced by a minerally acid spine that comes from decades of deep root penetration.',
+    aiTake: "Hunter Chardonnay at its most honest — old vines, dry-farmed intensity, and the kind of textural richness that makes grilled barramundi or a creamy pasta sing.",
+    image: STOCK.WHITE_WINE, pairings: ['Grilled Barramundi', 'Creamy Pasta', 'Soft-ripened Cheese', 'Roast Chicken']
+  },
+  {
+    id: 'w26', name: 'The Doctor Cabernet Sauvignon', wineryId: 21, variety: 'Cabernet Sauvignon', vintage: '2022', price: '$50', rating: 4.1,
+    description: 'Grown on ancient clay-loam soils at Moon Mountain Vineyard, this structured old-vine Cabernet delivers classic dark berry, cedar, and firm tannins built for the cellar. Named after the "Pokolbin Doctor" afternoon sea breeze that moderates ripening and preserves freshness in the fruit.',
+    aiTake: "Lay this one down for five years and it'll reward you like a Médoc — the Doctor breeze does wonders for structure and longevity, making it a natural match for slow-roasted lamb.",
+    image: STOCK.RED_WINE, pairings: ['Slow-roasted Lamb', 'Beef Tenderloin', 'Aged Hard Cheese', 'Mushroom Risotto']
+  },
+  {
+    id: 'w27', name: 'Old School Shiraz Cabernet', wineryId: 21, variety: 'Shiraz Cabernet', vintage: '2022', price: '$45', rating: 4.0,
+    description: 'A classic Hunter Valley red blend harking back to the region\'s tradition of combining Shiraz and Cabernet. Layers spice, leather, and earthy plum with the structural backbone of Cabernet — cork-sealed, hand-crafted, and built to age.',
+    aiTake: "Unapologetically traditional with the rustic soul of a Sunday roast — smoky, savoury, and built to last; exactly what the Hunter was doing before Shiraz-only became fashionable.",
+    image: STOCK.RED_WINE, pairings: ['Roast Beef', 'BBQ Lamb Chops', 'Aged Cheddar', 'Venison']
+  },
+  {
+    id: 'w28', name: 'Alasdair Shiraz', wineryId: 21, variety: 'Shiraz', vintage: '2021', price: '$65', rating: 4.3,
+    description: 'The flagship of the Thomas Allen range, drawing on the oldest Shiraz vines at Moon Mountain Vineyard — 40+ years of deep root penetration delivering concentration, intensity, and a genuine sense of place. Expect classic Hunter earthy tones, dark plum, pepper, and a long savoury finish.',
+    aiTake: "The wine Thomas Allen were born to make — old vines, zero compromise, and enough Hunter earth and dark fruit to hold its own against the region's best; cellar it or crack it alongside a char-grilled ribeye.",
+    image: STOCK.RED_WINE, pairings: ['Char-grilled Ribeye', 'Slow-cooked Short Ribs', 'Duck Confit', 'Truffle Pasta']
   },
   ...UNIQUE_AI_TAKES.map((take, i) => {
     const idNum = i + 40;

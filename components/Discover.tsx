@@ -34,7 +34,7 @@ const COLLECTIONS = [
     title: 'Hidden Gems',
     subtitle: 'Off the Beaten Track',
     description: 'Intimate cellar doors tucked away in the sub-regions. Smaller crowds, bigger conversations.',
-    image: 'https://images.unsplash.com/photo-1596450514735-300486842270?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1445991842772-097fea258e7b?auto=format&fit=crop&q=80&w=800',
     wineryIds: [5, 6, 9],
     color: 'bg-[#a68d60]'
   }

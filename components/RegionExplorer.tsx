@@ -328,7 +328,7 @@ const RegionExplorer: React.FC = () => {
           </div>
           <div className="relative h-[300px] md:h-[400px] bg-gray-100 rounded-[2.5rem] overflow-hidden shadow-xl">
              <img 
-               src="https://images.unsplash.com/photo-1597916829826-0a0d1794713c?auto=format&fit=crop&q=80&w=800"
+               src="https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?auto=format&fit=crop&q=80&w=800"
                className="w-full h-full object-cover"
                alt="Soil Texture"
              />

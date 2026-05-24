@@ -4,29 +4,29 @@ import { Winery, WineDetail } from '../types';
 // --- STOCK IMAGES (VERIFIED WORKING) ---
 const STOCK = {
   VINEYARD: 'https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?auto=format&fit=crop&q=80&w=1200',
-  WHITE_WINE: 'https://images.unsplash.com/photo-1551218372-a282013f41c3?auto=format&fit=crop&q=80&w=800',
+  WHITE_WINE: 'https://images.unsplash.com/photo-1516594798947-e65505dbb29d?auto=format&fit=crop&q=80&w=800',
   RED_WINE: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=800',
   BARREL: 'https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&q=80&w=800',
-  CELLAR: 'https://images.unsplash.com/photo-1572913017567-c39cbdca69af?auto=format&fit=crop&q=80&w=800',
+  CELLAR: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&fit=crop&q=80&w=800',
   SPARKLING: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=800',
   ROSE: 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&q=80&w=800',
-  BOTTLES: 'https://images.unsplash.com/photo-1584305658810-39bd8089f957?auto=format&fit=crop&q=80&w=800',
-  GRAPES: 'https://images.unsplash.com/photo-1596450514735-300486842270?auto=format&fit=crop&q=80&w=800',
+  BOTTLES: 'https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&q=80&w=800',
+  GRAPES: 'https://images.unsplash.com/photo-1506377585622-bedcbb027afc?auto=format&fit=crop&q=80&w=800',
   POURING: 'https://images.unsplash.com/photo-1547595628-c61a29f496f0?auto=format&fit=crop&q=80&w=800'
 };
 
 // --- BESPOKE IMAGES (VERIFIED WORKING) ---
 const BESPOKE = {
-  TYRRELLS: 'https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=800', 
-  AUDREY: 'https://images.unsplash.com/photo-1569931727764-50a1c601e389?auto=format&fit=crop&q=80&w=800', 
-  BROKENWOOD: 'https://images.unsplash.com/photo-1562601579-599dec564e06?auto=format&fit=crop&q=80&w=800', 
-  TEMPUS: 'https://images.unsplash.com/photo-1551218372-a282013f41c3?auto=format&fit=crop&q=80&w=800',
+  TYRRELLS: 'https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=800',
+  AUDREY: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&q=80&w=800',
+  BROKENWOOD: 'https://images.unsplash.com/photo-1562601579-599dec564e06?auto=format&fit=crop&q=80&w=800',
+  TEMPUS: 'https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&q=80&w=800',
   TULLOCH: 'https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&q=80&w=800',
-  BIMBADGEN: 'https://images.unsplash.com/photo-1570539743907-73a7282c6363?auto=format&fit=crop&q=80&w=800',
-  PETERSONS: 'https://images.unsplash.com/photo-1598155523122-38423bb4d6cf?auto=format&fit=crop&q=80&w=800',
+  BIMBADGEN: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?auto=format&fit=crop&q=80&w=800',
+  PETERSONS: 'https://images.unsplash.com/photo-1455729552865-3658a5d39692?auto=format&fit=crop&q=80&w=800',
   USHER: 'https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?auto=format&fit=crop&q=80&w=800',
-  IVANHOE: 'https://images.unsplash.com/photo-1533000758992-972b22b64082?auto=format&fit=crop&q=80&w=800',
-  DEIULIIS: 'https://images.unsplash.com/photo-1564673646879-130be70b4717?auto=format&fit=crop&q=80&w=800',
+  IVANHOE: 'https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&q=80&w=800',
+  DEIULIIS: 'https://images.unsplash.com/photo-1506377585622-bedcbb027afc?auto=format&fit=crop&q=80&w=800',
 };
 
 export const WINERIES: Winery[] = [

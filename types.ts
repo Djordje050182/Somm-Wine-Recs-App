@@ -109,5 +109,18 @@ export enum AppTab {
   CELLAR = 'cellar',
   PARTNERS = 'partners',
   EVENTS = 'events',
-  STUDIO = 'studio'
+  STUDIO = 'studio',
+  ACCOUNT = 'account'
 }
+
+export interface Order {
+  id: string;
+  date: string;
+  items: { wineId: string; name: string; quantity: number; price: number }[];
+  total: number;
+  status: 'Confirmed' | 'Packing' | 'Shipped' | 'Delivered';
+  address: string;
+  wineryName?: string;
+}
+
+export type AccountType = 'consumer' | 'estate_owner';

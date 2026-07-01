@@ -1,19 +1,104 @@
+// ---------------------------------------------------------------------------
+// Somm — core domain types
+// IDs are string slugs, prefixed by region ('hv-tyrrells', 'hv-tyrrells-vat-1-semillon')
+// so that future regions (Barossa, Champagne…) can never collide.
+// ---------------------------------------------------------------------------
 
-export interface UserProfile {
-  name: string;
-  email: string;
-  tier?: string;
+export interface ImageAsset {
+  url: string;
+  source: 'unsplash' | 'pexels' | 'winery' | 'generated';
+  alt: string;
+  credit?: string;
 }
 
+// --- Region -----------------------------------------------------------------
+
+export interface Subregion {
+  id: string;
+  name: string;
+  blurb: string;
+  features: string[];
+}
+
+export interface VintageRating {
+  year: string;
+  rating: number; // 0-100
+  quality: string;
+}
+
+export interface SeasonNote {
+  name: string;
+  range: string;
+  description: string;
+  avgTemp: string;
+}
+
+export interface WeatherData {
+  temp: number;
+  condition: 'Sunny' | 'Cloudy' | 'Rain' | 'Storm' | 'Windy';
+  humidity: number;
+  uvIndex: number;
+  windSpeed: number;
+  forecast: string;
+  recommendation: string;
+}
+
+export interface Region {
+  id: string;              // 'hunter-valley' — used in routes and storage keys
+  name: string;            // 'Hunter Valley'
+  shortName: string;       // 'the Hunter'
+  country: string;
+  state: string;
+  status: 'live' | 'coming-soon';
+  strapline: string;       // editorial one-liner for the switcher and hero
+  heroImage: ImageAsset;
+  centre: { lat: number; lng: number };
+  defaultStart: { name: string; lat: number; lng: number };
+  mapZoom: number;
+  timezone: string;
+  currency: string;        // ISO code, e.g. 'AUD'
+  currencySymbol: string;  // '$'
+  subregions: Subregion[];
+  varietyMix: { name: string; value: number }[];
+  vintages: VintageRating[];
+  seasons: SeasonNote[];
+  terroir: { soils: string; climate: string; story: string };
+  ai: {
+    sommelierPersona: string;
+    signatureProducers: string[];
+    promptContext: string;
+  };
+  weather: { mock: WeatherData };
+}
+
+/** A stub entry for the region switcher — regions we have not built yet. */
+export interface ComingSoonRegion {
+  id: string;
+  name: string;
+  country: string;
+  strapline: string;
+  eta: string; // e.g. 'Coming 2027'
+}
+
+export interface RegionData {
+  region: Region;
+  wineries: Winery[];
+  wines: WineDetail[];
+  experiences: Experience[];
+}
+
+// --- Catalogue --------------------------------------------------------------
+
 export interface Winery {
-  id: number;
+  id: string;              // 'hv-tyrrells'
   name: string;
   subregion: string;
   specialty: string;
-  wines: string[];
+  wines: string[];         // display names of signature wines
   established: number;
   priceRange: string;
   description: string;
+  story?: string;          // longer editorial paragraph (listing page)
   style: string;
   opens: string;
   closes: string;
@@ -24,47 +109,69 @@ export interface Winery {
   bookingRequired: boolean;
   kidFriendly: boolean;
   dogFriendly: boolean;
-  phone: string;
-  website: string;
-  bookingUrl: string | null;
+  phone?: string;
+  website?: string;
+  bookingUrl?: string;
   tastingFee: number;
-  image: string;
-  gallery?: string[]; // Array of image URLs
-  aiTake?: string; // Short AI personalized summary
+  image: ImageAsset;
+  gallery?: ImageAsset[];
+  sommNote?: string;       // the Somm's one-line insider note
 }
 
 export interface WineDetail {
-  id: string;
+  id: string;              // 'hv-tyrrells-vat-1-semillon'
   name: string;
-  wineryId: number;
+  wineryId: string;
   variety: string;
   vintage: string;
-  price: string;
+  price: string;           // display price, e.g. '$95'
   description: string;
-  aiTake: string;
-  image: string;
+  sommNote: string;        // insider note (formerly aiTake)
+  image: ImageAsset;
   rating: number;
   pairings: string[];
+  drinkFrom?: string;      // e.g. '2026'
+  drinkTo?: string;        // e.g. '2038'
 }
 
+export type ExperienceCategory = 'Dining' | 'Adventure' | 'Nature' | 'Golf' | 'Shopping' | 'Family';
+
 export interface Experience {
-  id: string;
+  id: string;              // 'hv-balloon-aloft'
   name: string;
-  category: 'Dining' | 'Adventure' | 'Nature' | 'Golf' | 'Shopping' | 'Family';
+  category: ExperienceCategory;
   subregion: string;
   description: string;
-  image: string;
-  gallery?: string[]; // Array of image URLs
+  image: ImageAsset;
+  gallery?: ImageAsset[];
   rating: number;
   priceRange: string;
-  website: string;
-  bookingUrl?: string; // Added for direct booking links
-  phone: string;
+  website?: string;
+  bookingUrl?: string;
+  phone?: string;
   opens: string;
   closes: string;
-  aiTake: string;
+  sommNote: string;
   lat: number;
   lng: number;
+}
+
+// --- Trip planning ----------------------------------------------------------
+
+export interface ItineraryStop {
+  id: string;
+  name: string;
+  lat: number;
+  lng: number;
+  image: ImageAsset;
+  description: string;
+  specialty?: string;
+  category?: string;
+  arrival: string;
+  driveTime: number;
+  stayDuration: number;
+  isLunchStop: boolean;
+  type: 'winery' | 'experience';
 }
 
 export interface Itinerary {
@@ -74,27 +181,40 @@ export interface Itinerary {
   estimatedEnd: string;
 }
 
+// --- Commerce ---------------------------------------------------------------
+
 export interface CartItem {
   wineId: string;
   quantity: number;
 }
 
-export interface ItineraryStop {
-  id: number | string;
-  name: string;
-  lat: number;
-  lng: number;
-  image: string;
-  description: string;
-  specialty?: string; // Optional (Wineries only)
-  category?: string; // Optional (Experiences only)
-  arrival: string;
-  driveTime: number;
-  stayDuration: number;
-  isLunchStop: boolean;
-  type: 'winery' | 'experience';
+export interface Order {
+  id: string;
+  date: string;
+  items: { wineId: string; name: string; quantity: number; price: number }[];
+  total: number;
+  status: 'Confirmed' | 'Packing' | 'Shipped' | 'Delivered';
+  address: string;
+  wineryName?: string;
 }
 
+// --- Users ------------------------------------------------------------------
+
+export type UserRole = 'consumer' | 'winery';
+
+export interface AuthUser {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  wineryId?: string;       // winery role only
+  tier?: string;
+  createdAt: string;
+}
+
+// --- DEPRECATED — legacy compatibility during the rework; do not use in new code ---
+
+/** @deprecated Navigation is now route-based (react-router). Will be removed. */
 export enum AppTab {
   DISCOVER = 'discover',
   PLANNER = 'planner',
@@ -113,14 +233,12 @@ export enum AppTab {
   ACCOUNT = 'account'
 }
 
-export interface Order {
-  id: string;
-  date: string;
-  items: { wineId: string; name: string; quantity: number; price: number }[];
-  total: number;
-  status: 'Confirmed' | 'Packing' | 'Shipped' | 'Delivered';
-  address: string;
-  wineryName?: string;
-}
-
+/** @deprecated Use UserRole ('consumer' | 'winery'). */
 export type AccountType = 'consumer' | 'estate_owner';
+
+/** @deprecated Use AuthUser. */
+export interface UserProfile {
+  name: string;
+  email: string;
+  tier?: string;
+}

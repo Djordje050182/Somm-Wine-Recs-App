@@ -1,8 +1,0 @@
-{
-  "name": "Somm: Regional Wine Guide companion",
-  "description": "An AI-first premium wine discovery platform focusing on the heritage of Hunter Valley and global regions, featuring a Live AI Sommelier, visual wine scanner, and interactive regional insights.",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ]
-}

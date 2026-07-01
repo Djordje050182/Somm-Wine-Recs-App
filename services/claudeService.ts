@@ -1,7 +1,10 @@
 // Claude AI service — all AI calls go through a Cloudflare Worker proxy.
 // The proxy URL comes from VITE_AI_PROXY_URL env var; if absent, AI features are disabled.
+// Every function is region-parameterised: pass the active Region from useRegion().
 
-const PROXY_URL = (typeof process !== 'undefined' && process.env?.VITE_AI_PROXY_URL) || 
+import { Region } from '../types';
+
+const PROXY_URL = (typeof process !== 'undefined' && process.env?.VITE_AI_PROXY_URL) ||
                   (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_AI_PROXY_URL);
 
 export const isAIEnabled = (): boolean => !!PROXY_URL;
@@ -46,28 +49,31 @@ async function callClaudeJSON<T>(
   return JSON.parse(jsonStr.trim());
 }
 
-const SOMMELIER_SYSTEM = `You are a Master Sommelier with 20 years of experience specialising in the Hunter Valley, NSW, Australia. 
-You have deep knowledge of Tyrrell's, Brokenwood, Audrey Wilkinson, and all major Hunter Valley producers.
-You speak with warmth, authority, and a love for food, wine, and regional tourism.
-Keep answers concise, insightful, and practical. When recommending wines, include food pairings.`;
+const sommelierSystem = (region: Region): string =>
+  `You are the Somm — a Master Sommelier with twenty years of experience specialising in ${region.name}, ${region.state}, ${region.country}.
+${region.ai.sommelierPersona}
+You know ${region.ai.signatureProducers.join(', ')} and every serious producer in the region personally.
+${region.ai.promptContext}
+Write in British English. Never use emoji. Keep answers concise, insightful and practical. When recommending wines, include food pairings.`;
 
 export const sommelierChat = async (
+  region: Region,
   userMessage: string,
   history: ClaudeMessage[] = [],
   context = ''
 ): Promise<string> => {
-  const system = SOMMELIER_SYSTEM + (context ? `\n\nContext: ${context}` : '');
+  const system = sommelierSystem(region) + (context ? `\n\nContext: ${context}` : '');
   return callClaude([...history, { role: 'user', content: userMessage }], system, 1024);
 };
 
 export const generateTripItinerary = async (
+  region: Region,
   days: number,
   group: string,
   vibe: string,
   wineryNames: string[]
 ) => {
-  const system = SOMMELIER_SYSTEM;
-  const prompt = `Create a ${days}-day wine tour itinerary in the Hunter Valley for: ${group}, vibe: ${vibe}.
+  const prompt = `Create a ${days}-day wine tour itinerary in ${region.name} for: ${group}, vibe: ${vibe}.
 Available wineries: ${wineryNames.join(', ')}.
 Return ONLY valid JSON (no markdown fences) matching this shape:
 {
@@ -83,10 +89,10 @@ Return ONLY valid JSON (no markdown fences) matching this shape:
     }]
   }]
 }`;
-  return callClaudeJSON<any>([{ role: 'user', content: prompt }], system, 3000);
+  return callClaudeJSON<any>([{ role: 'user', content: prompt }], sommelierSystem(region), 3000);
 };
 
-export const analyzeWineLabel = async (base64Image: string): Promise<{
+export const analyzeWineLabel = async (region: Region, base64Image: string): Promise<{
   isWine: boolean;
   wineName?: string;
   producer?: string;
@@ -105,12 +111,12 @@ export const analyzeWineLabel = async (base64Image: string): Promise<{
     body: JSON.stringify({
       model: MODEL,
       max_tokens: 1024,
-      system: SOMMELIER_SYSTEM,
+      system: sommelierSystem(region),
       messages: [{
         role: 'user',
         content: [
           { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: base64Image } },
-          { type: 'text', text: `Analyze this wine label image. Return ONLY valid JSON (no markdown):
+          { type: 'text', text: `Analyse this wine label image. Return ONLY valid JSON (no markdown):
 {
   "isWine": boolean,
   "wineName": "string or null",
@@ -134,61 +140,64 @@ export const analyzeWineLabel = async (base64Image: string): Promise<{
 };
 
 export const getFoodPairings = async (
+  region: Region,
   wineName: string,
   variety: string,
   notes: string
-): Promise<{ pairings: Array<{ food: string; reason: string; emoji: string }> }> => {
+): Promise<{ pairings: Array<{ food: string; reason: string }> }> => {
   const prompt = `For the wine "${wineName}" (${variety}): ${notes}
 Return ONLY valid JSON with 6 food pairings:
-{"pairings":[{"food":"string","reason":"one sentence","emoji":"single emoji"}]}`;
-  return callClaudeJSON([{ role: 'user', content: prompt }], SOMMELIER_SYSTEM, 800);
+{"pairings":[{"food":"string","reason":"one sentence"}]}`;
+  return callClaudeJSON([{ role: 'user', content: prompt }], sommelierSystem(region), 800);
 };
 
 export const generateInsiderGuide = async (
+  region: Region,
   name: string,
   type: string,
   details: string
 ): Promise<{ icebreaker: string; proMove: string; hiddenGem: string }> => {
-  const prompt = `Generate an insider guide for ${name} (${type}) in the Hunter Valley. Context: ${details}.
+  const prompt = `Generate an insider guide for ${name} (${type}) in ${region.name}. Context: ${details}.
 Return ONLY valid JSON:
 {"icebreaker":"string","proMove":"string","hiddenGem":"string"}`;
-  return callClaudeJSON([{ role: 'user', content: prompt }], SOMMELIER_SYSTEM, 600);
+  return callClaudeJSON([{ role: 'user', content: prompt }], sommelierSystem(region), 600);
 };
 
-export const generateReviewSummary = async (name: string): Promise<{
+export const generateReviewSummary = async (region: Region, name: string): Promise<{
   serviceScore: number;
   atmosphereScore: number;
   valueScore: number;
   summary: string;
   frequentMentions: string[];
 }> => {
-  const prompt = `Generate a realistic community review summary for ${name} winery in Hunter Valley.
+  const prompt = `Generate a realistic community review summary for ${name} winery in ${region.name}.
 Return ONLY valid JSON:
 {"serviceScore":number,"atmosphereScore":number,"valueScore":number,"summary":"string","frequentMentions":["string"]}`;
-  return callClaudeJSON([{ role: 'user', content: prompt }], SOMMELIER_SYSTEM, 600);
+  return callClaudeJSON([{ role: 'user', content: prompt }], sommelierSystem(region), 600);
 };
 
-export const getVintageReport = async (winery: string, year?: number): Promise<string> => {
+export const getVintageReport = async (region: Region, winery: string, year?: number): Promise<string> => {
   const y = year ?? new Date().getFullYear() - 1;
   return callClaude(
-    [{ role: 'user', content: `Give me a concise vintage report for ${winery} in ${y} Hunter Valley season. 3-4 sentences.` }],
-    SOMMELIER_SYSTEM,
+    [{ role: 'user', content: `Give me a concise vintage report for ${winery} in the ${y} ${region.name} season. 3-4 sentences.` }],
+    sommelierSystem(region),
     400
   );
 };
 
 export const getCellarAdvice = async (
+  region: Region,
   wines: Array<{ name: string; variety: string; vintage: string; quantity: number }>
 ): Promise<string> => {
   const list = wines.map(w => `${w.quantity}x ${w.vintage} ${w.name} (${w.variety})`).join(', ');
   return callClaude(
     [{ role: 'user', content: `I have these wines in my cellar: ${list}. Give me a drinking window plan and any urgent drink-now recommendations. Be concise.` }],
-    SOMMELIER_SYSTEM,
+    sommelierSystem(region),
     600
   );
 };
 
-export const searchEvents = async (): Promise<Array<{
+export const searchEvents = async (region: Region): Promise<Array<{
   title: string;
   category: string;
   date: string;
@@ -196,9 +205,9 @@ export const searchEvents = async (): Promise<Array<{
   description: string;
 }>> => {
   const result = await callClaudeJSON<{ events: any[] }>(
-    [{ role: 'user', content: `List 8 types of events and festivals that typically happen in Hunter Valley wine country throughout the year. Include harvest festival, winemaker dinners, jazz in the vines, etc. Make dates realistic for 2025-2026.
+    [{ role: 'user', content: `List 8 types of events and festivals that typically happen in ${region.name} wine country throughout the year. Include harvest festivals, winemaker dinners, music in the vines, and the like. Make dates realistic for the coming twelve months.
 Return ONLY valid JSON: {"events":[{"title":"string","category":"string","date":"string","location":"string","description":"string"}]}` }],
-    SOMMELIER_SYSTEM,
+    sommelierSystem(region),
     1200
   );
   return result.events ?? [];

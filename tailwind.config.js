@@ -4,28 +4,42 @@ export default {
     "./index.html",
     "./*.tsx",
     "./components/**/*.tsx",
+    "./features/**/*.tsx",
+    "./layouts/**/*.tsx",
+    "./contexts/**/*.tsx",
   ],
   theme: {
     extend: {
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
-        sans: ['Inter', 'sans-serif'],
+        display: ['Fraunces', 'Georgia', 'serif'],
+        body: ['Newsreader', 'Georgia', 'serif'],
+        ui: ['Archivo', 'system-ui', 'sans-serif'],
+        // legacy aliases so unconverted components inherit the new faces
+        serif: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Archivo', 'system-ui', 'sans-serif'],
       },
       colors: {
-        wine: {
-          DEFAULT: '#6b1e2e',
-          dark: '#4a1320',
-          light: '#8b2e42',
+        ink: '#211A16',
+        parchment: '#F6F1E7',
+        paper: '#FFFDF8',
+        claret: {
+          DEFAULT: '#5E1A26',
+          deep: '#40111B',
         },
-        gold: {
-          DEFAULT: '#a68d60',
-          light: '#c4aa7a',
-          dark: '#7a6440',
+        brass: {
+          DEFAULT: '#96742E',
+          soft: '#B79A5B',
         },
-        cream: {
-          DEFAULT: '#fdfcfb',
-          dark: '#f5f0e8',
-        },
+        vine: '#4A5D3A',
+        hairline: '#E2D9C8',
+        terracotta: '#B4552D',
+        // legacy aliases (old components used wine/gold/cream) — mapped to new palette
+        wine: { DEFAULT: '#5E1A26', dark: '#40111B', light: '#7A2433' },
+        gold: { DEFAULT: '#96742E', light: '#B79A5B', dark: '#75591F' },
+        cream: { DEFAULT: '#F6F1E7', dark: '#EDE5D4' },
+      },
+      letterSpacing: {
+        kicker: '0.12em',
       },
       animation: {
         'fade-in': 'fadeIn 0.4s ease-out',
@@ -35,10 +49,9 @@ export default {
       keyframes: {
         fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
         slideUp: { from: { opacity: '0', transform: 'translateY(16px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
-        scaleIn: { from: { opacity: '0', transform: 'scale(0.95)' }, to: { opacity: '1', transform: 'scale(1)' } },
+        scaleIn: { from: { opacity: '0', transform: 'scale(0.98)' }, to: { opacity: '1', transform: 'scale(1)' } },
       },
     },
   },
   plugins: [],
 }
-

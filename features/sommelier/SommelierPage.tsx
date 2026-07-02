@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Camera, MessageSquare } from 'lucide-react';
+import { Camera, MessageSquare, Mic } from 'lucide-react';
 import SommelierChat from '../../components/SommelierChat';
 import WineScanner from '../../components/WineScanner';
+import VoiceSomm from './VoiceSomm';
 import { useAuth } from '../../contexts/AuthContext';
 
-// The Somm — chat with the region's master sommelier, or point the camera
-// at a label and let them read it.
+// The Somm — chat with the region's master sommelier, talk to him out loud,
+// or point the camera at a label and let him read it.
 
 const SommelierPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const { user } = useAuth();
-  const [mode, setMode] = useState<'chat' | 'scan'>(searchParams.get('scan') ? 'scan' : 'chat');
+  const [mode, setMode] = useState<'chat' | 'scan' | 'talk'>(searchParams.get('scan') ? 'scan' : 'chat');
 
   useEffect(() => {
     if (searchParams.get('scan')) setMode('scan');
@@ -29,6 +30,14 @@ const SommelierPage: React.FC = () => {
           <MessageSquare className="w-4 h-4" /> Ask the Somm
         </button>
         <button
+          onClick={() => setMode('talk')}
+          className={`flex items-center gap-2 font-ui text-sm font-semibold pb-3 -mb-px border-b-2 transition-colors ${
+            mode === 'talk' ? 'border-claret text-claret' : 'border-transparent text-ink/50 hover:text-ink'
+          }`}
+        >
+          <Mic className="w-4 h-4" /> Talk to the Somm
+        </button>
+        <button
           onClick={() => setMode('scan')}
           className={`flex items-center gap-2 font-ui text-sm font-semibold pb-3 -mb-px border-b-2 transition-colors ${
             mode === 'scan' ? 'border-claret text-claret' : 'border-transparent text-ink/50 hover:text-ink'
@@ -38,7 +47,9 @@ const SommelierPage: React.FC = () => {
         </button>
       </div>
 
-      {mode === 'chat' ? <SommelierChat /> : <WineScanner user={user} />}
+      {mode === 'chat' && <SommelierChat />}
+      {mode === 'talk' && <VoiceSomm />}
+      {mode === 'scan' && <WineScanner user={user} />}
     </div>
   );
 };

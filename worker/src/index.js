@@ -16,6 +16,7 @@ function corsHeaders(origin) {
 export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
+    const url = new URL(request.url);
 
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders(origin) });
@@ -25,6 +26,19 @@ export default {
       return new Response('Method not allowed', { status: 405 });
     }
 
+    // Future Stripe Checkout endpoint. The client's stripePaymentProvider will
+    // POST { lines: [{description, unitAmount, quantity, ref}], currency,
+    // customerEmail, mode: 'payment' | 'subscription', tierId? } and expect
+    // { url } — a Stripe Checkout Session URL created server-side with
+    // env.STRIPE_SECRET_KEY. Not yet implemented.
+    if (url.pathname === '/checkout') {
+      return new Response(
+        JSON.stringify({ error: 'Checkout is not live yet — the app runs demonstration payments client-side.' }),
+        { status: 501, headers: { 'Content-Type': 'application/json', ...corsHeaders(origin) } }
+      );
+    }
+
+    // Default: proxy to the Claude Messages API (path '/' or '/ai').
     try {
       const body = await request.json();
       const res = await fetch('https://api.anthropic.com/v1/messages', {

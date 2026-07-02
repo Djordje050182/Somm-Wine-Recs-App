@@ -1,190 +1,187 @@
-
 import React, { useState } from 'react';
-import { X, Wine, Building2, User, Eye, EyeOff, ArrowRight, CheckCircle } from 'lucide-react';
-import { AccountType } from '../types';
-import { WINERIES } from '../data/wineries';
+import { X, Wine, Building2 } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import { useRegion } from '../contexts/RegionContext';
+import { useNavigate } from 'react-router-dom';
+import { UserRole } from '../types';
+import { Button } from './ui';
 
 interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onLogin: (user: { name: string; email: string; tier?: string; accountType: AccountType; wineryId?: number }) => void;
 }
 
-const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onLogin }) => {
-  const [mode, setMode] = useState<'login' | 'signup'>('login');
-  const [accountType, setAccountType] = useState<AccountType>('consumer');
-  const [showPassword, setShowPassword] = useState(false);
+const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
+  const { signIn, signUp } = useAuth();
+  const { region, wineries, regionId } = useRegion();
+  const navigate = useNavigate();
+
+  const [mode, setMode] = useState<'signin' | 'signup'>('signin');
+  const [role, setRole] = useState<UserRole>('consumer');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [wineryId, setWineryId] = useState<number | null>(null);
+  const [wineryId, setWineryId] = useState('');
   const [error, setError] = useState('');
+  const [busy, setBusy] = useState(false);
 
   if (!isOpen) return null;
 
-  const reset = () => {
-    setName(''); setEmail(''); setPassword(''); setError(''); setWineryId(null);
-  };
-
-  const handleSubmit = () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setError('');
-    if (!email || !password) { setError('Please fill in all fields.'); return; }
-    if (mode === 'signup' && !name) { setError('Please enter your name.'); return; }
-    if (accountType === 'estate_owner' && !wineryId) { setError('Please select your winery.'); return; }
+    setBusy(true);
+    try {
+      const result =
+        mode === 'signin'
+          ? await signIn(email, password)
+          : await signUp({
+              name,
+              email,
+              password,
+              role,
+              wineryId: role === 'winery' ? wineryId || undefined : undefined,
+            });
 
-    const savedUsers: any[] = JSON.parse(localStorage.getItem('sommUsers') || '[]');
-
-    if (mode === 'login') {
-      const existing = savedUsers.find(u => u.email === email);
-      if (!existing) { setError('No account found with that email.'); return; }
-      if (existing.password !== password) { setError('Incorrect password.'); return; }
-      const { password: _, ...user } = existing;
-      onLogin(user);
-    } else {
-      if (savedUsers.find(u => u.email === email)) { setError('An account with this email already exists.'); return; }
-      const winery = wineryId ? WINERIES.find(w => w.id === wineryId) : null;
-      const newUser = {
-        name: accountType === 'estate_owner' ? (winery?.name || name) : name,
-        email,
-        password,
-        tier: accountType === 'estate_owner' ? 'Free' : 'Member',
-        accountType,
-        wineryId: wineryId || undefined,
-      };
-      savedUsers.push(newUser);
-      localStorage.setItem('sommUsers', JSON.stringify(savedUsers));
-      const { password: _, ...user } = newUser;
-      onLogin(user);
+      if (result.ok === false) {
+        setError(result.error);
+        return;
+      }
+      onClose();
+      if (result.user.role === 'winery') {
+        navigate(`/${regionId}/portal`);
+      }
+    } finally {
+      setBusy(false);
     }
-    reset();
   };
+
+  const inputClass =
+    'w-full bg-paper border border-hairline rounded-sm px-3.5 py-2.5 font-ui text-sm text-ink placeholder:text-ink/30 focus:outline-none focus:border-claret transition-colors';
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-white rounded-[2rem] shadow-2xl w-full max-w-lg overflow-hidden animate-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-ink/50" onClick={onClose} />
+      <div className="relative bg-parchment border border-hairline rounded-sm w-full max-w-md animate-scale-in max-h-[90vh] overflow-y-auto">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-ink/40 hover:text-ink transition-colors"
+          aria-label="Close"
+        >
+          <X className="w-5 h-5" />
+        </button>
 
-        {/* Header */}
-        <div className="bg-[#1a1a1a] px-8 pt-8 pb-10 relative overflow-hidden">
-          <div className="absolute -top-8 -right-8 w-48 h-48 bg-[#6b1e2e] rounded-full blur-[60px] opacity-50 pointer-events-none" />
-          <button onClick={onClose} className="absolute top-5 right-5 text-white/50 hover:text-white transition-colors">
-            <X className="w-5 h-5" />
-          </button>
-          <div className="relative z-10">
-            <div className="flex items-center gap-2 mb-5">
-              <div className="bg-white/10 p-2 rounded-xl"><Wine className="w-5 h-5 text-[#a68d60]" /></div>
-              <span className="font-serif font-bold text-white text-xl">Somm<span className="text-[#a68d60]">.</span></span>
-            </div>
-            <h2 className="text-2xl font-bold text-white font-serif mb-1">
-              {mode === 'login' ? 'Welcome back' : 'Create your account'}
-            </h2>
-            <p className="text-white/50 text-sm">
-              {mode === 'login' ? 'Sign in to access your account.' : 'Join the Hunter Valley wine community.'}
-            </p>
-          </div>
-        </div>
+        <div className="p-8">
+          <p className="kicker mb-2">{mode === 'signin' ? 'Welcome back' : 'Join the table'}</p>
+          <h2 className="font-display text-3xl text-ink mb-1">
+            {mode === 'signin' ? 'Good to see you again.' : 'Pull up a chair.'}
+          </h2>
+          <p className="font-body text-ink/50 mb-6">
+            {mode === 'signin'
+              ? 'Your cellar, cases and saved estates are where you left them.'
+              : 'Keep a cellar, save the estates you love, and let the Somm get to know your taste.'}
+          </p>
 
-        <div className="px-8 py-8 space-y-5">
-          {/* Account type selector */}
-          <div className="grid grid-cols-2 gap-3">
-            <button
-              onClick={() => setAccountType('consumer')}
-              className={`flex items-center gap-3 p-4 rounded-2xl border-2 transition-all ${accountType === 'consumer' ? 'border-[#6b1e2e] bg-[#6b1e2e]/5' : 'border-gray-100 hover:border-gray-200'}`}
-            >
-              <div className={`p-2 rounded-xl ${accountType === 'consumer' ? 'bg-[#6b1e2e] text-white' : 'bg-gray-100 text-gray-400'}`}>
-                <User className="w-4 h-4" />
-              </div>
-              <div className="text-left">
-                <div className="font-bold text-sm text-[#1a1a1a]">Wine Lover</div>
-                <div className="text-[10px] text-gray-400">Explore & buy</div>
-              </div>
-            </button>
-            <button
-              onClick={() => setAccountType('estate_owner')}
-              className={`flex items-center gap-3 p-4 rounded-2xl border-2 transition-all ${accountType === 'estate_owner' ? 'border-[#a68d60] bg-[#a68d60]/5' : 'border-gray-100 hover:border-gray-200'}`}
-            >
-              <div className={`p-2 rounded-xl ${accountType === 'estate_owner' ? 'bg-[#a68d60] text-white' : 'bg-gray-100 text-gray-400'}`}>
-                <Building2 className="w-4 h-4" />
-              </div>
-              <div className="text-left">
-                <div className="font-bold text-sm text-[#1a1a1a]">Estate Owner</div>
-                <div className="text-[10px] text-gray-400">Manage & sell</div>
-              </div>
-            </button>
-          </div>
-
-          {/* Estate selector */}
-          {accountType === 'estate_owner' && (
-            <div>
-              <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Your Winery</label>
-              <select
-                className="w-full bg-[#f8f4f0] p-3.5 rounded-xl font-medium text-[#1a1a1a] focus:outline-none focus:ring-2 focus:ring-[#a68d60]/30"
-                value={wineryId || ''}
-                onChange={e => setWineryId(Number(e.target.value))}
+          {mode === 'signup' && (
+            <div className="grid grid-cols-2 gap-2 mb-5">
+              <button
+                type="button"
+                onClick={() => setRole('consumer')}
+                className={`flex flex-col items-start gap-1.5 border rounded-sm p-3.5 text-left transition-colors ${
+                  role === 'consumer' ? 'border-claret bg-paper' : 'border-hairline hover:border-ink/30'
+                }`}
               >
-                <option value="" disabled>Select your estate...</option>
-                {WINERIES.map(w => <option key={w.id} value={w.id}>{w.name}</option>)}
-              </select>
-            </div>
-          )}
-
-          {/* Name (signup only) */}
-          {mode === 'signup' && accountType === 'consumer' && (
-            <div>
-              <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Full Name</label>
-              <input
-                type="text" value={name} onChange={e => setName(e.target.value)}
-                className="w-full bg-white border border-[#e5e1da] p-3.5 rounded-xl focus:outline-none focus:border-[#6b1e2e]"
-                placeholder="Alex Sommelier"
-              />
-            </div>
-          )}
-
-          {/* Email */}
-          <div>
-            <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Email</label>
-            <input
-              type="email" value={email} onChange={e => setEmail(e.target.value)}
-              className="w-full bg-white border border-[#e5e1da] p-3.5 rounded-xl focus:outline-none focus:border-[#6b1e2e]"
-              placeholder="you@example.com"
-            />
-          </div>
-
-          {/* Password */}
-          <div>
-            <label className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Password</label>
-            <div className="relative">
-              <input
-                type={showPassword ? 'text' : 'password'} value={password} onChange={e => setPassword(e.target.value)}
-                className="w-full bg-white border border-[#e5e1da] p-3.5 pr-12 rounded-xl focus:outline-none focus:border-[#6b1e2e]"
-                placeholder="••••••••"
-                onKeyDown={e => e.key === 'Enter' && handleSubmit()}
-              />
-              <button onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
-                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                <Wine className={`w-4 h-4 ${role === 'consumer' ? 'text-claret' : 'text-ink/40'}`} />
+                <span className="font-ui text-xs font-semibold text-ink">Wine lover</span>
+                <span className="font-body text-xs text-ink/50 leading-snug">Explore, plan and collect</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setRole('winery')}
+                className={`flex flex-col items-start gap-1.5 border rounded-sm p-3.5 text-left transition-colors ${
+                  role === 'winery' ? 'border-claret bg-paper' : 'border-hairline hover:border-ink/30'
+                }`}
+              >
+                <Building2 className={`w-4 h-4 ${role === 'winery' ? 'text-claret' : 'text-ink/40'}`} />
+                <span className="font-ui text-xs font-semibold text-ink">Winery</span>
+                <span className="font-body text-xs text-ink/50 leading-snug">Manage your listing and wines</span>
               </button>
             </div>
-          </div>
-
-          {error && (
-            <p className="text-sm text-red-600 bg-red-50 px-4 py-3 rounded-xl font-medium">{error}</p>
           )}
 
-          <button
-            onClick={handleSubmit}
-            className={`w-full py-4 rounded-xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98] ${accountType === 'estate_owner' ? 'bg-[#a68d60] hover:bg-[#8e7850] text-white' : 'bg-[#6b1e2e] hover:bg-[#852539] text-white'}`}
-          >
-            {mode === 'login' ? 'Sign In' : 'Create Account'} <ArrowRight className="w-5 h-5" />
-          </button>
+          <form onSubmit={handleSubmit} className="space-y-3">
+            {mode === 'signup' && (
+              <input
+                type="text"
+                placeholder={role === 'winery' ? 'Your name' : 'Full name'}
+                value={name}
+                onChange={e => setName(e.target.value)}
+                className={inputClass}
+                required
+              />
+            )}
+            {mode === 'signup' && role === 'winery' && (
+              <select
+                value={wineryId}
+                onChange={e => setWineryId(e.target.value)}
+                className={inputClass}
+                required
+              >
+                <option value="">Select your estate in {region.name}…</option>
+                {[...wineries]
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map(w => (
+                    <option key={w.id} value={w.id}>
+                      {w.name}
+                    </option>
+                  ))}
+              </select>
+            )}
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              className={inputClass}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              className={inputClass}
+              required
+              minLength={mode === 'signup' ? 6 : undefined}
+            />
 
-          <p className="text-center text-sm text-gray-400">
-            {mode === 'login' ? "Don't have an account? " : 'Already have an account? '}
-            <button
-              onClick={() => { setMode(mode === 'login' ? 'signup' : 'login'); reset(); }}
-              className="text-[#6b1e2e] font-bold hover:underline"
-            >
-              {mode === 'login' ? 'Sign up' : 'Sign in'}
-            </button>
+            {error && <p className="font-ui text-xs text-terracotta">{error}</p>}
+
+            <Button type="submit" disabled={busy} className="w-full" size="lg">
+              {busy ? 'One moment…' : mode === 'signin' ? 'Sign in' : 'Create account'}
+            </Button>
+          </form>
+
+          <p className="font-body text-sm text-ink/50 mt-5 text-center">
+            {mode === 'signin' ? (
+              <>
+                New here?{' '}
+                <button onClick={() => { setMode('signup'); setError(''); }} className="text-claret font-semibold hover:underline">
+                  Create an account
+                </button>
+              </>
+            ) : (
+              <>
+                Already at the table?{' '}
+                <button onClick={() => { setMode('signin'); setError(''); }} className="text-claret font-semibold hover:underline">
+                  Sign in
+                </button>
+              </>
+            )}
+          </p>
+
+          <p className="font-ui text-[10px] text-ink/30 mt-6 text-center uppercase tracking-kicker">
+            Demonstration accounts — stored on this device only
           </p>
         </div>
       </div>

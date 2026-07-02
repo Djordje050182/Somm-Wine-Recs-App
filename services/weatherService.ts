@@ -1,34 +1,17 @@
+// Weather service — mock data lives on each Region config, so every region
+// brings its own weather. Swap getCurrentWeather's body for a real API
+// (OpenWeatherMap / BOM) without touching any caller.
 
-// Mock Live Weather Service for Hunter Valley (Pokolbin)
-// In a real app, this would fetch from OpenWeatherMap or BOM API
+import { Region, WeatherData } from '../types';
 
-export interface WeatherData {
-  temp: number;
-  condition: 'Sunny' | 'Cloudy' | 'Rain' | 'Storm' | 'Windy';
-  humidity: number;
-  uvIndex: number; // 0-11
-  windSpeed: number; // km/h
-  forecast: string;
-  recommendation: string; // Dynamic Sommelier advice based on weather
-}
+export type { WeatherData };
 
-export const getCurrentWeather = async (): Promise<WeatherData> => {
-  // Simulating an API call latency
+export const getCurrentWeather = async (region: Region): Promise<WeatherData> => {
   await new Promise(resolve => setTimeout(resolve, 300));
-
-  // MOCK DATA: A beautiful Hunter Valley Spring Day
-  return {
-    temp: 24,
-    condition: 'Sunny',
-    humidity: 45,
-    uvIndex: 6,
-    windSpeed: 12,
-    forecast: "Clear skies continuing into the evening. Perfect sunset potential.",
-    recommendation: "Perfect conditions for a veranda tasting. We recommend starting with a crisp Semillon before it warms up."
-  };
+  return region.weather.mock;
 };
 
-export const getWeatherContextString = async (): Promise<string> => {
-  const w = await getCurrentWeather();
-  return `Current Weather in Hunter Valley: ${w.temp}°C, ${w.condition}. Wind: ${w.windSpeed}km/h. Recommendation: ${w.recommendation}`;
+export const getWeatherContextString = async (region: Region): Promise<string> => {
+  const w = await getCurrentWeather(region);
+  return `Current weather in ${region.name}: ${w.temp}°C, ${w.condition}. Wind: ${w.windSpeed}km/h. Recommendation: ${w.recommendation}`;
 };

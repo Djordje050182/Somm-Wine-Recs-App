@@ -4,12 +4,27 @@
 
 @layer base {
   body {
-    font-family: 'Inter', sans-serif;
-    background-color: #fdfcfb;
+    font-family: 'Archivo', system-ui, sans-serif;
+    background-color: #F6F1E7;
+    color: #211A16;
   }
-  h1, h2, h3, .font-serif {
-    font-family: 'Playfair Display', serif;
+  h1, h2, h3, .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+  ::selection {
+    background-color: #5E1A26;
+    color: #F6F1E7;
   }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@layer components {
+  /* Small-caps kicker above headlines — the house idiom */
+  .kicker {
+    @apply font-ui text-[11px] font-semibold uppercase tracking-kicker text-brass;
+  }
+  .hairline-rule {
+    @apply border-t border-hairline;
+  }
 }

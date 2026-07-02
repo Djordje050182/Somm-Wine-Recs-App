@@ -1,6 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { Plus, Trash2, Loader2, Wine, Clock } from 'lucide-react';
 import { getCellarAdvice, isAIEnabled } from '../services/claudeService';
-import { Plus, Trash2, Sparkles, Loader2, Wine, Clock, PackageOpen } from 'lucide-react';
+import { useRegion } from '../contexts/RegionContext';
+import { useCatalog } from '../contexts/CatalogContext';
+import { SectionHeading, Button, Card, Kicker, EmptyState, Tag } from './ui';
+
+// My cellar — the bottles the user actually owns, laid down on this device.
+// The Somm will tell you when to pull the corks.
+
+const CELLAR_KEY = 'sommMyCellar';
 
 interface CellarEntry {
   id: string;
@@ -11,27 +19,46 @@ interface CellarEntry {
   addedDate: string;
 }
 
-const VARIETIES = ['Semillon', 'Chardonnay', 'Shiraz', 'Cabernet Sauvignon', 'Pinot Noir', 'Verdelho', 'Merlot', 'Sparkling', 'Other'];
-
 const CellarTracker: React.FC = () => {
+  const { region } = useRegion();
+  const { wines } = useCatalog();
+
+  const varieties = useMemo(() => {
+    const fromRegion = region.varietyMix.map(v => v.name);
+    return [...fromRegion, 'Other'];
+  }, [region]);
+
   const [cellar, setCellar] = useState<CellarEntry[]>(() => {
-    try { return JSON.parse(localStorage.getItem('sommCellar') || '[]'); } catch { return []; }
+    try {
+      return JSON.parse(localStorage.getItem(CELLAR_KEY) || '[]');
+    } catch {
+      return [];
+    }
   });
   const [advice, setAdvice] = useState('');
   const [loadingAdvice, setLoadingAdvice] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
-  const [form, setForm] = useState({ name: '', variety: 'Semillon', vintage: '', quantity: 1 });
+  const [form, setForm] = useState({ name: '', variety: varieties[0], vintage: '', quantity: 1 });
   const aiEnabled = isAIEnabled();
 
   useEffect(() => {
-    localStorage.setItem('sommCellar', JSON.stringify(cellar));
+    localStorage.setItem(CELLAR_KEY, JSON.stringify(cellar));
   }, [cellar]);
+
+  // Match an entry back to the catalogue so we can surface drinking windows.
+  const catalogueMatch = (entry: CellarEntry) => {
+    const name = entry.name.toLowerCase();
+    return wines.find(w => {
+      const wName = w.name.toLowerCase();
+      return wName.includes(name) || name.includes(wName);
+    });
+  };
 
   const addWine = () => {
     if (!form.name || !form.vintage) return;
     const entry: CellarEntry = { ...form, id: Date.now().toString(), addedDate: new Date().toISOString() };
     setCellar(prev => [...prev, entry]);
-    setForm({ name: '', variety: 'Semillon', vintage: '', quantity: 1 });
+    setForm({ name: '', variety: varieties[0], vintage: '', quantity: 1 });
     setShowAdd(false);
   };
 
@@ -42,92 +69,138 @@ const CellarTracker: React.FC = () => {
     setLoadingAdvice(true);
     setAdvice('');
     try {
-      const result = await getCellarAdvice(cellar);
+      const result = await getCellarAdvice(region, cellar);
       setAdvice(result);
     } catch {
-      setAdvice('Unable to get advice right now. Please try again.');
+      setAdvice('The Somm could not get to your cellar just now. Try again in a moment.');
     }
     setLoadingAdvice(false);
   };
 
+  const bottleCount = cellar.reduce((s, e) => s + e.quantity, 0);
+  const inputClass =
+    'w-full bg-parchment border border-hairline rounded-sm py-2.5 px-3.5 font-ui text-sm text-ink placeholder:text-ink/40 focus:outline-none focus:border-claret transition-colors';
+
   return (
-    <div className="p-4 md:p-10 max-w-3xl mx-auto min-h-screen">
-      <div className="flex justify-between items-start mb-8">
-        <div>
-          <h2 className="text-3xl font-black text-wine font-serif">My Cellar</h2>
-          <p className="text-gray-500 text-sm mt-1">{cellar.length} {cellar.length === 1 ? 'wine' : 'wines'} tracked · {cellar.reduce((s, e) => s + e.quantity, 0)} bottles</p>
-        </div>
-        <button onClick={() => setShowAdd(!showAdd)} className="flex items-center gap-2 px-4 py-2.5 bg-[#1a1a1a] text-white rounded-xl font-bold text-sm shadow hover:bg-black transition">
-          <Plus className="w-4 h-4" /> Add Wine
-        </button>
+    <div className="py-10 max-w-3xl mx-auto animate-fade-in">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <SectionHeading
+          kicker="My cellar"
+          title="What you've laid down"
+          standfirst={
+            cellar.length
+              ? `${cellar.length} ${cellar.length === 1 ? 'wine' : 'wines'} · ${bottleCount} ${bottleCount === 1 ? 'bottle' : 'bottles'} resting.`
+              : undefined
+          }
+        />
+        <Button size="sm" onClick={() => setShowAdd(!showAdd)} className="shrink-0">
+          <Plus className="w-3.5 h-3.5" /> Add a bottle
+        </Button>
       </div>
 
       {showAdd && (
-        <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-6 shadow-sm animate-slide-up">
-          <h3 className="font-bold text-gray-900 mb-4">Add to Cellar</h3>
+        <Card className="p-6 mt-8 animate-slide-up">
+          <Kicker className="mb-4">Lay one down</Kicker>
           <div className="grid grid-cols-2 gap-3">
-            <input value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))} placeholder="Wine name *" className="col-span-2 input-field" />
-            <select value={form.variety} onChange={e => setForm(p => ({ ...p, variety: e.target.value }))} className="input-field">
-              {VARIETIES.map(v => <option key={v}>{v}</option>)}
+            <input
+              value={form.name}
+              onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
+              placeholder="Wine name"
+              className={`col-span-2 ${inputClass}`}
+            />
+            <select
+              value={form.variety}
+              onChange={e => setForm(p => ({ ...p, variety: e.target.value }))}
+              className={inputClass}
+            >
+              {varieties.map(v => (
+                <option key={v}>{v}</option>
+              ))}
             </select>
-            <input value={form.vintage} onChange={e => setForm(p => ({ ...p, vintage: e.target.value }))} placeholder="Vintage year *" className="input-field" type="number" min="1990" max="2030" />
-            <input value={form.quantity} onChange={e => setForm(p => ({ ...p, quantity: parseInt(e.target.value) || 1 }))} placeholder="Bottles" className="input-field" type="number" min="1" />
-            <div className="flex gap-2 col-span-2">
-              <button onClick={addWine} disabled={!form.name || !form.vintage} className="flex-1 py-2.5 bg-wine text-white rounded-xl font-bold text-sm disabled:opacity-40">Add</button>
-              <button onClick={() => setShowAdd(false)} className="px-4 py-2.5 border border-gray-200 rounded-xl text-sm font-bold text-gray-600">Cancel</button>
+            <input
+              value={form.vintage}
+              onChange={e => setForm(p => ({ ...p, vintage: e.target.value }))}
+              placeholder="Vintage year"
+              className={inputClass}
+              type="number"
+              min="1990"
+              max="2030"
+            />
+            <input
+              value={form.quantity}
+              onChange={e => setForm(p => ({ ...p, quantity: parseInt(e.target.value) || 1 }))}
+              placeholder="Bottles"
+              className={inputClass}
+              type="number"
+              min="1"
+            />
+            <div className="flex gap-2 col-span-2 pt-1">
+              <Button className="flex-1" onClick={addWine} disabled={!form.name || !form.vintage}>
+                Add to the cellar
+              </Button>
+              <Button variant="secondary" onClick={() => setShowAdd(false)}>
+                Cancel
+              </Button>
             </div>
           </div>
-        </div>
+        </Card>
       )}
 
       {cellar.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-20 text-center">
-          <PackageOpen className="w-12 h-12 text-gray-300 mb-4" />
-          <p className="font-bold text-gray-500">Your cellar is empty</p>
-          <p className="text-sm text-gray-400 mt-1">Track your collection and get AI drinking-window advice</p>
-        </div>
+        <EmptyState
+          title="Nothing laid down yet"
+          body="Add the bottles you own and the Somm will tell you when each one is singing."
+        />
       ) : (
         <>
-          <div className="space-y-3 mb-6">
-            {cellar.map(entry => (
-              <div key={entry.id} className="bg-white rounded-2xl border border-gray-100 p-4 flex items-center justify-between shadow-sm hover:shadow-md transition group">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-wine/10 rounded-xl flex items-center justify-center">
-                    <Wine className="w-5 h-5 text-wine" />
+          <div className="mt-8 border border-hairline divide-y divide-hairline bg-paper">
+            {cellar.map(entry => {
+              const match = catalogueMatch(entry);
+              const window = match?.drinkFrom || match?.drinkTo
+                ? `Drink ${match?.drinkFrom ?? 'now'}–${match?.drinkTo ?? 'onwards'}`
+                : null;
+              return (
+                <div key={entry.id} className="p-4 flex items-center gap-4 group">
+                  <div className="w-10 h-10 border border-hairline rounded-sm flex items-center justify-center text-claret shrink-0">
+                    <Wine className="w-5 h-5" />
                   </div>
-                  <div>
-                    <p className="font-bold text-gray-900 text-sm">{entry.name}</p>
-                    <p className="text-xs text-gray-400">{entry.vintage} · {entry.variety} · {entry.quantity} {entry.quantity === 1 ? 'bottle' : 'bottles'}</p>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-ui text-sm font-semibold text-ink truncate">{entry.name}</p>
+                    <p className="font-ui text-xs text-ink/40 mt-0.5">
+                      {entry.vintage} · {entry.variety} · {entry.quantity} {entry.quantity === 1 ? 'bottle' : 'bottles'}
+                    </p>
                   </div>
+                  {window && <Tag tone="success" className="shrink-0 hidden sm:inline-block">{window}</Tag>}
+                  <button
+                    onClick={() => removeWine(entry.id)}
+                    className="p-2 text-ink/20 hover:text-terracotta transition-colors shrink-0"
+                    aria-label={`Remove ${entry.name}`}
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
                 </div>
-                <button onClick={() => removeWine(entry.id)} className="p-2 text-gray-300 hover:text-red-400 opacity-0 group-hover:opacity-100 transition">
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {aiEnabled && (
-            <button onClick={getAdvice} disabled={loadingAdvice} className="w-full py-3.5 flex items-center justify-center gap-2 bg-wine text-white rounded-2xl font-bold shadow-lg hover:bg-wine-dark transition disabled:opacity-50 mb-4">
-              {loadingAdvice ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-              Get AI Drinking Window Advice
-            </button>
+            <Button className="w-full mt-6" onClick={getAdvice} disabled={loadingAdvice}>
+              {loadingAdvice && <Loader2 className="w-4 h-4 animate-spin" />}
+              {loadingAdvice ? 'The Somm is down in the cellar…' : 'Ask the Somm when to pull the corks'}
+            </Button>
           )}
 
           {advice && (
-            <div className="bg-amber-50 border border-amber-100 rounded-2xl p-6 animate-slide-up">
+            <Card className="p-6 mt-6 animate-slide-up">
               <div className="flex items-center gap-2 mb-3">
-                <Clock className="w-4 h-4 text-amber-600" />
-                <span className="text-xs font-bold uppercase tracking-widest text-amber-600">Cellar Advice</span>
+                <Clock className="w-4 h-4 text-brass" />
+                <Kicker>The Somm's note</Kicker>
               </div>
-              <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-wrap">{advice}</p>
-            </div>
+              <p className="font-body text-ink/80 leading-relaxed whitespace-pre-wrap">{advice}</p>
+            </Card>
           )}
         </>
       )}
-
-      <style>{`.input-field { width: 100%; border: 1px solid #e5e7eb; border-radius: 0.75rem; padding: 0.625rem 1rem; font-size: 0.875rem; outline: none; background: #f9fafb; transition: border-color 0.15s; }
-.input-field:focus { border-color: #6b1e2e; box-shadow: 0 0 0 3px rgba(107, 30, 46, 0.08); }`}</style>
     </div>
   );
 };

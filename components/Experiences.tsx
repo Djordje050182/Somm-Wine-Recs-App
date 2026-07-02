@@ -1,102 +1,93 @@
-
-import React, { useState } from 'react';
-import { EXPERIENCES } from '../data/experiences';
-import { Search, MapPin, Star, Sparkles, Filter, Utensils, Bird, Mountain, ShoppingBag, Flag } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
+import { MapPin, Clock } from 'lucide-react';
+import { useRegion } from '../contexts/RegionContext';
+import { useCatalog } from '../contexts/CatalogContext';
+import { Experience, ExperienceCategory } from '../types';
+import { SectionHeading, EmptyState } from './ui';
+import ImageWithLoader from './ImageWithLoader';
 import GuideModal from './GuideModal';
 
+// Beyond the vines — the region's dining, adventures and diversions,
+// in the same hairline-card idiom as the winery directory.
+
+const CATEGORIES: Array<'All' | ExperienceCategory> = ['All', 'Dining', 'Adventure', 'Nature', 'Golf', 'Shopping', 'Family'];
+
 const Experiences: React.FC = () => {
-  const [selectedExperience, setSelectedExperience] = useState<any>(null);
-  const [filter, setFilter] = useState('All');
+  const { region } = useRegion();
+  const { experiences } = useCatalog();
+  const [selected, setSelected] = useState<Experience | null>(null);
+  const [filter, setFilter] = useState<'All' | ExperienceCategory>('All');
 
-  const categories = ['All', 'Dining', 'Adventure', 'Nature', 'Golf', 'Shopping', 'Family'];
-
-  const filteredExperiences = EXPERIENCES.filter(exp => 
-    filter === 'All' || exp.category === filter
+  const filtered = useMemo(
+    () => (filter === 'All' ? experiences : experiences.filter(e => e.category === filter)),
+    [experiences, filter]
   );
 
-  const getCategoryIcon = (cat: string) => {
-    switch(cat) {
-      case 'Dining': return <Utensils className="w-4 h-4" />;
-      case 'Nature': return <Bird className="w-4 h-4" />;
-      case 'Adventure': return <Mountain className="w-4 h-4" />;
-      case 'Shopping': return <ShoppingBag className="w-4 h-4" />;
-      case 'Golf': return <Flag className="w-4 h-4" />;
-      default: return <Sparkles className="w-4 h-4" />;
-    }
-  };
+  const sorted = useMemo(() => [...filtered].sort((a, b) => b.rating - a.rating), [filtered]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12 animate-in fade-in duration-500">
-      {selectedExperience && (
-        <GuideModal 
-            item={selectedExperience} 
-            type="experience" 
-            onClose={() => setSelectedExperience(null)} 
-        />
-      )}
+    <div className="py-10 animate-fade-in">
+      {selected && <GuideModal item={selected} type="experience" onClose={() => setSelected(null)} />}
 
-      <div className="text-center mb-12">
-        <h2 className="text-5xl font-bold text-[#6b1e2e] mb-4 font-serif italic">Beyond the Vine</h2>
-        <p className="text-gray-500 text-lg max-w-2xl mx-auto">Discover the region's best golf courses, fine dining, wildlife encounters, and adventures.</p>
-      </div>
+      <SectionHeading
+        kicker="Beyond the vines"
+        title="When the tasting glasses are down"
+        standfirst={`Long lunches, balloon flights, back roads — the best of ${region.shortName} away from the cellar door.`}
+      />
 
-      {/* Filter Tabs */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
-        {categories.map(cat => (
+      {/* Category filter */}
+      <div className="flex gap-2 flex-wrap mt-8 mb-10">
+        {CATEGORIES.map(cat => (
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`px-6 py-3 rounded-full font-bold text-sm transition-all border ${filter === cat ? 'bg-[#6b1e2e] text-white border-[#6b1e2e] shadow-lg' : 'bg-white text-gray-500 border-[#e5e1da] hover:border-[#6b1e2e]'}`}
+            className={`font-ui text-xs font-semibold uppercase tracking-kicker px-3 py-2 border rounded-sm transition-colors ${
+              filter === cat ? 'border-claret bg-claret text-parchment' : 'border-hairline text-ink/60 hover:border-ink/40'
+            }`}
           >
             {cat}
           </button>
         ))}
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredExperiences.map(exp => (
-          <div 
-            key={exp.id} 
-            onClick={() => setSelectedExperience(exp)}
-            className="bg-white rounded-[2rem] overflow-hidden border border-[#e5e1da] shadow-sm hover:shadow-xl transition-all duration-500 group cursor-pointer"
-          >
-            <div className="relative h-64 overflow-hidden">
-              <img src={exp.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={exp.name} />
-              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-[#6b1e2e] shadow-sm flex items-center gap-2">
-                {getCategoryIcon(exp.category)}
-                {exp.category}
+      {sorted.length === 0 ? (
+        <EmptyState title="Nothing here yet" body="No listings in this corner of the guide — the valley awaits." />
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-hairline border border-hairline">
+          {sorted.map(exp => (
+            <button
+              key={exp.id}
+              onClick={() => setSelected(exp)}
+              className="bg-paper text-left group flex flex-col hover:bg-parchment transition-colors"
+            >
+              <div className="aspect-[3/2] overflow-hidden">
+                <ImageWithLoader
+                  asset={exp.image}
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                />
               </div>
-            </div>
-            
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-bold text-[#1a1a1a]">{exp.name}</h3>
-                <div className="flex items-center text-amber-500 shrink-0">
-                   <Star className="w-4 h-4 fill-current" />
-                   <span className="text-sm font-bold ml-1 text-gray-700">{exp.rating}</span>
+              <div className="p-5 flex-1 flex flex-col">
+                <p className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-brass">{exp.category}</p>
+                <div className="flex items-baseline justify-between gap-3 mt-1">
+                  <h3 className="font-display text-xl text-ink leading-snug">{exp.name}</h3>
+                  <span className="font-ui text-xs font-semibold text-brass shrink-0">{exp.rating.toFixed(1)}</span>
                 </div>
-              </div>
-
-              <div className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
-                <MapPin className="w-3 h-3" /> {exp.subregion} • {exp.priceRange}
-              </div>
-              
-              <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-2">{exp.description}</p>
-              
-              <div className="bg-[#a68d60]/10 p-3 rounded-xl border border-[#a68d60]/20">
-                <div className="flex items-center gap-1.5 mb-1">
-                  <Sparkles className="w-3 h-3 text-[#a68d60]" />
-                  <span className="text-[9px] font-bold text-[#a68d60] uppercase tracking-wider">VinoAI Tip</span>
+                <p className="font-ui text-[10px] uppercase tracking-kicker text-ink/40 mt-1 flex items-center gap-1.5">
+                  <MapPin className="w-3 h-3" /> {exp.subregion} · {exp.priceRange}
+                </p>
+                <p className="font-body text-sm text-ink/60 mt-3 leading-relaxed line-clamp-2">{exp.description}</p>
+                <div className="mt-4 pt-3 border-t border-hairline">
+                  <p className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-brass mb-1">The Somm's note</p>
+                  <p className="font-body text-sm italic text-ink/70 leading-relaxed line-clamp-2">{exp.sommNote}</p>
                 </div>
-                <p className="text-[11px] text-[#a68d60] font-bold leading-relaxed italic">
-                  "{exp.aiTake}"
+                <p className="font-ui text-[10px] text-ink/40 mt-3 flex items-center gap-1">
+                  <Clock className="w-3 h-3" /> {exp.opens}–{exp.closes}
                 </p>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

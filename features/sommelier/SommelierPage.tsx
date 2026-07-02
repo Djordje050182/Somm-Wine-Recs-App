@@ -38,7 +38,7 @@ const SommelierPage: React.FC = () => {
         </button>
       </div>
 
-      {mode === 'chat' ? <SommelierChat /> : <WineScanner user={user as any} />}
+      {mode === 'chat' ? <SommelierChat /> : <WineScanner user={user} />}
     </div>
   );
 };

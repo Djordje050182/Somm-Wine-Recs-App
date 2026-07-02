@@ -1,82 +1,119 @@
-
-import React, { useEffect, useState, useMemo } from 'react';
-import { X, MessageCircleQuestion, Lightbulb, Sparkles, Loader2, Wine, MapPin, Quote, Phone, Globe, CalendarCheck, Clock, AlertCircle, Star, Users, CheckCircle, ArrowRight, Camera, Utensils, Bird, Image as ImageIcon, ExternalLink, ChevronLeft, Building2, ShoppingBag, Copy, Check, Ticket, Baby, Dog } from 'lucide-react';
-import { generateInsiderGuide, generateReviewSummary } from '../services/claudeService';
-import { WINERIES } from '../data/wineries';
-import { addToCart, getWinePricing } from '../services/commerceService';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
+import {
+  X, Loader2, Wine, MapPin, Phone, Globe, CalendarCheck, Clock, Star, Users,
+  ArrowRight, Utensils, Image as ImageIcon, ExternalLink, ChevronLeft, ShoppingBag,
+  Copy, Check, Baby, Dog, Heart, MessageCircleQuestion, Lightbulb, Grape,
+} from 'lucide-react';
+import {
+  generateInsiderGuide, generateReviewSummary, getVintageReport, getFoodPairings, isAIEnabled,
+} from '../services/claudeService';
+import { useRegion } from '../contexts/RegionContext';
+import { useCatalog } from '../contexts/CatalogContext';
+import { useCart } from '../contexts/CartContext';
+import { ImageAsset } from '../types';
 import ImageWithLoader from './ImageWithLoader';
+import { Kicker, Button, Tag } from './ui';
 
 interface GuideModalProps {
-  item: any; // Can be Winery, WineDetail, or Experience
+  item: any; // Winery, WineDetail or Experience
   type: 'winery' | 'wine' | 'experience';
   onClose: () => void;
 }
 
-// Helper to determine closing status
-const getClosingStatus = (closesTime: string | undefined) => {
-    if (!closesTime) return null;
-    try {
-        const now = new Date();
-        const currentHour = now.getHours();
-        const currentMinute = now.getMinutes();
-        const [closeHour, closeMinute] = closesTime.split(':').map(Number);
-        
-        const timeNow = currentHour * 60 + currentMinute;
-        const timeClose = closeHour * 60 + closeMinute;
-        const diff = timeClose - timeNow;
-        
-        if (diff < 0) return { status: 'Closed', color: 'bg-red-500' };
-        if (diff <= 60) return { status: `Closing Soon (${diff}m)`, color: 'bg-amber-500' };
-        return { status: 'Open', color: 'bg-green-500' };
-    } catch(e) {
-        return null;
-    }
+// stop.image on legacy callers may still be a bare URL — normalise to ImageAsset.
+const toAsset = (image: ImageAsset | string | undefined, alt: string): ImageAsset =>
+  typeof image === 'string'
+    ? { url: image, source: 'winery', alt }
+    : image ?? { url: '', source: 'winery', alt };
+
+const getClosingStatus = (closes?: string): { label: string; tone: 'success' | 'sale' | 'default' } | null => {
+  if (!closes) return null;
+  try {
+    const now = new Date();
+    const [closeHour, closeMinute] = closes.split(':').map(Number);
+    const diff = closeHour * 60 + closeMinute - (now.getHours() * 60 + now.getMinutes());
+    if (diff < 0) return { label: 'Closed for the day', tone: 'default' };
+    if (diff <= 60) return { label: `Closing soon (${diff}m)`, tone: 'sale' };
+    return { label: 'Open now', tone: 'success' };
+  } catch {
+    return null;
+  }
 };
 
-// Extracted booking config logic
-const getBookingButtonConfig = (url: string | null) => {
-  if (!url) return { label: 'Request Booking', icon: <CalendarCheck className="w-4 h-4" />, className: 'bg-[#6b1e2e] hover:bg-[#852539]' };
-  
+const getBookingLabel = (url?: string | null): string => {
+  if (!url) return 'Request a visit';
   const u = url.toLowerCase();
-  
-  if (u.includes('exploretock.com')) return { label: 'Reserve on Tock', icon: <ExternalLink className="w-4 h-4" />, className: 'bg-black hover:bg-gray-800' };
-  if (u.includes('opentable')) return { label: 'Book on OpenTable', icon: <Utensils className="w-4 h-4" />, className: 'bg-[#da3743] hover:bg-[#b02a36]' };
-  if (u.includes('rezdy')) return { label: 'Book via Rezdy', icon: <Ticket className="w-4 h-4" />, className: 'bg-[#00a3ad] hover:bg-[#008a93]' };
-  if (u.includes('sevenrooms')) return { label: 'Reserve via SevenRooms', icon: <CalendarCheck className="w-4 h-4" />, className: 'bg-[#1a1a1a] hover:bg-black' };
-  if (u.includes('obee')) return { label: 'Book on Obee', icon: <Utensils className="w-4 h-4" />, className: 'bg-[#f58220] hover:bg-[#d66e15]' };
-  if (u.includes('nowbookit')) return { label: 'Book Table', icon: <CalendarCheck className="w-4 h-4" />, className: 'bg-[#1a1a1a] hover:bg-black' };
-  if (u.includes('thefork')) return { label: 'Book on TheFork', icon: <Utensils className="w-4 h-4" />, className: 'bg-[#589442] hover:bg-[#467a32]' };
+  if (u.includes('exploretock.com')) return 'Reserve on Tock';
+  if (u.includes('opentable')) return 'Book on OpenTable';
+  if (u.includes('rezdy')) return 'Book via Rezdy';
+  if (u.includes('sevenrooms')) return 'Reserve via SevenRooms';
+  if (u.includes('obee')) return 'Book on Obee';
+  if (u.includes('thefork')) return 'Book on TheFork';
+  return 'Book online';
+};
 
-  return { label: 'Book Online', icon: <ExternalLink className="w-4 h-4" />, className: 'bg-[#6b1e2e] hover:bg-[#852539]' };
+// Favourites — string[] of slug ids, one key per kind.
+const FAV_KEYS: Record<string, string> = { winery: 'sommFavWineries', wine: 'sommFavWines' };
+
+const readFavs = (key: string): string[] => {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(key) || '[]');
+    return Array.isArray(parsed) ? parsed.filter((v): v is string => typeof v === 'string') : [];
+  } catch {
+    return [];
+  }
 };
 
 const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initialType, onClose }) => {
+  const { region } = useRegion();
+  const { getWinery, getPricing } = useCatalog();
+  const { addToCart } = useCart();
+
   const [currentItem, setCurrentItem] = useState(initialItem);
   const [currentType, setCurrentType] = useState(initialType);
-  const [history, setHistory] = useState<{item: any, type: string}[]>([]);
+  const [history, setHistory] = useState<{ item: any; type: 'winery' | 'wine' | 'experience' }[]>([]);
 
-  const [insiderInfo, setInsiderInfo] = useState<any>(null);
+  const [insiderInfo, setInsiderInfo] = useState<{ icebreaker: string; proMove: string; hiddenGem: string } | null>(null);
   const [reviewSummary, setReviewSummary] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [loadingReviews, setLoadingReviews] = useState(false);
-  const [activeTab, setActiveTab] = useState<'guide' | 'community'>('guide');
-  const [currentImage, setCurrentImage] = useState<string>('');
-  
-  // Booking State
+  const [activeTab, setActiveTab] = useState<'guide' | 'visitors'>('guide');
+  const [currentImage, setCurrentImage] = useState<ImageAsset | null>(null);
+
+  // On-demand Somm extras
+  const [vintageReport, setVintageReport] = useState<string | null>(null);
+  const [loadingVintage, setLoadingVintage] = useState(false);
+  const [extraPairings, setExtraPairings] = useState<Array<{ food: string; reason: string }> | null>(null);
+  const [loadingPairings, setLoadingPairings] = useState(false);
+
+  // Booking sheet
   const [showBooking, setShowBooking] = useState(false);
   const [bookingStep, setBookingStep] = useState(1);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
 
-  // Parent Winery & Pricing
-  const [parentWinery, setParentWinery] = useState<any>(null);
-  const [pricing, setPricing] = useState<any>(null);
-
-  // Copy Feedback State
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [isFavourite, setIsFavourite] = useState(false);
 
-  // Computed Values
+  const aiEnabled = isAIEnabled();
+
   const closingStatus = useMemo(() => getClosingStatus(currentItem?.closes), [currentItem]);
-  const bookingConfig = useMemo(() => getBookingButtonConfig(currentItem?.bookingUrl), [currentItem]);
+  const bookingLabel = useMemo(() => getBookingLabel(currentItem?.bookingUrl), [currentItem]);
+  const heroAsset = useMemo(
+    () => currentImage ?? toAsset(currentItem?.image, currentItem?.name ?? ''),
+    [currentImage, currentItem]
+  );
+  const gallery: ImageAsset[] = useMemo(
+    () => (currentItem?.gallery ?? []).map((g: ImageAsset | string) => toAsset(g, currentItem?.name ?? '')),
+    [currentItem]
+  );
+  const pricing = useMemo(
+    () => (currentType === 'wine' && currentItem ? getPricing(currentItem.id) : null),
+    [currentType, currentItem, getPricing]
+  );
+  const parentWinery = useMemo(
+    () => (currentType === 'wine' && currentItem?.wineryId ? getWinery(currentItem.wineryId) : undefined),
+    [currentType, currentItem, getWinery]
+  );
 
   useEffect(() => {
     setCurrentItem(initialItem);
@@ -85,344 +122,574 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
   }, [initialItem, initialType]);
 
   useEffect(() => {
-    if (currentItem) {
-        setCurrentImage(currentItem.image || ''); // Safety fallback
-        if (currentType === 'wine') {
-            setPricing(getWinePricing(currentItem.id));
-        }
-    }
-  }, [currentItem]);
-
-  useEffect(() => {
-    const loadContent = async () => {
-        if (!currentItem) return;
-        setLoading(true);
-        setInsiderInfo(null);
-        setReviewSummary(null);
-        setParentWinery(null);
-
-        if (currentType === 'wine') {
-            const winery = WINERIES.find(w => w.id === currentItem.wineryId);
-            setParentWinery(winery);
-        }
-
-        try {
-            const details = currentItem.description + (currentItem.specialty ? ` Known for ${currentItem.specialty}.` : '') + (currentItem.category ? ` Category: ${currentItem.category}` : '');
-            const parsed = await generateInsiderGuide(currentItem.name, currentType, details);
-            setInsiderInfo(parsed);
-        } catch (e) { 
-            console.error("Failed to fetch guide", e);
-            // Fallback content if AI fails
-            setInsiderInfo({
-                icebreaker: "Ask about their flagship wine vintage.",
-                proMove: "Try visiting mid-week for a private tasting.",
-                hiddenGem: "This spot has a rich history in the valley."
-            });
-        } 
-        finally { setLoading(false); }
-    };
-    loadContent();
+    setCurrentImage(null);
+    setActiveTab('guide');
+    setVintageReport(null);
+    setExtraPairings(null);
+    const key = FAV_KEYS[currentType];
+    setIsFavourite(key ? readFavs(key).includes(currentItem?.id) : false);
   }, [currentItem, currentType]);
 
-  const loadCommunityPulse = async () => {
-    if (reviewSummary) return;
+  useEffect(() => {
+    const loadGuide = async () => {
+      if (!currentItem) return;
+      setLoading(true);
+      setInsiderInfo(null);
+      setReviewSummary(null);
+      try {
+        const details =
+          currentItem.description +
+          (currentItem.specialty ? ` Known for ${currentItem.specialty}.` : '') +
+          (currentItem.category ? ` Category: ${currentItem.category}.` : '');
+        const parsed = await generateInsiderGuide(region, currentItem.name, currentType, details);
+        setInsiderInfo(parsed);
+      } catch {
+        setInsiderInfo({
+          icebreaker: 'Ask what they were doing at six this morning — in the valley, the answer is always a good story.',
+          proMove: 'Come mid-week. The pours are longer and the conversation better.',
+          hiddenGem: currentItem.sommNote || 'This spot has more history than it lets on. Ask.',
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadGuide();
+  }, [currentItem, currentType, region]);
+
+  const loadVisitorsWord = async () => {
+    if (reviewSummary || loadingReviews) return;
     setLoadingReviews(true);
     try {
-        const result = await generateReviewSummary(currentItem.name);
-        setReviewSummary(result);
-    } catch (e) { console.error(e); } 
-    finally { setLoadingReviews(false); }
+      setReviewSummary(await generateReviewSummary(region, currentItem.name));
+    } catch {
+      setReviewSummary(null);
+    } finally {
+      setLoadingReviews(false);
+    }
   };
 
-  const handleBooking = (targetItem = currentItem) => {
-    if (targetItem.bookingUrl) window.open(targetItem.bookingUrl, '_blank');
+  const loadVintageReport = async () => {
+    if (loadingVintage) return;
+    setLoadingVintage(true);
+    try {
+      setVintageReport(await getVintageReport(region, currentItem.name));
+    } catch {
+      setVintageReport('The Somm is away from the cellar — try again shortly.');
+    } finally {
+      setLoadingVintage(false);
+    }
+  };
+
+  const loadExtraPairings = async () => {
+    if (loadingPairings) return;
+    setLoadingPairings(true);
+    try {
+      const result = await getFoodPairings(region, currentItem.name, currentItem.variety, currentItem.description);
+      setExtraPairings(result.pairings ?? []);
+    } catch {
+      setExtraPairings([]);
+    } finally {
+      setLoadingPairings(false);
+    }
+  };
+
+  const toggleFavourite = useCallback(() => {
+    const key = FAV_KEYS[currentType];
+    if (!key || !currentItem?.id) return;
+    const favs = readFavs(key);
+    const next = favs.includes(currentItem.id) ? favs.filter(id => id !== currentItem.id) : [...favs, currentItem.id];
+    localStorage.setItem(key, JSON.stringify(next));
+    setIsFavourite(next.includes(currentItem.id));
+  }, [currentType, currentItem]);
+
+  const handleBooking = (target = currentItem) => {
+    if (target.bookingUrl) window.open(target.bookingUrl, '_blank');
     else setShowBooking(true);
   };
 
-  const handleAddToCart = () => addToCart(currentItem.id);
-
   const navigateToWinery = () => {
-      if (parentWinery) {
-          setHistory(prev => [...prev, { item: currentItem, type: currentType }]);
-          setCurrentItem(parentWinery);
-          setCurrentType('winery');
-          setActiveTab('guide');
-      }
+    if (!parentWinery) return;
+    setHistory(prev => [...prev, { item: currentItem, type: currentType }]);
+    setCurrentItem(parentWinery);
+    setCurrentType('winery');
   };
 
   const goBack = () => {
-      if (history.length > 0) {
-          const prev = history[history.length - 1];
-          setCurrentItem(prev.item);
-          setCurrentType(prev.type as any);
-          setHistory(prev => prev.slice(0, -1));
-      }
+    if (history.length === 0) return;
+    const prev = history[history.length - 1];
+    setCurrentItem(prev.item);
+    setCurrentType(prev.type);
+    setHistory(h => h.slice(0, -1));
   };
 
-  const copyToClipboard = (text: string, field: string) => {
-      navigator.clipboard.writeText(text);
-      setCopiedField(field);
-      setTimeout(() => setCopiedField(null), 2000);
+  const copyToClipboard = (text: string | undefined, field: string) => {
+    if (!text) return;
+    navigator.clipboard.writeText(text);
+    setCopiedField(field);
+    setTimeout(() => setCopiedField(null), 2000);
   };
 
   if (!currentItem) return null;
 
+  const kickerLabel =
+    currentType === 'winery' ? 'Cellar door' : currentType === 'wine' ? `${currentItem.vintage} vintage` : currentItem.category;
+
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      
-      <div className="relative bg-[#fdfcfb] w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300 max-h-[90vh] overflow-y-auto custom-scrollbar flex flex-col">
-        {/* Hero Image */}
-        <div className="relative h-64 bg-gray-200 shrink-0">
-          <ImageWithLoader
-            src={currentImage} 
-            className="w-full h-full object-cover" 
-            alt={currentItem.name} 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-          
+      <div className="absolute inset-0 bg-ink/70" onClick={onClose} />
+
+      <div className="relative bg-paper border border-hairline rounded-sm w-full max-w-2xl max-h-[90vh] overflow-y-auto custom-scrollbar flex flex-col animate-scale-in">
+        {/* Hero */}
+        <div className="relative h-64 shrink-0">
+          <ImageWithLoader asset={heroAsset} className="w-full h-full" showCredit />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent pointer-events-none" />
+
           <div className="absolute top-4 right-4 flex gap-2 z-20">
-             <button onClick={onClose} className="bg-white/20 hover:bg-white/40 backdrop-blur p-2 rounded-full text-white transition-colors">
-                <X className="w-6 h-6" />
+            {FAV_KEYS[currentType] && (
+              <button
+                onClick={toggleFavourite}
+                className={`p-2 rounded-sm transition-colors ${
+                  isFavourite ? 'bg-claret text-parchment' : 'bg-ink/50 text-parchment hover:bg-ink/70'
+                }`}
+                aria-label={isFavourite ? 'Remove from favourites' : 'Save to favourites'}
+              >
+                <Heart className={`w-5 h-5 ${isFavourite ? 'fill-current' : ''}`} />
+              </button>
+            )}
+            <button
+              onClick={onClose}
+              className="bg-ink/50 hover:bg-ink/70 p-2 rounded-sm text-parchment transition-colors"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
             </button>
           </div>
 
           {history.length > 0 && (
-              <button onClick={goBack} className="absolute top-4 left-4 bg-white/20 hover:bg-white/40 backdrop-blur p-2 rounded-full text-white transition-colors z-20 flex items-center gap-1 pr-4">
-                <ChevronLeft className="w-5 h-5" /> Back
-              </button>
+            <button
+              onClick={goBack}
+              className="absolute top-4 left-4 z-20 bg-ink/50 hover:bg-ink/70 text-parchment px-3 py-2 rounded-sm font-ui text-xs font-semibold uppercase tracking-kicker flex items-center gap-1 transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4" /> Back
+            </button>
           )}
-          
-          <div className="absolute top-6 left-6">
-              {currentItem.rating && (
-                  <div className="bg-white/95 backdrop-blur px-3 py-1.5 rounded-xl shadow-lg flex items-center gap-1.5">
-                    <Star className="w-4 h-4 text-amber-500 fill-current" />
-                    <span className="text-sm font-black text-[#1a1a1a]">{currentItem.rating.toFixed(1)}</span>
-                  </div>
+
+          <div className="absolute bottom-5 left-6 right-6 text-parchment z-10">
+            <div className="flex items-center gap-3 mb-2 flex-wrap">
+              <span className="font-ui text-[11px] font-semibold uppercase tracking-kicker text-brass-soft">{kickerLabel}</span>
+              {closingStatus && (
+                <span className="font-ui text-[11px] font-semibold uppercase tracking-kicker text-parchment/80 flex items-center gap-1">
+                  <Clock className="w-3 h-3" /> {closingStatus.label}
+                </span>
               )}
-          </div>
-
-          <div className="absolute bottom-6 left-6 right-6 text-white">
-             <div className="flex gap-2 mb-2">
-                {currentType === 'winery' && <div className="text-xs font-bold uppercase tracking-widest bg-[#a68d60] inline-block px-2 py-1 rounded">Cellar Door Guide</div>}
-                {currentType === 'wine' && <div className="text-xs font-bold uppercase tracking-widest bg-[#6b1e2e] inline-block px-2 py-1 rounded">{currentItem.vintage} Vintage</div>}
-                {currentType === 'experience' && <div className="text-xs font-bold uppercase tracking-widest bg-blue-600 inline-block px-2 py-1 rounded">{currentItem.category}</div>}
-                {closingStatus && (
-                    <div className={`text-xs font-bold uppercase tracking-widest text-white inline-flex items-center gap-1 px-2 py-1 rounded ${closingStatus.color}`}>
-                        <Clock className="w-3 h-3" /> {closingStatus.status}
-                    </div>
-                )}
-             </div>
-            <h2 className="text-3xl md:text-4xl font-bold font-serif leading-tight">{currentItem.name}</h2>
+              {typeof currentItem.rating === 'number' && (
+                <span className="font-ui text-[11px] font-semibold uppercase tracking-kicker text-parchment/80 flex items-center gap-1">
+                  <Star className="w-3 h-3" /> {currentItem.rating.toFixed(1)}
+                </span>
+              )}
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl font-medium leading-tight">{currentItem.name}</h2>
           </div>
         </div>
 
-        {/* TABS */}
-        <div className="flex border-b border-[#e5e1da] shrink-0 bg-white sticky top-0 z-10">
-            <button onClick={() => setActiveTab('guide')} className={`flex-1 py-4 text-sm font-bold uppercase tracking-widest transition-colors ${activeTab === 'guide' ? 'text-[#6b1e2e] border-b-2 border-[#6b1e2e]' : 'text-gray-400'}`}>Overview</button>
-            <button onClick={() => { setActiveTab('community'); loadCommunityPulse(); }} className={`flex-1 py-4 text-sm font-bold uppercase tracking-widest transition-colors ${activeTab === 'community' ? 'text-[#6b1e2e] border-b-2 border-[#6b1e2e]' : 'text-gray-400'}`}>Community Pulse</button>
+        {/* Tabs */}
+        <div className="flex border-b border-hairline shrink-0 bg-paper sticky top-0 z-10 px-6 gap-6">
+          <button
+            onClick={() => setActiveTab('guide')}
+            className={`font-ui text-sm font-semibold py-4 -mb-px border-b-2 transition-colors ${
+              activeTab === 'guide' ? 'border-claret text-claret' : 'border-transparent text-ink/50 hover:text-ink'
+            }`}
+          >
+            The guide
+          </button>
+          <button
+            onClick={() => { setActiveTab('visitors'); loadVisitorsWord(); }}
+            className={`font-ui text-sm font-semibold py-4 -mb-px border-b-2 transition-colors ${
+              activeTab === 'visitors' ? 'border-claret text-claret' : 'border-transparent text-ink/50 hover:text-ink'
+            }`}
+          >
+            What visitors say
+          </button>
         </div>
 
-        <div className="p-8 space-y-8 overflow-y-auto">
+        <div className="p-6 md:p-8 space-y-8">
           {activeTab === 'guide' ? (
             <>
-            <div>
-                <p className="text-gray-600 text-lg leading-relaxed font-serif italic mb-6">"{currentItem.description}"</p>
-                
-                {/* WINERY FAST FACTS */}
-                {currentType === 'winery' && (
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 p-4 bg-[#f8f4f0] rounded-2xl border border-[#e5e1da]">
-                        <div className="flex flex-col items-center text-center">
-                            <span className="text-[10px] uppercase font-bold text-gray-400 tracking-widest mb-1">Tasting Cost</span>
-                            <span className="font-bold text-[#1a1a1a]">${currentItem.tastingFee ?? '??'}pp</span>
-                        </div>
-                        <div className="flex flex-col items-center text-center">
-                            <span className="text-[10px] uppercase font-bold text-gray-400 tracking-widest mb-1">Booking</span>
-                            <span className="font-bold text-[#1a1a1a]">{currentItem.bookingRequired ? 'Required' : 'Walk-in'}</span>
-                        </div>
-                        <div className="flex flex-col items-center text-center">
-                            <span className="text-[10px] uppercase font-bold text-gray-400 tracking-widest mb-1">Vibe</span>
-                            <span className="font-bold text-[#1a1a1a]">{currentItem.style || 'Classic'}</span>
-                        </div>
-                        <div className="flex flex-col items-center text-center">
-                            <span className="text-[10px] uppercase font-bold text-gray-400 tracking-widest mb-1">Guests</span>
-                            <div className="flex gap-2">
-                                {currentItem.kidFriendly && <Baby className="w-4 h-4 text-[#6b1e2e]" />}
-                                {currentItem.dogFriendly && <Dog className="w-4 h-4 text-[#6b1e2e]" />}
-                                {!currentItem.kidFriendly && !currentItem.dogFriendly && <span className="text-sm font-bold text-gray-600">-</span>}
-                            </div>
-                        </div>
-                    </div>
-                )}
+              <p className="font-body text-lg text-ink/70 leading-relaxed">{currentItem.description}</p>
 
-                <div className="flex gap-4 flex-wrap mb-6">
-                {currentType === 'winery' && (
-                    <>
-                        <div className="bg-gray-100 px-4 py-2 rounded-xl text-xs font-bold text-gray-600 flex items-center gap-2"><MapPin className="w-4 h-4" /> {currentItem.subregion}</div>
-                        <div className="bg-gray-100 px-4 py-2 rounded-xl text-xs font-bold text-gray-600 flex items-center gap-2"><Wine className="w-4 h-4" /> {currentItem.specialty}</div>
-                    </>
-                )}
-                {currentType === 'wine' && (
-                    <>
-                        <div className="bg-gray-100 px-4 py-2 rounded-xl text-xs font-bold text-gray-600 flex items-center gap-2"><Wine className="w-4 h-4" /> {currentItem.variety}</div>
-                        {pricing && <div className="bg-gray-100 px-4 py-2 rounded-xl text-xs font-bold text-gray-600 flex items-center gap-2"><Sparkles className="w-4 h-4" /> {pricing.display}</div>}
-                    </>
-                )}
+              {currentItem.sommNote && (
+                <div className="border-l-2 border-brass pl-4">
+                  <Kicker className="mb-1">The Somm's note</Kicker>
+                  <p className="font-body italic text-ink/70 leading-relaxed">{currentItem.sommNote}</p>
                 </div>
+              )}
 
-                {currentType === 'wine' && (
-                    <div className="space-y-6 mb-8">
-                        <div>
-                            <h4 className="font-bold text-[#1a1a1a] flex items-center gap-2 mb-3"><Utensils className="w-5 h-5 text-[#a68d60]" /> Sommelier Pairings</h4>
-                            <div className="flex flex-wrap gap-2">
-                                {currentItem.pairings?.map((p: string) => <span key={p} className="px-3 py-1 bg-[#f8f4f0] text-[#6b1e2e] rounded-full text-xs font-bold border border-[#6b1e2e]/10">{p}</span>)}
-                            </div>
-                        </div>
-                        <div className="p-5 bg-[#6b1e2e]/5 rounded-2xl border border-[#6b1e2e]/10">
-                            <h4 className="text-xs font-bold uppercase tracking-widest text-[#6b1e2e] mb-2">The Anecdote</h4>
-                            <p className="text-sm font-serif italic text-gray-700 leading-relaxed">"{currentItem.aiTake}"</p>
-                        </div>
-                        <div className="flex justify-between items-center bg-[#f8f4f0] p-4 rounded-2xl border border-[#e5e1da]">
-                            <div>
-                                <span className="text-xs font-bold uppercase text-gray-400">Cellar Door Price</span>
-                                {pricing && (
-                                    <div className="flex items-center gap-2">
-                                        {pricing.isSale && <span className="text-sm line-through text-gray-400">{pricing.original}</span>}
-                                        <div className={`text-2xl font-serif font-bold ${pricing.isSale ? 'text-[#b91c1c]' : 'text-[#1a1a1a]'}`}>{pricing.display}</div>
-                                    </div>
-                                )}
-                            </div>
-                            <button onClick={handleAddToCart} className="px-8 py-3 bg-[#1a1a1a] text-white rounded-full font-bold shadow-lg hover:bg-[#6b1e2e] transition-all flex items-center gap-2">
-                                <ShoppingBag className="w-4 h-4" /> Add to Cart
-                            </button>
-                        </div>
-                        {parentWinery && (
-                            <div className="bg-white border border-[#e5e1da] rounded-2xl p-5 shadow-sm mt-8 relative overflow-hidden group hover:border-[#a68d60] transition-colors">
-                                <div className="absolute top-0 right-0 p-4 opacity-10"><Building2 className="w-24 h-24 text-[#a68d60]" /></div>
-                                <div className="relative z-10">
-                                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#a68d60] mb-3"><MapPin className="w-4 h-4" /> Taste at the Source</div>
-                                    <div className="flex items-start gap-4">
-                                        <ImageWithLoader src={parentWinery.image} className="w-16 h-16 rounded-xl object-cover border border-gray-100" alt={parentWinery.name} />
-                                        <div className="flex-1">
-                                            <h4 className="font-bold text-lg text-[#1a1a1a] leading-tight mb-1">{parentWinery.name}</h4>
-                                            <p className="text-sm text-gray-500 mb-3">{parentWinery.subregion}</p>
-                                            <div className="flex gap-2">
-                                                <button onClick={() => handleBooking(parentWinery)} className="px-4 py-2 bg-[#6b1e2e] text-white rounded-lg text-xs font-bold flex items-center gap-1 hover:bg-[#852539]"><CalendarCheck className="w-3 h-3" /> Book Tasting</button>
-                                                <button onClick={navigateToWinery} className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-xs font-bold flex items-center gap-1 hover:bg-gray-200">View Estate <ArrowRight className="w-3 h-3" /></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+              {/* Winery fast facts */}
+              {currentType === 'winery' && (
+                <div className="grid grid-cols-2 md:grid-cols-4 border border-hairline divide-x divide-hairline rounded-sm">
+                  <div className="p-4 text-center">
+                    <p className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-ink/40 mb-1">Tasting</p>
+                    <p className="font-display text-lg text-ink">
+                      {currentItem.tastingFee === 0 ? 'Free' : `$${currentItem.tastingFee ?? '—'} pp`}
+                    </p>
+                  </div>
+                  <div className="p-4 text-center">
+                    <p className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-ink/40 mb-1">Booking</p>
+                    <p className="font-display text-lg text-ink">{currentItem.bookingRequired ? 'Required' : 'Walk in'}</p>
+                  </div>
+                  <div className="p-4 text-center border-t md:border-t-0 border-hairline">
+                    <p className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-ink/40 mb-1">Style</p>
+                    <p className="font-display text-lg text-ink truncate">{currentItem.style || 'Classic'}</p>
+                  </div>
+                  <div className="p-4 text-center border-t md:border-t-0 border-hairline">
+                    <p className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-ink/40 mb-1">Guests</p>
+                    <div className="flex justify-center gap-2 pt-1 text-claret">
+                      {currentItem.kidFriendly && <Baby className="w-4 h-4" aria-label="Kid friendly" />}
+                      {currentItem.dogFriendly && <Dog className="w-4 h-4" aria-label="Dog friendly" />}
+                      {!currentItem.kidFriendly && !currentItem.dogFriendly && <span className="font-display text-lg text-ink/40">—</span>}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Metadata line */}
+              <div className="flex gap-4 flex-wrap font-ui text-xs text-ink/60">
+                {currentItem.subregion && (
+                  <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5 text-brass" /> {currentItem.subregion}</span>
+                )}
+                {currentType === 'winery' && currentItem.specialty && (
+                  <span className="flex items-center gap-1.5"><Wine className="w-3.5 h-3.5 text-brass" /> {currentItem.specialty}</span>
+                )}
+                {currentType === 'wine' && currentItem.variety && (
+                  <span className="flex items-center gap-1.5"><Grape className="w-3.5 h-3.5 text-brass" /> {currentItem.variety}</span>
+                )}
+                {currentItem.opens && currentItem.closes && (
+                  <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 text-brass" /> {currentItem.opens}–{currentItem.closes}</span>
+                )}
+              </div>
+
+              {/* Wine: pairings, price, parent estate */}
+              {currentType === 'wine' && (
+                <div className="space-y-6">
+                  {currentItem.pairings?.length > 0 && (
+                    <div>
+                      <Kicker className="mb-3">At the table</Kicker>
+                      <div className="flex flex-wrap gap-2">
+                        {currentItem.pairings.map((p: string) => <Tag key={p}>{p}</Tag>)}
+                      </div>
+                      {aiEnabled && !extraPairings && (
+                        <button
+                          onClick={loadExtraPairings}
+                          className="mt-3 font-ui text-xs font-semibold text-claret hover:text-claret-deep flex items-center gap-1.5 transition-colors"
+                        >
+                          {loadingPairings ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Utensils className="w-3.5 h-3.5" />}
+                          Ask the Somm for more pairings
+                        </button>
+                      )}
+                      {extraPairings && extraPairings.length > 0 && (
+                        <ul className="mt-4 space-y-2 border-t border-hairline pt-4">
+                          {extraPairings.map(p => (
+                            <li key={p.food} className="font-body text-sm text-ink/70">
+                              <span className="font-semibold text-ink">{p.food}</span> — {p.reason}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  )}
+
+                  {(currentItem.drinkFrom || currentItem.drinkTo) && (
+                    <p className="font-ui text-xs text-ink/60">
+                      Drinking window: <span className="text-ink font-semibold">{currentItem.drinkFrom ?? 'now'}–{currentItem.drinkTo ?? 'now'}</span>
+                    </p>
+                  )}
+
+                  {/* Price row */}
+                  <div className="flex justify-between items-center border border-hairline rounded-sm p-4 gap-4">
+                    <div>
+                      <p className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-ink/40 mb-1">Cellar door price</p>
+                      <div className="flex items-baseline gap-2 flex-wrap">
+                        {pricing?.isSale && (
+                          <span className="font-body text-sm line-through text-ink/40">{pricing.original}</span>
                         )}
+                        <span className={`font-display text-2xl ${pricing?.isSale ? 'text-terracotta' : 'text-ink'}`}>
+                          {pricing && pricing.price > 0 ? pricing.display : currentItem.price}
+                        </span>
+                        {pricing?.isSale && <Tag tone="sale">Save {pricing.discount}%</Tag>}
+                      </div>
                     </div>
-                )}
+                    <Button onClick={() => addToCart(currentItem.id)}>
+                      <ShoppingBag className="w-4 h-4" /> Add to case
+                    </Button>
+                  </div>
 
-                {currentItem.gallery && currentItem.gallery.length > 0 && (
-                    <div className="mb-8">
-                        <div className="flex items-center gap-2 mb-3 text-xs font-bold uppercase tracking-widest text-gray-400"><ImageIcon className="w-3 h-3" /> Photo Gallery</div>
-                        <div className="flex gap-3 overflow-x-auto pb-4 no-scrollbar">
-                            {currentItem.gallery.map((img: string, idx: number) => (
-                                <button key={idx} onClick={() => setCurrentImage(img)} className={`relative w-24 h-24 shrink-0 rounded-xl overflow-hidden transition-all ${currentImage === img ? 'ring-2 ring-[#6b1e2e] scale-105' : 'opacity-70 hover:opacity-100'}`}>
-                                    <ImageWithLoader src={img} className="w-full h-full object-cover" alt={`Gallery ${idx}`} />
-                                </button>
-                            ))}
+                  {parentWinery && (
+                    <div className="border border-hairline rounded-sm p-5">
+                      <Kicker className="mb-3">Taste it at the source</Kicker>
+                      <div className="flex items-start gap-4">
+                        <ImageWithLoader asset={parentWinery.image} className="w-16 h-16 shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-display text-lg text-ink leading-tight">{parentWinery.name}</h4>
+                          <p className="font-ui text-xs text-ink/50 mb-3">{parentWinery.subregion}</p>
+                          <div className="flex gap-2 flex-wrap">
+                            <Button size="sm" onClick={() => handleBooking(parentWinery)}>
+                              <CalendarCheck className="w-3.5 h-3.5" /> Book a tasting
+                            </Button>
+                            <Button size="sm" variant="secondary" onClick={navigateToWinery}>
+                              View the estate <ArrowRight className="w-3.5 h-3.5" />
+                            </Button>
+                          </div>
                         </div>
+                      </div>
                     </div>
-                )}
-            </div>
+                  )}
+                </div>
+              )}
 
-            {(currentType === 'winery' || currentType === 'experience') && (
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    <button 
-                        onClick={() => handleBooking(currentItem)} 
-                        className={`${bookingConfig.className} text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-colors col-span-2 md:col-span-1 shadow-md`}
+              {/* Winery: vintage report on request */}
+              {currentType === 'winery' && aiEnabled && (
+                <div className="border border-hairline rounded-sm p-5">
+                  <Kicker className="mb-2">The last vintage</Kicker>
+                  {vintageReport ? (
+                    <p className="font-body italic text-ink/70 leading-relaxed">{vintageReport}</p>
+                  ) : (
+                    <button
+                      onClick={loadVintageReport}
+                      className="font-ui text-xs font-semibold text-claret hover:text-claret-deep flex items-center gap-1.5 transition-colors"
                     >
-                        {bookingConfig.icon}
-                        {bookingConfig.label}
+                      {loadingVintage ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Grape className="w-3.5 h-3.5" />}
+                      Ask the Somm how the season went
                     </button>
-                    {currentItem.website && <a href={currentItem.website} target="_blank" rel="noreferrer" className="bg-white border border-[#e5e1da] text-[#1a1a1a] py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:border-[#6b1e2e] transition-colors"><Globe className="w-4 h-4" /> Website</a>}
-                    {currentItem.phone && <a href={`tel:${currentItem.phone}`} className="bg-white border border-[#e5e1da] text-[#1a1a1a] py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:border-[#6b1e2e] transition-colors"><Phone className="w-4 h-4" /> Call</a>}
+                  )}
                 </div>
-            )}
+              )}
 
-            <div className="bg-[#1a1a1a] rounded-3xl p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#6b1e2e] rounded-full blur-[80px] opacity-30 -mr-10 -mt-10 pointer-events-none"></div>
-                <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-8">
-                        <MessageCircleQuestion className="w-8 h-8 text-[#a68d60]" />
-                        <div><h3 className="text-2xl font-bold font-serif">Ask the Local</h3><p className="text-white/60 text-xs uppercase tracking-widest">Clever questions to impress</p></div>
-                    </div>
-                    {loading ? (
-                        <div className="flex flex-col items-center justify-center py-12 space-y-4"><Loader2 className="w-8 h-8 text-[#a68d60] animate-spin" /><span className="text-sm font-medium text-gray-400">Consulting the virtual concierge...</span></div>
-                    ) : (
-                        <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                            <div>
-                                <div className="flex justify-between items-center mb-2">
-                                    <span className="text-[#a68d60] font-bold text-xs uppercase tracking-widest">1. The Icebreaker</span>
-                                    <button onClick={() => copyToClipboard(insiderInfo?.icebreaker, 'icebreaker')} className="text-gray-400 hover:text-white">{copiedField === 'icebreaker' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}</button>
-                                </div>
-                                <div className="bg-white/10 rounded-xl p-4 border border-white/10 backdrop-blur-sm"><p className="font-medium text-lg">"{insiderInfo?.icebreaker}"</p></div>
-                            </div>
-                            <div>
-                                <div className="flex justify-between items-center mb-2">
-                                    <span className="text-[#a68d60] font-bold text-xs uppercase tracking-widest">2. The "Pro" Move</span>
-                                    <button onClick={() => copyToClipboard(insiderInfo?.proMove, 'promove')} className="text-gray-400 hover:text-white">{copiedField === 'promove' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}</button>
-                                </div>
-                                <div className="bg-white/10 rounded-xl p-4 border border-white/10 backdrop-blur-sm"><p className="font-medium text-lg">"{insiderInfo?.proMove}"</p></div>
-                            </div>
-                            <div className="pt-6 border-t border-white/10">
-                                <div className="flex gap-4">
-                                    <div className="bg-[#a68d60] rounded-full w-10 h-10 flex items-center justify-center shrink-0 text-white"><Lightbulb className="w-5 h-5" /></div>
-                                    <div><h4 className="font-bold text-lg mb-1">Did you know?</h4><p className="text-white/80 text-sm leading-relaxed">{insiderInfo?.hiddenGem}</p></div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
+              {/* Gallery */}
+              {gallery.length > 0 && (
+                <div>
+                  <Kicker className="mb-3 flex items-center gap-1.5"><ImageIcon className="w-3 h-3" /> In pictures</Kicker>
+                  <div className="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+                    {gallery.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentImage(img)}
+                        className={`relative w-24 h-24 shrink-0 overflow-hidden rounded-sm border transition-colors ${
+                          heroAsset.url === img.url ? 'border-claret' : 'border-hairline opacity-80 hover:opacity-100'
+                        }`}
+                      >
+                        <ImageWithLoader asset={img} className="w-full h-full" />
+                      </button>
+                    ))}
+                  </div>
                 </div>
-            </div>
+              )}
+
+              {/* Actions */}
+              {(currentType === 'winery' || currentType === 'experience') && (
+                <div className="flex flex-wrap gap-3">
+                  <Button onClick={() => handleBooking(currentItem)} className="flex-1 min-w-[10rem]">
+                    {currentItem.bookingUrl ? <ExternalLink className="w-4 h-4" /> : <CalendarCheck className="w-4 h-4" />}
+                    {bookingLabel}
+                  </Button>
+                  {currentItem.website && (
+                    <a
+                      href={currentItem.website}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 min-w-[8rem] font-ui text-sm font-semibold tracking-wide border border-ink/20 text-ink hover:border-ink rounded-sm px-5 py-2.5 flex items-center justify-center gap-2 transition-colors"
+                    >
+                      <Globe className="w-4 h-4" /> Website
+                    </a>
+                  )}
+                  {currentItem.phone && (
+                    <a
+                      href={`tel:${currentItem.phone}`}
+                      className="flex-1 min-w-[8rem] font-ui text-sm font-semibold tracking-wide border border-ink/20 text-ink hover:border-ink rounded-sm px-5 py-2.5 flex items-center justify-center gap-2 transition-colors"
+                    >
+                      <Phone className="w-4 h-4" /> Call
+                    </a>
+                  )}
+                </div>
+              )}
+
+              {/* The Somm's briefing */}
+              <div className="bg-ink rounded-sm p-6 md:p-8 text-parchment">
+                <div className="flex items-center gap-3 mb-8">
+                  <MessageCircleQuestion className="w-6 h-6 text-brass-soft" />
+                  <div>
+                    <h3 className="font-display text-xl font-medium">The Somm's briefing</h3>
+                    <p className="font-ui text-[10px] uppercase tracking-kicker text-parchment/50">What to say when you get there</p>
+                  </div>
+                </div>
+                {loading ? (
+                  <div className="flex flex-col items-center justify-center py-10 gap-3">
+                    <Loader2 className="w-6 h-6 text-brass-soft animate-spin" />
+                    <span className="font-body text-sm text-parchment/60 italic">The Somm is gathering his thoughts…</span>
+                  </div>
+                ) : (
+                  <div className="space-y-7 animate-fade-in">
+                    <div>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="font-ui text-[11px] font-semibold uppercase tracking-kicker text-brass-soft">The icebreaker</span>
+                        <button
+                          onClick={() => copyToClipboard(insiderInfo?.icebreaker, 'icebreaker')}
+                          className="text-parchment/40 hover:text-parchment transition-colors"
+                          aria-label="Copy icebreaker"
+                        >
+                          {copiedField === 'icebreaker' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                        </button>
+                      </div>
+                      <p className="font-body text-lg italic leading-relaxed border-l-2 border-brass-soft/40 pl-4">
+                        {insiderInfo?.icebreaker}
+                      </p>
+                    </div>
+                    <div>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="font-ui text-[11px] font-semibold uppercase tracking-kicker text-brass-soft">The pro move</span>
+                        <button
+                          onClick={() => copyToClipboard(insiderInfo?.proMove, 'promove')}
+                          className="text-parchment/40 hover:text-parchment transition-colors"
+                          aria-label="Copy pro move"
+                        >
+                          {copiedField === 'promove' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                        </button>
+                      </div>
+                      <p className="font-body text-lg italic leading-relaxed border-l-2 border-brass-soft/40 pl-4">
+                        {insiderInfo?.proMove}
+                      </p>
+                    </div>
+                    <div className="pt-5 border-t border-parchment/10 flex gap-4">
+                      <Lightbulb className="w-5 h-5 text-brass-soft shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-ui text-[11px] font-semibold uppercase tracking-kicker text-brass-soft mb-1">Worth knowing</p>
+                        <p className="font-body text-sm text-parchment/80 leading-relaxed">{insiderInfo?.hiddenGem}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             </>
           ) : (
-            <div className="animate-in fade-in slide-in-from-bottom-2">
-                {loadingReviews ? (
-                    <div className="flex flex-col items-center justify-center py-24 space-y-4"><Loader2 className="w-8 h-8 text-[#6b1e2e] animate-spin" /><span className="text-sm font-medium text-gray-500">Synthesizing human opinions...</span></div>
-                ) : reviewSummary ? (
-                    <div className="space-y-8">
-                        <div className="text-center bg-[#f8f4f0] rounded-2xl p-6">
-                            <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2 font-serif">Community Pulse</h3>
-                            <p className="text-sm text-gray-500 mb-6">AI Summary based on simulated Google Reviews</p>
-                            <div className="flex justify-center gap-8">
-                                <div className="text-center"><div className="text-2xl font-bold text-[#6b1e2e] flex items-center gap-1 justify-center">{reviewSummary.serviceScore} <Star className="w-4 h-4 fill-[#6b1e2e]"/></div><div className="text-[10px] uppercase font-bold tracking-widest text-gray-400">Service</div></div>
-                                <div className="text-center"><div className="text-2xl font-bold text-[#6b1e2e] flex items-center gap-1 justify-center">{reviewSummary.atmosphereScore} <Star className="w-4 h-4 fill-[#6b1e2e]"/></div><div className="text-[10px] uppercase font-bold tracking-widest text-gray-400">Vibe</div></div>
-                                <div className="text-center"><div className="text-2xl font-bold text-[#6b1e2e] flex items-center gap-1 justify-center">{reviewSummary.valueScore} <Star className="w-4 h-4 fill-[#6b1e2e]"/></div><div className="text-[10px] uppercase font-bold tracking-widest text-gray-400">Value</div></div>
-                            </div>
+            <div className="animate-fade-in">
+              {loadingReviews ? (
+                <div className="flex flex-col items-center justify-center py-20 gap-3">
+                  <Loader2 className="w-6 h-6 text-claret animate-spin" />
+                  <span className="font-body text-sm text-ink/50 italic">Reading the visitors' book…</span>
+                </div>
+              ) : reviewSummary ? (
+                <div className="space-y-8">
+                  <div className="border border-hairline rounded-sm p-6 text-center">
+                    <Kicker className="mb-4">The visitors' book, distilled</Kicker>
+                    <div className="flex justify-center gap-10">
+                      {[
+                        { label: 'Service', value: reviewSummary.serviceScore },
+                        { label: 'Atmosphere', value: reviewSummary.atmosphereScore },
+                        { label: 'Value', value: reviewSummary.valueScore },
+                      ].map(s => (
+                        <div key={s.label} className="text-center">
+                          <div className="font-display text-2xl text-claret">{s.value}</div>
+                          <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">{s.label}</div>
                         </div>
-                        <div><h4 className="font-bold text-[#1a1a1a] flex items-center gap-2 mb-3"><Users className="w-5 h-5 text-[#a68d60]" /> What Most People Say</h4><div className="p-4 bg-white border border-[#e5e1da] rounded-xl shadow-sm italic text-gray-600">"{reviewSummary.summary}"</div></div>
-                        <div><h4 className="font-bold text-[#1a1a1a] flex items-center gap-2 mb-3"><MessageCircleQuestion className="w-5 h-5 text-[#a68d60]" /> Frequent Mentions</h4><div className="flex flex-wrap gap-2">{reviewSummary.frequentMentions.map((tag: string, i: number) => <span key={i} className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-bold">{tag}</span>)}</div></div>
+                      ))}
                     </div>
-                ) : <div className="text-center py-12 text-gray-400">Unable to load reviews.</div>}
+                  </div>
+                  <div>
+                    <h4 className="font-display text-lg text-ink flex items-center gap-2 mb-3">
+                      <Users className="w-4 h-4 text-brass" /> The consensus
+                    </h4>
+                    <p className="font-body italic text-ink/70 leading-relaxed border-l-2 border-brass pl-4">
+                      {reviewSummary.summary}
+                    </p>
+                  </div>
+                  {reviewSummary.frequentMentions?.length > 0 && (
+                    <div>
+                      <Kicker className="mb-3">Keeps coming up</Kicker>
+                      <div className="flex flex-wrap gap-2">
+                        {reviewSummary.frequentMentions.map((tag: string, i: number) => <Tag key={i}>{tag}</Tag>)}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="text-center py-16">
+                  <p className="font-display text-xl text-ink mb-2">Nothing in the book yet</p>
+                  <p className="font-body text-ink/50">The visitors' word arrives once the Somm is connected.</p>
+                </div>
+              )}
             </div>
           )}
         </div>
       </div>
+
+      {/* Booking sheet */}
       {showBooking && (
-          <div className="absolute inset-0 z-[70] flex items-center justify-center p-4">
-              <div className="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-105 duration-200">
-                  <div className="bg-[#6b1e2e] p-4 flex justify-between items-center text-white"><h3 className="font-bold">Request Booking</h3><button onClick={() => { setShowBooking(false); setBookingStep(1); setSelectedTime(null); }}><X className="w-5 h-5"/></button></div>
-                  <div className="p-6">
-                      {bookingStep === 1 ? (
-                          <>
-                            <div className="mb-6"><div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Requesting at</div><div className="font-serif font-bold text-xl text-[#1a1a1a]">{currentItem.name}</div></div>
-                            <div className="mb-6"><label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Select Date</label><div className="p-3 bg-gray-50 rounded-xl border border-gray-100 font-medium text-center">Today, {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</div></div>
-                            <div className="mb-6"><label className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">Preferred Time</label><div className="grid grid-cols-2 gap-2">{['10:30 AM', '11:45 AM', '1:30 PM', '3:00 PM', '6:30 PM'].map(time => <button key={time} onClick={() => setSelectedTime(time)} className={`py-3 rounded-xl text-sm font-bold border transition-all ${selectedTime === time ? 'bg-[#6b1e2e] text-white border-[#6b1e2e]' : 'bg-white border-[#e5e1da] text-gray-600 hover:border-[#6b1e2e]'}`}>{time}</button>)}</div></div>
-                            <button disabled={!selectedTime} onClick={() => setBookingStep(2)} className="w-full bg-[#a68d60] text-white py-4 rounded-xl font-bold shadow-lg disabled:opacity-50 hover:bg-[#8e7850]">Send Request</button>
-                          </>
-                      ) : (
-                          <div className="text-center py-8"><div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-in zoom-in"><CheckCircle className="w-8 h-8" /></div><h3 className="text-2xl font-bold text-[#1a1a1a] mb-2">Request Sent</h3><p className="text-gray-500 mb-6">We've sent your request for {selectedTime} to {currentItem.name}. They will confirm shortly.</p><button onClick={() => { setShowBooking(false); setBookingStep(1); setSelectedTime(null); }} className="text-[#6b1e2e] font-bold text-sm">Close</button></div>
-                      )}
+        <div className="absolute inset-0 z-[70] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-ink/40" onClick={() => { setShowBooking(false); setBookingStep(1); setSelectedTime(null); }} />
+          <div className="relative bg-paper border border-hairline rounded-sm w-full max-w-sm animate-scale-in">
+            <div className="flex justify-between items-center px-5 py-4 border-b border-hairline">
+              <h3 className="font-display text-lg text-ink">Request a visit</h3>
+              <button
+                onClick={() => { setShowBooking(false); setBookingStep(1); setSelectedTime(null); }}
+                className="text-ink/40 hover:text-ink transition-colors"
+                aria-label="Close booking"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-5">
+              {bookingStep === 1 ? (
+                <>
+                  <div className="mb-5">
+                    <Kicker className="mb-1">Requesting at</Kicker>
+                    <p className="font-display text-xl text-ink">{currentItem.name}</p>
                   </div>
-              </div>
+                  <div className="mb-5">
+                    <Kicker className="mb-2">Date</Kicker>
+                    <div className="border border-hairline rounded-sm p-3 text-center font-ui text-sm text-ink">
+                      Today, {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}
+                    </div>
+                  </div>
+                  <div className="mb-6">
+                    <Kicker className="mb-2">Preferred time</Kicker>
+                    <div className="grid grid-cols-2 gap-2">
+                      {['10:30', '11:45', '13:30', '15:00', '17:30'].map(time => (
+                        <button
+                          key={time}
+                          onClick={() => setSelectedTime(time)}
+                          className={`py-2.5 rounded-sm font-ui text-sm font-semibold border transition-colors ${
+                            selectedTime === time
+                              ? 'bg-claret text-parchment border-claret'
+                              : 'border-hairline text-ink/60 hover:border-ink/40'
+                          }`}
+                        >
+                          {time}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <Button disabled={!selectedTime} onClick={() => setBookingStep(2)} className="w-full">
+                    Send request
+                  </Button>
+                </>
+              ) : (
+                <div className="text-center py-6">
+                  <Check className="w-8 h-8 text-vine mx-auto mb-4" />
+                  <h3 className="font-display text-2xl text-ink mb-2">Request sent</h3>
+                  <p className="font-body text-ink/60 mb-6">
+                    Your request for {selectedTime} is with {currentItem.name}. They will confirm shortly.
+                  </p>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => { setShowBooking(false); setBookingStep(1); setSelectedTime(null); }}
+                  >
+                    Close
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
+        </div>
       )}
     </div>
   );

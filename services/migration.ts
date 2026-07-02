@@ -16,6 +16,9 @@ const STALE_KEYS = [
   'sommUsers', // old plaintext account store — deliberately destroyed
   'user',
   'myCellar',
+  'sommCellar',
+  'plannerIds',
+  'currentItinerary',
   'wineLib_initialFilter',
 ];
 

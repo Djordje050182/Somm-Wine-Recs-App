@@ -1,24 +1,28 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { Send, WifiOff } from 'lucide-react';
 import { sommelierChat, isAIEnabled } from '../services/claudeService';
-import { WINERIES } from '../data/wineries';
-import { Send, User, Bot, Sparkles, Loader2, Globe, WifiOff } from 'lucide-react';
 import { getWeatherContextString } from '../services/weatherService';
+import { useRegion } from '../contexts/RegionContext';
+import { useCatalog } from '../contexts/CatalogContext';
+import { Kicker } from './ui';
+
+// Ask the Somm — a conversation with the region's resident sommelier.
+// The Somm is a person, not a feature: no badges, no sparkle.
 
 interface Message {
   role: 'user' | 'assistant';
   content: string;
 }
 
-const SUGGESTIONS = [
-  'Best Semillon producers for cellaring?',
-  'What food pairs with Hunter Shiraz?',
-  'Plan a romantic afternoon in Pokolbin',
-  'Hidden gem wineries locals love?',
-];
-
 const SommelierChat: React.FC = () => {
+  const { region } = useRegion();
+  const { wineries } = useCatalog();
+
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: "Welcome. I'm your AI sommelier for the Hunter Valley — ask me anything about wine, wineries, food pairings, or planning your visit." }
+    {
+      role: 'assistant',
+      content: `Good to see you. I've spent twenty years walking ${region.shortName} — ask me about the wines, the estates, or where you should be at four o'clock.`,
+    },
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -26,6 +30,19 @@ const SommelierChat: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const aiEnabled = isAIEnabled();
+
+  // Suggested openers, drawn from the region itself.
+  const suggestions = useMemo(() => {
+    const producer = region.ai.signatureProducers[0];
+    const secondProducer = region.ai.signatureProducers[1];
+    const subregion = region.subregions[0]?.name;
+    const list: string[] = [];
+    if (producer) list.push(`What should I taste at ${producer}?`);
+    if (subregion) list.push(`Plan a slow afternoon in ${subregion}`);
+    if (secondProducer) list.push(`Is ${secondProducer} worth the detour?`);
+    list.push(`Which bottles from ${region.shortName} deserve a decade in the cellar?`);
+    return list.slice(0, 4);
+  }, [region]);
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -36,7 +53,10 @@ const SommelierChat: React.FC = () => {
     const down = () => setIsOffline(true);
     window.addEventListener('online', up);
     window.addEventListener('offline', down);
-    return () => { window.removeEventListener('online', up); window.removeEventListener('offline', down); };
+    return () => {
+      window.removeEventListener('online', up);
+      window.removeEventListener('offline', down);
+    };
   }, []);
 
   const handleSend = async (text = input) => {
@@ -47,13 +67,16 @@ const SommelierChat: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const weather = await getWeatherContextString();
-      const context = `Weather: ${weather}. Wineries available: ${WINERIES.map(w => w.name).join(', ')}.`;
-      const history = messages.map(m => ({ role: m.role as 'user' | 'assistant', content: m.content }));
-      const reply = await sommelierChat(text, history, context);
+      const weather = await getWeatherContextString(region);
+      const context = `Weather: ${weather}. Wineries available: ${wineries.map(w => w.name).join(', ')}.`;
+      const history = messages.map(m => ({ role: m.role, content: m.content }));
+      const reply = await sommelierChat(region, text, history, context);
       setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
     } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: "The cellar doors seem quiet right now. Please try again in a moment." }]);
+      setMessages(prev => [
+        ...prev,
+        { role: 'assistant', content: 'The cellar doors seem quiet right now. Give me a moment and ask again.' },
+      ]);
     } finally {
       setIsLoading(false);
       inputRef.current?.focus();
@@ -61,34 +84,27 @@ const SommelierChat: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-[85vh] max-w-4xl mx-auto bg-white shadow-2xl md:my-6 md:rounded-3xl border border-gray-100 overflow-hidden">
+    <div className="flex flex-col h-[78vh] max-w-3xl mx-auto my-8 bg-parchment border border-hairline rounded-sm overflow-hidden">
       {/* Header */}
-      <div className="p-5 bg-[#1a1a1a] flex items-center justify-between shrink-0">
-        <div className="flex items-center gap-3">
-          <div className="w-11 h-11 bg-wine rounded-full flex items-center justify-center shadow-lg">
-            <Sparkles className="w-5 h-5 text-white" />
-          </div>
-          <div>
-            <h2 className="text-white text-lg font-bold font-serif">Somm AI</h2>
-            <div className="flex items-center gap-2">
-              <span className={`w-1.5 h-1.5 rounded-full ${aiEnabled && !isOffline ? 'bg-emerald-400 animate-pulse' : 'bg-gray-500'}`} />
-              <span className="text-[10px] text-white/60 uppercase font-bold tracking-widest">
-                {isOffline ? 'Offline' : aiEnabled ? 'Claude Sonnet · Active' : 'AI Proxy Not Configured'}
-              </span>
-            </div>
-          </div>
+      <div className="px-5 py-4 border-b border-hairline bg-paper shrink-0 flex items-baseline justify-between">
+        <div>
+          <Kicker>The Somm</Kicker>
+          <h2 className="font-display text-2xl text-ink mt-1">Ask the Somm</h2>
         </div>
-        <Globe className="w-4 h-4 text-white/30" />
+        <p className="font-ui text-[10px] uppercase tracking-kicker text-ink/40">
+          {isOffline ? 'Offline' : region.name}
+        </p>
       </div>
 
-      {/* Suggestions */}
+      {/* Suggested openers */}
       {messages.length === 1 && (
-        <div className="px-5 pt-4 pb-2 flex flex-wrap gap-2 shrink-0 border-b border-gray-50">
-          {SUGGESTIONS.map(s => (
+        <div className="px-5 pt-4 pb-3 flex flex-wrap gap-2 shrink-0 border-b border-hairline">
+          {suggestions.map(s => (
             <button
               key={s}
               onClick={() => handleSend(s)}
-              className="text-xs bg-cream-dark text-gray-600 hover:bg-wine hover:text-white px-3 py-1.5 rounded-full transition-colors font-medium"
+              disabled={!aiEnabled || isOffline}
+              className="font-ui text-xs text-ink/70 border border-hairline bg-paper hover:border-claret hover:text-claret px-3 py-1.5 rounded-sm transition-colors disabled:opacity-40"
             >
               {s}
             </button>
@@ -97,39 +113,35 @@ const SommelierChat: React.FC = () => {
       )}
 
       {/* Messages */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 md:p-8 space-y-6 bg-cream">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 md:p-8 space-y-5">
         {messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-slide-up`}>
-            <div className={`flex gap-3 max-w-[85%] ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-              <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 shadow-sm ${msg.role === 'user' ? 'bg-gold text-white' : 'bg-white border border-gray-200 text-wine'}`}>
-                {msg.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
-              </div>
-              <div className={`p-4 rounded-2xl text-sm leading-relaxed shadow-sm whitespace-pre-wrap ${
+            <div
+              className={`max-w-[85%] px-4 py-3 rounded-sm text-sm leading-relaxed whitespace-pre-wrap ${
                 msg.role === 'user'
-                  ? 'bg-[#1a1a1a] text-white rounded-tr-sm'
-                  : 'bg-white border border-gray-100 text-gray-800 rounded-tl-sm font-serif'
-              }`}>
-                {msg.content}
-              </div>
+                  ? 'bg-claret text-parchment font-ui'
+                  : 'bg-paper border border-hairline text-ink font-body text-[15px]'
+              }`}
+            >
+              {msg.content}
             </div>
           </div>
         ))}
 
         {isLoading && (
           <div className="flex justify-start animate-fade-in">
-            <div className="flex gap-3 items-center">
-              <div className="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-wine">
-                <Loader2 className="w-4 h-4 animate-spin" />
-              </div>
-              <div className="bg-white border border-gray-100 px-5 py-3 rounded-2xl rounded-tl-sm">
-                <span className="text-xs font-bold text-wine/70 uppercase tracking-widest flex items-center gap-1.5">
-                  <Sparkles className="w-3 h-3" /> Consulting the cellar...
-                </span>
-                <div className="flex gap-1 mt-2">
-                  {[0, 1, 2].map(i => (
-                    <div key={i} className="w-1.5 h-1.5 bg-wine/30 rounded-full animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
-                  ))}
-                </div>
+            <div className="bg-paper border border-hairline px-4 py-3 rounded-sm">
+              <span className="font-ui text-[10px] font-semibold text-brass uppercase tracking-kicker">
+                The Somm is thinking
+              </span>
+              <div className="flex gap-1 mt-2">
+                {[0, 1, 2].map(n => (
+                  <span
+                    key={n}
+                    className="w-1.5 h-1.5 bg-claret/30 rounded-full animate-bounce"
+                    style={{ animationDelay: `${n * 150}ms` }}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -137,11 +149,13 @@ const SommelierChat: React.FC = () => {
       </div>
 
       {/* Input */}
-      <div className="p-4 bg-white border-t border-gray-100 shrink-0">
+      <div className="p-4 bg-paper border-t border-hairline shrink-0">
         {(isOffline || !aiEnabled) && (
-          <div className="flex items-center gap-2 text-xs text-amber-600 bg-amber-50 rounded-xl px-4 py-2.5 mb-3">
+          <div className="flex items-center gap-2 font-ui text-xs text-terracotta border border-terracotta/40 rounded-sm px-4 py-2.5 mb-3">
             <WifiOff className="w-3.5 h-3.5 shrink-0" />
-            {isOffline ? 'You\'re offline — connect to chat with the sommelier.' : 'AI proxy not configured. Set VITE_AI_PROXY_URL to enable.'}
+            {isOffline
+              ? 'You are offline — the Somm will be quiet until you are back.'
+              : 'The Somm is away from the table. Set VITE_AI_PROXY_URL to bring them back.'}
           </div>
         )}
         <div className="flex gap-2">
@@ -151,13 +165,14 @@ const SommelierChat: React.FC = () => {
             disabled={isOffline || isLoading || !aiEnabled}
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && !e.shiftKey && handleSend()}
-            placeholder={aiEnabled ? "Ask anything about Hunter Valley wine..." : "AI not configured"}
-            className="flex-1 bg-gray-50 border border-gray-200 rounded-xl py-3.5 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-wine/20 focus:border-wine/40 disabled:opacity-50 transition"
+            placeholder={aiEnabled ? `Ask anything about ${region.shortName}…` : 'The Somm is unavailable'}
+            className="flex-1 bg-parchment border border-hairline rounded-sm py-3 px-4 font-ui text-sm text-ink placeholder:text-ink/40 focus:outline-none focus:border-claret disabled:opacity-50 transition-colors"
           />
           <button
             onClick={() => handleSend()}
             disabled={isLoading || !input.trim() || isOffline || !aiEnabled}
-            className="p-3.5 bg-[#1a1a1a] text-white rounded-xl hover:bg-black transition-all shadow-lg active:scale-95 disabled:opacity-40"
+            className="px-4 bg-claret text-parchment rounded-sm hover:bg-claret-deep transition-colors disabled:opacity-40"
+            aria-label="Send"
           >
             <Send className="w-4 h-4" />
           </button>

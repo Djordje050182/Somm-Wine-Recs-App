@@ -1,163 +1,210 @@
+import React, { useState, useEffect, useMemo, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Search, X, ArrowRight } from 'lucide-react';
+import { useRegion } from '../contexts/RegionContext';
+import { useCatalog } from '../contexts/CatalogContext';
+import { Kicker } from './ui';
+import ImageWithLoader from './ImageWithLoader';
+import { Winery, WineDetail, Experience } from '../types';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Search, X, MapPin, Wine, Sparkles, ChevronRight, Building2, Utensils, Mountain } from 'lucide-react';
-import { WINERIES, WINES } from '../data/wineries';
-import { EXPERIENCES } from '../data/experiences';
-import GuideModal from './GuideModal';
+// Search across the whole region — estates, bottles, experiences — and land
+// somewhere useful. Quick links are drawn from the region itself, so the
+// panel travels well when new regions arrive.
 
 interface GlobalSearchProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+interface ResultGroup {
+  label: string;
+  items: { id: string; name: string; meta: string; image: WineDetail['image']; go: () => void }[];
+}
+
 const GlobalSearch: React.FC<GlobalSearchProps> = ({ isOpen, onClose }) => {
+  const { region, regionId } = useRegion();
+  const { wines, wineries, experiences, getWinery } = useCatalog();
+  const navigate = useNavigate();
+
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<{ type: string, items: any[] }[]>([]);
-  const [selectedItem, setSelectedItem] = useState<{ item: any, type: 'winery' | 'wine' | 'experience' } | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (isOpen && inputRef.current) {
-      setTimeout(() => inputRef.current?.focus(), 100);
+    if (isOpen) {
+      setQuery('');
+      setTimeout(() => inputRef.current?.focus(), 80);
     }
   }, [isOpen]);
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen, onClose]);
 
-  useEffect(() => {
-    if (!query.trim()) {
-      setResults([]);
-      return;
+  const go = (path: string) => {
+    onClose();
+    navigate(path);
+  };
+
+  // Quick links come from the region's own data: its leading grapes and its
+  // best-regarded estates — never a hardcoded name.
+  const quickLinks = useMemo(() => {
+    const grapes = region.varietyMix
+      .filter(v => !/other/i.test(v.name) && !v.name.includes('&'))
+      .slice(0, 3)
+      .map(v => v.name);
+    const estates = [...wineries]
+      .sort((a, b) => b.rating - a.rating)
+      .slice(0, 3)
+      .map(w => w.name);
+    return [...grapes, ...estates];
+  }, [region, wineries]);
+
+  const results = useMemo<ResultGroup[]>(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+
+    const matchedWineries = wineries
+      .filter(
+        (w: Winery) =>
+          w.name.toLowerCase().includes(q) ||
+          w.subregion.toLowerCase().includes(q) ||
+          w.specialty.toLowerCase().includes(q)
+      )
+      .slice(0, 3);
+
+    const matchedWines = wines
+      .filter((w: WineDetail) => w.name.toLowerCase().includes(q) || w.variety.toLowerCase().includes(q))
+      .slice(0, 4);
+
+    const matchedExperiences = experiences
+      .filter((e: Experience) => e.name.toLowerCase().includes(q) || e.category.toLowerCase().includes(q))
+      .slice(0, 3);
+
+    const groups: ResultGroup[] = [];
+    if (matchedWineries.length > 0) {
+      groups.push({
+        label: 'Estates',
+        items: matchedWineries.map(w => ({
+          id: w.id,
+          name: w.name,
+          meta: `${w.subregion} · ${w.specialty}`,
+          image: w.image,
+          go: () => go(`/${regionId}/wines?winery=${encodeURIComponent(w.id)}`),
+        })),
+      });
     }
-
-    const lowerQuery = query.toLowerCase();
-
-    // Search Wineries
-    const matchedWineries = WINERIES.filter(w => 
-      w.name.toLowerCase().includes(lowerQuery) || 
-      w.subregion.toLowerCase().includes(lowerQuery) ||
-      w.specialty.toLowerCase().includes(lowerQuery)
-    ).slice(0, 3);
-
-    // Search Wines
-    const matchedWines = WINES.filter(w => 
-      w.name.toLowerCase().includes(lowerQuery) ||
-      w.variety.toLowerCase().includes(lowerQuery)
-    ).slice(0, 3);
-
-    // Search Experiences
-    const matchedExperiences = EXPERIENCES.filter(e => 
-      e.name.toLowerCase().includes(lowerQuery) ||
-      e.category.toLowerCase().includes(lowerQuery)
-    ).slice(0, 3);
-
-    const newResults = [];
-    if (matchedWineries.length > 0) newResults.push({ type: 'Wineries', items: matchedWineries });
-    if (matchedWines.length > 0) newResults.push({ type: 'Wines', items: matchedWines });
-    if (matchedExperiences.length > 0) newResults.push({ type: 'Experiences', items: matchedExperiences });
-
-    setResults(newResults);
-  }, [query]);
+    if (matchedWines.length > 0) {
+      groups.push({
+        label: 'Bottles',
+        items: matchedWines.map(w => ({
+          id: w.id,
+          name: w.name,
+          meta: `${w.variety} · ${getWinery(w.wineryId)?.name ?? ''}`,
+          image: w.image,
+          go: () => go(`/${regionId}/wines?winery=${encodeURIComponent(w.wineryId)}`),
+        })),
+      });
+    }
+    if (matchedExperiences.length > 0) {
+      groups.push({
+        label: 'Experiences',
+        items: matchedExperiences.map(e => ({
+          id: e.id,
+          name: e.name,
+          meta: `${e.category} · ${e.subregion}`,
+          image: e.image,
+          go: () => go(`/${regionId}/guide/experiences`),
+        })),
+      });
+    }
+    return groups;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, wines, wineries, experiences, regionId]);
 
   if (!isOpen) return null;
 
-  const handleSelect = (item: any, type: string) => {
-     let itemType: 'winery' | 'wine' | 'experience' = 'winery';
-     if (type === 'Wines') itemType = 'wine';
-     if (type === 'Experiences') itemType = 'experience';
-     
-     setSelectedItem({ item, type: itemType });
-  };
-
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-4 sm:pt-20 px-4">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onClick={onClose} />
-      
-      {selectedItem && (
-        <div className="relative z-[110]">
-             <GuideModal 
-                item={selectedItem.item} 
-                type={selectedItem.type} 
-                onClose={() => setSelectedItem(null)} 
-             />
-             {/* Hack to keep the underlying search visible but allow modal interaction */}
-             <div className="hidden"></div> 
-        </div>
-      )}
+    <div className="fixed inset-0 z-[100] flex items-start justify-center pt-6 sm:pt-24 px-4">
+      <div className="absolute inset-0 bg-ink/60 animate-fade-in" onClick={onClose} />
 
-      <div className="relative w-full max-w-2xl bg-[#fdfcfb] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[80vh] animate-in zoom-in-95 duration-200">
-        
-        {/* Search Bar */}
-        <div className="flex items-center gap-4 p-4 border-b border-[#e5e1da]">
-          <Search className="w-6 h-6 text-[#a68d60]" />
-          <input 
+      <div className="relative w-full max-w-2xl bg-paper border border-hairline rounded-sm flex flex-col max-h-[75vh] animate-scale-in">
+        {/* Search bar */}
+        <div className="flex items-center gap-4 px-5 py-4 border-b border-hairline">
+          <Search className="w-5 h-5 text-brass shrink-0" />
+          <input
             ref={inputRef}
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search wineries, wines, or experiences..."
-            className="flex-1 bg-transparent text-xl font-medium text-[#1a1a1a] placeholder:text-gray-300 focus:outline-none"
+            onChange={e => setQuery(e.target.value)}
+            placeholder={`Search ${region.shortName} — estates, bottles, experiences…`}
+            className="flex-1 bg-transparent font-body text-lg text-ink placeholder:text-ink/30 focus:outline-none min-w-0"
           />
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full text-gray-400">
+          <button onClick={onClose} aria-label="Close search" className="text-ink/40 hover:text-ink transition-colors">
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Results */}
-        <div className="overflow-y-auto p-2">
-          {results.length === 0 && query.trim() && (
-            <div className="p-12 text-center text-gray-400">
-               <p>No results found for "{query}"</p>
+        <div className="overflow-y-auto">
+          {query.trim() && results.length === 0 && (
+            <div className="px-6 py-14 text-center">
+              <p className="font-display text-xl text-ink">Nothing found for “{query}”.</p>
+              <p className="font-body text-sm text-ink/50 mt-2">Try a grape, an estate, or something to do.</p>
             </div>
           )}
 
-          {results.length === 0 && !query.trim() && (
-             <div className="p-8">
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Quick Links</h4>
-                <div className="flex gap-2 flex-wrap">
-                   {['Shiraz', 'Semillon', 'Tyrrells', 'Brokenwood', 'Fine Dining'].map(tag => (
-                       <button key={tag} onClick={() => setQuery(tag)} className="px-4 py-2 bg-gray-50 rounded-full text-sm font-bold text-gray-600 hover:bg-[#6b1e2e] hover:text-white transition-colors">
-                          {tag}
-                       </button>
-                   ))}
-                </div>
-             </div>
+          {!query.trim() && (
+            <div className="px-6 py-6">
+              <Kicker className="mb-3">Worth a look</Kicker>
+              <div className="flex gap-2 flex-wrap">
+                {quickLinks.map(tag => (
+                  <button
+                    key={tag}
+                    onClick={() => setQuery(tag)}
+                    className="font-ui text-xs font-semibold uppercase tracking-kicker px-3 py-2 border border-hairline rounded-sm text-ink/60 hover:border-claret hover:text-claret transition-colors"
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            </div>
           )}
 
-          {results.map((group) => (
-            <div key={group.type} className="mb-4">
-              <h4 className="px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-widest sticky top-0 bg-[#fdfcfb]">{group.type}</h4>
-              <div className="space-y-1">
-                {group.items.map((item: any) => (
+          {results.map(group => (
+            <div key={group.label} className="px-3 py-3 border-b border-hairline last:border-b-0">
+              <Kicker className="px-3 pb-2">{group.label}</Kicker>
+              <div>
+                {group.items.map(item => (
                   <button
                     key={item.id}
-                    onClick={() => handleSelect(item, group.type)}
-                    className="w-full flex items-center gap-4 p-3 rounded-xl hover:bg-gray-100 transition-colors text-left group"
+                    onClick={item.go}
+                    className="w-full flex items-center gap-4 px-3 py-2.5 text-left group hover:bg-parchment transition-colors rounded-sm"
                   >
-                    <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0 bg-gray-200">
-                       <img src={item.image} className="w-full h-full object-cover" />
+                    <div className="w-11 h-11 shrink-0">
+                      <ImageWithLoader asset={item.image} className="w-full h-full rounded-sm" />
                     </div>
-                    <div className="flex-1">
-                      <h5 className="font-bold text-[#1a1a1a] group-hover:text-[#6b1e2e]">{item.name}</h5>
-                      <p className="text-xs text-gray-500">
-                        {group.type === 'Wines' ? item.variety : item.subregion || item.category}
-                      </p>
+                    <div className="flex-1 min-w-0">
+                      <h5 className="font-display text-base text-ink leading-snug truncate group-hover:text-claret transition-colors">
+                        {item.name}
+                      </h5>
+                      <p className="font-ui text-xs text-ink/50 truncate">{item.meta}</p>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-[#6b1e2e]" />
+                    <ArrowRight className="w-4 h-4 text-ink/20 group-hover:text-claret shrink-0 transition-colors" />
                   </button>
                 ))}
               </div>
             </div>
           ))}
         </div>
-        
-        <div className="p-3 bg-gray-50 text-[10px] text-gray-400 font-bold uppercase tracking-widest text-center border-t border-[#e5e1da]">
-            Press ESC to close
+
+        <div className="px-5 py-3 border-t border-hairline text-center">
+          <span className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-ink/30">
+            Press esc to close
+          </span>
         </div>
       </div>
     </div>

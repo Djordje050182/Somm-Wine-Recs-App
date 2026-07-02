@@ -43,7 +43,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
               wineryId: role === 'winery' ? wineryId || undefined : undefined,
             });
 
-      if (!result.ok) {
+      if (result.ok === false) {
         setError(result.error);
         return;
       }

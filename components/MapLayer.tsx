@@ -1,44 +1,77 @@
+import React, { useEffect, useRef, useState } from 'react';
+import { ImageAsset } from '../types';
+import { useRegion } from '../contexts/RegionContext';
 
-import React, { useEffect, useRef } from 'react';
+// Leaflet map for the guide and trip planner. Pins follow the house palette:
+// claret for wineries, vine for experiences, brass dot for lunch stops.
 
-interface WineryStop {
+const PIN_COLOURS = {
+  winery: '#5E1A26', // claret
+  experience: '#4A5D3A', // vine
+};
+
+interface MapStop {
   id: number | string;
   name: string;
   lat: number;
   lng: number;
-  image?: string;
+  image?: ImageAsset | string;
   arrival?: string;
   isLunchStop?: boolean;
   type?: 'winery' | 'experience';
 }
 
 interface MapLayerProps {
-  stops: WineryStop[];
-  onMarkerClick?: (stop: WineryStop) => void;
+  stops: MapStop[];
+  onMarkerClick?: (stop: MapStop) => void;
 }
 
+const imageUrl = (image?: ImageAsset | string): string | null => {
+  if (!image) return null;
+  return typeof image === 'string' ? image : image.url;
+};
+
+const escapeHtml = (value: string): string =>
+  value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
 const MapLayer: React.FC<MapLayerProps> = ({ stops, onMarkerClick }) => {
+  const { region } = useRegion();
   const mapRef = useRef<any>(null);
   const mapContainerId = 'leaflet-map-container';
+  const [leafletReady, setLeafletReady] = useState(!!(window as any).L);
+
+  // Leaflet loads from a CDN script tag; wait for it briefly if we mounted first.
+  useEffect(() => {
+    if (leafletReady) return;
+    const poll = setInterval(() => {
+      if ((window as any).L) {
+        setLeafletReady(true);
+        clearInterval(poll);
+      }
+    }, 100);
+    const stop = setTimeout(() => clearInterval(poll), 10000);
+    return () => {
+      clearInterval(poll);
+      clearTimeout(stop);
+    };
+  }, [leafletReady]);
 
   useEffect(() => {
-    // Check if Leaflet is loaded
-    if (!(window as any).L) return;
-
+    if (!leafletReady || !(window as any).L) return;
     const L = (window as any).L;
 
-    // Initialize map if not already done
     if (!mapRef.current) {
-      mapRef.current = L.map(mapContainerId).setView([-32.7850, 151.3150], 12);
+      mapRef.current = L.map(mapContainerId).setView([region.centre.lat, region.centre.lng], region.mapZoom);
 
       L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
-        maxZoom: 20
+        maxZoom: 20,
       }).addTo(mapRef.current);
     }
 
-    // Clear existing markers/lines
+    // Clear existing markers and lines
     mapRef.current.eachLayer((layer: any) => {
       if (layer instanceof L.Marker || layer instanceof L.Polyline) {
         mapRef.current.removeLayer(layer);
@@ -53,15 +86,13 @@ const MapLayer: React.FC<MapLayerProps> = ({ stops, onMarkerClick }) => {
         const latLng: [number, number] = [stop.lat, stop.lng];
         latLngs.push(latLng);
 
-        // Determine color based on type
-        const bgColor = stop.type === 'experience' ? '#2563eb' : '#6b1e2e'; 
-        
-        // Custom Icon
+        const pinColour = PIN_COLOURS[stop.type ?? 'winery'];
+
         const iconHtml = `
           <div class="relative w-8 h-8 flex items-center justify-center group">
-            <div class="absolute inset-0 rounded-full shadow-lg border-2 border-white transition-transform duration-300 transform group-hover:scale-110" style="background-color: ${bgColor};"></div>
-            <span class="relative text-white font-bold text-sm">${index + 1}</span>
-            ${stop.isLunchStop ? '<div class="absolute -top-1 -right-1 w-3 h-3 bg-[#a68d60] rounded-full border border-white"></div>' : ''}
+            <div class="absolute inset-0 rounded-full border-2 border-[#F6F1E7] shadow-sm transition-transform duration-300 transform group-hover:scale-110" style="background-color: ${pinColour};"></div>
+            <span class="relative text-[#F6F1E7] font-bold text-sm" style="font-family: Archivo, system-ui, sans-serif;">${index + 1}</span>
+            ${stop.isLunchStop ? '<div class="absolute -top-1 -right-1 w-3 h-3 bg-[#96742E] rounded-full border border-[#F6F1E7]"></div>' : ''}
           </div>
         `;
 
@@ -69,57 +100,52 @@ const MapLayer: React.FC<MapLayerProps> = ({ stops, onMarkerClick }) => {
           className: 'custom-div-icon',
           html: iconHtml,
           iconSize: [32, 32],
-          iconAnchor: [16, 32]
+          iconAnchor: [16, 32],
         });
 
         const marker = L.marker(latLng, { icon }).addTo(mapRef.current);
-        
-        // Rich Popup Logic
+
+        const url = imageUrl(stop.image);
         const popupContent = `
-          <div class="font-sans text-center min-w-[150px]">
-            ${stop.image ? `<img src="${stop.image}" class="w-full h-24 object-cover rounded-lg mb-2" onerror="this.style.display='none'"/>` : ''}
-            <strong style="color: ${bgColor}" class="text-sm block mb-1">${stop.name}</strong>
-            ${stop.arrival ? `<div class="inline-block bg-gray-100 px-2 py-1 rounded text-xs font-bold text-gray-500 mb-2">Arrive: ${stop.arrival}</div>` : ''}
-            <div class="text-[10px] text-gray-400">Click marker for details</div>
+          <div style="font-family: Archivo, system-ui, sans-serif; min-width: 160px; text-align: left;">
+            ${url ? `<img src="${escapeHtml(url)}" style="width:100%; height:88px; object-fit:cover; display:block; margin-bottom:8px; background:#E2D9C8;" onerror="this.style.display='none'" alt=""/>` : ''}
+            <strong style="font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: 15px; color: #211A16; display:block; margin-bottom:4px;">${escapeHtml(stop.name)}</strong>
+            ${stop.arrival ? `<div style="font-size:10px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#96742E; margin-bottom:4px;">Arrive ${escapeHtml(stop.arrival)}</div>` : ''}
+            <div style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:${pinColour};">${stop.type === 'experience' ? 'Experience' : 'Winery'} · tap pin for details</div>
           </div>
         `;
 
-        marker.bindPopup(popupContent, { minWidth: 160 });
-        
+        marker.bindPopup(popupContent, { minWidth: 170 });
+
         marker.on('click', () => {
-             if (onMarkerClick) onMarkerClick(stop);
+          if (onMarkerClick) onMarkerClick(stop);
         });
 
         markers.addLayer(marker);
       });
 
-      // Draw Path
-      if (latLngs.length > 1) {
+      // The touring route between stops — only when this is an itinerary
+      // (stops carry arrival times), never on the all-pins guide map.
+      const isRoute = stops.some(s => s.arrival);
+      if (isRoute && latLngs.length > 1) {
         L.polyline(latLngs, {
-          color: '#6b1e2e',
-          weight: 3,
-          dashArray: '5, 10',
-          opacity: 0.8
+          color: '#5E1A26',
+          weight: 2,
+          dashArray: '4, 8',
+          opacity: 0.8,
         }).addTo(mapRef.current);
       }
 
-      // Fit bounds
       mapRef.current.fitBounds(markers.getBounds().pad(0.1));
     }
 
-    // Fix for Leaflet rendering issues
+    // Leaflet needs a nudge after layout settles
     setTimeout(() => {
-        mapRef.current.invalidateSize();
+      mapRef.current?.invalidateSize();
     }, 100);
+  }, [stops, onMarkerClick, leafletReady, region]);
 
-    return () => {
-        // We persist the map instance for performance
-    };
-  }, [stops]);
-
-  return (
-    <div id={mapContainerId} className="w-full h-full rounded-2xl z-0" style={{ minHeight: '400px' }} />
-  );
+  return <div id={mapContainerId} className="w-full h-full z-0" style={{ minHeight: '400px' }} />;
 };
 
 export default MapLayer;

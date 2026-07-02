@@ -211,34 +211,3 @@ export interface AuthUser {
   tier?: string;
   createdAt: string;
 }
-
-// --- DEPRECATED — legacy compatibility during the rework; do not use in new code ---
-
-/** @deprecated Navigation is now route-based (react-router). Will be removed. */
-export enum AppTab {
-  DISCOVER = 'discover',
-  PLANNER = 'planner',
-  CONCIERGE = 'concierge',
-  WINES = 'wines',
-  EXPERIENCES = 'experiences',
-  SCANNER = 'scanner',
-  SOMMELIER = 'sommelier',
-  REGIONS = 'regions',
-  LIVE = 'live',
-  FAVORITES = 'favorites',
-  CELLAR = 'cellar',
-  PARTNERS = 'partners',
-  EVENTS = 'events',
-  STUDIO = 'studio',
-  ACCOUNT = 'account'
-}
-
-/** @deprecated Use UserRole ('consumer' | 'winery'). */
-export type AccountType = 'consumer' | 'estate_owner';
-
-/** @deprecated Use AuthUser. */
-export interface UserProfile {
-  name: string;
-  email: string;
-  tier?: string;
-}

@@ -13,9 +13,9 @@ export const HUNTER_VALLEY: Region = {
   status: 'live',
   strapline: 'Australia’s oldest wine country — Semillon that outlives us all, Shiraz with red dirt in its veins.',
   heroImage: {
-    url: 'https://images.unsplash.com/photo-1504275107627-0c2ba7a43dba?auto=format&fit=crop&q=80&w=2000',
+    url: 'https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?auto=format&fit=crop&q=80&w=2000',
     source: 'unsplash',
-    alt: 'Vineyard rows running towards the Brokenback Range at dusk',
+    alt: 'Evening light across the vine rows of the Hunter Valley',
   },
   centre: { lat: -32.783, lng: 151.316 },
   defaultStart: { name: 'Pokolbin Central', lat: -32.785, lng: 151.315 },

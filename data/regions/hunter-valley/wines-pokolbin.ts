@@ -12,45 +12,45 @@ const u = (id: string) =>
 const SEMILLON: ImageAsset[] = [
   { url: u('photo-1516594798947-e65505dbb29d'), source: 'unsplash', alt: 'A glass of pale straw Semillon catching the light' },
   { url: u('photo-1566995541428-f2246c17cda1'), source: 'unsplash', alt: 'Chilled white wine poured at a linen-set table' },
-  { url: u('photo-1571950006418-f226dc106482'), source: 'unsplash', alt: 'Two glasses of young white wine on a stone bench' },
-  { url: u('photo-1437418747212-8d9709afab22'), source: 'unsplash', alt: 'A single glass of white wine against soft evening light' },
+  { url: u('photo-1558346489-19413928158b'), source: 'unsplash', alt: 'Young Semillon raised outdoors at vintage' },
+  { url: u('photo-1472352327492-9765783b74e1'), source: 'unsplash', alt: 'Freshly picked Semillon grapes at harvest' },
 ];
 
 const CHARDONNAY: ImageAsset[] = [
-  { url: u('photo-1505075106905-fb052892c116'), source: 'unsplash', alt: 'Golden Chardonnay in a fine-stemmed glass' },
+  { url: u('photo-1619525163217-996bd4c1eb92'), source: 'unsplash', alt: 'Evening sun through the Chardonnay canopy' },
   { url: u('photo-1519671482749-fd09be7ccebf'), source: 'unsplash', alt: 'White wine and glassware arranged on a tasting table' },
   { url: u('photo-1584916201218-f4242ceb4809'), source: 'unsplash', alt: 'A bottle of white Burgundy-style wine beside its glass' },
-  { url: u('photo-1595475207225-428b62bda831'), source: 'unsplash', alt: 'Chardonnay poured golden against a pale backdrop' },
+  { url: u('photo-1600672220645-4781b8ca30c5'), source: 'unsplash', alt: 'Last light through the vine leaves' },
 ];
 
 const SHIRAZ: ImageAsset[] = [
   { url: u('photo-1510812431401-41d2bd2722f3'), source: 'unsplash', alt: 'Deep crimson Shiraz swirled in a large-bowled glass' },
   { url: u('photo-1598306442928-4d90f32c6866'), source: 'unsplash', alt: 'Red wine being poured slowly into a glass' },
-  { url: u('photo-1567696911980-2eed69a46042'), source: 'unsplash', alt: 'A glass of medium-bodied red wine on dark timber' },
+  { url: u('photo-1585545820754-8c07c0d82251'), source: 'unsplash', alt: 'Sunset burning over the Shiraz blocks' },
   { url: u('photo-1553361371-9b22f78e8b1d'), source: 'unsplash', alt: 'A bottle of red wine and glass beside candlelight' },
 ];
 
 const RED_BLEND: ImageAsset[] = [
-  { url: u('photo-1506806732259-39c2d0268443'), source: 'unsplash', alt: 'Structured red wine served alongside a cheese board' },
-  { url: u('photo-1571613316887-6f8d5cbf7ef7'), source: 'unsplash', alt: 'Bottles of red resting in a dim cellar rack' },
+  { url: u('photo-1642340828763-822a676c1da3'), source: 'unsplash', alt: 'Cellared reds resting under years of dust' },
+  { url: u('photo-1642643307770-1d4455ea41b7'), source: 'unsplash', alt: 'Reds racked bottle on bottle in the cellar wall' },
   { url: u('photo-1543418219-44e30b057fea'), source: 'unsplash', alt: 'A cellared red blend decanted for the table' },
 ];
 
 const SPARKLING: ImageAsset[] = [
   { url: u('photo-1558618666-fcd25c85cd64'), source: 'unsplash', alt: 'Sparkling wine fizzing in a coupe glass' },
-  { url: u('photo-1516738901171-8eb4fc13bd20'), source: 'unsplash', alt: 'A flute of sparkling wine with fine persistent bead' },
-  { url: u('photo-1543007630-9710e4a00a20'), source: 'unsplash', alt: 'A sparkling toast poured across several flutes' },
+  { url: u('photo-1554598286-ed7bfd1dedca'), source: 'unsplash', alt: 'Bottles resting on lees in the sparkling cellar' },
+  { url: u('photo-1572913017567-02f0649bc4fd'), source: 'unsplash', alt: 'The cool dark of the maturation cave' },
 ];
 
 const ROSE: ImageAsset[] = [
   { url: u('photo-1559181567-c3190ca9959b'), source: 'unsplash', alt: 'Pale pink rosé in a stemmed glass outdoors' },
   { url: u('photo-1560148218-1a83060f7b32'), source: 'unsplash', alt: 'A bottle and glass of blush rosé on a summer table' },
-  { url: u('photo-1615887023544-3a566f29d822'), source: 'unsplash', alt: 'Rosé catching the last of the afternoon sun' },
+  { url: u('photo-1587920710219-f6f9804dc10d'), source: 'unsplash', alt: 'Rosé from above, blush in the glass' },
 ];
 
 const ALT_WHITE: ImageAsset[] = [
   { url: u('photo-1506377247377-2a5b3b417ebb'), source: 'unsplash', alt: 'A picnic bottle of aromatic white wine with glasses' },
-  { url: u('photo-1533237264985-ee62f6d342bb'), source: 'unsplash', alt: 'A line of white wine bottles on a tasting counter' },
+  { url: u('photo-1578911373434-0cb395d2cbfb'), source: 'unsplash', alt: 'Bottles lined along the cellar-door wall' },
   { url: u('photo-1515779122185-2390ccdf060b'), source: 'unsplash', alt: 'A textural white wine poured at the cellar door' },
 ];
 

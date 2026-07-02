@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Clock, PawPrint, Baby, UtensilsCrossed, CalendarCheck } from 'lucide-react';
+import { Clock, PawPrint, Baby, UtensilsCrossed, CalendarCheck, Search, X } from 'lucide-react';
 import { useRegion } from '../../contexts/RegionContext';
 import { useCatalog } from '../../contexts/CatalogContext';
 import { SectionHeading, Tag, EmptyState } from '../../components/ui';
@@ -12,14 +12,28 @@ import { Winery } from '../../types';
 
 const WineryDirectory: React.FC = () => {
   const { region } = useRegion();
-  const { wineries } = useCatalog();
+  const { wineries, winesForWinery } = useCatalog();
   const [subregion, setSubregion] = useState<string | null>(null);
   const [selected, setSelected] = useState<Winery | null>(null);
+  const [query, setQuery] = useState('');
 
-  const filtered = useMemo(
-    () => (subregion ? wineries.filter(w => w.subregion === subregion) : wineries),
-    [wineries, subregion]
-  );
+  const filtered = useMemo(() => {
+    let list = subregion ? wineries.filter(w => w.subregion === subregion) : wineries;
+    const q = query.trim().toLowerCase();
+    if (q) {
+      list = list.filter(
+        w =>
+          w.name.toLowerCase().includes(q) ||
+          w.specialty.toLowerCase().includes(q) ||
+          w.style.toLowerCase().includes(q) ||
+          w.subregion.toLowerCase().includes(q) ||
+          w.description.toLowerCase().includes(q) ||
+          w.wines.some(name => name.toLowerCase().includes(q)) ||
+          winesForWinery(w.id).some(wine => wine.name.toLowerCase().includes(q) || wine.variety.toLowerCase().includes(q))
+      );
+    }
+    return list;
+  }, [wineries, subregion, query, winesForWinery]);
 
   const sorted = useMemo(
     () => [...filtered].sort((a, b) => b.rating - a.rating),
@@ -36,7 +50,28 @@ const WineryDirectory: React.FC = () => {
         standfirst="Every estate here has been walked, tasted and argued over. Filter by corner of the valley."
       />
 
-      <div className="flex gap-2 flex-wrap mt-8 mb-10">
+      <div className="relative max-w-xl mt-8">
+        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-ink/30 pointer-events-none" />
+        <input
+          type="search"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          placeholder="Search estates — try a name, a grape, or a wine…"
+          className="w-full bg-paper border border-hairline rounded-sm pl-10 pr-10 py-3 font-ui text-sm text-ink placeholder:text-ink/30 focus:outline-none focus:border-claret transition-colors [&::-webkit-search-cancel-button]:hidden"
+          aria-label="Search estates"
+        />
+        {query && (
+          <button
+            onClick={() => setQuery('')}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-ink/40 hover:text-ink transition-colors"
+            aria-label="Clear search"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        )}
+      </div>
+
+      <div className="flex gap-2 flex-wrap mt-4 mb-10">
         <button
           onClick={() => setSubregion(null)}
           className={`font-ui text-xs font-semibold uppercase tracking-kicker px-3 py-2 border rounded-sm transition-colors ${
@@ -65,7 +100,14 @@ const WineryDirectory: React.FC = () => {
       )}
 
       {sorted.length === 0 ? (
-        <EmptyState title="Nothing here yet" body="No estates listed in this corner of the valley — for now." />
+        query ? (
+          <EmptyState
+            title="Nothing by that name"
+            body={`No estate matches “${query.trim()}”${subregion ? ` in ${subregion}` : ''}. Try a grape, a wine, or a corner of the valley — or ask the Somm.`}
+          />
+        ) : (
+          <EmptyState title="Nothing here yet" body="No estates listed in this corner of the valley — for now." />
+        )
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-hairline border border-hairline">
           {sorted.map(w => (

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useRegion } from '../../contexts/RegionContext';
 import Experiences from '../../components/Experiences';
 import WhatsOn from '../../components/WhatsOn';
-import RegionExplorer from '../../components/RegionExplorer';
 import WineryDirectory from './WineryDirectory';
+
+// RegionExplorer carries the charting library — loaded only when the tab opens
+const RegionExplorer = lazy(() => import('../../components/RegionExplorer'));
 
 // The Guide — everything about the region in one place:
 // wineries directory, experiences, what's on, and the land itself.
@@ -43,7 +45,11 @@ const GuidePage: React.FC = () => {
       {active === 'wineries' && <WineryDirectory />}
       {active === 'experiences' && <Experiences />}
       {active === 'whats-on' && <WhatsOn />}
-      {active === 'the-land' && <RegionExplorer />}
+      {active === 'the-land' && (
+        <Suspense fallback={<div className="py-20 text-center font-body text-ink/40">Pouring…</div>}>
+          <RegionExplorer />
+        </Suspense>
+      )}
     </div>
   );
 };

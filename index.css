@@ -28,3 +28,13 @@
     @apply border-t border-hairline;
   }
 }
+
+@layer utilities {
+  /* Keep the bottom nav clear of the iPhone home indicator */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .mb-safe {
+    margin-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}

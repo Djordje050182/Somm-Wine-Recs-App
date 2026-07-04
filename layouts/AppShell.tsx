@@ -121,7 +121,7 @@ const AppShell: React.FC = () => {
 
       {isOffline && (
         <div className="bg-ink text-parchment text-center font-ui text-xs py-2 flex items-center justify-center gap-2">
-          <WifiOff className="w-3.5 h-3.5" /> You are offline — the Somm will be quiet until you're back.
+          <WifiOff className="w-3.5 h-3.5" /> You're offline — your guide still works. Voice and fresh photos return with signal.
         </div>
       )}
 

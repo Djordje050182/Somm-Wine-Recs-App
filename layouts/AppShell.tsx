@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
 import {
-  Wine, MessageSquare, Camera, Search, User, WifiOff, ShoppingBag,
+  Wine, Mic, Search, User, WifiOff, ShoppingBag,
   Compass, BookOpen, Route, Archive, ChevronDown, Building2, LogOut,
 } from 'lucide-react';
 import { useRegion } from '../contexts/RegionContext';
@@ -206,12 +206,22 @@ const AppShell: React.FC = () => {
                 )}
               </div>
             ) : (
-              <button
-                onClick={() => setShowAuthModal(true)}
-                className="font-ui text-sm font-semibold bg-claret text-parchment px-4 py-2 rounded-sm hover:bg-claret-deep transition-colors"
-              >
-                Sign in
-              </button>
+              <>
+                {/* Full button from sm up; a quiet icon on phones */}
+                <button
+                  onClick={() => setShowAuthModal(true)}
+                  className="hidden sm:block font-ui text-sm font-semibold bg-claret text-parchment px-4 py-2 rounded-sm hover:bg-claret-deep transition-colors"
+                >
+                  Sign in
+                </button>
+                <button
+                  onClick={() => setShowAuthModal(true)}
+                  className="sm:hidden text-ink/60 hover:text-claret transition-colors"
+                  aria-label="Sign in"
+                >
+                  <User className="w-5 h-5" />
+                </button>
+              </>
             )}
           </div>
         </div>
@@ -232,7 +242,7 @@ const AppShell: React.FC = () => {
         </div>
       </footer>
 
-      {/* Mobile bottom nav */}
+      {/* Mobile bottom nav — the Somm himself holds the centre seat */}
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-paper border-t border-hairline pb-safe">
         <div className="flex justify-between items-stretch h-16 max-w-lg mx-auto">
           <NavLink to={`/${regionId}`} end className={mobileLink}>
@@ -243,30 +253,24 @@ const AppShell: React.FC = () => {
             <BookOpen className="w-5 h-5" />
             <span className="font-ui text-[9px] font-semibold uppercase tracking-kicker">Guide</span>
           </NavLink>
-          <div className="flex items-center px-1">
+          <div className="flex flex-col items-center justify-center px-1 gap-0.5">
             <button
-              onClick={() => navigate(`/${regionId}/sommelier?scan=1`)}
-              className="w-12 h-12 -mt-5 bg-claret text-parchment rounded-sm flex items-center justify-center hover:bg-claret-deep transition-colors border-4 border-parchment"
-              aria-label="Scan a label"
+              onClick={() => navigate(`/${regionId}/sommelier?talk=1`)}
+              className="w-12 h-12 -mt-6 bg-claret text-parchment rounded-full flex items-center justify-center hover:bg-claret-deep transition-colors border-4 border-parchment shadow-sm"
+              aria-label="Talk to the Somm"
             >
-              <Camera className="w-5 h-5" />
+              <Mic className="w-5 h-5" />
             </button>
+            <span className="font-ui text-[9px] font-semibold uppercase tracking-kicker text-claret -mt-0.5">Somm</span>
           </div>
+          <NavLink to={`/${regionId}/plan`} className={mobileLink}>
+            <Route className="w-5 h-5" />
+            <span className="font-ui text-[9px] font-semibold uppercase tracking-kicker">Plan</span>
+          </NavLink>
           <NavLink to={`/${regionId}/wines`} className={mobileLink}>
             <Wine className="w-5 h-5" />
             <span className="font-ui text-[9px] font-semibold uppercase tracking-kicker">Wines</span>
           </NavLink>
-          {user ? (
-            <NavLink to={`/${regionId}/cellar`} className={mobileLink}>
-              <Archive className="w-5 h-5" />
-              <span className="font-ui text-[9px] font-semibold uppercase tracking-kicker">Cellar</span>
-            </NavLink>
-          ) : (
-            <button onClick={() => setShowAuthModal(true)} className="flex flex-col items-center justify-center gap-1 w-full h-full text-ink/40">
-              <User className="w-5 h-5" />
-              <span className="font-ui text-[9px] font-semibold uppercase tracking-kicker">Sign in</span>
-            </button>
-          )}
         </div>
       </nav>
     </div>

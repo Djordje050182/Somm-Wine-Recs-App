@@ -9,9 +9,10 @@ interface ImageWithLoaderProps {
   className?: string;
   aspectRatio?: string; // e.g. "aspect-video", "aspect-square"
   showCredit?: boolean;
+  priority?: boolean; // heroes load eagerly; everything else waits its turn
 }
 
-const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({ asset, src, alt, className = '', aspectRatio, showCredit = false }) => {
+const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({ asset, src, alt, className = '', aspectRatio, showCredit = false, priority = false }) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
 
@@ -30,7 +31,8 @@ const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({ asset, src, alt, clas
         <img
           src={url}
           alt={altText}
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : undefined}
           referrerPolicy="no-referrer"
           className={`w-full h-full object-cover transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           onLoad={() => setLoaded(true)}

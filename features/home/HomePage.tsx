@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, CloudSun, Calendar, MessageSquare } from 'lucide-react';
+import { ArrowRight, CloudSun, Calendar, MessageSquare, Mic as MicIcon } from 'lucide-react';
 import { useRegion } from '../../contexts/RegionContext';
 import { useCatalog } from '../../contexts/CatalogContext';
 import { getCurrentWeather, WeatherData } from '../../services/weatherService';
@@ -75,7 +75,7 @@ const HomePage: React.FC = () => {
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-end">
         <div className="absolute inset-0">
-          <ImageWithLoader asset={region.heroImage} className="w-full h-full" showCredit />
+          <ImageWithLoader asset={region.heroImage} className="w-full h-full" showCredit priority />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent pointer-events-none" />
         </div>
         <div className="relative z-10 max-w-screen-xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-14 pt-32">
@@ -89,17 +89,26 @@ const HomePage: React.FC = () => {
             <p className="font-body text-lg md:text-xl text-parchment/85 leading-relaxed mb-8">
               {region.strapline}
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" onClick={() => navigate(`/${regionId}/guide`)}>
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
+              <Button size="lg" className="w-full sm:w-auto justify-center" onClick={() => navigate(`/${regionId}/guide`)}>
                 Browse the estates <ArrowRight className="w-4 h-4" />
               </Button>
               <button
                 onClick={() => navigate(`/${regionId}/plan`)}
-                className="font-ui text-sm font-semibold tracking-wide border border-parchment/50 text-parchment hover:border-parchment hover:bg-parchment/10 rounded-sm px-7 py-3.5 transition-colors"
+                className="w-full sm:w-auto font-ui text-sm font-semibold tracking-wide border border-parchment/50 text-parchment hover:border-parchment hover:bg-parchment/10 rounded-sm px-7 py-3.5 transition-colors"
               >
                 Plan the perfect run
               </button>
             </div>
+            <button
+              onClick={() => navigate(`/${regionId}/sommelier?talk=1`)}
+              className="mt-5 inline-flex items-center gap-2.5 font-ui text-sm text-parchment/85 hover:text-parchment transition-colors group"
+            >
+              <span className="w-8 h-8 rounded-full bg-parchment/15 border border-parchment/40 flex items-center justify-center group-hover:bg-claret group-hover:border-claret transition-colors">
+                <MicIcon className="w-3.5 h-3.5" />
+              </span>
+              …or just ask the Somm, out loud
+            </button>
           </div>
         </div>
       </section>
@@ -123,6 +132,27 @@ const HomePage: React.FC = () => {
           </div>
         </section>
       )}
+
+      {/* Meet the Somm — phones get the introduction up front, where it belongs */}
+      <section className="md:hidden border-b border-hairline bg-ink text-parchment">
+        <button
+          onClick={() => navigate(`/${regionId}/sommelier?talk=1`)}
+          className="w-full text-left px-4 py-5 flex items-center gap-4 active:opacity-85 transition-opacity"
+        >
+          <span className="w-12 h-12 rounded-full bg-claret flex items-center justify-center shrink-0">
+            <MicIcon className="w-5 h-5" />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-brass-soft block">
+              The Somm is at the table
+            </span>
+            <span className="font-display text-lg leading-snug block mt-0.5">
+              Tell him the day you want — he'll plan it out loud
+            </span>
+          </span>
+          <ArrowRight className="w-4 h-4 shrink-0 text-parchment/50" />
+        </button>
+      </section>
 
       {/* Editorial collections */}
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">

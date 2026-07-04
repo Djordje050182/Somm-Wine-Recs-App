@@ -14,10 +14,13 @@ const VoiceSomm = lazy(() => import('./VoiceSomm'));
 const SommelierPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const { user } = useAuth();
-  const [mode, setMode] = useState<'chat' | 'scan' | 'talk'>(searchParams.get('scan') ? 'scan' : 'chat');
+  const [mode, setMode] = useState<'chat' | 'scan' | 'talk'>(
+    searchParams.get('talk') ? 'talk' : searchParams.get('scan') ? 'scan' : 'chat'
+  );
 
   useEffect(() => {
-    if (searchParams.get('scan')) setMode('scan');
+    if (searchParams.get('talk')) setMode('talk');
+    else if (searchParams.get('scan')) setMode('scan');
   }, [searchParams]);
 
   return (

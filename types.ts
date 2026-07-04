@@ -24,6 +24,7 @@ export interface VintageRating {
   year: string;
   rating: number; // 0-100
   quality: string;
+  note?: string;  // why the year matters, and what to buy from it
 }
 
 export interface SeasonNote {

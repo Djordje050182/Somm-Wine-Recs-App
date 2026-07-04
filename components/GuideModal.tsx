@@ -5,7 +5,7 @@ import {
   Copy, Check, Baby, Dog, Heart, MessageCircleQuestion, Lightbulb, Grape,
 } from 'lucide-react';
 import {
-  generateInsiderGuide, generateReviewSummary, getVintageReport, getFoodPairings, isAIEnabled,
+  generateInsiderGuide, getVintageReport, getFoodPairings, isAIEnabled,
 } from '../services/claudeService';
 import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
@@ -66,7 +66,7 @@ const readFavs = (key: string): string[] => {
 
 const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initialType, onClose }) => {
   const { region } = useRegion();
-  const { getWinery, getPricing } = useCatalog();
+  const { getWinery, getPricing, winesForWinery } = useCatalog();
   const { addToCart } = useCart();
 
   const [currentItem, setCurrentItem] = useState(initialItem);
@@ -74,9 +74,7 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
   const [history, setHistory] = useState<{ item: any; type: 'winery' | 'wine' | 'experience' }[]>([]);
 
   const [insiderInfo, setInsiderInfo] = useState<{ icebreaker: string; proMove: string; hiddenGem: string } | null>(null);
-  const [reviewSummary, setReviewSummary] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [loadingReviews, setLoadingReviews] = useState(false);
   const [activeTab, setActiveTab] = useState<'guide' | 'visitors'>('guide');
   const [currentImage, setCurrentImage] = useState<ImageAsset | null>(null);
 
@@ -133,8 +131,6 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
   useEffect(() => {
     const loadGuide = async () => {
       if (!currentItem) return;
-      setReviewSummary(null);
-
       // Every estate carries its own hand-written briefing in the data —
       // the AI path only serves items that lack one.
       if (currentItem.briefing) {
@@ -165,17 +161,23 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
     loadGuide();
   }, [currentItem, currentType, region]);
 
-  const loadVisitorsWord = async () => {
-    if (reviewSummary || loadingReviews) return;
-    setLoadingReviews(true);
-    try {
-      setReviewSummary(await generateReviewSummary(region, currentItem.name));
-    } catch {
-      setReviewSummary(null);
-    } finally {
-      setLoadingReviews(false);
-    }
-  };
+  // The visitors' word, from real numbers: the estate's rating plus the
+  // Vivino crowd verdict on its wines. Nothing invented.
+  const visitorsWord = useMemo(() => {
+    if (currentType !== 'winery') return null;
+    const estateWines = winesForWinery(currentItem.id);
+    const rated = estateWines.filter((w: any) => w.community);
+    const totalCount = rated.reduce((acc: number, w: any) => acc + w.community.count, 0);
+    const avg = rated.length
+      ? rated.reduce((acc: number, w: any) => acc + w.community.score * w.community.count, 0) / totalCount
+      : null;
+    return {
+      rating: currentItem.rating as number | undefined,
+      vivinoAvg: avg,
+      vivinoCount: totalCount,
+      ratedWines: [...rated].sort((a: any, b: any) => b.community.score - a.community.score),
+    };
+  }, [currentType, currentItem, winesForWinery]);
 
   const loadVintageReport = async () => {
     if (loadingVintage) return;
@@ -312,7 +314,7 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
             The guide
           </button>
           <button
-            onClick={() => { setActiveTab('visitors'); loadVisitorsWord(); }}
+            onClick={() => setActiveTab('visitors')}
             className={`font-ui text-sm font-semibold py-4 -mb-px border-b-2 transition-colors ${
               activeTab === 'visitors' ? 'border-claret text-claret' : 'border-transparent text-ink/50 hover:text-ink'
             }`}
@@ -580,49 +582,70 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
             </>
           ) : (
             <div className="animate-fade-in">
-              {loadingReviews ? (
-                <div className="flex flex-col items-center justify-center py-20 gap-3">
-                  <Loader2 className="w-6 h-6 text-claret animate-spin" />
-                  <span className="font-body text-sm text-ink/50 italic">Reading the visitors' book…</span>
-                </div>
-              ) : reviewSummary ? (
+              {visitorsWord ? (
                 <div className="space-y-8">
                   <div className="border border-hairline rounded-sm p-6 text-center">
-                    <Kicker className="mb-4">The visitors' book, distilled</Kicker>
+                    <Kicker className="mb-4">The visitors' book, in numbers</Kicker>
                     <div className="flex justify-center gap-10">
-                      {[
-                        { label: 'Service', value: reviewSummary.serviceScore },
-                        { label: 'Atmosphere', value: reviewSummary.atmosphereScore },
-                        { label: 'Value', value: reviewSummary.valueScore },
-                      ].map(s => (
-                        <div key={s.label} className="text-center">
-                          <div className="font-display text-2xl text-claret">{s.value}</div>
-                          <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">{s.label}</div>
+                      {visitorsWord.rating && (
+                        <div className="text-center">
+                          <div className="font-display text-2xl text-claret">{visitorsWord.rating.toFixed(1)}</div>
+                          <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">Cellar door</div>
                         </div>
-                      ))}
+                      )}
+                      {visitorsWord.vivinoAvg && (
+                        <div className="text-center">
+                          <div className="font-display text-2xl text-claret">{visitorsWord.vivinoAvg.toFixed(1)}</div>
+                          <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">
+                            Wines on Vivino
+                          </div>
+                        </div>
+                      )}
+                      {visitorsWord.vivinoCount > 0 && (
+                        <div className="text-center">
+                          <div className="font-display text-2xl text-claret">{visitorsWord.vivinoCount.toLocaleString()}</div>
+                          <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">Crowd ratings</div>
+                        </div>
+                      )}
                     </div>
                   </div>
-                  <div>
-                    <h4 className="font-display text-lg text-ink flex items-center gap-2 mb-3">
-                      <Users className="w-4 h-4 text-brass" /> The consensus
-                    </h4>
-                    <p className="font-body italic text-ink/70 leading-relaxed border-l-2 border-brass pl-4">
-                      {reviewSummary.summary}
-                    </p>
-                  </div>
-                  {reviewSummary.frequentMentions?.length > 0 && (
+
+                  {visitorsWord.ratedWines.length > 0 ? (
                     <div>
-                      <Kicker className="mb-3">Keeps coming up</Kicker>
-                      <div className="flex flex-wrap gap-2">
-                        {reviewSummary.frequentMentions.map((tag: string, i: number) => <Tag key={i}>{tag}</Tag>)}
+                      <h4 className="font-display text-lg text-ink flex items-center gap-2 mb-4">
+                        <Users className="w-4 h-4 text-brass" /> What the crowd rates here
+                      </h4>
+                      <div className="space-y-0 border-t border-hairline">
+                        {visitorsWord.ratedWines.map((w: any) => (
+                          <div key={w.id} className="flex items-center justify-between gap-4 py-3 border-b border-hairline">
+                            <div className="min-w-0">
+                              <p className="font-body text-[15px] text-ink leading-snug truncate">{w.name}</p>
+                              <p className="font-ui text-[10px] uppercase tracking-kicker text-ink/40 mt-0.5">{w.variety} · {w.vintage}</p>
+                            </div>
+                            <div className="text-right shrink-0">
+                              <span className="font-display text-lg text-claret flex items-center gap-1.5 justify-end">
+                                <Star className="w-3.5 h-3.5 text-brass fill-current" /> {w.community.score.toFixed(1)}
+                              </span>
+                              <span className="font-ui text-[10px] text-ink/40">{w.community.count.toLocaleString()} ratings</span>
+                            </div>
+                          </div>
+                        ))}
                       </div>
+                      <p className="font-ui text-[10px] uppercase tracking-kicker text-ink/30 mt-4 text-center">
+                        Community scores from Vivino · gathered, never invented
+                      </p>
                     </div>
+                  ) : (
+                    <p className="font-body text-ink/50 text-center leading-relaxed py-6">
+                      The crowd hasn't weighed in on these bottles yet — which the regulars
+                      would call a blessing. Taste first, tell your friends later.
+                    </p>
                   )}
                 </div>
               ) : (
                 <div className="text-center py-16">
                   <p className="font-display text-xl text-ink mb-2">Nothing in the book yet</p>
-                  <p className="font-body text-ink/50">The visitors' word arrives once the Somm is connected.</p>
+                  <p className="font-body text-ink/50">The visitors' word covers the estates — step back out to the winery to read it.</p>
                 </div>
               )}
             </div>

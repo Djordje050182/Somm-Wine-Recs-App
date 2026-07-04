@@ -241,6 +241,33 @@ const RegionExplorer: React.FC = () => {
             )}
           </div>
         </div>
+
+        {/* The years worth hunting on a list or at the cellar door */}
+        <div className="bg-paper border border-hairline mt-px p-6 md:p-8">
+          <p className="font-ui text-[11px] font-semibold uppercase tracking-kicker text-ink/40 mb-2">The ones to hunt</p>
+          <p className="font-body text-sm text-ink/60 leading-relaxed mb-6 max-w-2xl">
+            When a list or a museum-release shelf offers you a choice of years, these are the ones
+            the Somm reaches for.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+            {region.vintages
+              .filter(v => v.note)
+              .sort((a, b) => b.rating - a.rating)
+              .map(v => (
+                <div key={v.year} className="flex gap-4 items-baseline border-b border-hairline pb-3">
+                  <span className="font-display text-2xl text-claret shrink-0 w-16">{v.year}</span>
+                  <div className="min-w-0">
+                    <span className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-brass block">{v.quality} · {v.rating}/100</span>
+                    <p className="font-body text-sm text-ink/70 leading-relaxed mt-0.5">{v.note}</p>
+                  </div>
+                </div>
+              ))}
+          </div>
+          <p className="font-body text-sm italic text-ink/50 leading-relaxed mt-6">
+            The standing rule: young Semillon is a promise, aged Semillon is the payoff. If a cellar
+            door offers anything with ten years on it, say yes before they change their mind.
+          </p>
+        </div>
       </section>
 
       {/* The seasons — the one dark panel, kept flat */}

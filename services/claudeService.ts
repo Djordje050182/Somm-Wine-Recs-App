@@ -9,7 +9,9 @@ const PROXY_URL = (typeof process !== 'undefined' && process.env?.VITE_AI_PROXY_
 
 export const isAIEnabled = (): boolean => !!PROXY_URL;
 
-const MODEL = 'claude-sonnet-4-6';
+// Haiku carries the everyday load; the proxy also allows Sonnet for
+// anything that earns the upgrade.
+const MODEL = 'claude-haiku-4-5';
 
 interface ClaudeMessage {
   role: 'user' | 'assistant';

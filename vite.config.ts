@@ -3,7 +3,9 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
-const BASE = '/Somm-Wine-Recs-App/';
+// GitHub Pages serves from a subpath; Vercel serves from root.
+// Set VITE_BASE=/ in Vercel's environment.
+const BASE = process.env.VITE_BASE ?? '/Somm-Wine-Recs-App/';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');

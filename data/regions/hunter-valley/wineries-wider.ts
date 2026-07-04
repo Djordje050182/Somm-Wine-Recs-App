@@ -33,6 +33,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://gundogestate.com.au',
     tastingFee: 10,
     image: { url: 'https://gundogestate.com.au/wp-content/uploads/2021/09/h-GUNDOG-ESTATE-123-of-188.jpg', source: 'winery' as const, alt: "Inside Gundog's Hunter Cellar tasting room" },
+    briefing: {
+      icebreaker: 'Is it true Matt Burton makes wine in Canberra too, or does the schoolhouse keep him honest to the Hunter?',
+      proMove: 'Ask for The Chase and the Wild Semillon poured together; the ferment difference is the whole lesson.',
+      hiddenGem: 'The tasting room really was a 19th-century schoolhouse, which explains the faint air of being kept behind after class.',
+    },
     sommNote: 'The old schoolhouse pours the lesson: taste The Chase and the Wild Semillon side by side and you\'ll never call the grape one-dimensional again.',
   },
   {
@@ -62,6 +67,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
       source: 'unsplash',
       alt: 'Vineyard rows running towards a line of eucalypts',
     },
+    briefing: {
+      icebreaker: 'Ask what the School Block was before it grew Semillon, and which generation of Tinklers planted it.',
+      proMove: 'Come from 9.30, taste for free, then raid the farm shop for whatever was picked that morning.',
+      hiddenGem: 'The cattle and orchards are not scenery; this is a genuine mixed farm that happens to make serious Semillon.',
+    },
     sommNote: 'Free tastings, a farm shop, and Semillon off the School Block — the Hunter as it was before the tour buses found it.',
   },
   {
@@ -87,6 +97,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://pokolbinestate.com.au',
     tastingFee: 5,
     image: { url: 'https://www.pokolbinestate.com.au/cdn/shop/files/banner_16.png', source: 'winery' as const, alt: "Golden hour over Pokolbin Estate's old-vine rows" },
+    briefing: {
+      icebreaker: 'Ask why they kept faith with Riesling when the whole valley told them it would never work here.',
+      proMove: 'Taste the Riesling first, before the Semillon, or the two dry whites will start talking over each other.',
+      hiddenGem: 'Some of the estate\'s vines are among Pokolbin\'s oldest, hiding in plain sight on unfashionable McDonalds Road.',
+    },
     sommNote: 'One of the only Hunter Rieslings in existence. Order it, watch the locals raise an eyebrow, then watch them ask for a glass.',
   },
   {
@@ -112,6 +127,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://piggspeake.com',
     tastingFee: 10,
     image: { url: 'https://piggspeake.com/wp-content/uploads/2025/02/about-us-panel-3-534x1024.webp', source: 'winery' as const, alt: "The barrel-stave tasting bar at Piggs Peake" },
+    briefing: {
+      icebreaker: 'Ask which grower\'s fruit went into the Suckling Pig this year; the answer changes with the vintage.',
+      proMove: 'Start with the oddities, Zinfandel and Durif, then finish on the Suckling Pig Shiraz so it lands properly.',
+      hiddenGem: 'Behind the puns sits a negociant model rare in the Hunter: fruit hand-picked from favourite growers across all of NSW.',
+    },
     sommNote: 'Yes, the puns are relentless. So is the quality. The Suckling Pig Shiraz is the one everyone carries out under an arm.',
   },
   {
@@ -137,6 +157,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://benean.com.au',
     tastingFee: 10,
     image: { url: 'https://www.benean.com.au/wp-content/uploads/2023/10/cellar-door-main-header-2048x1422.jpg', source: 'winery' as const, alt: "The long timber tasting bar inside the Ben Ean cellar door" },
+    briefing: {
+      icebreaker: 'Mention your parents drank Ben Ean Moselle and ask how the modern version differs from the 1970s original.',
+      proMove: 'Taste first, then stay for lunch at the restaurant; the historic site deserves more than a drive-by pour.',
+      hiddenGem: 'Lindeman\'s made this place a household name from 1870; the revival poured Moselle back on its own founding ground.',
+    },
     sommNote: 'Your parents drank Ben Ean Moselle. Now you can too, ironically at first and then, quietly, quite sincerely.',
   },
   {
@@ -162,6 +187,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://tamburlaine.com.au',
     tastingFee: 10,
     image: { url: 'http://tamburlaine.com.au/cdn/shop/files/Cellar_Door_Crop_2_0c4e4ab9-7aa3-4143-80e5-7ed3e38b58de.jpg?v=1638760910', source: 'winery' as const, alt: "The vine-covered entrance to the Tamburlaine cellar door" },
+    briefing: {
+      icebreaker: 'Ask how long they have been certified organic; the answer predates the fashion by a few decades.',
+      proMove: 'Skip politely past the Wine Lovers range and ask for the Reserves; that is where the money is.',
+      hiddenGem: 'Founded in 1966, it quietly became one of Australia\'s largest organic producers without ever shouting about it.',
+    },
     sommNote: 'Organic at genuine scale, and the wines never lean on the certification as an excuse. The Reserves are the insiders\' pick.',
   },
   {
@@ -187,6 +217,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: false,
     tastingFee: 5,
     image: { url: 'https://irongateestate.com/cdn/shop/files/42_11-28-2025_Irongate.jpg?v=1765970884&width=1600', source: 'winery' as const, alt: "Iron Gate Estate from the air at sunset" },
+    briefing: {
+      icebreaker: 'Ask which vintage of the unwooded Chardonnay they are pouring, and why it was held back so long.',
+      proMove: 'Note the 4.30 close, earliest in the neighbourhood; make Iron Gate the first stop, not the last.',
+      hiddenGem: 'Nothing here is bought in and nothing leaves early; the house rule is patience, enforced without exception.',
+    },
     sommNote: 'Estate fruit only, and they hold wines back until they\'re ready. Patience as a business model — it works.',
   },
   {
@@ -211,6 +246,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: true,
     tastingFee: 0,
     image: { url: 'https://www.savannahestate.com.au/wp-content/uploads/2021/03/CI-Img-11-O.jpg', source: 'winery' as const, alt: "Morning mist over the Savannah Estate vineyard" },
+    briefing: {
+      icebreaker: 'Ask the family what western Pokolbin does differently to the busy strip fifteen minutes east.',
+      proMove: 'Come mid-afternoon on a weekend when the main drag heaves; the tasting is free and the bench empty.',
+      hiddenGem: 'The quiet western side gets the same Pokolbin dirt as the famous names, minus the coach parking.',
+    },
     sommNote: 'No queues, no theatrics, free tastings. Sometimes the quiet cellar doors are where the conversation gets good.',
   },
   {
@@ -237,6 +277,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://hopeestate.com.au',
     tastingFee: 5,
     image: { url: 'https://www.hopeestate.com.au/cdn/shop/files/40415ce6cc36d0568683624f931781a4.jpg?v=1779410092&width=1600', source: 'winery' as const, alt: "The Hope Estate winery and its viewing deck" },
+    briefing: {
+      icebreaker: 'Ask whether Springsteen or the Stones drew the bigger crowd, and which Shiraz block heard them best.',
+      proMove: 'Taste the Basalt Block against The Ripper, then take a beer from the brewery out to the deck.',
+      hiddenGem: 'Michael Hope was a pharmacist before 1994; the amphitheatre came later, the Shiraz obsession came first.',
+    },
     sommNote: 'Come for the concert, stay for The Ripper. It has headlined more Hunter dinner tables than any act on the amphitheatre bill.',
   },
   {
@@ -264,6 +309,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     bookingUrl: 'https://bimbadgen.com.au/cellar-door',
     tastingFee: 10,
     image: { url: 'https://www.bimbadgen.com.au/wp-content/uploads/2024/10/1920x652px-1-v2.jpg', source: 'winery' as const, alt: "Bimbadgen's vineyards and lake at sunset from the air" },
+    briefing: {
+      icebreaker: 'Ask how old the bell tower actually is; the answer is younger than most visitors assume.',
+      proMove: 'Book ahead, it is required here, and time the tasting before lunch at the hatted restaurant.',
+      hiddenGem: 'The Signature Semillons are single-vineyard bottlings built to cellar a decade, which the tower\'s photographers rarely discover.',
+    },
     sommNote: 'Everyone photographs the bell tower. The clever ones photograph it from the tasting bench, Signature Semillon in hand.',
   },
   {
@@ -291,6 +341,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     bookingUrl: 'https://thomasallenwines.com.au/reservation/',
     tastingFee: 0,
     image: { url: 'https://thomasallenwines.com.au/wp-content/uploads/2025/07/Fountain.jpg', source: 'winery' as const, alt: "The fountain in the Thomas Allen gardens, Brokenback Range behind" },
+    briefing: {
+      icebreaker: 'Ask Craig or Steve why they still seal everything under cork when the whole valley went screwcap.',
+      proMove: 'Book the appointment; the tasting is free, unhurried, and usually poured by one of the two founders.',
+      hiddenGem: 'The Moon Mountain vines were planted in 1969 and are dry-farmed; no irrigation, no compromise, tiny yields.',
+    },
     sommNote: 'A by-appointment-only gem on Broke Road — old vines, zero compromise, and the kind of intimate personalised tasting that feels like visiting a friend who just happens to make exceptional wine.',
   },
   {
@@ -316,6 +371,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: true,
     tastingFee: 0,
     image: { url: 'https://mistletoewines.com.au/wp-content/uploads/2025/06/McWilliamFamily-235-scaled.jpg', source: 'winery' as const, alt: "Golden hour over the Mistletoe vineyard rows" },
+    briefing: {
+      icebreaker: 'Ask the Sloans which sculpture in the garden arrived first, and whether the RosÃ© has sold out yet.',
+      proMove: 'Arrive early in the season for the RosÃ©; it sells out with a regularity the family finds embarrassing.',
+      hiddenGem: 'No tasting fee and no hard sell since 1989; the gallery and sculpture garden subsidise nothing, they are just generosity.',
+    },
     sommNote: 'Free tastings and an art gallery — Mistletoe runs on charm and delivers on Semillon. The Rosé sells out with monotonous regularity.',
   },
   {
@@ -340,6 +400,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: true,
     tastingFee: 10,
     image: { url: 'https://www.eaglesrestwines.com.au/cdn/shop/files/BANNER_MAX_1800x.jpg', source: 'winery' as const, alt: "Eagles Rest's hillside vineyards in the Brokenback foothills" },
+    briefing: {
+      icebreaker: 'Ask how old the Marrowbone Road blocks are; the vineyard is far more mature than the 2011 label suggests.',
+      proMove: 'Book ahead and aim for morning; the door shuts at 4pm, earlier than nearly everyone else.',
+      hiddenGem: 'The estate was built around inherited mature vines, so the young winery pours wine with borrowed decades behind it.',
+    },
     sommNote: 'Marrowbone Road is the valley\'s quiet end, and Eagles Rest suits it: unhurried tastings and Chardonnay that speaks softly with plenty to say.',
   },
 
@@ -367,6 +432,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://briarridge.com.au',
     tastingFee: 10,
     image: { url: 'https://www.briarridge.com.au/wp-content/uploads/2026/02/Briar_Ridge_Vineyard_Photo_by_Elfes_Images_2025_CE3_0520_1_2.webp', source: 'winery' as const, alt: "The Briar Ridge cellar door among the trees at Mount View" },
+    briefing: {
+      icebreaker: 'Ask what Karl Stockhausen changed when he shaped the house style, and what Dairy Hill was before vines.',
+      proMove: 'Taste the Dairy Hill Semillon young, then buy two: one for now, one for a five-year sleep.',
+      hiddenGem: 'Mount View\'s hillside amphitheatre runs cooler than the valley floor, which is why the trophies keep arriving quietly.',
+    },
     sommNote: 'The drive up Mount View Road is reason enough; the Dairy Hill Semillon is the reason you\'ll come back annually.',
   },
   {
@@ -392,6 +462,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://www.ridgeview.com.au',
     tastingFee: 10,
     image: { url: 'https://images.squarespace-cdn.com/content/v1/61677425844009752e3fc058/3475acd7-d967-4908-8d22-97669716ae8d/Ridgeview+Estate-Drone-25.jpg', source: 'winery' as const, alt: "The RidgeView estate at sunset from the air" },
+    briefing: {
+      icebreaker: 'Ask the Blatchfords which part of the place they built with their own hands; the answer is most of it.',
+      proMove: 'Book the long lunch on the deck and order the Impressions Shiraz; the Brokenback Range does the rest.',
+      hiddenGem: 'The whole estate was planted from bare paddock in 2000, cottages and all, by one family, plank by plank.',
+    },
     sommNote: 'Order the long lunch, ask for the Impressions Shiraz, and let the Brokenback Range do the table decoration.',
   },
 
@@ -419,6 +494,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://www.capercailliewines.com.au',
     tastingFee: 5,
     image: { url: 'https://www.capercailliewines.com.au/wp-content/uploads/2019/08/Our-Homestead-2.jpg', source: 'winery' as const, alt: "The lake and grounds of the Capercaillie homestead at sunset" },
+    briefing: {
+      icebreaker: 'Ask what a ghillie actually does in the Highlands, and how Alasdair Sutherland earned the comparison.',
+      proMove: 'Taste The Clan before The Ghillie; the blend sets up the single Shiraz like a good opening act.',
+      hiddenGem: 'Sutherland\'s Scottish naming runs right through the list, a Highland accent kept alive in Lovedale long after his death.',
+    },
     sommNote: 'A ghillie is a Highland hunting guide. This one will guide you straight to the best Shiraz in Lovedale.',
   },
   {
@@ -444,6 +524,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://saddlerscreek.com',
     tastingFee: 15,
     image: { url: 'https://saddlerscreek.com/wp-content/uploads/2022/08/Header-image-5.jpg', source: 'winery' as const, alt: "A seated tasting at the Saddler's Creek cellar door" },
+    briefing: {
+      icebreaker: 'Ask what the Bluegrass site does that lets Cabernet ripen properly in Semillon country.',
+      proMove: 'Book the seated tasting, it is required, and open at 9.30 with the Classic Hunter Semillon.',
+      hiddenGem: 'They have grown Hunter Cabernet since 1989, a variety most locals wrote off as a fool\'s errand decades ago.',
+    },
     sommNote: 'Cabernet in the Hunter is meant to be a fool\'s errand. The Bluegrass has been making fools of the doubters since 1989.',
   },
   {
@@ -469,6 +554,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: true,
     tastingFee: 5,
     image: { url: 'https://www.wandin.com.au/app/uploads/2024/02/accommodation-slide-copy.webp', source: 'winery' as const, alt: "Dusk over Wandin Valley's vines and red-roofed villas" },
+    briefing: {
+      icebreaker: 'Ask when the cricket oval last saw a proper match, and which name the estate wore back then.',
+      proMove: 'Arrive by early afternoon; the door closes at 4pm and this is not a place to rush.',
+      hiddenGem: 'The estate has changed names several times across fifty years while the vines, villas and oval stayed put.',
+    },
     sommNote: 'An estate with its own cricket oval understands the assignment: nowhere to be, nothing to rush, glass in hand.',
   },
   {
@@ -493,6 +583,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: true,
     tastingFee: 0,
     image: { url: 'https://emmascottage.com.au/wp-content/uploads/2025/01/1912x885px-Home-Hero-5.jpg', source: 'winery' as const, alt: "The cottage and cellar door on the lawns at Emma's Cottage" },
+    briefing: {
+      icebreaker: 'Ask who Emma was, and whether the person pouring your Verdelho also made it; they usually did.',
+      proMove: 'Book the cottage itself; overnight guests get the vineyard at dawn and the tasting fee waived.',
+      hiddenGem: 'The kangaroos arrive at first light for guests only; day visitors never learn the vineyard keeps morning hours.',
+    },
     sommNote: 'Stay the night in the cottage and the vineyard is yours at dawn — kangaroos included, tasting fee waived, hearts won.',
   },
 
@@ -522,6 +617,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     bookingUrl: 'https://margan.com.au/book',
     tastingFee: 10,
     image: { url: 'https://margan-wines.imgix.net/About/A7R05578_DexterKim.jpg?auto=compress&w=1600', source: 'winery' as const, alt: "The rammed-earth entrance to the Margan estate" },
+    briefing: {
+      icebreaker: 'Ask Andrew or Lisa what the volcanic soils of Broke do for Barbera that Pokolbin\'s clay cannot.',
+      proMove: 'Book the restaurant before the tasting; the kitchen garden supplies nearly the whole menu and tables vanish.',
+      hiddenGem: 'The estate is certified sustainable and \'paddock to plate\' is measured in metres, garden to kitchen door.',
+    },
     sommNote: 'If you only make one booking in Broke, make it Margan — the White Label wines and the kitchen-garden lunch are the subregion\'s one-two punch.',
   },
   {
@@ -549,6 +649,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     bookingUrl: 'https://krinklewood.com/visit',
     tastingFee: 15,
     image: { url: 'http://krinklewood.com/cdn/shop/files/Aerial_Shot_Krinklewood_16b7ce2b-f125-4bd4-9c6e-f613990d19f0.jpg?v=1753151996', source: 'winery' as const, alt: "The Krinklewood estate from the air, Brokenback Range behind" },
+    briefing: {
+      icebreaker: 'Ask what actually goes into the cow horns, and whether the geese respect the biodynamic calendar.',
+      proMove: 'Book ahead, then take the Francesca RosÃ© out under the plane trees rather than staying at the bar.',
+      hiddenGem: 'The vineyard is farmed to Rudolf Steiner\'s lunar calendar, picking dates and all, and has been certified for years.',
+    },
     sommNote: 'Provence by way of Broke. The Francesca Rosé under the plane trees is a small, perfect afternoon.',
   },
   {
@@ -574,6 +679,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://whispering-brook.com',
     tastingFee: 15,
     image: { url: 'https://www.whispering-brook.com/assets/images/contentblock/photos/cellardoorshot.jpg', source: 'winery' as const, alt: "The Whispering Brook cellar door through the vines" },
+    briefing: {
+      icebreaker: 'Ask why they planted Touriga Nacional when nobody in the Hunter could pronounce it, let alone grow it.',
+      proMove: 'Book ahead, note the 10.30 open, and add the olive oil tasting alongside the wines.',
+      hiddenGem: 'The olive grove is not decoration; this is a genuine two-crop estate, pressing its own oil beside the vines.',
+    },
     sommNote: 'The Touriga is the tip: Portugal\'s great grape, thriving quietly in Broke while the rest of the valley looks the other way.',
   },
   {
@@ -599,6 +709,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://winmarkwines.com.au',
     tastingFee: 25,
     image: { url: 'https://winmarkwines.com.au/wp-content/uploads/2026/01/chardonnay_cellardoor_broke.jpg', source: 'winery' as const, alt: "The Winmark tasting room, open to the vineyard" },
+    briefing: {
+      icebreaker: 'Ask Karin Adcock what convinced her to bet the old Pooles Rock vineyard entirely on one grape.',
+      proMove: 'Book the full tasting despite the fee; six Chardonnays from one site is the entire point of coming.',
+      hiddenGem: 'These blocks made Pooles Rock\'s celebrated whites long before 2016; the pedigree predates the name on the gate.',
+    },
     sommNote: 'One grape, one obsession. Taste the Chardonnays in a row and you\'ll hear the same vineyard speaking in six different registers.',
   },
   {
@@ -623,6 +738,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: true,
     tastingFee: 5,
     image: { url: 'https://www.stompwines.com.au/wp-content/uploads/2026/06/Michael-Meredith-Stomp-building.jpg', source: 'winery' as const, alt: "Michael and Meredith outside the Stomp cellar door" },
+    briefing: {
+      icebreaker: 'Ask Michael and Meredith how many cases this year\'s Semillon ran to; the answer will be startlingly small.',
+      proMove: 'Note the 11am open, latest around, and simply ask what is open; scarcity decides the list daily.',
+      hiddenGem: 'Everything is made by hand by the couple pouring it, in Broke village itself rather than out among the vines.',
+    },
     sommNote: 'Batches so small they\'re practically rumours. Whatever\'s open when you arrive, that\'s the special.',
   },
 
@@ -650,6 +770,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://tworiverswines.com.au',
     tastingFee: 5,
     image: { url: 'https://tworivers.com.au/wp-content/uploads/2023/01/Two_Rivers-IG-17.jpg', source: 'winery' as const, alt: "The Two Rivers cellar door pavilion across the lawn" },
+    briefing: {
+      icebreaker: 'Ask which big-name labels have quietly bottled Two Rivers fruit over the years; the list is longer than expected.',
+      proMove: 'Make it a morning run from Pokolbin; the door shuts at 4pm and the drive is an hour of big sky.',
+      hiddenGem: 'The best parcels never leave; after decades supplying Australia\'s giants, the family keeps the top fruit for its own labels.',
+    },
     sommNote: 'An hour north of the tour buses, the Semillon is a stone\'s throw from the river and the tasting bench is all yours.',
   },
   {
@@ -675,6 +800,11 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: false,
     tastingFee: 10,
     image: { url: 'https://www.vinesathollydene.com/wp-content/uploads/2021/03/Home-Page-one-of-static-photos-above-AGFG-scaled.jpeg', source: 'winery' as const, alt: "The deck at Hollydene Estate, vines beyond" },
+    briefing: {
+      icebreaker: 'Ask what Juul means and why an Upper Hunter estate went so seriously into sparkling wine.',
+      proMove: 'Arrive from 9.30, start with the Juul Blanc de Blancs on the veranda, then settle in for Sunday lunch.',
+      hiddenGem: 'The vines date to 1965, making this one of the Upper Hunter\'s original plantings, long before the region had a name.',
+    },
     sommNote: 'The Golden Highway earns its name here: bubbles on the veranda, vines from 1965, and nobody checking their watch.',
   },
 ];

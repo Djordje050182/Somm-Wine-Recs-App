@@ -1,0 +1,161 @@
+import { Winery } from '../../../types';
+
+// ---------------------------------------------------------------------------
+// The boutiques — small, family-run estates added July 2026. All facts from
+// each estate's own website; photography from their own sites, visually
+// verified. Coordinates from public listings (Hanging Tree via vineyards.com;
+// others geocoded from street addresses).
+// ---------------------------------------------------------------------------
+
+export const BOUTIQUE_WINERIES: Winery[] = [
+  {
+    id: 'hv-hanging-tree',
+    name: 'Hanging Tree Wines',
+    subregion: 'Pokolbin',
+    specialty: 'Shiraz Cabernet, Semillon, Sparkling',
+    wines: ["Blacksmith's Shiraz Cabernet", 'Aged Hunter Semillon', "Horse Whisperer's Chardonnay", 'Run Amok Shiraz'],
+    established: 2003,
+    priceRange: '$$',
+    description:
+      'A 40-acre family estate on the O\'Connors Road ridge, with rose gardens, a duck pond, resident farm animals and live jazz every Sunday.',
+    story:
+      'Perched on one of Pokolbin\'s most scenic ridges with uninterrupted views to the Brokenback Range, Hanging Tree does things the unhurried way: hand-picked fruit, playful blends, estate olives, and a homestead cellar door where the dogs greet you before the staff do. Sunday afternoons bring live jazz to the lawn.',
+    style: 'Boutique',
+    opens: '10:00',
+    closes: '17:00',
+    lat: -32.80813,
+    lng: 151.31796,
+    hasRestaurant: false,
+    rating: 4.8,
+    bookingRequired: false,
+    kidFriendly: true,
+    dogFriendly: true,
+    phone: '02 4998 6608',
+    website: 'https://www.hangingtreewines.com.au',
+    tastingFee: 10,
+    image: {
+      url: 'https://fusws.api.aspedia.io/hangingtree-website/banners/home-page/hangingtree-vineyard-landscape.jpg',
+      source: 'winery' as const,
+      alt: 'The Hanging Tree homestead through the vine rows, Brokenback Range behind',
+    },
+    briefing: {
+      icebreaker: 'Ask which of the resident dogs is really in charge of the cellar door.',
+      proMove: 'Come on a Sunday from two, when the jazz starts — book a table on the lawn and stay put.',
+      hiddenGem: 'The estate presses its own olives too; the grove shares the ridge with the vines.',
+    },
+    sommNote: 'The 2014 Aged Hunter Semillon is the quiet flex here — a decade of patience poured by the family who waited.',
+  },
+  {
+    id: 'hv-ernest-hill',
+    name: 'Ernest Hill Wines',
+    subregion: 'Pokolbin',
+    specialty: 'Semillon, Shiraz, Gewurztraminer',
+    wines: ['Alexander Semillon', 'William Henry Shiraz', 'Cyril Chardonnay'],
+    established: 1999,
+    priceRange: '$$',
+    description:
+      'A five-star Halliday family winery on Wine Country Drive at Nulkaba, naming its wines after four generations of the Wilson family.',
+    story:
+      'The Wilson family named each wine for one of their own — Alexander, William Henry, Cyril — so the range reads like the family tree. The weatherboard cellar door pours limited-edition parcels that have taken medals from Hong Kong to London, without the estate ever growing past a family operation.',
+    style: 'Boutique',
+    opens: '10:00',
+    closes: '16:00',
+    lat: -32.8104,
+    lng: 151.3498,
+    hasRestaurant: false,
+    rating: 4.7,
+    bookingRequired: false,
+    kidFriendly: true,
+    dogFriendly: true,
+    phone: '02 4991 4418',
+    website: 'https://ernesthillwines.com.au',
+    tastingFee: 5,
+    image: {
+      url: 'https://ernesthillwines.com.au/wp-content/uploads/2019/08/CD-Shot-HV-Mag-2016.jpg',
+      source: 'winery' as const,
+      alt: 'The Ernest Hill cellar door cottage under its gum trees',
+    },
+    briefing: {
+      icebreaker: 'Ask who Alexander and William Henry actually were — every label here is a Wilson.',
+      proMove: 'The Gewurztraminer is the wildcard almost nobody else in the valley grows; taste it against the Semillon.',
+      hiddenGem: 'Sunday hours are short — the family close at three to have dinner together.',
+    },
+    sommNote: 'Four generations on the labels and usually one of them behind the bar — ask which wine is theirs.',
+  },
+  {
+    id: 'hv-david-hook',
+    name: 'David Hook Wines',
+    subregion: 'Belford',
+    specialty: 'Semillon, Chardonnay, Barbera',
+    wines: ['Pothana Vineyard Belford Semillon', 'Old Vines Chardonnay', 'Barbera'],
+    established: 1984,
+    priceRange: '$$',
+    description:
+      'David Hook planted the Pothana vineyard on the family grazing property at Belford in the early 1980s; the old dry-grown vines now make some of the wider Hunter\'s most quietly admired whites.',
+    story:
+      'When David Hook chose sites on the family property at Belford he wanted consistency, not fashion. Forty years later the Pothana vineyard\'s dry-grown Semillon and Chardonnay are benchmarks of the Belford dirt, and the Italian varieties — Barbera, Pinot Grigio — are the winemaker enjoying himself.',
+    style: 'Boutique',
+    opens: '10:00',
+    closes: '17:00',
+    lat: -32.6562,
+    lng: 151.2889,
+    hasRestaurant: false,
+    rating: 4.7,
+    bookingRequired: true,
+    kidFriendly: true,
+    dogFriendly: false,
+    phone: '02 6574 7464',
+    website: 'https://www.davidhookwines.com.au',
+    bookingUrl: 'https://www.davidhookwines.com.au/book-tasting',
+    tastingFee: 10,
+    image: {
+      url: 'https://fusws.api.aspedia.io/davidhookwines-website/cta-images/home-page/cellar-door-cta-2.jpg',
+      source: 'winery' as const,
+      alt: 'The David Hook cellar door at Pothana, Belford',
+    },
+    briefing: {
+      icebreaker: 'Ask what the Belford flats do for Semillon that the Pokolbin strip cannot.',
+      proMove: 'Book the seated tasting and ask for an aged Pothana release beside the current one.',
+      hiddenGem: 'The Barbera is the tell that an Italian heart beats under this very Australian vineyard.',
+    },
+    sommNote: 'Belford is the Hunter without the traffic — forty-year-old dry-grown vines and a bloke called Hook who got it right.',
+  },
+  {
+    id: 'hv-mount-eyre',
+    name: 'Mount Eyre Vineyards',
+    subregion: 'Pokolbin',
+    specialty: 'Semillon, Shiraz, Chardonnay',
+    wines: ['Mount Eyre Holman Shiraz', 'Three Ponds Semillon', 'Honeytree Shiraz'],
+    established: 1996,
+    priceRange: '$$',
+    description:
+      'A family estate pouring its Three Ponds, Honeytree and flagship Mount Eyre wines from the Honeytree Estate cellar door on Gillards Road.',
+    story:
+      'One of the Hunter\'s quieter family stories: three vineyards — Three Ponds at Broke, Honeytree at Pokolbin, Monkey Place Creek — feeding one small label. The cellar door sits among the Honeytree vines, and the flagship Holman Shiraz is named for the old estate the family restored.',
+    style: 'Boutique',
+    opens: '10:00',
+    closes: '17:00',
+    lat: -32.78,
+    lng: 151.32,
+    hasRestaurant: false,
+    rating: 4.6,
+    bookingRequired: true,
+    kidFriendly: true,
+    dogFriendly: true,
+    phone: '0438 683 973',
+    website: 'https://mounteyre.com',
+    bookingUrl: 'https://mounteyre.com/cellar-door/',
+    tastingFee: 10,
+    image: {
+      url: 'https://mounteyre.com/wp-content/uploads/2022/01/Mount-Eyre-Vineyards-Sunset.jpg',
+      source: 'winery' as const,
+      alt: 'Sunset over the Mount Eyre vines towards the ranges',
+    },
+    briefing: {
+      icebreaker: 'Ask which of the three vineyards — Three Ponds, Honeytree or Monkey Place Creek — grew the glass in your hand.',
+      proMove: 'It closes midweek; come Friday or Saturday when the door stays open to six, latest on the road.',
+      hiddenGem: 'The guesthouse at Holman Estate sleeps you among the same vines that make the flagship Shiraz.',
+    },
+    sommNote: 'Monkey Place Creek is a real waterway, not a marketing flourish — the locals will vouch for the name.',
+  },
+];

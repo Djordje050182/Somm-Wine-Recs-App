@@ -2,12 +2,15 @@ import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Send, WifiOff } from 'lucide-react';
 import { sommelierChat, isAIEnabled } from '../services/claudeService';
 import { getWeatherContextString } from '../services/weatherService';
+import { SommTextSession } from '../services/sommTextChat';
 import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
 import { Kicker } from './ui';
 
 // Ask the Somm — a conversation with the region's resident sommelier.
 // The Somm is a person, not a feature: no badges, no sparkle.
+// Two ways to reach him: the Claude proxy when it's deployed (richer app
+// context), otherwise the same ElevenLabs agent that powers his voice.
 
 interface Message {
   role: 'user' | 'assistant';
@@ -29,7 +32,11 @@ const SommelierChat: React.FC = () => {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const aiEnabled = isAIEnabled();
+  const sessionRef = useRef<SommTextSession | null>(null);
+  const claudeEnabled = isAIEnabled();
+  const aiEnabled = true; // the agent fallback means the Somm is always at the table
+
+  useEffect(() => () => sessionRef.current?.end(), []);
 
   // Suggested openers, drawn from the region itself.
   const suggestions = useMemo(() => {
@@ -67,10 +74,16 @@ const SommelierChat: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const weather = await getWeatherContextString(region);
-      const context = `Weather: ${weather}. Wineries available: ${wineries.map(w => w.name).join(', ')}.`;
-      const history = messages.map(m => ({ role: m.role, content: m.content }));
-      const reply = await sommelierChat(region, text, history, context);
+      let reply: string;
+      if (claudeEnabled) {
+        const weather = await getWeatherContextString(region);
+        const context = `Weather: ${weather}. Wineries available: ${wineries.map(w => w.name).join(', ')}.`;
+        const history = messages.map(m => ({ role: m.role, content: m.content }));
+        reply = await sommelierChat(region, text, history, context);
+      } else {
+        if (!sessionRef.current) sessionRef.current = new SommTextSession();
+        reply = await sessionRef.current.ask(text);
+      }
       setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
     } catch {
       setMessages(prev => [

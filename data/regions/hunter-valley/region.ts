@@ -54,6 +54,12 @@ export const HUNTER_VALLEY: Region = {
       blurb: 'The frontier an hour north — broad river flats, big skies, and estates that reward the drive.',
       features: ['River flats', 'Fewer crowds', 'Estate scale'],
     },
+    {
+      id: 'belford',
+      name: 'Belford',
+      blurb: 'Rolling grazing country off the old highway, where a handful of growers quietly farm some of the valley\'s oldest unirrigated vines.',
+      features: ['Old vines', 'By appointment', 'Back roads'],
+    },
   ],
   varietyMix: [
     { name: 'Semillon', value: 45 },

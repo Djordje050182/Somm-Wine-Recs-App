@@ -1,0 +1,138 @@
+import { WineDetail } from '../../../types';
+
+// Flagship bottles from the boutique estates. Prices from each cellar door's
+// published lists where available (Hanging Tree tasting menu, Mount Eyre shop);
+// Ernest Hill and David Hook prices are typical cellar-door figures.
+
+const img = (url: string, alt: string) => ({ url, source: 'winery' as const, alt });
+
+export const BOUTIQUE_WINES: WineDetail[] = [
+  {
+    id: 'hv-hanging-tree-blacksmiths-shiraz-cabernet',
+    name: "Blacksmith's Shiraz Cabernet",
+    wineryId: 'hv-hanging-tree',
+    variety: 'Shiraz Cabernet',
+    vintage: '2019',
+    price: '$120',
+    description:
+      'The estate flagship: a dense, old-fashioned Hunter blend built around ridge-grown Shiraz, released only when the family judges it ready.',
+    sommNote: 'The blend your grandfather called claret, made by people who never stopped believing in it.',
+    image: img('https://fusws.api.aspedia.io/hangingtree-website/cta-images/home-page/our-wines-16-10.jpg', "A bottle from the Hanging Tree range on the tasting bench"),
+    rating: 4.7,
+    pairings: ['Rib of beef', 'Slow lamb shoulder', 'Aged cheddar'],
+    drinkFrom: '2026',
+    drinkTo: '2034',
+  },
+  {
+    id: 'hv-hanging-tree-aged-hunter-semillon',
+    name: 'Aged Hunter Semillon',
+    wineryId: 'hv-hanging-tree',
+    variety: 'Semillon',
+    vintage: '2014',
+    price: '$110',
+    description:
+      'A limited museum release kept back a full decade — toast, honey and lime where once there was only lemon and nerve.',
+    sommNote: 'Proof of the Hunter magic trick: no oak, just ten patient years in the cellar under the ridge.',
+    image: img('https://fusws.api.aspedia.io/hangingtree-website/banners/home-page/hangingtree-vineyard-landscape.jpg', 'The Hanging Tree vines that grow the Semillon'),
+    rating: 4.6,
+    pairings: ['Roast chicken', 'Aged comté', 'Smoked trout'],
+    drinkFrom: '2024',
+    drinkTo: '2030',
+  },
+  {
+    id: 'hv-ernest-hill-alexander-semillon',
+    name: 'Alexander Semillon',
+    wineryId: 'hv-ernest-hill',
+    variety: 'Semillon',
+    vintage: '2023',
+    price: '$28',
+    description:
+      'Named for the first Wilson of the line: classic Nulkaba Semillon, lemon-sharp in youth with the frame to sleep for a decade.',
+    sommNote: 'The medal magnet of the range — the wine that keeps five Halliday stars over the door.',
+    image: img('https://ernesthillwines.com.au/wp-content/uploads/2019/08/CD-Shot-HV-Mag-2016.jpg', 'The Ernest Hill cellar door'),
+    rating: 4.5,
+    pairings: ['Natural oysters', 'Whiting', 'Young goat cheese'],
+    drinkFrom: '2024',
+    drinkTo: '2033',
+  },
+  {
+    id: 'hv-ernest-hill-william-henry-shiraz',
+    name: 'William Henry Shiraz',
+    wineryId: 'hv-ernest-hill',
+    variety: 'Shiraz',
+    vintage: '2021',
+    price: '$40',
+    description:
+      'The family reserve Shiraz: medium-weight, savoury, unmistakably Hunter, from the estate block behind the cellar door.',
+    sommNote: 'Drinks like the valley used to make them — earth and plum before fruit and flash.',
+    image: img('https://ernesthillwines.com.au/wp-content/uploads/2019/08/walk.jpg', 'Walking the Ernest Hill vines'),
+    rating: 4.5,
+    pairings: ['Duck', 'Mushroom risotto', 'Beef pie'],
+    drinkFrom: '2025',
+    drinkTo: '2033',
+  },
+  {
+    id: 'hv-david-hook-pothana-belford-semillon',
+    name: 'Pothana Vineyard Belford Semillon',
+    wineryId: 'hv-david-hook',
+    variety: 'Semillon',
+    vintage: '2023',
+    price: '$35',
+    description:
+      'Dry-grown Semillon from the 1980s Pothana plantings on the Belford flats — taut, fine-boned, and famously long-lived.',
+    sommNote: 'Belford dirt in a glass: quieter than Pokolbin and, whisper it, sometimes finer.',
+    image: img('https://fusws.api.aspedia.io/davidhookwines-website/cta-images/home-page/vineyard-cta-2.jpg', 'The Pothana vineyard at Belford'),
+    rating: 4.6,
+    pairings: ['Sashimi', 'Green-lip mussels', 'Sorrel omelette'],
+    drinkFrom: '2025',
+    drinkTo: '2036',
+  },
+  {
+    id: 'hv-david-hook-old-vines-chardonnay',
+    name: 'Old Vines Chardonnay',
+    wineryId: 'hv-david-hook',
+    variety: 'Chardonnay',
+    vintage: '2022',
+    price: '$40',
+    description:
+      'From the oldest Pothana rows: a restrained, stone-fruited Chardonnay that leans on the vineyard rather than the barrel.',
+    sommNote: 'Forty-year-old vines do the talking; the oak knows its place.',
+    image: img('https://fusws.api.aspedia.io/davidhookwines-website/cta-images/home-page/wines-cta-1.jpg', 'David Hook wines on the tasting bench'),
+    rating: 4.5,
+    pairings: ['Roast chicken', 'Pork belly', 'Gruyère'],
+    drinkFrom: '2024',
+    drinkTo: '2030',
+  },
+  {
+    id: 'hv-mount-eyre-holman-shiraz',
+    name: 'Mount Eyre Holman Shiraz',
+    wineryId: 'hv-mount-eyre',
+    variety: 'Shiraz',
+    vintage: '2023',
+    price: '$88',
+    description:
+      'The flagship, named for the restored Holman Estate: concentrated Pokolbin Shiraz held back until the tannins soften into velvet.',
+    sommNote: 'The family keeps so little of this that asking for a second pour counts as a compliment.',
+    image: img('https://mounteyre.com/wp-content/uploads/2022/01/Mount-Eyre-Vineyards-Sunset.jpg', 'Mount Eyre vines at sunset'),
+    rating: 4.6,
+    pairings: ['Char-grilled rump', 'Kangaroo fillet', 'Hard sheep cheese'],
+    drinkFrom: '2027',
+    drinkTo: '2036',
+  },
+  {
+    id: 'hv-mount-eyre-three-ponds-semillon',
+    name: 'Three Ponds Semillon',
+    wineryId: 'hv-mount-eyre',
+    variety: 'Semillon',
+    vintage: '2024',
+    price: '$35',
+    description:
+      'Bright, rain-water-pure Semillon from the Three Ponds vineyard at Broke — the house calling card, drunk young or forgotten profitably.',
+    sommNote: 'Broke fruit, Pokolbin pour — the two ends of the valley in one honest glass.',
+    image: img('https://mounteyre.com/wp-content/uploads/2022/01/holman-estate-guesthouse-1.jpg', 'The Holman Estate guesthouse among the Mount Eyre vines'),
+    rating: 4.4,
+    pairings: ['Fish and chips', 'Fresh prawns', 'Summer salads'],
+    drinkFrom: '2024',
+    drinkTo: '2032',
+  },
+];

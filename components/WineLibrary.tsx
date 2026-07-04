@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   Search, Heart, Clock, CalendarCheck, UtensilsCrossed, Baby, PawPrint,
-  ChevronDown, ExternalLink,
+  ChevronDown, ExternalLink, Star,
 } from 'lucide-react';
 import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
@@ -377,6 +377,13 @@ const WineLibrary: React.FC = () => {
                         <p className="font-ui text-xs text-ink/50 mt-1">
                           {winery?.name} · {wine.vintage} · {wine.rating.toFixed(1)}
                         </p>
+                        {wine.community && (
+                          <p className="font-ui text-[11px] text-ink/45 mt-1 flex items-center gap-1">
+                            <Star className="w-3 h-3 text-brass fill-current" />
+                            {wine.community.score.toFixed(1)} on {wine.community.source}
+                            <span className="text-ink/30">· {wine.community.count.toLocaleString()} ratings</span>
+                          </p>
+                        )}
                       </div>
                       <button
                         onClick={e => toggleSavedWine(e, wine.id)}

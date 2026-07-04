@@ -38,6 +38,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     bookingUrl: 'https://tyrrells.rezdy.com/',
     tastingFee: 25,
     image: { url: 'https://fusws.api.aspedia.io/tyrrells-website/banners/pages/Tyrrells-Cellar-Door-2025-Hunter-Valley-Tastings.jpg', source: 'winery' as const, alt: "Inside the Tyrrell's cellar door, timber bar and tasting stools" },
+    briefing: {
+      icebreaker: 'Is it true the Vat 9 still ferments in the old open vats behind Edward\'s 1858 hut?',
+      proMove: 'Book ahead â tastings are by appointment â and ask to see the dirt-floored ironbark hut before your flight.',
+      hiddenGem: 'Vat 1 Semillon has collected more trophies than any other white wine in Australian show history.',
+    },
     sommNote: 'The 4 Acres block out the front was planted in 1879 — you can stand beside vines that predate the light bulb.',
   },
   {
@@ -65,6 +70,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     bookingUrl: 'https://www.exploretock.com/brokenwoodwines',
     tastingFee: 30,
     image: { url: 'https://www.brokenwood.com.au/wp-content/uploads/2025/08/aboutuspagebanner1.webp', source: 'winery' as const, alt: "The Brokenwood winery and cellar door from the air" },
+    briefing: {
+      icebreaker: 'Did the founding syndicate really drive up from Sydney on weekends to work the McDonalds Road block themselves?',
+      proMove: 'Book through Tock, taste the Cricket Pitch range first, and leave the Graveyard for the finale it is.',
+      hiddenGem: 'Graveyard sits in the Langton\'s Classification alongside Grange â the top table of Australian wine, from a plot surveyed for coffins.',
+    },
     sommNote: 'The Graveyard vineyard was gazetted as a cemetery in 1882. Nobody was ever buried there — the vines got the plot instead.',
   },
   {
@@ -91,6 +101,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://audreywilkinson.com.au',
     tastingFee: 25,
     image: { url: 'https://audreywilkinson.com.au/wp-content/uploads/2024/02/home-bg.webp', source: 'winery' as const, alt: "Vines sweeping down to the valley from the Audrey Wilkinson hilltop" },
+    briefing: {
+      icebreaker: 'Was Audrey really making the wines here as a teenager, or is that cellar-door legend?',
+      proMove: 'No booking required â arrive before the tour buses, then carry your glass up to the lookout above the cellar door.',
+      hiddenGem: 'There is a small museum beneath the cellar door, telling the family\'s story through original tools and records of Pokolbin\'s first plantings.',
+    },
     sommNote: 'Come at 4pm, taste The Ridge, and watch the light go gold over the ranges. The picnic hampers sell out; the view never does.',
   },
   {
@@ -117,6 +132,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://mountpleasantwines.com.au',
     tastingFee: 20,
     image: { url: 'https://www.mountpleasantwines.com.au/wp-content/uploads/2026/05/mount-pleasant-estate.jpg', source: 'winery' as const, alt: "The Mount Pleasant winery among its vines, Brokenback Range behind" },
+    briefing: {
+      icebreaker: 'Are the Old Paddock vines out there really the 1880 plantings O\'Shea inherited?',
+      proMove: 'Walk in unbooked, bring the dog, and taste Lovedale beside Elizabeth â same grape, two very different famous blocks.',
+      hiddenGem: 'O\'Shea trained in France before he was twenty, which is why a 1920s Hunter winery ran on Burgundian instincts.',
+    },
     sommNote: 'Ask for the museum tasting. An aged Elizabeth at a tenner more than the current release is the best-value old wine in the country.',
   },
   {
@@ -142,6 +162,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://lakesfolly.com.au',
     tastingFee: 30,
     image: { url: 'https://cdn.shopify.com/s/files/1/1193/9678/files/lake-og.jpg?v=1621381172', source: 'winery' as const, alt: "Evening light over the Lake's Folly vineyard rows" },
+    briefing: {
+      icebreaker: 'Did Max Lake really plant Cabernet here just to prove the Shiraz men wrong?',
+      proMove: 'Booking is essential and doors close at four; buy on the spot, because the mailing list has a waiting list.',
+      hiddenGem: 'Max was a hand surgeon who wrote pioneering books on taste and smell â the science quietly shaped the wines.',
+    },
     sommNote: 'Two wines, one small tin-roofed winery, no marketing department. If the gate sign says sold out, they mean it — go early in the year.',
   },
   {
@@ -168,6 +193,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://tullochwines.com',
     tastingFee: 15,
     image: { url: 'https://www.tullochwines.com/assets/images/Untitled%20design%20-%202024-06-26T122312_963(1).png', source: 'winery' as const, alt: "Tastings and the cellar door at Tulloch Wines" },
+    briefing: {
+      icebreaker: 'Why did Verdelho become the house grape here when the rest of the valley chased Semillon?',
+      proMove: 'Fifteen dollars, no booking, dogs welcome â start with the Limited Release Verdelho, the grape this house does best.',
+      hiddenGem: 'The family lost the brand to corporate owners for decades and bought their own name back in 2001.',
+    },
     sommNote: 'The founding vineyard settled a shopkeeper’s bad debt in 1895. Taste the Hector and decide who got the better deal.',
   },
   {
@@ -194,6 +224,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://www.mcguiganwines.com.au',
     tastingFee: 15,
     image: { url: 'https://www.mcguiganwines.com.au/on/demandware.static/-/Library-Sites-mcguigan-shared-library/default/dw6f087e70/visit-us-page/mcguig-visit-us-page-1920x1080.jpg', source: 'winery' as const, alt: "The curved timber tasting bar at the McGuigan cellar door" },
+    briefing: {
+      icebreaker: 'Was Brian\'s father Perc really making wine at the old Dalwood winery before all this?',
+      proMove: 'No booking needed â pair your flight with cheese from the factory sharing the complex before tackling The Shortlist range.',
+      hiddenGem: 'The winemaking team has taken International Winemaker of the Year four times â a record no supermarket shelf would suggest.',
+    },
     sommNote: 'Skip the supermarket labels and go straight to Bin 9000 — the Semillon the show judges see is a different animal entirely.',
   },
   {
@@ -220,6 +255,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://www.hungerfordhill.com.au',
     tastingFee: 20,
     image: { url: 'https://hungerfordhill.com.au/cdn/shop/files/hungerford_-48_2000x.jpg?v=1767763043', source: 'winery' as const, alt: "The Hungerford Hill villa above its terraced lawns" },
+    briefing: {
+      icebreaker: 'How does one tasting flight jump from Pokolbin Semillon to Tumbarumba fruit without whiplash?',
+      proMove: 'Tastings are walk-in, but Muse books out â reserve the restaurant first, then taste while your table is prepared.',
+      hiddenGem: 'In the seventies this was a full wine village with shops and restaurants â the great barrel is the survivor.',
+    },
     sommNote: 'The building is shaped like a giant wine barrel tipped on its side. Muse, one of the Hunter’s best restaurants, hides inside it.',
   },
   {
@@ -246,6 +286,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://scarboroughwine.com.au',
     tastingFee: 15,
     image: { url: 'https://scarboroughwine.com.au/wp-content/uploads/2025/06/Visit_Us_banner.jpg', source: 'winery' as const, alt: "Sunset over Scarborough's vineyards towards the Brokenback Range" },
+    briefing: {
+      icebreaker: 'Is this really part of the old Lindemans Sunshine vineyard Ian bought in eighty-five?',
+      proMove: 'Mind the earlier 4.30 close â come mid-afternoon and taste the Yellow Label against The Obsessive to map the house range.',
+      hiddenGem: 'Ian consulted for wineries across the valley before betting everything on one grape and one corner of Sunshine.',
+    },
     sommNote: 'Tastings are seated, unhurried and often end in the garden. The Yellow Label is the valley’s great gateway Chardonnay.',
   },
   {
@@ -271,6 +316,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://www.leogate.com.au',
     tastingFee: 20,
     image: { url: 'https://static.wixstatic.com/media/efb94e_e3663bef2a1e4a7581b313d65ee40edf~mv2.jpg', source: 'winery' as const, alt: "The Leogate Estate cellar door pavilions and courtyard" },
+    briefing: {
+      icebreaker: 'Which blocks go into The Basin Reserve â is it all the old seventies plantings?',
+      proMove: 'Skip the entry range and pay for the reserve flight â The Basin and Creek Bed are where the trophies live.',
+      hiddenGem: 'Rothbury was Len Evans\' grand project, so these vines were planted under the eye of Australian wine\'s great showman.',
+    },
     sommNote: 'The vineyard came before the label — these blocks were planted for Rothbury in 1971, and the old vines do the talking.',
   },
   {
@@ -297,6 +347,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://peppertreewines.com.au',
     tastingFee: 15,
     image: { url: 'http://www.peppertreewines.com.au/cdn/shop/files/pepper_Tree_Wines_Cellar_Door_1200.jpg?v=1780025999', source: 'winery' as const, alt: "The Pepper Tree cellar door in its gardens" },
+    briefing: {
+      icebreaker: 'Do you still get fruit off the old Tallawanta vineyard for the Semillon?',
+      proMove: 'Doors open at 9.30, earlier than most â start here, let the dog stretch in the gardens, then work outward.',
+      hiddenGem: 'The guesthouse next door is a genuine former convent, moved to the site whole from Coonamble in the nineties.',
+    },
     sommNote: 'Coquun is the Wonnarua name for the Hunter River. The wine tastes like the valley floor it grew in — earthy, composed, patient.',
   },
   {
@@ -323,6 +378,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://tempustwo.com.au',
     tastingFee: 15,
     image: { url: 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Tempus_Two_Winery.jpg', source: 'winery' as const, alt: "The steel canopy of the Tempus Two winery complex" },
+    briefing: {
+      icebreaker: 'Did this really start as a two-tonne experiment before it became all this glass and steel?',
+      proMove: 'Taste the Pewter range, then stay for lunch â the sushi bar and smokehouse share the complex, so nobody compromises.',
+      hiddenGem: 'The first name wasn\'t merely taken â it was Hermitage, and the French objected. Hence the second time.',
+    },
     sommNote: 'Tempus Two means “second time” — Lisa McGuigan launched it after the first name was already taken. The pewter labels are hand-applied.',
   },
   {
@@ -349,6 +409,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://ushertinklerwines.com',
     tastingFee: 20,
     image: { url: 'https://ushertinklerwines.com/sites/default/files/inline-images/CD%20HOME%20PAGE_0.jpg', source: 'winery' as const, alt: "The converted church that is now the Usher Tinkler cellar door" },
+    briefing: {
+      icebreaker: 'Is this really the old 1905 Pokolbin church, pews and all?',
+      proMove: 'Booking required â try Death by Semillon first, then settle in; dogs allowed, children not, which tells you the vibe.',
+      hiddenGem: 'Tinklers have grown Pokolbin fruit for three generations â this label is the family\'s young, loud third act.',
+    },
     sommNote: 'A tasting in a deconsecrated church, with salumi cured on site. Order the prosciutto before someone else takes the last plate.',
   },
   {
@@ -375,6 +440,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://ivanhoewines.com.au',
     tastingFee: 15,
     image: { url: 'https://ivanhoewines.com.au/wp-content/uploads/FEMWAkEo.jpeg', source: 'winery' as const, alt: "The Ivanhoe homestead and verandah" },
+    briefing: {
+      icebreaker: 'Stephen\'s a Drayton, isn\'t he â how long has the family farmed this slope below the Wilkinson hill?',
+      proMove: 'Save the Pressings Shiraz for last; everything tastes delicate after it. Fifteen dollars, no booking required.',
+      hiddenGem: 'Cabernet is nearly extinct in the Hunter â most growers pulled it decades ago; Ivanhoe kept the faith.',
+    },
     sommNote: 'If most Hunter Shiraz is a string quartet, the Pressings is a brass band. Come hungry for tannin.',
   },
   {
@@ -401,6 +471,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://draytonswines.com.au',
     tastingFee: 10,
     image: { url: 'https://draytonswines.com.au/cdn/shop/files/unspecified.jpeg?v=1613720783&width=1600', source: 'winery' as const, alt: "The Drayton's Family Wines cellar door and gardens" },
+    briefing: {
+      icebreaker: 'Are Susanne and William on the labels really the couple who cleared this land in 1853?',
+      proMove: 'The ten-dollar tasting is the best value on the strip â no booking, kids and dogs welcome, arrive without a plan.',
+      hiddenGem: 'The family tree spreads across the valley â Ivanhoe\'s Stephen Drayton is one of theirs, farming the clan\'s old ground nearby.',
+    },
     sommNote: 'Same family, same dirt, since before the Melbourne Cup existed. The old-vine flagships are named for the founders, and taste like it.',
   },
   {
@@ -427,6 +502,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://firstcreekwines.com.au',
     tastingFee: 15,
     image: { url: 'https://firstcreekwines.com.au/cdn/shop/articles/IMG_0112_2200x3302.jpg?v=1770842046', source: 'winery' as const, alt: "A pour at the First Creek tasting bench, barrel hall behind" },
+    briefing: {
+      icebreaker: 'How many other Hunter labels were made in this building last vintage â is it really over twenty?',
+      proMove: 'No booking needed; go straight to the Winemaker\'s Reserve pair â the house showing what it keeps for itself.',
+      hiddenGem: 'Chief winemaker Liz Silkman also makes the cult Silkman label after hours â same hands, far tinier volumes.',
+    },
     sommNote: 'Taste here and you are tasting the valley’s collective brain — the team makes wine for over twenty other Hunter labels.',
   },
   {
@@ -453,6 +533,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://keithtullochwine.com.au',
     tastingFee: 25,
     image: { url: 'https://i0.wp.com/images.keithtullochwine.com.au/2017/06/KTW-Estate.jpg', source: 'winery' as const, alt: "The Keith Tulloch estate and its vineyard blocks from the air" },
+    briefing: {
+      icebreaker: 'Kester was Keith\'s grandfather, wasn\'t he â which vineyard does his Shiraz come from these days?',
+      proMove: 'Book the seated tasting, then lunch at Muse Kitchen on the estate â the quieter sibling of Muse at Hungerford Hill.',
+      hiddenGem: 'Keith is fourth-generation of the same Tulloch family whose 1895 cellar door pours a few minutes down the road.',
+    },
     sommNote: 'Australia’s first carbon-neutral certified winery — and the seated Kester tasting is worth the booking faff several times over.',
   },
   {
@@ -479,6 +564,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://petersonhouse.com.au',
     tastingFee: 15,
     image: { url: 'https://petersonhouse.com.au/wp-content/uploads/2025/11/Hero_Image-1024x768.jpg', source: 'winery' as const, alt: "Sparkling wine on the stone terrace at Peterson House" },
+    briefing: {
+      icebreaker: 'Forty-odd cuvÃ©es from one house â which one finally settled the argument that the Hunter could do sparkling?',
+      proMove: 'Doors open at nine, before anywhere else â make it first stop and try the Sparkling Semillon, the Hunter\'s own grape with bubbles.',
+      hiddenGem: 'The Petersons keep a still-wine estate over at Mount View â this corner house was built to do bubbles and nothing else.',
+    },
     sommNote: 'Sparkling breakfast is a Hunter institution — oysters and bubbles at 9am, and absolutely nobody judges you.',
   },
   {
@@ -505,6 +595,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://www.dewine.com.au',
     tastingFee: 15,
     image: { url: 'https://dewine.com.au/wp-content/uploads/2022/11/deiuliis_cellar_door_verandah_semillon_shanrosephotography-web-res.jpg', source: 'winery' as const, alt: "A toast on the De Iuliis cellar door verandah" },
+    briefing: {
+      icebreaker: 'How did the family land fruit from the Steven vineyard â that\'s hallowed dirt, isn\'t it?',
+      proMove: 'Fifteen dollars and no booking â taste the LDR Shiraz Touriga against the Steven Vineyard to hear both ends of the register.',
+      hiddenGem: 'LDR stands for light dry red, the old Australian pub order â a wink at what Hunter locals actually drank.',
+    },
     sommNote: 'Mike De Iuliis has fruit from the storied Steven vineyard and the good sense not to get in its way.',
   },
   {
@@ -530,6 +625,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://www.meereapark.com.au',
     tastingFee: 15,
     image: { url: 'https://s3-cdn.withwine.com/Location/1850/oIUeCu89IUaYSYxed5E0-Q.jpg?w=1600&format=jpg&quality=80&autorotate=true', source: 'winery' as const, alt: "The Meerea Park cellar door entrance, open for tastings" },
+    briefing: {
+      icebreaker: 'Alexander Munro on the flagship â that\'s your ancestor who shipped Hunter wine to London, isn\'t it?',
+      proMove: 'Taste up the ladder â XYZ first, Hell Hole next, Alexander Munro last â and no booking gets in your way.',
+      hiddenGem: 'Munro wasn\'t only a wine baron â he was Singleton\'s first mayor, and his Bebeah cellars were a local empire.',
+    },
     sommNote: 'The family tree goes back to Alexander Munro, who was exporting Hunter wine to Europe in the 1860s. Form is temporary; class is hereditary.',
   },
   {
@@ -556,6 +656,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://thomaswines.com.au',
     tastingFee: 20,
     image: { url: 'https://www.thomaswines.com.au/cdn/shop/files/Thomas-Wines-Nov-2017-Photo-by-Chris-Elfes-_Elfes-Images_053_17A9981.jpg', source: 'winery' as const, alt: "Old shiraz vines heavy with fruit in the Braemore vineyard" },
+    briefing: {
+      icebreaker: 'What makes the Braemore block so suited to Semillon â is it those sandy flats?',
+      proMove: 'Book ahead and ask after the Kiss Shiraz early â allocations vanish on release, and the cellar door keeps little back.',
+      hiddenGem: 'Thommo grew up in McLaren Vale â it took a South Australian to make the modern benchmark Hunter Semillon.',
+    },
     sommNote: 'No Chardonnay, no rosé, no distractions. Two varieties, done properly — the valley’s most disciplined cellar door.',
   },
   {
@@ -581,6 +686,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://silkmanwines.com.au',
     tastingFee: 25,
     image: { url: 'https://silkmanwines.com.au/cdn/shop/files/Silkman_Wines_Photo_by_Elfes_Images_-_Chris_Elfes_CE3_9047_Large_18ef0e12-aec0-430d-9780-d51f2db33e36_1280x855.jpg', source: 'winery' as const, alt: "Hand-picking at dusk in the Silkman vineyard" },
+    briefing: {
+      icebreaker: 'You both grew up in Hunter wineries, then â whose family cellar had the better fruit?',
+      proMove: 'Book well ahead and mind the early four o\'clock close â quantities are tiny and the reserves sell through fast.',
+      hiddenGem: 'Liz\'s day job is chief winemaker at First Creek down the road; this label is what the after-hours look like.',
+    },
     sommNote: 'Their Shiraz Pinot Noir revives a great lost Hunter tradition — O’Shea was blending the two back in the 1930s.',
   },
   {
@@ -606,6 +716,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://comynsandco.com.au',
     tastingFee: 20,
     image: { url: 'https://www.comynsandco.com.au/wp-content/uploads/2026/05/MJK-2024-Family-Photography-02-HR-RGB-FA-2-copy-1536x1024.webp', source: 'winery' as const, alt: "The Comyns family in their tasting room" },
+    briefing: {
+      icebreaker: 'A decade running Pepper Tree\'s cellar â what did you learn there that you refuse to do here?',
+      proMove: 'Booking required even though it feels casual â bring the children and the dog, and ask which row your Shiraz came from.',
+      hiddenGem: 'The pourers genuinely know the vineyard rows, because odds are decent a Comyns is holding the bottle.',
+    },
     sommNote: 'Ex-Pepper Tree winemaker, tiny parcels, no safety net. This is where the valley’s somms send their friends.',
   },
   {
@@ -631,6 +746,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://vindenwines.com.au',
     tastingFee: 25,
     image: { url: 'https://images.squarespace-cdn.com/content/v1/5d54a54e7f30dd0001d6b927/ce3bd24e-1d78-4e00-81d1-cafc5027a819/Vinden+Wines+%7C+Cellar+Door.jpg?format=2500w', source: 'winery' as const, alt: "The tasting table inside Vinden's cellar door, vines beyond" },
+    briefing: {
+      icebreaker: 'What\'s in the Headcase Pokolbin Blanc this year â does the blend change with every vintage?',
+      proMove: 'Book ahead, taste the Somerset Vineyard classics first, then let the Headcase wines rearrange your idea of the Hunter.',
+      hiddenGem: 'Guy and Sandra planted this as a family dream in 1998; their son turned it into a cult label in his twenties.',
+    },
     sommNote: 'The Headcase wines are where Angus Vinden lets the handbrake off — skin contact, wild ferments, and the occasional stroke of genius.',
   },
   {
@@ -656,6 +776,11 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://www.glandorewines.com',
     tastingFee: 15,
     image: { url: 'https://glandorewines.com/wp-content/uploads/2024/11/Photo-by-Elfes-Images-0109117A2842-scaled-e1733113571348.jpg', source: 'winery' as const, alt: "Picking day in the Glandore vineyard, Brokenback Range behind" },
+    briefing: {
+      icebreaker: 'The Glandore name goes back well before 2004, doesn\'t it â what was the original property?',
+      proMove: 'No bookings taken at all â arrive on a whim with dog and children, and open with the Estate Semillon.',
+      hiddenGem: 'It carries the humblest rating on this stretch of Broke Road, which regulars quietly treat as their own good luck.',
+    },
     sommNote: 'The unhurried tasting on the strip — if the icon cellar doors are booked out, start here and thank us later.',
   },
 ];

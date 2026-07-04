@@ -85,6 +85,18 @@ export interface RegionData {
   wineries: Winery[];
   wines: WineDetail[];
   experiences: Experience[];
+  events?: RegionEvent[];
+}
+
+// A real, recurring regional event — verified, never invented.
+export interface RegionEvent {
+  title: string;
+  category: 'Festival' | 'Music' | 'Food & Wine' | 'Arts' | 'Family' | 'Sport';
+  month: string;      // typical timing, e.g. 'May' or 'October–March'
+  location: string;
+  description: string;
+  detail?: string;    // published next date, if known
+  url?: string;
 }
 
 // --- Catalogue --------------------------------------------------------------
@@ -116,6 +128,11 @@ export interface Winery {
   image: ImageAsset;
   gallery?: ImageAsset[];
   sommNote?: string;       // the Somm's one-line insider note
+  briefing?: {             // what to say when you get there — per estate
+    icebreaker: string;
+    proMove: string;
+    hiddenGem: string;
+  };
 }
 
 export interface WineDetail {
@@ -132,6 +149,11 @@ export interface WineDetail {
   pairings: string[];
   drinkFrom?: string;      // e.g. '2026'
   drinkTo?: string;        // e.g. '2038'
+  community?: {            // real crowd ratings, harvested not invented
+    score: number;         // out of 5
+    count: number;
+    source: 'Vivino';
+  };
 }
 
 export type ExperienceCategory = 'Dining' | 'Adventure' | 'Nature' | 'Golf' | 'Shopping' | 'Family';

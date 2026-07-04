@@ -8,6 +8,7 @@ import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
 import { calculateDistance } from '../services/geoUtils';
 import { threadRoute, encodeShareableRun, shareUrlForRun, googleMapsUrl } from '../services/itinerary';
+import WeatherStrip from './WeatherStrip';
 import GuideModal from './GuideModal';
 import MapLayer from './MapLayer';
 import ImageWithLoader from './ImageWithLoader';
@@ -272,6 +273,8 @@ const ItineraryBuilder: React.FC = () => {
           title="Plan the perfect run"
           standfirst="Pick up to six stops, or let a ready-made run do the choosing."
         />
+
+        <WeatherStrip />
 
         {/* Ready-made runs */}
         {selectedIds.length === 0 && templates.length > 0 && (

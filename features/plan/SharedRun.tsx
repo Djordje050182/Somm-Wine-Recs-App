@@ -7,6 +7,7 @@ import MapLayer from '../../components/MapLayer';
 import ImageWithLoader from '../../components/ImageWithLoader';
 import { Kicker, Button } from '../../components/ui';
 import { decodeShareableRun, googleMapsUrl } from '../../services/itinerary';
+import WeatherStrip from '../../components/WeatherStrip';
 
 // A shared run — the memento of the day. Someone threads a route, sends the
 // link, and this page draws the whole thing for the group: the map, the
@@ -119,6 +120,8 @@ const SharedRun: React.FC = () => {
           </span>
         </div>
       </div>
+
+      <WeatherStrip className="mt-6" />
 
       {/* The route, drawn */}
       <div className="mt-6 bg-paper border border-hairline rounded-sm h-[360px] md:h-[420px] relative overflow-hidden">

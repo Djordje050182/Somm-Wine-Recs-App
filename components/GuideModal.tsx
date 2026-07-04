@@ -133,9 +133,18 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
   useEffect(() => {
     const loadGuide = async () => {
       if (!currentItem) return;
+      setReviewSummary(null);
+
+      // Every estate carries its own hand-written briefing in the data —
+      // the AI path only serves items that lack one.
+      if (currentItem.briefing) {
+        setInsiderInfo(currentItem.briefing);
+        setLoading(false);
+        return;
+      }
+
       setLoading(true);
       setInsiderInfo(null);
-      setReviewSummary(null);
       try {
         const details =
           currentItem.description +

@@ -1,110 +1,110 @@
-import React, { useState } from 'react';
-import { Calendar, MapPin, Loader2, RefreshCcw } from 'lucide-react';
-import { searchEvents, isAIEnabled } from '../services/claudeService';
+import React, { useMemo, useState } from 'react';
+import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { useRegion } from '../contexts/RegionContext';
-import { SectionHeading, Button, Tag, EmptyState } from './ui';
+import { RegionEvent } from '../types';
+import { SectionHeading, Tag, EmptyState } from './ui';
 
-// What's on — the Somm checks the diary for festivals, winemaker dinners
-// and music in the vines across the coming twelve months.
+// What's on — the diary of real, verified regional events, bundled with the
+// region's data so it works offline and never invents a festival. Ordered so
+// the next things coming up sit at the top.
 
-interface RegionEvent {
-  title: string;
-  category: string;
-  date: string;
-  location: string;
-  description: string;
-}
+const MONTH_INDEX: Record<string, number> = {
+  January: 0, February: 1, March: 2, April: 3, May: 4, June: 5,
+  July: 6, August: 7, September: 8, October: 9, November: 10, December: 11,
+};
+
+// Sort key: months until the event's (first) month next comes around.
+const monthsUntil = (event: RegionEvent, now: Date): number => {
+  const first = event.month.split(/[–-]/)[0].trim();
+  const idx = MONTH_INDEX[first];
+  if (idx === undefined) return 99;
+  const diff = (idx - now.getMonth() + 12) % 12;
+  return diff;
+};
+
+const CATEGORIES = ['All', 'Food & Wine', 'Music', 'Festival', 'Arts', 'Family', 'Sport'] as const;
 
 const WhatsOn: React.FC = () => {
-  const { region } = useRegion();
-  const [events, setEvents] = useState<RegionEvent[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-  const aiEnabled = isAIEnabled();
+  const { region, events } = useRegion();
+  const [category, setCategory] = useState<(typeof CATEGORIES)[number]>('All');
 
-  const load = async () => {
-    if (!aiEnabled) return;
-    setLoading(true);
-    try {
-      setEvents(await searchEvents(region));
-      setLoaded(true);
-    } catch {
-      setEvents([]);
-      setLoaded(true);
-    }
-    setLoading(false);
-  };
+  const ordered = useMemo(() => {
+    const now = new Date();
+    return [...events]
+      .filter(e => category === 'All' || e.category === category)
+      .sort((a, b) => monthsUntil(a, now) - monthsUntil(b, now));
+  }, [events, category]);
 
   return (
     <div className="py-10 animate-fade-in max-w-3xl">
-      <div className="flex items-end justify-between gap-6 mb-10">
-        <SectionHeading
-          kicker="The diary"
-          title={`What's on in ${region.shortName}`}
-          standfirst="Festivals, winemaker dinners and music drifting over the vines — the Somm keeps the diary."
-        />
-        {loaded && (
-          <button
-            onClick={load}
-            className="shrink-0 p-2.5 border border-hairline rounded-sm text-ink/50 hover:border-ink hover:text-ink transition-colors"
-            aria-label="Refresh the diary"
-          >
-            <RefreshCcw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-          </button>
-        )}
-      </div>
+      <SectionHeading
+        kicker="The diary"
+        title={`What's on in ${region.shortName}`}
+        standfirst="Festivals, winemaker dinners and music drifting over the vines — every entry real, checked against the organisers."
+      />
 
-      {!loaded && !loading && (
-        <div className="border border-hairline rounded-sm bg-paper">
+      {events.length === 0 ? (
+        <div className="border border-hairline rounded-sm bg-paper mt-10">
           <EmptyState
-            title="The diary is closed"
-            body={
-              aiEnabled
-                ? `Ask the Somm what's coming up in ${region.name} over the next twelve months.`
-                : 'The Somm is offline for now — the diary opens once he is connected.'
-            }
-            action={
-              <Button onClick={load} disabled={!aiEnabled}>
-                <Calendar className="w-4 h-4" /> Open the diary
-              </Button>
-            }
+            title="The diary is quiet"
+            body={`No events are listed for ${region.name} yet.`}
           />
         </div>
-      )}
+      ) : (
+        <>
+          <div className="flex flex-wrap gap-2 mt-8 mb-8">
+            {CATEGORIES.map(c => (
+              <button
+                key={c}
+                onClick={() => setCategory(c)}
+                className={`font-ui text-xs font-semibold uppercase tracking-kicker px-3 py-2 border rounded-sm transition-colors ${
+                  category === c
+                    ? 'border-claret bg-claret text-parchment'
+                    : 'border-hairline bg-paper text-ink/60 hover:border-ink/40'
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
 
-      {loading && (
-        <div className="flex flex-col items-center py-20 gap-3">
-          <Loader2 className="w-6 h-6 animate-spin text-claret" />
-          <p className="font-body text-sm text-ink/50 italic">The Somm is checking the diary…</p>
-        </div>
-      )}
-
-      {loaded && !loading && events.length === 0 && (
-        <EmptyState
-          title="A quiet stretch"
-          body="Nothing in the diary just now. The valley awaits — try again shortly."
-          action={<Button variant="secondary" size="sm" onClick={load}>Ask again</Button>}
-        />
-      )}
-
-      {!loading && events.length > 0 && (
-        <div className="border border-hairline divide-y divide-hairline bg-paper rounded-sm">
-          {events.map((event, i) => (
-            <article key={i} className="p-5 md:p-6 animate-fade-in" style={{ animationDelay: `${i * 60}ms` }}>
-              <div className="flex items-start justify-between gap-4">
-                <div className="min-w-0">
-                  <Tag>{event.category}</Tag>
-                  <h3 className="font-display text-xl text-ink mt-2 leading-snug">{event.title}</h3>
-                  <p className="font-body text-sm text-ink/60 mt-1.5 leading-relaxed">{event.description}</p>
-                  <div className="flex flex-wrap gap-4 mt-3 font-ui text-xs text-ink/50">
-                    <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5 text-brass" /> {event.date}</span>
-                    <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5 text-brass" /> {event.location}</span>
+          <div className="space-y-4">
+            {ordered.map(event => (
+              <div key={event.title} className="border border-hairline rounded-sm bg-paper p-5 md:p-6">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <Tag>{event.category}</Tag>
+                      <span className="font-ui text-[11px] font-semibold uppercase tracking-kicker text-brass flex items-center gap-1.5">
+                        <Calendar className="w-3.5 h-3.5" /> {event.month}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-2xl text-ink leading-snug mt-3">{event.title}</h3>
+                    <p className="font-ui text-xs text-ink/40 mt-1 flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5" /> {event.location}
+                    </p>
                   </div>
                 </div>
+                <p className="font-body text-sm text-ink/65 leading-relaxed mt-3">{event.description}</p>
+                <div className="mt-3 flex items-center justify-between gap-4 flex-wrap">
+                  {event.detail && (
+                    <p className="font-ui text-xs font-semibold text-vine">{event.detail}</p>
+                  )}
+                  {event.url && (
+                    <a
+                      href={event.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-ui text-xs font-semibold text-claret hover:text-claret-deep flex items-center gap-1.5 transition-colors"
+                    >
+                      Details <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
+                </div>
               </div>
-            </article>
-          ))}
-        </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

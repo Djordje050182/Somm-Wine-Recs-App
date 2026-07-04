@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Region, RegionData, Winery, WineDetail, Experience } from '../types';
+import { Region, RegionData, Winery, WineDetail, Experience, RegionEvent } from '../types';
 import { REGION_REGISTRY, DEFAULT_REGION_ID, getRegionData } from '../data/regions';
 
 interface RegionContextValue {
@@ -8,6 +8,7 @@ interface RegionContextValue {
   wineries: Winery[];
   wines: WineDetail[];
   experiences: Experience[];
+  events: RegionEvent[];
   regionId: string;
   liveRegions: RegionData[];
 }
@@ -33,6 +34,7 @@ export const RegionProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       wineries: data.wineries,
       wines: data.wines,
       experiences: data.experiences,
+      events: data.events ?? [],
       regionId,
       liveRegions: Object.values(REGION_REGISTRY),
     };

@@ -201,7 +201,7 @@ const WineLibrary: React.FC = () => {
 
         {/* View toggle + scanner shortcut (the scanner appears once the AI proxy is live) */}
         <div className="flex items-center gap-3 self-start md:self-auto shrink-0">
-          {isAIEnabled() && (
+          {(
             <button
               onClick={() => navigate(`/${region.id}/sommelier?scan=1`)}
               className="flex items-center gap-2 border border-hairline bg-paper font-ui text-xs font-semibold uppercase tracking-kicker text-ink/60 px-4 py-2.5 rounded-sm hover:border-claret hover:text-claret transition-colors"

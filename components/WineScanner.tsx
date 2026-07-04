@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { Camera, RefreshCw, Loader2, X, AlertCircle, WifiOff, ShoppingBag, UtensilsCrossed, Clock, Check } from 'lucide-react';
 import { analyzeWineLabel, isAIEnabled } from '../services/claudeService';
+import { analyzeLabelViaAgent } from '../services/sommVision';
 import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
 import { useCart } from '../contexts/CartContext';
@@ -27,7 +28,7 @@ const WineScanner: React.FC<WineScannerProps> = ({ user: _user }) => {
   const [showCamera, setShowCamera] = useState(false);
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
   const [addedToCase, setAddedToCase] = useState(false);
-  const aiEnabled = isAIEnabled();
+  const claudeEnabled = isAIEnabled();
 
   const stopCamera = useCallback(() => {
     streamRef.current?.getTracks().forEach(t => t.stop());
@@ -53,10 +54,6 @@ const WineScanner: React.FC<WineScannerProps> = ({ user: _user }) => {
       setError({ title: 'You are offline', msg: 'The Somm needs a connection to read a label.' });
       return;
     }
-    if (!aiEnabled) {
-      setError({ title: 'The Somm is unavailable', msg: 'Set VITE_AI_PROXY_URL to enable the label reader.' });
-      return;
-    }
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
       streamRef.current = stream;
@@ -79,7 +76,15 @@ const WineScanner: React.FC<WineScannerProps> = ({ user: _user }) => {
     canvas.getContext('2d')?.drawImage(video, 0, 0);
     const base64 = canvas.toDataURL('image/jpeg', 0.85).split(',')[1];
     try {
-      const analysis = await analyzeWineLabel(region, base64);
+      let analysis;
+      if (claudeEnabled) {
+        analysis = await analyzeWineLabel(region, base64);
+      } else {
+        const blob: Blob = await new Promise((res, rej) =>
+          canvas.toBlob(b => (b ? res(b) : rej(new Error('no image'))), 'image/jpeg', 0.85)
+        );
+        analysis = await analyzeLabelViaAgent(blob);
+      }
       if (!analysis.isWine) {
         setError({ title: 'No label in sight', msg: 'Centre the bottle in frame and try again.' });
       } else {
@@ -121,12 +126,7 @@ const WineScanner: React.FC<WineScannerProps> = ({ user: _user }) => {
           <p className="font-body text-ink/60 max-w-sm mb-8">
             Hold a bottle steady, keep the label in frame, and the Somm will tell you what you are holding.
           </p>
-          {!aiEnabled && (
-            <div className="flex items-center gap-2 font-ui text-xs text-terracotta border border-terracotta/40 rounded-sm px-4 py-2.5 mb-6">
-              <WifiOff className="w-3.5 h-3.5 shrink-0" /> The Somm is away from the table. Set VITE_AI_PROXY_URL.
-            </div>
-          )}
-          <Button size="lg" onClick={startCamera} disabled={!aiEnabled || isOffline}>
+          <Button size="lg" onClick={startCamera} disabled={isOffline}>
             <Camera className="w-4 h-4" /> Open the camera
           </Button>
         </Card>

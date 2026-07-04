@@ -36,6 +36,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4998 6777',
     opens: '18:00',
     closes: '22:00',
+    briefing: {
+      icebreaker: 'Ask why the coconut dessert has survived every menu change since opening; the staff enjoy defending it.',
+      proMove: 'Book Friday\'s five-course degustation with matched wines, and in winter ask for a table near the big fireplace.',
+      hiddenGem: 'Chef Troy Rhoades-Brown also runs the more casual Muse Kitchen at Keith Tulloch Wines, the locals\' preferred lunch.',
+    },
+    community: { score: 4.6, count: 760, source: 'Google' as const },
     sommNote:
       'The gastronomic summit of the valley. The coconut dessert has outlasted every menu change for a reason, so order it.',
     lat: -32.7902,
@@ -60,6 +66,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4998 7264',
     opens: '17:30',
     closes: '22:00',
+    briefing: {
+      icebreaker: 'Ask the counter chefs what arrived from the growers this morning; the menu was written around it.',
+      proMove: 'There are barely two dozen seats, so book weeks out and take the earlier sitting for the full theatre.',
+      hiddenGem: 'Chef Frank Fawkner is Hunter-born and trained under Michelin-starred Tom Aikens in London before coming home.',
+    },
+    community: { score: 4.8, count: 802, source: 'Google' as const },
     sommNote:
       'Dark, quiet and quietly theatrical. Take the counter seats and watch the kitchen work through wattleseed, saltbush and whatever the valley gave up that week.',
     lat: -32.7947,
@@ -84,6 +96,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4990 9553',
     opens: '12:00',
     closes: '15:00',
+    briefing: {
+      icebreaker: 'Ask Robert Molines how a Frenchman ended up above Mount View; he has cooked in this valley since the seventies.',
+      proMove: 'Weekend terrace tables vanish a month out; a midweek lunch buys the same view with half the contest.',
+      hiddenGem: 'Molines founded the valley\'s beloved Robert\'s Restaurant before this one; Bistro Molines is his encore, not his debut.',
+    },
+    community: { score: 4.6, count: 990, source: 'Google' as const },
     sommNote:
       'The most romantic lunch in the valley, full stop. Book the terrace, order the twice-baked soufflé and let the afternoon get away from you.',
     lat: -32.8443,
@@ -108,6 +126,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4022 1801',
     opens: '12:00',
     closes: '22:00',
+    briefing: {
+      icebreaker: 'Ask what Eremo means; it is Italian for hermitage, which explains rather a lot around here.',
+      proMove: 'Start with a negroni in the guesthouse lounge; the bar hour before dinner is the place at its best.',
+      hiddenGem: 'This is the old Peppers Guest House reborn, the valley\'s first proper luxury stay, rebuilt top to bottom by Spicers.',
+    },
+    community: { score: 4.4, count: 676, source: 'Google' as const },
     sommNote:
       'The gnocchi is the stuff of local legend. Pair it with an aged Hunter Semillon and you have the whole argument for Italian food in wine country.',
     lat: -32.7826,
@@ -129,6 +153,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     priceRange: '$$$',
     opens: '12:00',
     closes: '21:00',
+    briefing: {
+      icebreaker: 'Ask who Yellow Billy actually was; the bushranger hid in these hills and the staff tell his story well.',
+      proMove: 'Come for a long lunch rather than dinner; daylight shows off the quiet and the custom fire pit at full work.',
+      hiddenGem: 'It shares its home with Piggs Peake winery, one of the valley\'s most irreverent producers, so taste before you eat.',
+    },
+    community: { score: 4.6, count: 422, source: 'Google' as const },
     sommNote:
       'Worth the drive west on its own. Everything touches flame at some point, and the smoke suits Broke’s unhurried pace perfectly.',
     lat: -32.7462,
@@ -151,6 +181,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     website: 'https://enzohuntervalley.com.au',
     opens: '09:00',
     closes: '16:00',
+    briefing: {
+      icebreaker: 'Ask whether the banana bread deserves its best-in-the-country reputation; regulars will not let you leave undecided.',
+      proMove: 'Book ahead rather than chancing a walk-in, and claim a courtyard table under the wisteria before ten.',
+      hiddenGem: 'Peppers Creek Village includes a working chapel a few steps away; Saturday weddings drift past your second coffee.',
+    },
+    community: { score: 4.4, count: 2053, source: 'Google' as const },
     sommNote:
       'The civilised way to start a tasting day. Coffee in the courtyard, wisteria overhead, and no rush whatsoever.',
     lat: -32.7858,
@@ -175,6 +211,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4998 7671',
     opens: '11:30',
     closes: '23:00',
+    briefing: {
+      icebreaker: 'Ask the bartender what the winemakers drink once the cellar doors shut; the answer is rarely wine.',
+      proMove: 'Arrive just after five as the tastings end; Sunday live-music sessions fill the lounges fast, so book one.',
+      hiddenGem: 'Roche Estate\'s lawn stages the valley\'s big summer concerts, and this bar catches the entire interval trade.',
+    },
+    community: { score: 4.2, count: 1637, source: 'Google' as const },
     sommNote:
       'When the last cellar door shuts at five, this is where the valley goes. The cocktail list is far better than it needs to be.',
     lat: -32.7794,
@@ -197,6 +239,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     website: 'https://www.hunterresort.com.au',
     opens: '11:00',
     closes: '20:00',
+    briefing: {
+      icebreaker: 'Ask which beer traces its lineage to Bluetongue; the brewing story here starts back in 2001.',
+      proMove: 'Skip the safe lagers and order the alcoholic ginger beer, the pour locals actually cross the valley for.',
+      hiddenGem: 'This was Pokolbin\'s first boutique brewhouse; Bluetongue Brewery began here before growing into a national name.',
+    },
+    community: { score: 3.9, count: 726, source: 'Google' as const },
     sommNote:
       'Even the most devoted Semillon pilgrim needs a beer eventually. Take a tasting paddle on the veranda and admit nothing.',
     lat: -32.7683,
@@ -226,6 +274,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     website: 'https://www.sabordessertbar.com.au',
     opens: '10:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask which wins more arguments, the Portuguese chocolate mousse or the plated degustation; staff hold firm views.',
+      proMove: 'Go midweek or before noon; weekend queues form early and the display fridge thins by mid-afternoon.',
+      hiddenGem: 'Much of the cabinet is quietly gluten-free without announcing it, a rare safe harbour for coeliac sweet tooths.',
+    },
+    community: { score: 4.3, count: 1306, source: 'Google' as const },
     sommNote:
       'A degustation of nothing but dessert sounds like a dare. It is, and you should accept it, ideally with a glass of botrytis Semillon.',
     lat: -32.7724,
@@ -259,6 +313,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4990 9242',
     opens: '04:30',
     closes: '12:00',
+    briefing: {
+      icebreaker: 'Ask your pilot where yesterday\'s flight put down; no two mornings end in the same paddock.',
+      proMove: 'Book midweek in autumn for the stillest air and thickest valley mist, and keep the whole morning free.',
+      hiddenGem: 'Flying since 1981, this is Australia\'s longest-running balloon operator; the sparkling breakfast afterwards is poured at Peterson House.',
+    },
+    community: { score: 5.0, count: 2392, source: 'Google' as const },
     sommNote:
       'The ultimate bucket list item. The silence drifting over the misty vines at dawn is spiritual.',
     lat: -32.7930,
@@ -283,6 +343,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4990 1450',
     opens: '08:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask the pilot to show how the Brokenback Range shelters Pokolbin; it explains half the region\'s wine.',
+      proMove: 'Book the winery lunch transfer rather than a plain scenic; arriving between the vines beats any car park.',
+      hiddenGem: 'They also fly coastal runs over Newcastle\'s beaches, so you can bracket vineyards and surf in one afternoon.',
+    },
+    community: { score: 4.9, count: 109, source: 'Google' as const },
     sommNote:
       'Ten minutes in the air explains the terroir better than any map. Arriving at lunch by helicopter is also, frankly, tremendous theatre.',
     lat: -32.8360,
@@ -307,6 +373,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4930 7111',
     opens: '08:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask the guides which horse has the strongest opinions; every yard has one and they enjoy naming it.',
+      proMove: 'Book the sunset ride and wear long trousers; the light across the vines at dusk is the whole point.',
+      hiddenGem: 'It is a working farm underneath, so cattle feeding and resident emus come with the territory if you linger.',
+    },
+    community: { score: 4.4, count: 299, source: 'Google' as const },
     sommNote:
       'The vines look different from the saddle: slower, quieter, older somehow. The horses know the way, so you are free to stare.',
     lat: -32.7400,
@@ -342,6 +414,11 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     bookingUrl: 'https://twofatblokes.com.au',
     opens: '09:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask your guide where they drink off duty; the answer never appears on the printed itinerary.',
+      proMove: 'Take the full-day tour with the cheese and charcuterie pairing, and book early; fourteen seats go quickly at weekends.',
+      hiddenGem: 'Running since 2008, they are among the valley\'s longest-standing tour outfits, with a TripAdvisor Hall of Fame induction to show for it.',
+    },
     sommNote:
       'Let someone else drive and do the introductions. The blokes know which cellar doors pour the good stuff for their guests, and it shows.',
     lat: -32.7801,
@@ -365,6 +442,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4998 7733',
     opens: '09:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask for the hand-marked map and which cellar doors will ferry your purchases back to base.',
+      proMove: 'Buy nothing you must carry; participating wineries deliver bottles back to the hire base while you keep pedalling.',
+      hiddenGem: 'Hiring bikes here since 1989, this is the valley\'s original two-wheeled tasting operation, predating every e-bike upstart.',
+    },
+    community: { score: 4.9, count: 493, source: 'Google' as const },
     sommNote:
       'Earn your lunch the old-fashioned way. The Palmers Lane loop is flat, shaded and conveniently lined with temptation.',
     lat: -32.7832,
@@ -388,6 +471,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '0429 088 020',
     opens: '09:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Tell Glenn where you are staying; he shapes the route, and often the pickup, around it.',
+      proMove: 'A half-day hire comfortably covers forty-five kilometres of cellar doors; charge nothing but your glass.',
+      hiddenGem: 'Glenn checks in mid-ride and swaps any misbehaving bike on the spot, a courtesy nearly extinct in hire businesses.',
+    },
+    community: { score: 4.8, count: 71, source: 'Google' as const },
     sommNote:
       'All the freedom of cycling with none of the penance. The battery does the hills; you do the tastings.',
     lat: -32.7851,
@@ -421,6 +510,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4998 4000',
     opens: '09:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask a gardener what is being replanted this week; the displays turn over constantly and they love explaining.',
+      proMove: 'Allow two unhurried hours and start with the Sunken Garden before the coaches arrive mid-morning.',
+      hiddenGem: 'The whole estate was retail magnate Bill Roche\'s personal project, carved from grazing land and opened in 2003.',
+    },
+    community: { score: 4.4, count: 9756, source: 'Google' as const },
     sommNote:
       'Between tastings it is a palate cleanser for the eyes. Come back after dark in season for the Christmas lights, which are genuinely spectacular.',
     lat: -32.7750,
@@ -443,6 +538,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     website: 'https://nationalparks.nsw.gov.au',
     opens: 'Dawn',
     closes: 'Dusk',
+    briefing: {
+      icebreaker: 'Ask at the Cessnock visitor centre which fire trails are open; conditions change and signage is famously thin.',
+      proMove: 'Go early morning for the birds, and carry water and a downloaded map; there are no facilities inside.',
+      hiddenGem: 'Critically endangered regent honeyeaters have been recorded here, which makes a free forest walk feel quietly momentous.',
+    },
+    community: { score: 4.1, count: 178, source: 'Google' as const },
     sommNote:
       'The wild, uncombed side of the valley. In winter, keep an ear out for swift parrots; they winter here and almost nowhere else.',
     lat: -32.8100,
@@ -464,6 +565,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     priceRange: '$',
     opens: 'Dawn',
     closes: 'Dusk',
+    briefing: {
+      icebreaker: 'Compare vineyard identifications with whoever else made the climb; naming Mount View\'s rows from above is the local sport.',
+      proMove: 'Take a car with some clearance; the final stretch is rough gravel with tight turns best treated respectfully.',
+      hiddenGem: 'The flat rock ledge makes the photograph, and Bimbadeen Lookout sits minutes away for an entirely different angle.',
+    },
+    community: { score: 4.0, count: 127, source: 'Google' as const },
     sommNote:
       'Bring a coffee and arrive before the mist lifts. Watching the vineyards emerge row by row is the cheapest luxury in the Hunter.',
     lat: -32.8530,
@@ -485,6 +592,11 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     priceRange: '$',
     opens: 'Dawn',
     closes: 'Dusk',
+    briefing: {
+      icebreaker: 'Ask the campers how long they have been parked beside the brook; the answers are cheerfully unrepentant.',
+      proMove: 'Summer weekends fill with swimmers by mid-morning; arrive early to claim a shaded table near the water.',
+      hiddenGem: 'It doubles as one of the state\'s better free camps, so you may legally fall asleep beside Wollombi Brook.',
+    },
     sommNote:
       'Pick up a Broke Fordwich Semillon, a baguette and some cheese, then claim a picnic table by the brook. That is the whole itinerary.',
     lat: -32.7480,
@@ -511,6 +623,11 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4993 1555',
     opens: '07:00',
     closes: '18:00',
+    briefing: {
+      icebreaker: 'Ask the pro shop which par three ruins the most scorecards; they answer without a moment\'s hesitation.',
+      proMove: 'Take the cart without shame; the elevation changes that make the views also make the walking brutal.',
+      hiddenGem: 'American architect Steve Smyers cut the course into these hills in 1992, scattering sixty bunkers for good measure.',
+    },
     sommNote:
       'The elevation changes punish lazy club selection and reward the view. Few courses let you sight your approach against a mountain range.',
     lat: -32.7710,
@@ -535,6 +652,11 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4998 2500',
     opens: '07:00',
     closes: '18:00',
+    briefing: {
+      icebreaker: 'Ask the pro shop which tees Greg Norman actually intended for mortals; the honest answer saves your card.',
+      proMove: 'Finish with lunch on the clubhouse deck watching groups tackle the eighteenth; it is the best seat in Rothbury.',
+      hiddenGem: 'Developer Don Panoz, the American who bankrolled the course, made his fortune helping invent the nicotine patch.',
+    },
     sommNote:
       'The Shark’s design gives you no cheap pars, only honest ones. Play early, then reward yourself at a cellar door by noon.',
     lat: -32.7480,
@@ -557,6 +679,11 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     website: 'https://huntervalleygolf.com.au',
     opens: '06:30',
     closes: '18:00',
+    briefing: {
+      icebreaker: 'Ask the starter whether anyone has ever actually hit a kangaroo; the answer is reassuring and well rehearsed.',
+      proMove: 'Play midweek; weekend tee sheets pack out with resort guests and the round slows to a crawl.',
+      hiddenGem: 'At barely six thousand metres and par seventy-one, it is the rare wine-country course where shorter hitters get a fair fight.',
+    },
     sommNote:
       'The kangaroos lounging on the fairways have right of way and know it. Friendly, forgiving golf, ideal the morning after a big tasting day.',
     lat: -32.7570,
@@ -582,6 +709,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4998 7744',
     opens: '09:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask what is in the vats today; the makers work in full view and narrate happily.',
+      proMove: 'Time your visit to the daily talk and tasting; mornings catch the vats actually doing something.',
+      hiddenGem: 'Hand-making cheese on this site since 1995, its signature Hunter Gold built the reputation the counter trades on.',
+    },
+    community: { score: 4.0, count: 410, source: 'Google' as const },
     sommNote:
       'Watch the vats through the window, then buy the washed rind you were warned about. It is the correct decision.',
     lat: -32.7889,
@@ -605,6 +738,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4998 6700',
     opens: '10:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask the fromager what is ripest today and watch the entire counter mobilise on your behalf.',
+      proMove: 'Shop before noon and ask for vacuum-sealing; the afternoon crush strips the counter and tests patience.',
+      hiddenGem: 'The walk-in cheese room holds hundreds of varieties, one of the largest selections in regional Australia, imported and local alike.',
+    },
+    community: { score: 4.2, count: 999, source: 'Google' as const },
     sommNote:
       'Assemble tonight’s picnic here: something oozing, something hard and salty, and a tub of gelato for the drive that will not survive the drive.',
     lat: -32.7806,
@@ -635,6 +774,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4998 6999',
     opens: '09:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask which chilli chocolate heat level they genuinely recommend, then decide how brave you are feeling.',
+      proMove: 'Visit mid-morning to catch the chocolatiers tempering at the viewing window before the coaches arrive.',
+      hiddenGem: 'There are three outlets around Pokolbin, but this Broke Road shop is the working factory where everything is made.',
+    },
+    community: { score: 3.9, count: 1882, source: 'Google' as const },
     sommNote:
       'The chilli chocolate pairs alarmingly well with Hunter Shiraz. Buy gifts here, then buy replacements for the gifts you eat on the way home.',
     lat: -32.7740,
@@ -664,6 +809,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     website: 'https://hunterdistillery.com.au',
     opens: '10:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask about the Test Tube Tasting and why the glassware appears borrowed from a chemistry department.',
+      proMove: 'Choose your own six spirits for the guided tasting and start with the awarded Copperwave gin.',
+      hiddenGem: 'It is the wine region\'s only certified organic distillery, a detail the schnapps flight tends to overshadow.',
+    },
+    community: { score: 4.5, count: 561, source: 'Google' as const },
     sommNote:
       'A sharpener between wineries does wonders for the palate. The schnapps flight is dangerous in the most agreeable way.',
     lat: -32.7776,
@@ -687,6 +838,11 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4998 7979',
     opens: '10:00',
     closes: '16:00',
+    briefing: {
+      icebreaker: 'Ask Setsuko what brought a Japanese glass artist to wine country; the answer spans decades and two hemispheres.',
+      proMove: 'Ring ahead for demonstration times; the furnace does not run all day and watching it is the point.',
+      hiddenGem: 'Hands-on classes let you blow your own piece under Setsuko\'s guidance, a fact the gallery barely advertises.',
+    },
     sommNote:
       'Watching molten glass become a wine goblet is quietly hypnotic. You will leave with something fragile and no regrets.',
     lat: -32.7752,
@@ -712,6 +868,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '02 4990 7714',
     opens: '09:00',
     closes: '16:00',
+    briefing: {
+      icebreaker: 'Ask a keeper who the naughtiest monkey currently is; the answer comes with unnervingly specific detail.',
+      proMove: 'Arrive at opening, buy animal feed at the gate, and book encounter sessions before the coach groups land.',
+      hiddenGem: 'Free gas barbecues sit inside the grounds, so locals bring whole lunches and make a day of it.',
+    },
+    community: { score: 4.6, count: 2812, source: 'Google' as const },
     sommNote:
       'Hand-feeding kangaroos before lunch is a reliable way to make a child forget every cellar door they have been dragged through.',
     lat: -32.7980,
@@ -735,6 +897,12 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     phone: '0425 291 308',
     opens: '09:30',
     closes: '16:30',
+    briefing: {
+      icebreaker: 'Ask which floating target pays out the hot-air balloon flight; the staff know the odds intimately.',
+      proMove: 'It sits beside Hunter Valley Gardens village, so park once and fold it into the same outing.',
+      hiddenGem: 'The prize nets pay out properly: Gardens tickets, ballooning vouchers, even cash for the improbably accurate.',
+    },
+    community: { score: 4.4, count: 549, source: 'Google' as const },
     sommNote:
       'Nobody maintains their dignity launching golf balls into a lake, which is precisely the point. Gloriously silly.',
     lat: -32.7690,
@@ -757,9 +925,68 @@ export const HUNTER_EXPERIENCES_FULL: Experience[] = [
     website: 'https://www.hunterresort.com.au',
     opens: '09:00',
     closes: '17:00',
+    briefing: {
+      icebreaker: 'Ask which animals joined the farmyard this season; the roster changes and the guides keep count.',
+      proMove: 'Book the tractor vineyard tour first, then split up: children to the animals, adults to the wine theatre.',
+      hiddenGem: 'A 4 Pines brewpub sits on the farm alongside Segway runs and archery, none of it obvious from Hermitage Road.',
+    },
     sommNote:
       'The rare stop where the children are as busy as the adults. They meet the animals; you meet the local Shiraz. Everyone wins.',
     lat: -32.7676,
     lng: 151.2946,
+  },
+
+  {
+    id: 'hv-exp-harrigans-irish-pub',
+    name: "Harrigan's Hunter Valley",
+    category: 'Dining' as const,
+    subregion: 'Pokolbin',
+    description:
+      'The valley\'s proper pub: an Irish bar and bistro beside Hunter Valley Gardens with Guinness on tap, big verandas, live music at weekends and rooms for those who linger.',
+    image: {
+      url: 'https://www.harriganshuntervalley.com.au/wp-content/uploads/2024/03/harrigans-irish-pub-pokolbin.jpg',
+      source: 'winery' as const,
+      alt: "Harrigan's pavilion bar and lawns at dusk",
+    },
+    briefing: {
+      icebreaker: 'Ask which beer the winemakers order after a day of tasting their own wares; the answer arrives quickly.',
+      proMove: 'Friday and Saturday nights bring live music and the whole valley with it — book a table or come early.',
+      hiddenGem: 'It sits beside Hunter Valley Gardens village, so the pint pairs naturally with chocolate shops and putt putt.',
+    },
+    community: { score: 3.8, count: 3891, source: 'Google' as const },
+    rating: 4.2,
+    priceRange: '$$',
+    website: 'https://www.harriganshuntervalley.com.au',
+    opens: '11:00',
+    closes: '22:00',
+    sommNote: 'Every wine region needs one honest pub. This is the Hunter\'s, and the Guinness travels better than you\'d think.',
+    lat: -32.7789,
+    lng: 151.2871,
+  },
+  {
+    id: 'hv-exp-sydney-brewery-hunter',
+    name: 'Sydney Brewery Hunter Valley',
+    category: 'Dining' as const,
+    subregion: 'Lovedale',
+    description:
+      'A working craft brewery at Rydges Resort in Lovedale, pouring its Lovedale Lager, Surry Hills Pils and East Sydney IPA metres from the tanks they were brewed in.',
+    image: {
+      url: 'https://sydneybrewery.com/wp-content/uploads/2023/11/Group-35.jpg',
+      source: 'winery' as const,
+      alt: 'The brewhouse floor at Sydney Brewery Hunter Valley',
+    },
+    briefing: {
+      icebreaker: 'Ask what is fermenting in the tanks today; the brewers work in view and enjoy the question.',
+      proMove: 'Order the tasting paddle before committing to a pint — the Lovedale Lager is brewed for this postcode.',
+      hiddenGem: 'A dedicated beer for the valley, Lovedale Lager, is brewed here and rarely travels far beyond it.',
+    },
+    rating: 4.3,
+    priceRange: '$$',
+    website: 'https://sydneybrewery.com',
+    opens: '11:00',
+    closes: '21:00',
+    sommNote: 'When the palate taps out on tannin, the antidote is a cold pils brewed a cork\'s throw from the vines.',
+    lat: -32.769,
+    lng: 151.347,
   },
 ];

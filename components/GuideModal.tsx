@@ -184,22 +184,36 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
     loadGuide();
   }, [currentItem, currentType, region]);
 
-  // The visitors' word, from real numbers: the estate's rating plus the
-  // Vivino crowd verdict on its wines. Nothing invented.
+  // The visitors' word, from real numbers: the venue's rating plus the crowd
+  // verdict — Vivino for an estate's wines, Google for an experience. Nothing invented.
   const visitorsWord = useMemo(() => {
-    if (currentType !== 'winery') return null;
-    const estateWines = winesForWinery(currentItem.id);
-    const rated = estateWines.filter((w: any) => w.community);
-    const totalCount = rated.reduce((acc: number, w: any) => acc + w.community.count, 0);
-    const avg = rated.length
-      ? rated.reduce((acc: number, w: any) => acc + w.community.score * w.community.count, 0) / totalCount
-      : null;
-    return {
-      rating: currentItem.rating as number | undefined,
-      vivinoAvg: avg,
-      vivinoCount: totalCount,
-      ratedWines: [...rated].sort((a: any, b: any) => b.community.score - a.community.score),
-    };
+    if (currentType === 'winery') {
+      const estateWines = winesForWinery(currentItem.id);
+      const rated = estateWines.filter((w: any) => w.community);
+      const totalCount = rated.reduce((acc: number, w: any) => acc + w.community.count, 0);
+      const avg = rated.length
+        ? rated.reduce((acc: number, w: any) => acc + w.community.score * w.community.count, 0) / totalCount
+        : null;
+      return {
+        kind: 'winery' as const,
+        rating: currentItem.rating as number | undefined,
+        crowdLabel: 'Wines on Vivino',
+        crowdAvg: avg,
+        crowdCount: totalCount,
+        ratedWines: [...rated].sort((a: any, b: any) => b.community.score - a.community.score),
+      };
+    }
+    if (currentType === 'experience') {
+      return {
+        kind: 'experience' as const,
+        rating: currentItem.rating as number | undefined,
+        crowdLabel: 'On Google',
+        crowdAvg: currentItem.community?.score ?? null,
+        crowdCount: currentItem.community?.count ?? 0,
+        ratedWines: [],
+      };
+    }
+    return null;
   }, [currentType, currentItem, winesForWinery]);
 
   const loadVintageReport = async () => {
@@ -624,20 +638,20 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
                       {visitorsWord.rating && (
                         <div className="text-center">
                           <div className="font-display text-2xl text-claret">{visitorsWord.rating.toFixed(1)}</div>
-                          <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">Cellar door</div>
+                          <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">{visitorsWord.kind === 'winery' ? 'Cellar door' : 'Our rating'}</div>
                         </div>
                       )}
-                      {visitorsWord.vivinoAvg && (
+                      {visitorsWord.crowdAvg && (
                         <div className="text-center">
-                          <div className="font-display text-2xl text-claret">{visitorsWord.vivinoAvg.toFixed(1)}</div>
+                          <div className="font-display text-2xl text-claret">{visitorsWord.crowdAvg.toFixed(1)}</div>
                           <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">
-                            Wines on Vivino
+                            {visitorsWord.crowdLabel}
                           </div>
                         </div>
                       )}
-                      {visitorsWord.vivinoCount > 0 && (
+                      {visitorsWord.crowdCount > 0 && (
                         <div className="text-center">
-                          <div className="font-display text-2xl text-claret">{visitorsWord.vivinoCount.toLocaleString()}</div>
+                          <div className="font-display text-2xl text-claret">{visitorsWord.crowdCount.toLocaleString()}</div>
                           <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">Crowd ratings</div>
                         </div>
                       )}
@@ -671,8 +685,11 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
                     </div>
                   ) : (
                     <p className="font-body text-ink/50 text-center leading-relaxed py-6">
-                      The crowd hasn't weighed in on these bottles yet — which the regulars
-                      would call a blessing. Taste first, tell your friends later.
+                      {visitorsWord.kind === 'winery'
+                        ? "The crowd hasn't weighed in on these bottles yet — which the regulars would call a blessing. Taste first, tell your friends later."
+                        : visitorsWord.crowdAvg
+                          ? 'The crowd has spoken in numbers; the details they keep for the car ride home.'
+                          : "The crowd hasn't left its verdict here yet — go and form your own."}
                     </p>
                   )}
                 </div>

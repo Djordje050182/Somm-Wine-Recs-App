@@ -167,6 +167,16 @@ export interface Experience {
   description: string;
   image: ImageAsset;
   gallery?: ImageAsset[];
+  briefing?: {             // what to say when you get there
+    icebreaker: string;
+    proMove: string;
+    hiddenGem: string;
+  };
+  community?: {            // real crowd ratings, harvested not invented
+    score: number;
+    count: number;
+    source: 'Google';
+  };
   rating: number;
   priceRange: string;
   website?: string;

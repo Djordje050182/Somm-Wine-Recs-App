@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Mic, MicOff, PhoneOff, CalendarCheck, ExternalLink, Route, Share2, Check, MapPin,
+  Phone, CalendarPlus,
 } from 'lucide-react';
 import { ConversationProvider, useConversation } from '@elevenlabs/react';
 import { Kicker } from '../../components/ui';
@@ -26,12 +27,42 @@ const AGENT_ID = 'agent_7301kwh2rqsjeapresnmn56tcrwd';
 
 type BookingCard = { name: string; url: string };
 type PlanCard = { itinerary: Itinerary; shareUrl: string; mapsUrl: string };
+type CallCard = { name: string; phone: string };
+type CalendarCard = { title: string; when: string; gcalUrl: string; icsUrl: string };
+
+// Google Calendar template + .ics from the same event fields
+const buildCalendarLinks = (
+  title: string, date: string, startTime: string, durationMinutes: number,
+  location: string, details: string
+) => {
+  const start = new Date(`${date}T${startTime}:00`);
+  if (isNaN(start.getTime())) return null;
+  const end = new Date(start.getTime() + durationMinutes * 60_000);
+  const stamp = (d: Date) =>
+    `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}T` +
+    `${String(d.getHours()).padStart(2, '0')}${String(d.getMinutes()).padStart(2, '0')}00`;
+  const gcalUrl =
+    'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+    `&text=${encodeURIComponent(title)}&dates=${stamp(start)}/${stamp(end)}` +
+    `&location=${encodeURIComponent(location)}&details=${encodeURIComponent(details)}`;
+  const ics = [
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Somm//EN', 'BEGIN:VEVENT',
+    `DTSTART:${stamp(start)}`, `DTEND:${stamp(end)}`,
+    `SUMMARY:${title}`, `LOCATION:${location}`, `DESCRIPTION:${details.replace(/\n/g, ' ')}`,
+    'END:VEVENT', 'END:VCALENDAR',
+  ].join('\r\n');
+  const icsUrl = `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}`;
+  const when = start.toLocaleString('en-AU', { weekday: 'long', day: 'numeric', month: 'long', hour: 'numeric', minute: '2-digit' });
+  return { gcalUrl, icsUrl, when };
+};
 
 const VoiceSommInner: React.FC = () => {
   const { region, regionId } = useRegion();
   const { wineries, experiences } = useCatalog();
   const [booking, setBooking] = useState<BookingCard | null>(null);
   const [plan, setPlan] = useState<PlanCard | null>(null);
+  const [call, setCall] = useState<CallCard | null>(null);
+  const [calendar, setCalendar] = useState<CalendarCard | null>(null);
   const [planCopied, setPlanCopied] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -94,6 +125,33 @@ const VoiceSommInner: React.FC = () => {
     [wineries, experiences, region]
   );
 
+  const callWinery = useCallback(
+    ({ winery_name }: { winery_name: string }) => {
+      const match = matchByName([...wineries, ...experiences], winery_name ?? '');
+      const phone = (match as any)?.phone;
+      if (!match || !phone) return `No phone number on file for ${winery_name}.`;
+      setCall({ name: match.name, phone });
+      return `The number for ${match.name} is up in the app — one tap and they're on the line. Suggest the guest mentions the Somm sent them.`;
+    },
+    [wineries, experiences]
+  );
+
+  const addToCalendar = useCallback(
+    ({ title, date, start_time, duration_minutes, location, details }: {
+      title: string; date: string; start_time: string;
+      duration_minutes?: number; location?: string; details?: string;
+    }) => {
+      const links = buildCalendarLinks(
+        title ?? 'Wine tasting', date, start_time,
+        Number(duration_minutes) || 60, location ?? '', details ?? 'Arranged with the Somm.'
+      );
+      if (!links) return 'That date and time did not compute — give it to me as year-month-day and a 24-hour time.';
+      setCalendar({ title: title ?? 'Wine tasting', ...links });
+      return `The calendar entry is ready in the app — ${links.when}. The guest taps once to save it.`;
+    },
+    []
+  );
+
   const startCall = async () => {
     setError(null);
     try {
@@ -109,6 +167,8 @@ const VoiceSommInner: React.FC = () => {
       clientTools: {
         open_booking_page: openBookingPage,
         draw_up_plan: drawUpPlan,
+        call_winery: callWinery,
+        add_to_calendar: addToCalendar,
       },
     });
   };
@@ -205,6 +265,62 @@ const VoiceSommInner: React.FC = () => {
                 <ExternalLink className="w-3.5 h-3.5" /> Google Maps
               </a>
             </div>
+          </div>
+        </div>
+      )}
+
+      {call && (
+        <div className="w-full max-w-md bg-paper border border-hairline rounded-sm p-5 text-left animate-slide-up">
+          <div className="flex items-start gap-3">
+            <Phone className="w-5 h-5 text-claret shrink-0 mt-0.5" />
+            <div className="min-w-0 flex-1">
+              <p className="font-ui text-xs font-semibold uppercase tracking-kicker text-ink/40 mb-1">
+                They're expecting your call
+              </p>
+              <p className="font-display text-lg text-ink leading-snug">{call.name}</p>
+              <p className="font-ui text-sm text-ink/60 mt-0.5">{call.phone}</p>
+            </div>
+          </div>
+          <a
+            href={`tel:${call.phone.replace(/\s/g, '')}`}
+            className="mt-4 flex items-center justify-center gap-2 w-full bg-claret text-parchment font-ui text-sm font-semibold py-3 rounded-sm hover:bg-claret-deep transition-colors"
+          >
+            <Phone className="w-4 h-4" /> Ring the cellar door
+          </a>
+          <p className="font-ui text-[10px] text-ink/30 mt-2 text-center">
+            Tell them the Somm sent you.
+          </p>
+        </div>
+      )}
+
+      {calendar && (
+        <div className="w-full max-w-md bg-paper border border-hairline rounded-sm p-5 text-left animate-slide-up">
+          <div className="flex items-start gap-3">
+            <CalendarPlus className="w-5 h-5 text-claret shrink-0 mt-0.5" />
+            <div className="min-w-0 flex-1">
+              <p className="font-ui text-xs font-semibold uppercase tracking-kicker text-ink/40 mb-1">
+                Pencilled in
+              </p>
+              <p className="font-display text-lg text-ink leading-snug">{calendar.title}</p>
+              <p className="font-ui text-sm text-ink/60 mt-0.5">{calendar.when}</p>
+            </div>
+          </div>
+          <div className="mt-4 grid grid-cols-2 gap-2">
+            <a
+              href={calendar.gcalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-claret text-parchment font-ui text-xs font-semibold py-2.5 rounded-sm hover:bg-claret-deep transition-colors"
+            >
+              Google Calendar
+            </a>
+            <a
+              href={calendar.icsUrl}
+              download="somm-tasting.ics"
+              className="flex items-center justify-center gap-2 border border-hairline bg-paper font-ui text-xs font-semibold text-ink py-2.5 rounded-sm hover:border-ink/40 transition-colors"
+            >
+              Apple / .ics
+            </a>
           </div>
         </div>
       )}

@@ -5,6 +5,7 @@ import {
   MapPin, ExternalLink, Share2, Check, Route,
 } from 'lucide-react';
 import { generateTripItinerary, isAIEnabled, TripCandidate } from '../services/claudeService';
+import { draftTrip } from '../services/sommPlanner';
 import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
 import {
@@ -70,16 +71,19 @@ const Concierge: React.FC = () => {
   };
 
   const generate = async () => {
-    if (!aiEnabled) return;
     setGenerating(true);
     setTrip(null);
     setRouted(null);
     setError(null);
     try {
-      const result = await generateTripItinerary(
-        region, params.days, params.group, params.vibe, params.style, params.budget,
-        freeText.trim(), buildCandidates()
-      );
+      // Claude sketches when the proxy is live; otherwise the Somm drafts
+      // instantly from his own book. The UI cannot tell the difference.
+      const result = aiEnabled
+        ? await generateTripItinerary(
+            region, params.days, params.group, params.vibe, params.style, params.budget,
+            freeText.trim(), buildCandidates()
+          )
+        : draftTrip(region, params, freeText.trim(), wineries, experiences);
       if (!result?.days?.length) throw new Error('The Somm returned an empty page');
       setTrip(result);
 
@@ -167,14 +171,7 @@ const Concierge: React.FC = () => {
             </div>
           ))}
 
-          {!aiEnabled && (
-            <div className="flex items-start gap-2 font-ui text-xs text-terracotta border border-terracotta/40 rounded-sm px-4 py-3">
-              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-              <span>The Somm is away from the table. Set VITE_AI_PROXY_URL to bring them back.</span>
-            </div>
-          )}
-
-          <Button size="lg" className="w-full" onClick={generate} disabled={generating || !aiEnabled}>
+          <Button size="lg" className="w-full" onClick={generate} disabled={generating}>
             {generating && <Loader2 className="w-4 h-4 animate-spin" />}
             {generating ? 'The Somm is sketching your days…' : 'Draw up the plan'}
           </Button>

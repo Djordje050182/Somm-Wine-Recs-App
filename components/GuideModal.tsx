@@ -92,6 +92,29 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [isFavourite, setIsFavourite] = useState(false);
 
+  // Swipe-down to dismiss on phones: the sheet follows the finger when the
+  // content is scrolled to the top, and lets go past the threshold.
+  const sheetRef = React.useRef<HTMLDivElement>(null);
+  const touchStartY = React.useRef<number | null>(null);
+  const [sheetOffset, setSheetOffset] = useState(0);
+
+  const onSheetTouchStart = (e: React.TouchEvent) => {
+    if (window.innerWidth >= 768) return;
+    if ((sheetRef.current?.scrollTop ?? 0) <= 0) touchStartY.current = e.touches[0].clientY;
+    else touchStartY.current = null;
+  };
+  const onSheetTouchMove = (e: React.TouchEvent) => {
+    if (touchStartY.current === null) return;
+    const dy = e.touches[0].clientY - touchStartY.current;
+    if (dy > 0) setSheetOffset(dy);
+  };
+  const onSheetTouchEnd = () => {
+    if (touchStartY.current === null) return;
+    if (sheetOffset > 120) onClose();
+    setSheetOffset(0);
+    touchStartY.current = null;
+  };
+
   const aiEnabled = isAIEnabled();
 
   const closingStatus = useMemo(() => getClosingStatus(currentItem?.closes), [currentItem]);
@@ -246,10 +269,21 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
     currentType === 'winery' ? 'Cellar door' : currentType === 'wine' ? `${currentItem.vintage} vintage` : currentItem.category;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[60] flex items-end md:items-center justify-center md:p-4">
       <div className="absolute inset-0 bg-ink/70" onClick={onClose} />
 
-      <div className="relative bg-paper border border-hairline rounded-sm w-full max-w-2xl max-h-[90vh] overflow-y-auto custom-scrollbar flex flex-col animate-scale-in">
+      <div
+        ref={sheetRef}
+        onTouchStart={onSheetTouchStart}
+        onTouchMove={onSheetTouchMove}
+        onTouchEnd={onSheetTouchEnd}
+        className="relative bg-paper border border-hairline md:rounded-sm rounded-t-xl w-full max-w-2xl h-[94dvh] md:h-auto md:max-h-[90vh] overflow-y-auto custom-scrollbar flex flex-col animate-slide-up md:animate-scale-in"
+        style={{ transform: sheetOffset ? `translateY(${sheetOffset}px)` : undefined, transition: sheetOffset ? 'none' : 'transform 0.25s ease' }}
+      >
+        {/* Grab handle — phones only */}
+        <div className="md:hidden sticky top-0 z-30 flex justify-center pt-2 pb-1 bg-transparent pointer-events-none">
+          <span className="w-10 h-1 rounded-full bg-parchment/70 shadow-sm" />
+        </div>
         {/* Hero */}
         <div className="relative h-64 shrink-0">
           <ImageWithLoader asset={heroAsset} className="w-full h-full" showCredit />

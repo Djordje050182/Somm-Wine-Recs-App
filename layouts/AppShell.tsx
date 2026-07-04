@@ -144,6 +144,16 @@ const AppShell: React.FC = () => {
 
           {/* Right actions */}
           <div className="flex items-center gap-3 md:gap-5 shrink-0">
+            {/* The differentiator stays in reach on desktop; phones have the nav mic */}
+            <button
+              onClick={() => navigate(`/${regionId}/sommelier?talk=1`)}
+              className="hidden lg:inline-flex items-center gap-2 bg-claret text-parchment font-ui text-xs font-semibold uppercase tracking-kicker pl-2 pr-4 py-1.5 rounded-full hover:bg-claret-deep transition-colors"
+            >
+              <span className="w-6 h-6 rounded-full bg-parchment/15 flex items-center justify-center">
+                <Mic className="w-3 h-3" />
+              </span>
+              Talk to the Somm
+            </button>
             <RegionSwitcher />
             <button
               onClick={() => setShowSearch(true)}

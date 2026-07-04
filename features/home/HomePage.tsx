@@ -89,26 +89,41 @@ const HomePage: React.FC = () => {
             <p className="font-body text-lg md:text-xl text-parchment/85 leading-relaxed mb-8">
               {region.strapline}
             </p>
-            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
-              <Button size="lg" className="w-full sm:w-auto justify-center" onClick={() => navigate(`/${regionId}/guide`)}>
+            {/* The differentiator leads: a live sommelier, out loud */}
+            <button
+              onClick={() => navigate(`/${regionId}/sommelier?talk=1`)}
+              className="group flex items-center gap-4 bg-claret hover:bg-claret-deep text-parchment rounded-full pl-2.5 pr-8 py-2.5 transition-colors shadow-lg w-full sm:w-auto"
+            >
+              <span className="relative w-12 h-12 rounded-full bg-parchment/15 flex items-center justify-center shrink-0">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 rounded-full border border-parchment/50 animate-ping"
+                  style={{ animationDuration: '2.6s' }}
+                />
+                <MicIcon className="w-5 h-5" />
+              </span>
+              <span className="text-left min-w-0">
+                <span className="font-ui text-sm font-semibold tracking-wide block">Talk to the Somm</span>
+                <span className="font-body text-xs text-parchment/75 block">
+                  A live sommelier in your ear — he recommends, plans and books
+                </span>
+              </span>
+            </button>
+
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mt-4">
+              <button
+                onClick={() => navigate(`/${regionId}/guide`)}
+                className="w-full sm:w-auto font-ui text-sm font-semibold tracking-wide border border-parchment/50 text-parchment hover:border-parchment hover:bg-parchment/10 rounded-sm px-7 py-3 transition-colors inline-flex items-center justify-center gap-2"
+              >
                 Browse the estates <ArrowRight className="w-4 h-4" />
-              </Button>
+              </button>
               <button
                 onClick={() => navigate(`/${regionId}/plan`)}
-                className="w-full sm:w-auto font-ui text-sm font-semibold tracking-wide border border-parchment/50 text-parchment hover:border-parchment hover:bg-parchment/10 rounded-sm px-7 py-3.5 transition-colors"
+                className="w-full sm:w-auto font-ui text-sm font-semibold tracking-wide border border-parchment/50 text-parchment hover:border-parchment hover:bg-parchment/10 rounded-sm px-7 py-3 transition-colors"
               >
                 Plan the perfect run
               </button>
             </div>
-            <button
-              onClick={() => navigate(`/${regionId}/sommelier?talk=1`)}
-              className="mt-5 inline-flex items-center gap-2.5 font-ui text-sm text-parchment/85 hover:text-parchment transition-colors group"
-            >
-              <span className="w-8 h-8 rounded-full bg-parchment/15 border border-parchment/40 flex items-center justify-center group-hover:bg-claret group-hover:border-claret transition-colors">
-                <MicIcon className="w-3.5 h-3.5" />
-              </span>
-              …or just ask the Somm, out loud
-            </button>
           </div>
         </div>
       </section>
@@ -167,12 +182,13 @@ const HomePage: React.FC = () => {
                 All estates <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-hairline border border-hairline">
+            {/* Phones swipe sideways; desktop keeps the three-up grid */}
+            <div className="flex md:grid md:grid-cols-3 gap-px overflow-x-auto md:overflow-visible no-scrollbar snap-x snap-mandatory bg-hairline border border-hairline">
               {collection.estates.map(estate => (
                 <button
                   key={estate.id}
                   onClick={() => setSelected({ item: estate, type: 'winery' })}
-                  className="bg-paper text-left group flex flex-col hover:bg-parchment transition-colors"
+                  className="bg-paper text-left group flex flex-col hover:bg-parchment transition-colors w-[82%] shrink-0 snap-start md:w-auto md:shrink"
                 >
                   <div className="aspect-[3/2] overflow-hidden">
                     <ImageWithLoader

@@ -1,9 +1,10 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import {
   Search, Heart, Clock, CalendarCheck, UtensilsCrossed, Baby, PawPrint,
-  ChevronDown, ExternalLink, Star,
+  ChevronDown, ExternalLink, Star, Camera,
 } from 'lucide-react';
+import { isAIEnabled } from '../services/claudeService';
 import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
 import { useCart } from '../contexts/CartContext';
@@ -60,6 +61,7 @@ const FilterPill: React.FC<{ active: boolean; onClick: () => void; children: Rea
 
 const WineLibrary: React.FC = () => {
   const { region } = useRegion();
+  const navigate = useNavigate();
   const { wines, wineries, getWinery, getPricing } = useCatalog();
   const { addToCart } = useCart();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -197,8 +199,18 @@ const WineLibrary: React.FC = () => {
           }
         />
 
-        {/* View toggle */}
-        <div className="flex border border-hairline rounded-sm self-start md:self-auto shrink-0">
+        {/* View toggle + scanner shortcut (the scanner appears once the AI proxy is live) */}
+        <div className="flex items-center gap-3 self-start md:self-auto shrink-0">
+          {isAIEnabled() && (
+            <button
+              onClick={() => navigate(`/${region.id}/sommelier?scan=1`)}
+              className="flex items-center gap-2 border border-hairline bg-paper font-ui text-xs font-semibold uppercase tracking-kicker text-ink/60 px-4 py-2.5 rounded-sm hover:border-claret hover:text-claret transition-colors"
+              aria-label="Scan a label"
+            >
+              <Camera className="w-3.5 h-3.5" /> Scan a label
+            </button>
+          )}
+        <div className="flex border border-hairline rounded-sm">
           {(['wines', 'wineries'] as const).map(mode => (
             <button
               key={mode}
@@ -210,6 +222,7 @@ const WineLibrary: React.FC = () => {
               {mode === 'wines' ? 'Bottles' : 'Estates'}
             </button>
           ))}
+        </div>
         </div>
       </div>
 

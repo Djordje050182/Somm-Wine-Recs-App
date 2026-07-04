@@ -10,6 +10,7 @@ import PlanPage from './features/plan/PlanPage';
 import SommelierPage from './features/sommelier/SommelierPage';
 import CellarPage from './features/cellar/CellarPage';
 import AccountPage from './features/account/AccountPage';
+import AboutPage from './features/about/AboutPage';
 import { DEFAULT_REGION_ID } from './data/regions';
 
 // The winery portal carries the charting library — loaded only when a partner opens it
@@ -69,6 +70,7 @@ export const router = createHashRouter([
       { path: 'cellar', element: <CellarPage /> },
       { path: 'cellar/:tab', element: <CellarPage /> },
       { path: 'account', element: <AccountPage /> },
+      { path: 'about', element: <AboutPage /> },
       {
         path: 'portal',
         element: (

@@ -248,7 +248,12 @@ const AppShell: React.FC = () => {
             <span className="font-display text-2xl text-claret">.</span>
             <p className="font-body text-sm text-ink/40 mt-1">The world's great wine regions, walked properly.</p>
           </div>
-          <p className="font-ui text-xs text-ink/30 uppercase tracking-kicker">{region.name} · est. edition</p>
+          <div className="flex items-baseline gap-6">
+            <Link to={`/${regionId}/about`} className="font-ui text-xs text-ink/50 uppercase tracking-kicker hover:text-claret transition-colors">
+              About Somm
+            </Link>
+            <p className="font-ui text-xs text-ink/30 uppercase tracking-kicker">{region.name} · est. edition</p>
+          </div>
         </div>
       </footer>
 

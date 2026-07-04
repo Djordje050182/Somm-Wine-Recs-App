@@ -66,29 +66,45 @@ export const sommelierChat = async (
   return callClaude([...history, { role: 'user', content: userMessage }], system, 1024);
 };
 
+export interface TripCandidate {
+  name: string;
+  kind: 'winery' | 'experience';
+  notes: string; // compact attributes: specialty, kid/dog-friendly, restaurant, fee
+}
+
 export const generateTripItinerary = async (
   region: Region,
   days: number,
   group: string,
   vibe: string,
-  wineryNames: string[]
+  style: string,
+  budget: string,
+  freeText: string,
+  candidates: TripCandidate[]
 ) => {
-  const prompt = `Create a ${days}-day wine tour itinerary in ${region.name} for: ${group}, vibe: ${vibe}.
-Available wineries: ${wineryNames.join(', ')}.
+  const list = candidates.map(c => `- ${c.name} (${c.kind}): ${c.notes}`).join('\n');
+  const prompt = `Create a ${days}-day wine tour itinerary in ${region.name}.
+Party: ${group}. Mood: ${vibe}. Wine style: ${style}. Budget: ${budget}.
+${freeText ? `In the guest's own words: "${freeText}". Honour this above everything else.` : ''}
+Choose ONLY from these real places (respect kid-friendliness if children are coming, wine styles, and budget):
+${list}
+
 Return ONLY valid JSON (no markdown fences) matching this shape:
 {
   "tripName": "string",
-  "summary": "string",
+  "summary": "string — two warm sentences, no clichés",
+  "stops": ["exact place names for day 1 in visiting order, 3 to 5 of them, include one lunch spot if the day wants one"],
   "days": [{
     "dayTitle": "string",
     "activities": [{
       "time": "string",
-      "activity": "string",
+      "activity": "string — must reference the real place by its exact name",
       "description": "string",
       "type": "winery|dining|experience|travel"
     }]
   }]
-}`;
+}
+"stops" must contain exact names from the list above, nothing invented.`;
   return callClaudeJSON<any>([{ role: 'user', content: prompt }], sommelierSystem(region), 3000);
 };
 

@@ -7,6 +7,7 @@ import { Itinerary, ItineraryStop, Winery, Experience } from '../types';
 import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
 import { calculateDistance } from '../services/geoUtils';
+import { threadRoute, encodeShareableRun, shareUrlForRun, googleMapsUrl } from '../services/itinerary';
 import GuideModal from './GuideModal';
 import MapLayer from './MapLayer';
 import ImageWithLoader from './ImageWithLoader';
@@ -208,76 +209,13 @@ const ItineraryBuilder: React.FC = () => {
   const generateItinerary = () => {
     if (selectedIds.length === 0) return;
 
-    let remaining = allLocations.filter(item => selectedIds.includes(item.id));
-    if (remaining.length === 0) {
+    const chosen = allLocations.filter(item => selectedIds.includes(item.id));
+    if (chosen.length === 0) {
       setNotice('Those stops could not be found. Clear the selection and start again.');
       return;
     }
 
-    const stops: ItineraryStop[] = [];
-    let currentLat = startLocation.lat;
-    let currentLng = startLocation.lng;
-    let timeMinutes = 10 * 60;
-
-    // Greedy nearest-neighbour with a safety break
-    let safetyCounter = 0;
-    while (remaining.length > 0) {
-      safetyCounter++;
-      if (safetyCounter > 20) break;
-
-      let nearestIdx = 0;
-      let minDistance = Infinity;
-
-      remaining.forEach((item, i) => {
-        const d = calculateDistance(currentLat, currentLng, item.lat, item.lng);
-        if (d < minDistance) { minDistance = d; nearestIdx = i; }
-      });
-
-      const next = remaining[nearestIdx];
-      if (!next) break;
-
-      remaining.splice(nearestIdx, 1);
-
-      const driveTime = Math.round((minDistance / 40) * 60) + 5;
-      timeMinutes += driveTime;
-      const arrival = `${Math.floor(timeMinutes / 60)}:${(timeMinutes % 60).toString().padStart(2, '0')}`;
-
-      let stay = 60;
-      if (next.type === 'experience') {
-        if (next.specialty === 'Golf') stay = 240;
-        else if (next.specialty === 'Dining') stay = 90;
-        else if (next.specialty === 'Adventure') stay = 120;
-        else stay = 45;
-      } else {
-        stay = stops.length === 2 && (next as Winery).hasRestaurant ? 90 : 60;
-      }
-
-      stops.push({
-        id: next.id,
-        name: next.name,
-        lat: next.lat,
-        lng: next.lng,
-        image: next.image,
-        description: next.description,
-        specialty: next.specialty,
-        type: next.type,
-        arrival,
-        driveTime,
-        stayDuration: stay,
-        isLunchStop: (stops.length === 2 && (next as Winery).hasRestaurant) || next.specialty === 'Dining',
-      });
-
-      timeMinutes += stay;
-      currentLat = next.lat;
-      currentLng = next.lng;
-    }
-
-    setItinerary({
-      wineries: stops,
-      totalDriveTime: stops.reduce((acc, s) => acc + s.driveTime, 0),
-      startLocation: startLocation.name,
-      estimatedEnd: `${Math.floor(timeMinutes / 60)}:${(timeMinutes % 60).toString().padStart(2, '0')}`,
-    });
+    setItinerary(threadRoute(chosen, startLocation));
   };
 
   const removeStop = (stopId: string) => {
@@ -288,27 +226,26 @@ const ItineraryBuilder: React.FC = () => {
 
   const openInGoogleMaps = () => {
     if (!itinerary || itinerary.wineries.length === 0) return;
-    const destination = itinerary.wineries[itinerary.wineries.length - 1];
-    const waypoints = itinerary.wineries
-      .slice(0, itinerary.wineries.length - 1)
-      .map(w => `${w.lat},${w.lng}`)
-      .join('|');
-    window.open(
-      `https://www.google.com/maps/dir/?api=1&origin=${startLocation.lat},${startLocation.lng}&destination=${destination.lat},${destination.lng}&waypoints=${waypoints}&travelmode=driving`,
-      '_blank'
-    );
+    window.open(googleMapsUrl(startLocation, itinerary.wineries), '_blank');
   };
 
+  // Share the day itself: a link that opens a read-only memento of the run,
+  // map and all, on anyone's phone.
   const shareItinerary = async () => {
     if (!itinerary) return;
-    const text = `My ${region.name} trail: ${startLocation.name} → ${itinerary.wineries.map(w => w.name).join(' → ')}`;
+    const url = shareUrlForRun(region.id, encodeShareableRun(itinerary, startLocation));
+    const text = `Our ${region.name} trail: ${startLocation.name} → ${itinerary.wineries.map(w => w.name).join(' → ')}`;
     if (navigator.share) {
-      await navigator.share({ title: `My ${region.name} trail`, text, url: window.location.href });
-    } else {
-      navigator.clipboard.writeText(text);
-      setShared(true);
-      setTimeout(() => setShared(false), 2400);
+      try {
+        await navigator.share({ title: `A day in ${region.shortName}`, text, url });
+        return;
+      } catch {
+        /* fall through to clipboard on cancel/unsupported */
+      }
     }
+    navigator.clipboard.writeText(url);
+    setShared(true);
+    setTimeout(() => setShared(false), 2400);
   };
 
   const findCatalogueItem = (stop: ItineraryStop) =>

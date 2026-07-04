@@ -3,9 +3,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useRegion } from '../../contexts/RegionContext';
 import ItineraryBuilder from '../../components/ItineraryBuilder';
 import Concierge from '../../components/Concierge';
+import SharedRun from './SharedRun';
 
 // Plan a trip: build your own run through the valley, or let the Somm
-// sketch the whole day for you.
+// sketch the whole day for you. /plan/shared renders a run someone sent
+// you — a read-only memento, no tabs.
 
 const TABS = [
   { id: 'route', label: 'Build your run' },
@@ -16,6 +18,15 @@ const PlanPage: React.FC = () => {
   const { tab } = useParams<{ tab?: string }>();
   const { regionId } = useRegion();
   const navigate = useNavigate();
+
+  if (tab === 'shared') {
+    return (
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SharedRun />
+      </div>
+    );
+  }
+
   const active = TABS.find(t => t.id === tab)?.id ?? 'route';
 
   return (

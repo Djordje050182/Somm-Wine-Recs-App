@@ -32,11 +32,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     phone: '02 4998 6873',
     website: 'https://gundogestate.com.au',
     tastingFee: 10,
-    image: {
-      url: 'https://images.unsplash.com/photo-1759972078854-77866a0685c8?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A warmly lit cellar door tasting room with timber counters',
-    },
+    image: { url: 'https://gundogestate.com.au/wp-content/uploads/2021/09/h-GUNDOG-ESTATE-123-of-188.jpg', source: 'winery' as const, alt: "Inside Gundog's Hunter Cellar tasting room" },
     sommNote: 'The old schoolhouse pours the lesson: taste The Chase and the Wild Semillon side by side and you\'ll never call the grape one-dimensional again.',
   },
   {
@@ -90,11 +86,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: false,
     website: 'https://pokolbinestate.com.au',
     tastingFee: 5,
-    image: {
-      url: 'https://images.unsplash.com/photo-1637181155600-f4487dabf8ba?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'Neat rows of vines in a small estate vineyard',
-    },
+    image: { url: 'https://www.pokolbinestate.com.au/cdn/shop/files/banner_16.png', source: 'winery' as const, alt: "Golden hour over Pokolbin Estate's old-vine rows" },
     sommNote: 'One of the only Hunter Rieslings in existence. Order it, watch the locals raise an eyebrow, then watch them ask for a glass.',
   },
   {
@@ -119,11 +111,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: true,
     website: 'https://piggspeake.com',
     tastingFee: 10,
-    image: {
-      url: 'https://images.unsplash.com/photo-1561906814-23da9a8bfee0?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'Oak barrels resting in a working winery shed',
-    },
+    image: { url: 'https://piggspeake.com/wp-content/uploads/2025/02/about-us-panel-3-534x1024.webp', source: 'winery' as const, alt: "The barrel-stave tasting bar at Piggs Peake" },
     sommNote: 'Yes, the puns are relentless. So is the quality. The Suckling Pig Shiraz is the one everyone carries out under an arm.',
   },
   {
@@ -148,11 +136,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: false,
     website: 'https://benean.com.au',
     tastingFee: 10,
-    image: {
-      url: 'https://images.unsplash.com/photo-1717240049346-b6a9f43f4e1c?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A historic estate building overlooking its vineyard',
-    },
+    image: { url: 'https://www.benean.com.au/wp-content/uploads/2023/10/cellar-door-main-header-2048x1422.jpg', source: 'winery' as const, alt: "The long timber tasting bar inside the Ben Ean cellar door" },
     sommNote: 'Your parents drank Ben Ean Moselle. Now you can too, ironically at first and then, quietly, quite sincerely.',
   },
   {
@@ -177,11 +161,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: true,
     website: 'https://tamburlaine.com.au',
     tastingFee: 10,
-    image: {
-      url: 'https://images.unsplash.com/photo-1655260708824-aef2eef19770?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'Rows of organically farmed vines stretching across a green field',
-    },
+    image: { url: 'http://tamburlaine.com.au/cdn/shop/files/Cellar_Door_Crop_2_0c4e4ab9-7aa3-4143-80e5-7ed3e38b58de.jpg?v=1638760910', source: 'winery' as const, alt: "The vine-covered entrance to the Tamburlaine cellar door" },
     sommNote: 'Organic at genuine scale, and the wines never lean on the certification as an excuse. The Reserves are the insiders\' pick.',
   },
   {
@@ -201,15 +181,12 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     lng: 151.2852,
     hasRestaurant: false,
     rating: 4.4,
+    website: 'https://irongateestate.com',
     bookingRequired: false,
     kidFriendly: true,
     dogFriendly: false,
     tastingFee: 5,
-    image: {
-      url: 'https://images.unsplash.com/photo-1673828384429-30f0872003fb?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A vineyard valley with mountain ranges in the distance',
-    },
+    image: { url: 'https://irongateestate.com/cdn/shop/files/42_11-28-2025_Irongate.jpg?v=1765970884&width=1600', source: 'winery' as const, alt: "Iron Gate Estate from the air at sunset" },
     sommNote: 'Estate fruit only, and they hold wines back until they\'re ready. Patience as a business model — it works.',
   },
   {
@@ -228,15 +205,12 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     lng: 151.2938,
     hasRestaurant: false,
     rating: 4.2,
+    website: 'https://www.savannahestate.com.au',
     bookingRequired: false,
     kidFriendly: true,
     dogFriendly: true,
     tastingFee: 0,
-    image: {
-      url: 'https://images.unsplash.com/photo-1688261548320-d608f8255e02?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A broad field of green vines with bushland behind',
-    },
+    image: { url: 'https://www.savannahestate.com.au/wp-content/uploads/2021/03/CI-Img-11-O.jpg', source: 'winery' as const, alt: "Morning mist over the Savannah Estate vineyard" },
     sommNote: 'No queues, no theatrics, free tastings. Sometimes the quiet cellar doors are where the conversation gets good.',
   },
   {
@@ -262,11 +236,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     phone: '02 4993 3555',
     website: 'https://hopeestate.com.au',
     tastingFee: 5,
-    image: {
-      url: 'https://images.unsplash.com/photo-1605722751821-cd8df0b9f954?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A modern winery building beside a lush green vineyard',
-    },
+    image: { url: 'https://www.hopeestate.com.au/cdn/shop/files/40415ce6cc36d0568683624f931781a4.jpg?v=1779410092&width=1600', source: 'winery' as const, alt: "The Hope Estate winery and its viewing deck" },
     sommNote: 'Come for the concert, stay for The Ripper. It has headlined more Hunter dinner tables than any act on the amphitheatre bill.',
   },
   {
@@ -293,11 +263,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://bimbadgen.com.au',
     bookingUrl: 'https://bimbadgen.com.au/cellar-door',
     tastingFee: 10,
-    image: {
-      url: 'https://images.unsplash.com/photo-1762362611583-8151f0a2c112?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'Vineyard rows glowing in golden sunset light with buildings beyond',
-    },
+    image: { url: 'https://www.bimbadgen.com.au/wp-content/uploads/2024/10/1920x652px-1-v2.jpg', source: 'winery' as const, alt: "Bimbadgen's vineyards and lake at sunset from the air" },
     sommNote: 'Everyone photographs the bell tower. The clever ones photograph it from the tasting bench, Signature Semillon in hand.',
   },
   {
@@ -324,11 +290,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://thomasallenwines.com.au',
     bookingUrl: 'https://thomasallenwines.com.au/reservation/',
     tastingFee: 0,
-    image: {
-      url: 'https://images.unsplash.com/photo-1567072629554-20e689de2400?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'The sun setting over old, gnarled vineyard rows',
-    },
+    image: { url: 'https://thomasallenwines.com.au/wp-content/uploads/2025/07/Fountain.jpg', source: 'winery' as const, alt: "The fountain in the Thomas Allen gardens, Brokenback Range behind" },
     sommNote: 'A by-appointment-only gem on Broke Road — old vines, zero compromise, and the kind of intimate personalised tasting that feels like visiting a friend who just happens to make exceptional wine.',
   },
   {
@@ -348,15 +310,12 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     lng: 151.2925,
     hasRestaurant: false,
     rating: 4.7,
+    website: 'https://mistletoewines.com.au',
     bookingRequired: false,
     kidFriendly: true,
     dogFriendly: true,
     tastingFee: 0,
-    image: {
-      url: 'https://images.unsplash.com/photo-1658993431137-184e9fc2b481?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A flight of wine glasses arranged on a tasting table',
-    },
+    image: { url: 'https://mistletoewines.com.au/wp-content/uploads/2025/06/McWilliamFamily-235-scaled.jpg', source: 'winery' as const, alt: "Golden hour over the Mistletoe vineyard rows" },
     sommNote: 'Free tastings and an art gallery — Mistletoe runs on charm and delivers on Semillon. The Rosé sells out with monotonous regularity.',
   },
   {
@@ -375,15 +334,12 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     lng: 151.2969,
     hasRestaurant: false,
     rating: 4.3,
+    website: 'https://www.eaglesrestwines.com.au',
     bookingRequired: true,
     kidFriendly: false,
     dogFriendly: true,
     tastingFee: 10,
-    image: {
-      url: 'https://images.unsplash.com/photo-1620888372059-7d693d995be2?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A sweep of vineyard country in green and gold',
-    },
+    image: { url: 'https://www.eaglesrestwines.com.au/cdn/shop/files/BANNER_MAX_1800x.jpg', source: 'winery' as const, alt: "Eagles Rest's hillside vineyards in the Brokenback foothills" },
     sommNote: 'Marrowbone Road is the valley\'s quiet end, and Eagles Rest suits it: unhurried tastings and Chardonnay that speaks softly with plenty to say.',
   },
 
@@ -410,11 +366,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: true,
     website: 'https://briarridge.com.au',
     tastingFee: 10,
-    image: {
-      url: 'https://images.unsplash.com/photo-1765192681431-c91428e3cb27?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'Vineyard rows leading towards rolling green hills',
-    },
+    image: { url: 'https://www.briarridge.com.au/wp-content/uploads/2026/02/Briar_Ridge_Vineyard_Photo_by_Elfes_Images_2025_CE3_0520_1_2.webp', source: 'winery' as const, alt: "The Briar Ridge cellar door among the trees at Mount View" },
     sommNote: 'The drive up Mount View Road is reason enough; the Dairy Hill Semillon is the reason you\'ll come back annually.',
   },
   {
@@ -437,13 +389,9 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     bookingRequired: false,
     kidFriendly: true,
     dogFriendly: true,
-    website: 'https://ridgeviewwines.com.au',
+    website: 'https://www.ridgeview.com.au',
     tastingFee: 10,
-    image: {
-      url: 'https://images.unsplash.com/photo-1687976520525-8293102be3fd?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'Vines in the foreground with mountain ranges rising behind',
-    },
+    image: { url: 'https://images.squarespace-cdn.com/content/v1/61677425844009752e3fc058/3475acd7-d967-4908-8d22-97669716ae8d/Ridgeview+Estate-Drone-25.jpg', source: 'winery' as const, alt: "The RidgeView estate at sunset from the air" },
     sommNote: 'Order the long lunch, ask for the Impressions Shiraz, and let the Brokenback Range do the table decoration.',
   },
 
@@ -468,13 +416,9 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     bookingRequired: false,
     kidFriendly: true,
     dogFriendly: true,
-    website: 'https://capercailliewine.com.au',
+    website: 'https://www.capercailliewines.com.au',
     tastingFee: 5,
-    image: {
-      url: 'https://images.unsplash.com/photo-1558241665-f0512695d322?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'Sun rays breaking through clouds over vineyard country',
-    },
+    image: { url: 'https://www.capercailliewines.com.au/wp-content/uploads/2019/08/Our-Homestead-2.jpg', source: 'winery' as const, alt: "The lake and grounds of the Capercaillie homestead at sunset" },
     sommNote: 'A ghillie is a Highland hunting guide. This one will guide you straight to the best Shiraz in Lovedale.',
   },
   {
@@ -497,13 +441,9 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     bookingRequired: true,
     kidFriendly: true,
     dogFriendly: false,
-    website: 'https://saddlerscreekwines.com.au',
+    website: 'https://saddlerscreek.com',
     tastingFee: 15,
-    image: {
-      url: 'https://images.unsplash.com/photo-1776420287925-5ad2766338a2?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A white estate homestead beside vineyards turning autumn gold',
-    },
+    image: { url: 'https://saddlerscreek.com/wp-content/uploads/2022/08/Header-image-5.jpg', source: 'winery' as const, alt: "A seated tasting at the Saddler's Creek cellar door" },
     sommNote: 'Cabernet in the Hunter is meant to be a fool\'s errand. The Bluegrass has been making fools of the doubters since 1989.',
   },
   {
@@ -523,15 +463,12 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     lng: 151.3564,
     hasRestaurant: false,
     rating: 4.3,
+    website: 'https://www.wandin.com.au',
     bookingRequired: false,
     kidFriendly: true,
     dogFriendly: true,
     tastingFee: 5,
-    image: {
-      url: 'https://images.unsplash.com/photo-1721103953454-a61195b67d65?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A still pond ringed by lush green trees on a country estate',
-    },
+    image: { url: 'https://www.wandin.com.au/app/uploads/2024/02/accommodation-slide-copy.webp', source: 'winery' as const, alt: "Dusk over Wandin Valley's vines and red-roofed villas" },
     sommNote: 'An estate with its own cricket oval understands the assignment: nowhere to be, nothing to rush, glass in hand.',
   },
   {
@@ -550,15 +487,12 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     lng: 151.3489,
     hasRestaurant: false,
     rating: 4.4,
+    website: 'https://emmascottage.com.au',
     bookingRequired: false,
     kidFriendly: true,
     dogFriendly: true,
     tastingFee: 0,
-    image: {
-      url: 'https://images.unsplash.com/photo-1766069799605-e8d01d3284a9?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A white cottage on a rise surrounded by vineyard rows',
-    },
+    image: { url: 'https://emmascottage.com.au/wp-content/uploads/2025/01/1912x885px-Home-Hero-5.jpg', source: 'winery' as const, alt: "The cottage and cellar door on the lawns at Emma's Cottage" },
     sommNote: 'Stay the night in the cottage and the vineyard is yours at dawn — kangaroos included, tasting fee waived, hearts won.',
   },
 
@@ -587,11 +521,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://margan.com.au',
     bookingUrl: 'https://margan.com.au/book',
     tastingFee: 10,
-    image: {
-      url: 'https://images.unsplash.com/photo-1781622196050-15769577e6e8?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'Green vineyards and a farmhouse on rolling hills',
-    },
+    image: { url: 'https://margan-wines.imgix.net/About/A7R05578_DexterKim.jpg?auto=compress&w=1600', source: 'winery' as const, alt: "The rammed-earth entrance to the Margan estate" },
     sommNote: 'If you only make one booking in Broke, make it Margan — the White Label wines and the kitchen-garden lunch are the subregion\'s one-two punch.',
   },
   {
@@ -618,11 +548,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://krinklewood.com',
     bookingUrl: 'https://krinklewood.com/visit',
     tastingFee: 15,
-    image: {
-      url: 'https://images.unsplash.com/photo-1694591933816-2c743377fdf8?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'An aerial view of a farm and vineyard in open country',
-    },
+    image: { url: 'http://krinklewood.com/cdn/shop/files/Aerial_Shot_Krinklewood_16b7ce2b-f125-4bd4-9c6e-f613990d19f0.jpg?v=1753151996', source: 'winery' as const, alt: "The Krinklewood estate from the air, Brokenback Range behind" },
     sommNote: 'Provence by way of Broke. The Francesca Rosé under the plane trees is a small, perfect afternoon.',
   },
   {
@@ -647,11 +573,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: false,
     website: 'https://whispering-brook.com',
     tastingFee: 15,
-    image: {
-      url: 'https://images.unsplash.com/photo-1722932662705-4b0b8fd3605c?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A green vineyard beside a quiet waterway',
-    },
+    image: { url: 'https://www.whispering-brook.com/assets/images/contentblock/photos/cellardoorshot.jpg', source: 'winery' as const, alt: "The Whispering Brook cellar door through the vines" },
     sommNote: 'The Touriga is the tip: Portugal\'s great grape, thriving quietly in Broke while the rest of the valley looks the other way.',
   },
   {
@@ -676,11 +598,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: false,
     website: 'https://winmarkwines.com.au',
     tastingFee: 25,
-    image: {
-      url: 'https://images.unsplash.com/photo-1779085592600-d0506559d9f3?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'Rows of grapevines stretching towards distant estate buildings',
-    },
+    image: { url: 'https://winmarkwines.com.au/wp-content/uploads/2026/01/chardonnay_cellardoor_broke.jpg', source: 'winery' as const, alt: "The Winmark tasting room, open to the vineyard" },
     sommNote: 'One grape, one obsession. Taste the Chardonnays in a row and you\'ll hear the same vineyard speaking in six different registers.',
   },
   {
@@ -699,15 +617,12 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     lng: 151.2789,
     hasRestaurant: false,
     rating: 4.5,
+    website: 'https://www.stompwines.com.au',
     bookingRequired: false,
     kidFriendly: true,
     dogFriendly: true,
     tastingFee: 5,
-    image: {
-      url: 'https://images.unsplash.com/photo-1692274073394-6ebd6a68d535?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A winemaker walking between rows of barrels in a small cellar',
-    },
+    image: { url: 'https://www.stompwines.com.au/wp-content/uploads/2026/06/Michael-Meredith-Stomp-building.jpg', source: 'winery' as const, alt: "Michael and Meredith outside the Stomp cellar door" },
     sommNote: 'Batches so small they\'re practically rumours. Whatever\'s open when you arrive, that\'s the special.',
   },
 
@@ -734,11 +649,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     dogFriendly: true,
     website: 'https://tworiverswines.com.au',
     tastingFee: 5,
-    image: {
-      url: 'https://images.unsplash.com/photo-1727063146642-715f3462f5f9?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'An aerial view of vineyard blocks on broad river flats',
-    },
+    image: { url: 'https://tworivers.com.au/wp-content/uploads/2023/01/Two_Rivers-IG-17.jpg', source: 'winery' as const, alt: "The Two Rivers cellar door pavilion across the lawn" },
     sommNote: 'An hour north of the tour buses, the Semillon is a stone\'s throw from the river and the tasting bench is all yours.',
   },
   {
@@ -758,15 +669,12 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     lng: 150.9312,
     hasRestaurant: true,
     rating: 4.3,
+    website: 'https://www.hollydeneestate.com',
     bookingRequired: false,
     kidFriendly: true,
     dogFriendly: false,
     tastingFee: 10,
-    image: {
-      url: 'https://images.unsplash.com/photo-1781935446680-bdf5772d25cf?auto=format&fit=crop&q=80&w=1200',
-      source: 'unsplash',
-      alt: 'A sunlit vineyard estate with buildings and a winding drive',
-    },
+    image: { url: 'https://www.vinesathollydene.com/wp-content/uploads/2021/03/Home-Page-one-of-static-photos-above-AGFG-scaled.jpeg', source: 'winery' as const, alt: "The deck at Hollydene Estate, vines beyond" },
     sommNote: 'The Golden Highway earns its name here: bubbles on the veranda, vines from 1965, and nobody checking their watch.',
   },
 ];

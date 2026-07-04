@@ -30,6 +30,8 @@ const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({ asset, src, alt, clas
         <img
           src={url}
           alt={altText}
+          loading="lazy"
+          referrerPolicy="no-referrer"
           className={`w-full h-full object-cover transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           onLoad={() => setLoaded(true)}
           onError={() => setError(true)}

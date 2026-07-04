@@ -37,7 +37,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://tyrrells.com.au',
     bookingUrl: 'https://tyrrells.rezdy.com/',
     tastingFee: 25,
-    image: img('photo-1560493676-04071c5f467b', "Old vine rows running towards the winery sheds at Tyrrell's"),
+    image: { url: 'https://fusws.api.aspedia.io/tyrrells-website/banners/pages/Tyrrells-Cellar-Door-2025-Hunter-Valley-Tastings.jpg', source: 'winery' as const, alt: "Inside the Tyrrell's cellar door, timber bar and tasting stools" },
     sommNote: 'The 4 Acres block out the front was planted in 1879 — you can stand beside vines that predate the light bulb.',
   },
   {
@@ -64,7 +64,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://brokenwood.com.au',
     bookingUrl: 'https://www.exploretock.com/brokenwoodwines',
     tastingFee: 30,
-    image: img('photo-1562601579-599dec564e06', 'The tasting bar and bottle wall at the Brokenwood cellar door'),
+    image: { url: 'https://www.brokenwood.com.au/wp-content/uploads/2025/08/aboutuspagebanner1.webp', source: 'winery' as const, alt: "The Brokenwood winery and cellar door from the air" },
     sommNote: 'The Graveyard vineyard was gazetted as a cemetery in 1882. Nobody was ever buried there — the vines got the plot instead.',
   },
   {
@@ -90,7 +90,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 1866',
     website: 'https://audreywilkinson.com.au',
     tastingFee: 25,
-    image: img('photo-1563514227147-6d2ff665a6a0', 'Hilltop vineyard rows falling away towards the valley floor at Audrey Wilkinson'),
+    image: { url: 'https://audreywilkinson.com.au/wp-content/uploads/2024/02/home-bg.webp', source: 'winery' as const, alt: "Vines sweeping down to the valley from the Audrey Wilkinson hilltop" },
     sommNote: 'Come at 4pm, taste The Ridge, and watch the light go gold over the ranges. The picnic hampers sell out; the view never does.',
   },
   {
@@ -116,7 +116,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 7505',
     website: 'https://mountpleasantwines.com.au',
     tastingFee: 20,
-    image: img('photo-1464638681273-0962e9b53566', 'Vineyard rows running towards the Brokenback Range at dusk at Mount Pleasant'),
+    image: { url: 'https://www.mountpleasantwines.com.au/wp-content/uploads/2026/05/mount-pleasant-estate.jpg', source: 'winery' as const, alt: "The Mount Pleasant winery among its vines, Brokenback Range behind" },
     sommNote: 'Ask for the museum tasting. An aged Elizabeth at a tenner more than the current release is the best-value old wine in the country.',
   },
   {
@@ -141,7 +141,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     dogFriendly: false,
     website: 'https://lakesfolly.com.au',
     tastingFee: 30,
-    image: img('photo-1568930157403-9ad464e5f075', "Quiet vineyard slope beneath a big sky at Lake's Folly"),
+    image: { url: 'https://cdn.shopify.com/s/files/1/1193/9678/files/lake-og.jpg?v=1621381172', source: 'winery' as const, alt: "Evening light over the Lake's Folly vineyard rows" },
     sommNote: 'Two wines, one small tin-roofed winery, no marketing department. If the gate sign says sold out, they mean it — go early in the year.',
   },
   {
@@ -167,7 +167,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 7580',
     website: 'https://tullochwines.com',
     tastingFee: 15,
-    image: img('photo-1528823872057-9c018a7a7553', 'Steel fermenters at work inside the Tulloch winery'),
+    image: { url: 'https://www.tullochwines.com/assets/images/Untitled%20design%20-%202024-06-26T122312_963(1).png', source: 'winery' as const, alt: "Tastings and the cellar door at Tulloch Wines" },
     sommNote: 'The founding vineyard settled a shopkeeper’s bad debt in 1895. Taste the Hector and decide who got the better deal.',
   },
   {
@@ -193,7 +193,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 4111',
     website: 'https://www.mcguiganwines.com.au',
     tastingFee: 15,
-    image: img('photo-1474722883778-792e7990302f', 'A glass of Hunter red with fresh-picked grapes at McGuigan'),
+    image: { url: 'https://www.mcguiganwines.com.au/on/demandware.static/-/Library-Sites-mcguigan-shared-library/default/dw6f087e70/visit-us-page/mcguig-visit-us-page-1920x1080.jpg', source: 'winery' as const, alt: "The curved timber tasting bar at the McGuigan cellar door" },
     sommNote: 'Skip the supermarket labels and go straight to Bin 9000 — the Semillon the show judges see is a different animal entirely.',
   },
   {
@@ -219,7 +219,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4990 0715',
     website: 'https://www.hungerfordhill.com.au',
     tastingFee: 20,
-    image: img('photo-1464036388609-747537735eab', 'Rolling vineyard country at the entrance to Pokolbin near Hungerford Hill'),
+    image: { url: 'https://hungerfordhill.com.au/cdn/shop/files/hungerford_-48_2000x.jpg?v=1767763043', source: 'winery' as const, alt: "The Hungerford Hill villa above its terraced lawns" },
     sommNote: 'The building is shaped like a giant wine barrel tipped on its side. Muse, one of the Hunter’s best restaurants, hides inside it.',
   },
   {
@@ -245,7 +245,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 7563',
     website: 'https://scarboroughwine.com.au',
     tastingFee: 15,
-    image: img('photo-1470158499416-75be9aa0c4db', 'A sunset pour on the Scarborough tasting deck'),
+    image: { url: 'https://scarboroughwine.com.au/wp-content/uploads/2025/06/Visit_Us_banner.jpg', source: 'winery' as const, alt: "Sunset over Scarborough's vineyards towards the Brokenback Range" },
     sommNote: 'Tastings are seated, unhurried and often end in the garden. The Yellow Label is the valley’s great gateway Chardonnay.',
   },
   {
@@ -270,7 +270,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     dogFriendly: false,
     website: 'https://www.leogate.com.au',
     tastingFee: 20,
-    image: img('photo-1558138818-34316d616e44', 'Vine rows running towards the Brokenback Range at Leogate Estate'),
+    image: { url: 'https://static.wixstatic.com/media/efb94e_e3663bef2a1e4a7581b313d65ee40edf~mv2.jpg', source: 'winery' as const, alt: "The Leogate Estate cellar door pavilions and courtyard" },
     sommNote: 'The vineyard came before the label — these blocks were planted for Rothbury in 1971, and the old vines do the talking.',
   },
   {
@@ -296,7 +296,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4909 7100',
     website: 'https://peppertreewines.com.au',
     tastingFee: 15,
-    image: img('photo-1558670460-cad0c19b1840', 'Wine tasting set out beneath the trees at Pepper Tree'),
+    image: { url: 'http://www.peppertreewines.com.au/cdn/shop/files/pepper_Tree_Wines_Cellar_Door_1200.jpg?v=1780025999', source: 'winery' as const, alt: "The Pepper Tree cellar door in its gardens" },
     sommNote: 'Coquun is the Wonnarua name for the Hunter River. The wine tastes like the valley floor it grew in — earthy, composed, patient.',
   },
   {
@@ -322,7 +322,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4993 3999',
     website: 'https://tempustwo.com.au',
     tastingFee: 15,
-    image: img('photo-1609238000857-303bf54099b1', 'The moody modern tasting room at Tempus Two'),
+    image: { url: 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Tempus_Two_Winery.jpg', source: 'winery' as const, alt: "The steel canopy of the Tempus Two winery complex" },
     sommNote: 'Tempus Two means “second time” — Lisa McGuigan launched it after the first name was already taken. The pewter labels are hand-applied.',
   },
   {
@@ -348,7 +348,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 7069',
     website: 'https://ushertinklerwines.com',
     tastingFee: 20,
-    image: img('photo-1516594915697-87eb3b1c14ea', 'Bottles lined along the shelf in the converted church at Usher Tinkler'),
+    image: { url: 'https://ushertinklerwines.com/sites/default/files/inline-images/CD%20HOME%20PAGE_0.jpg', source: 'winery' as const, alt: "The converted church that is now the Usher Tinkler cellar door" },
     sommNote: 'A tasting in a deconsecrated church, with salumi cured on site. Order the prosciutto before someone else takes the last plate.',
   },
   {
@@ -374,7 +374,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 7325',
     website: 'https://ivanhoewines.com.au',
     tastingFee: 15,
-    image: img('photo-1519092796169-bb9cc75a4b68', 'A line-up of estate reds on the tasting bench at Ivanhoe'),
+    image: { url: 'https://ivanhoewines.com.au/wp-content/uploads/FEMWAkEo.jpeg', source: 'winery' as const, alt: "The Ivanhoe homestead and verandah" },
     sommNote: 'If most Hunter Shiraz is a string quartet, the Pressings is a brass band. Come hungry for tannin.',
   },
   {
@@ -400,7 +400,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 7513',
     website: 'https://draytonswines.com.au',
     tastingFee: 10,
-    image: img('photo-1537640538966-79f369143f8f', "Ripe Shiraz grapes on the vine at Drayton's"),
+    image: { url: 'https://draytonswines.com.au/cdn/shop/files/unspecified.jpeg?v=1613720783&width=1600', source: 'winery' as const, alt: "The Drayton's Family Wines cellar door and gardens" },
     sommNote: 'Same family, same dirt, since before the Melbourne Cup existed. The old-vine flagships are named for the founders, and taste like it.',
   },
   {
@@ -426,7 +426,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 7293',
     website: 'https://firstcreekwines.com.au',
     tastingFee: 15,
-    image: img('photo-1529060532150-a0c935a6d6e5', 'Barrels resting in the working cellar at First Creek'),
+    image: { url: 'https://firstcreekwines.com.au/cdn/shop/articles/IMG_0112_2200x3302.jpg?v=1770842046', source: 'winery' as const, alt: "A pour at the First Creek tasting bench, barrel hall behind" },
     sommNote: 'Taste here and you are tasting the valley’s collective brain — the team makes wine for over twenty other Hunter labels.',
   },
   {
@@ -452,7 +452,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 7500',
     website: 'https://keithtullochwine.com.au',
     tastingFee: 25,
-    image: img('photo-1558565851-10a41b286adb', 'Oak barrels in the maturation hall at Keith Tulloch Wine'),
+    image: { url: 'https://i0.wp.com/images.keithtullochwine.com.au/2017/06/KTW-Estate.jpg', source: 'winery' as const, alt: "The Keith Tulloch estate and its vineyard blocks from the air" },
     sommNote: 'Australia’s first carbon-neutral certified winery — and the seated Kester tasting is worth the booking faff several times over.',
   },
   {
@@ -478,7 +478,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 7881',
     website: 'https://petersonhouse.com.au',
     tastingFee: 15,
-    image: img('photo-1498429152472-9a433d9ddf3b', 'Glasses raised at the Peterson House sparkling bar bar'),
+    image: { url: 'https://petersonhouse.com.au/wp-content/uploads/2025/11/Hero_Image-1024x768.jpg', source: 'winery' as const, alt: "Sparkling wine on the stone terrace at Peterson House" },
     sommNote: 'Sparkling breakfast is a Hunter institution — oysters and bubbles at 9am, and absolutely nobody judges you.',
   },
   {
@@ -504,7 +504,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4993 8000',
     website: 'https://www.dewine.com.au',
     tastingFee: 15,
-    image: img('photo-1558138818-d44c4dea7a6a', 'Vines and gum trees along Broke Road at De Iuliis'),
+    image: { url: 'https://dewine.com.au/wp-content/uploads/2022/11/deiuliis_cellar_door_verandah_semillon_shanrosephotography-web-res.jpg', source: 'winery' as const, alt: "A toast on the De Iuliis cellar door verandah" },
     sommNote: 'Mike De Iuliis has fruit from the storied Steven vineyard and the good sense not to get in its way.',
   },
   {
@@ -529,7 +529,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     dogFriendly: false,
     website: 'https://www.meereapark.com.au',
     tastingFee: 15,
-    image: img('photo-1567590997610-cca4b1fd9027', 'Bunches ripening on old vines at Meerea Park'),
+    image: { url: 'https://s3-cdn.withwine.com/Location/1850/oIUeCu89IUaYSYxed5E0-Q.jpg?w=1600&format=jpg&quality=80&autorotate=true', source: 'winery' as const, alt: "The Meerea Park cellar door entrance, open for tastings" },
     sommNote: 'The family tree goes back to Alexander Munro, who was exporting Hunter wine to Europe in the 1860s. Form is temporary; class is hereditary.',
   },
   {
@@ -555,7 +555,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     phone: '02 4998 7134',
     website: 'https://thomaswines.com.au',
     tastingFee: 20,
-    image: img('photo-1547595628-c61a29f496f0', 'White wine being poured at the Thomas Wines tasting bench'),
+    image: { url: 'https://www.thomaswines.com.au/cdn/shop/files/Thomas-Wines-Nov-2017-Photo-by-Chris-Elfes-_Elfes-Images_053_17A9981.jpg', source: 'winery' as const, alt: "Old shiraz vines heavy with fruit in the Braemore vineyard" },
     sommNote: 'No Chardonnay, no rosé, no distractions. Two varieties, done properly — the valley’s most disciplined cellar door.',
   },
   {
@@ -580,7 +580,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     dogFriendly: false,
     website: 'https://silkmanwines.com.au',
     tastingFee: 25,
-    image: img('photo-1583803804313-cf4b9ecd674b', 'Late light over the vines near the Silkman tasting room'),
+    image: { url: 'https://silkmanwines.com.au/cdn/shop/files/Silkman_Wines_Photo_by_Elfes_Images_-_Chris_Elfes_CE3_9047_Large_18ef0e12-aec0-430d-9780-d51f2db33e36_1280x855.jpg', source: 'winery' as const, alt: "Hand-picking at dusk in the Silkman vineyard" },
     sommNote: 'Their Shiraz Pinot Noir revives a great lost Hunter tradition — O’Shea was blending the two back in the 1930s.',
   },
   {
@@ -605,7 +605,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     dogFriendly: true,
     website: 'https://comynsandco.com.au',
     tastingFee: 20,
-    image: img('photo-1568213816046-0ee1c42bd559', 'A guided tasting flight at Comyns & Co'),
+    image: { url: 'https://www.comynsandco.com.au/wp-content/uploads/2026/05/MJK-2024-Family-Photography-02-HR-RGB-FA-2-copy-1536x1024.webp', source: 'winery' as const, alt: "The Comyns family in their tasting room" },
     sommNote: 'Ex-Pepper Tree winemaker, tiny parcels, no safety net. This is where the valley’s somms send their friends.',
   },
   {
@@ -630,7 +630,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     dogFriendly: true,
     website: 'https://vindenwines.com.au',
     tastingFee: 25,
-    image: img('photo-1591168890570-479f190aecaf', 'Morning mist lifting off the vineyard at Vinden'),
+    image: { url: 'https://images.squarespace-cdn.com/content/v1/5d54a54e7f30dd0001d6b927/ce3bd24e-1d78-4e00-81d1-cafc5027a819/Vinden+Wines+%7C+Cellar+Door.jpg?format=2500w', source: 'winery' as const, alt: "The tasting table inside Vinden's cellar door, vines beyond" },
     sommNote: 'The Headcase wines are where Angus Vinden lets the handbrake off — skin contact, wild ferments, and the occasional stroke of genius.',
   },
   {
@@ -655,7 +655,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     dogFriendly: true,
     website: 'https://www.glandorewines.com',
     tastingFee: 15,
-    image: img('photo-1507038963175-58cca746afb8', 'The vineyard gate and vines along Broke Road at Glandore Estate'),
+    image: { url: 'https://glandorewines.com/wp-content/uploads/2024/11/Photo-by-Elfes-Images-0109117A2842-scaled-e1733113571348.jpg', source: 'winery' as const, alt: "Picking day in the Glandore vineyard, Brokenback Range behind" },
     sommNote: 'The unhurried tasting on the strip — if the icon cellar doors are booked out, start here and thank us later.',
   },
 ];

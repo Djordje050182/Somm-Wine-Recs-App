@@ -8,6 +8,7 @@ import { ConversationProvider, useConversation } from '@elevenlabs/react';
 import { Kicker } from '../../components/ui';
 import { useRegion } from '../../contexts/RegionContext';
 import { useCatalog } from '../../contexts/CatalogContext';
+import { agentRegionVars } from '../../services/agentRegionVars';
 import {
   asRoutable, matchByName, threadRoute, encodeShareableRun, shareUrlForRun,
   googleMapsUrl, resolveStartPoint, StartPoint,
@@ -164,6 +165,7 @@ const VoiceSommInner: React.FC = () => {
     conversation.startSession({
       agentId: AGENT_ID,
       connectionType: 'webrtc',
+      dynamicVariables: agentRegionVars(region),
       clientTools: {
         open_booking_page: openBookingPage,
         draw_up_plan: drawUpPlan,

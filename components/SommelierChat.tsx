@@ -3,6 +3,7 @@ import { Send, WifiOff } from 'lucide-react';
 import { sommelierChat, isAIEnabled } from '../services/claudeService';
 import { getWeatherContextString } from '../services/weatherService';
 import { SommTextSession } from '../services/sommTextChat';
+import { agentRegionVars } from '../services/agentRegionVars';
 import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
 import { Kicker } from './ui';
@@ -81,7 +82,10 @@ const SommelierChat: React.FC = () => {
         const history = messages.map(m => ({ role: m.role, content: m.content }));
         reply = await sommelierChat(region, text, history, context);
       } else {
-        if (!sessionRef.current) sessionRef.current = new SommTextSession();
+        if (!sessionRef.current || sessionRef.current.regionId !== region.id) {
+          sessionRef.current?.end();
+          sessionRef.current = new SommTextSession(agentRegionVars(region), region.id);
+        }
         reply = await sessionRef.current.ask(text);
       }
       setMessages(prev => [...prev, { role: 'assistant', content: reply }]);

@@ -1,0 +1,839 @@
+{
+  "wineries": [
+    {
+      "id": "mr-lenton-brae",
+      "name": "Lenton Brae",
+      "subregion": "Wilyabrup",
+      "specialty": "Cabernet Sauvignon and Chardonnay from a heritage-listed rammed-earth winery",
+      "wines": [
+        "Wilyabrup Cabernet Sauvignon Malbec Petit Verdot",
+        "Wilyabrup Chardonnay",
+        "Southside Chardonnay"
+      ],
+      "established": 1982,
+      "priceRange": "$$$",
+      "description": "A heritage-listed rammed-earth winery in the Wilyabrup hills where architect-founded bones meet quietly classical Cabernet and Chardonnay.",
+      "story": "Lenton Brae began in 1982 as a retirement project for Perth architect Bruce Tomlinson, who designed and built its rammed-earth winery himself; the building is now heritage-listed by the Shire of Busselton. The first vintage arrived in 1987 from plantings of Cabernet Sauvignon, Semillon and Chardonnay, and by 1990 the estate had won two trophies, including wine of the show, at the SGIO WA Winemakers exhibition. James Halliday has long rated it five stars for elegant wines in classic Margaret River style.",
+      "style": "Heritage",
+      "opens": "10:00",
+      "closes": "17:00",
+      "lat": -33.7817,
+      "lng": 115.0361,
+      "hasRestaurant": false,
+      "bookingRequired": true,
+      "kidFriendly": true,
+      "dogFriendly": true,
+      "phone": "08 9755 6255",
+      "website": "https://www.lentonbrae.com",
+      "bookingUrl": "https://lentonbrae25.rezdy.com/",
+      "tastingFee": 10,
+      "image": {
+        "url": "https://www.lentonbrae.com/app/uploads/2024/11/cellar-door-lenton-brae.png",
+        "alt": "Inside Lenton Brae's rammed-earth cellar door, with a central wood fire, bentwood chairs and wine shelves set into arched alcoves",
+        "verified": "downloaded 2026-07-10, shows the tasting room interior: rammed-earth walls, arched niches, fireplace and deli counter"
+      },
+      "briefing": {
+        "icebreaker": "Is it true the founder was an architect who built this rammed-earth winery himself as a retirement project?",
+        "proMove": "Book the small-group tasting through their Rezdy page (from $10, about 45 minutes) and add a build-your-own cheese and charcuterie platter from the deli counter.",
+        "hiddenGem": "The winery building is heritage-listed by the Shire of Busselton, a rare civic honour for a working cellar door."
+      },
+      "sommNote": "One of Wilyabrup's founding names: come for the heritage rammed-earth room, stay for Cabernet built along quietly classical lines."
+    },
+    {
+      "id": "mr-fermoy-estate",
+      "name": "Fermoy Estate",
+      "subregion": "Wilyabrup",
+      "specialty": "Reserve Cabernet Sauvignon and Chardonnay from gravel loam beside the Wilyabrup Brook",
+      "wines": [
+        "Reserve Cabernet Sauvignon",
+        "Reserve Chardonnay",
+        "Chardonnay"
+      ],
+      "established": 1985,
+      "priceRange": "$$$",
+      "description": "A quietly brilliant Wilyabrup estate whose Reserve Cabernet took Best in Show at the Decanter World Wine Awards, from vines a mere 4.5km from the Indian Ocean.",
+      "story": "Fermoy Estate was first planted in 1985 on gravel loam over clay beside the Wilyabrup Brook, with 14 hectares of vines sitting just 4.5 kilometres from the Indian Ocean. Senior winemaker Jeremy Hodgson and vineyard manager Andy Keig have worked side by side since 2014, and their 2020 Reserve Cabernet Sauvignon was named Best in Show at the 2024 Decanter World Wine Awards, an honour reserved for the top 50 of more than 18,000 wines. The team keeps things low-key: cover crops, fewer tractor passes and a less-is-more hand in the vineyard.",
+      "style": "Premium",
+      "opens": "11:00",
+      "closes": "17:00",
+      "lat": -33.7847,
+      "lng": 115.0457,
+      "hasRestaurant": false,
+      "bookingRequired": false,
+      "phone": "08 9778 9015",
+      "website": "https://www.fermoy.com.au",
+      "bookingUrl": "https://www.fermoy.com.au/products/cellar-door",
+      "tastingFee": 15,
+      "image": {
+        "url": "https://www.fermoy.com.au/cdn/shop/files/About_Vineyard_2400x1350px_7.jpg",
+        "alt": "Aerial view over Fermoy Estate's vineyard rows at golden hour, with a dam and stands of eucalypts beyond",
+        "verified": "downloaded 2026-07-10, shows sunlit aerial of estate vine rows, dam and surrounding bushland"
+      },
+      "briefing": {
+        "icebreaker": "What changed in the vineyard in the lead-up to the 2020 Reserve Cabernet winning Best in Show at Decanter?",
+        "proMove": "Walk-ins are welcome but book ahead for a seated tasting; the $15 fee covers up to five wines and is redeemable against any purchase.",
+        "hiddenGem": "The estate sleeps guests too: The Lodge, a four-bedroom homestead among the vines, can be booked for the full winery-stay experience."
+      },
+      "sommNote": "Wilyabrup's quiet achiever: the Reserve Cabernet that beat 18,000 wines at Decanter still pours at an unhurried cellar door."
+    },
+    {
+      "id": "mr-juniper-estate",
+      "name": "Juniper Estate",
+      "subregion": "Wilyabrup",
+      "specialty": "Cabernet Sauvignon and Chardonnay off 1973 plantings beside the Wilyabrup Brook",
+      "wines": [
+        "The Tribute",
+        "Cornerstone Wilyabrup Cabernet Sauvignon",
+        "Cornerstone Wilyabrup Chardonnay"
+      ],
+      "established": 1973,
+      "priceRange": "$$$",
+      "description": "A cottage-garden cellar door on Tom Cullity Drive pouring wines from one of Wilyabrup's founding vineyards, planted back in 1973.",
+      "story": "Henry and Maureen Wright planted this Wilyabrup vineyard in 1973, making it one of the region's founding sites, before Roger Hill and Gillian Anderson created Juniper Estate around it in 1998. The cosy cellar door sits between the original vines and the Wilyabrup Brook, ringed by cottage gardens and peppermint trees. The flagship Tribute comes off Block 7 of those first plantings: hand-picked, single-block Cabernet Sauvignon.",
+      "style": "Heritage",
+      "opens": "11:00",
+      "closes": "17:00",
+      "lat": -33.8246,
+      "lng": 115.0489,
+      "hasRestaurant": false,
+      "bookingRequired": false,
+      "kidFriendly": true,
+      "dogFriendly": true,
+      "phone": "08 9755 9000",
+      "website": "https://juniperestate.com.au",
+      "bookingUrl": "https://juniperestate.simplybook.net/v2/",
+      "tastingFee": 10,
+      "image": {
+        "url": "https://juniperestate.com.au/cdn/shop/files/236_Juniper_Estate_230419_JWyld.jpg",
+        "alt": "Juniper's stone entrance sign wrapped in flowering grevillea, with the red-gravel drive leading into the vineyard",
+        "verified": "downloaded 2026-07-10, shows the estate entrance, drive and vine rows beyond"
+      },
+      "briefing": {
+        "icebreaker": "Is it true The Tribute comes off Block 7 of the original vines planted here in 1973?",
+        "proMove": "Bookings via their SimplyBook page are preferred but you can drop in; weekends open an hour earlier at 10am, and ask about the cellared museum wines alongside the current release.",
+        "hiddenGem": "In summer the estate hosts monthly Woodfired Pizza Sundowners on the lawn, and you're welcome to bring your own picnic to spread under the peppermint trees."
+      },
+      "sommNote": "Fifty-year-old Wilyabrup vines, a $10 tasting and museum bottles on pour: quietly one of the best-value stops on Tom Cullity Drive."
+    },
+    {
+      "id": "mr-gralyn-estate",
+      "name": "Gralyn Estate",
+      "subregion": "Wilyabrup",
+      "specialty": "Old-vine Reserve Cabernet and rare barrel-aged fortifieds from 1975 plantings",
+      "wines": [
+        "Reserve Cabernet Sauvignon",
+        "Artizan Rare Muscat",
+        "Reserve Chardonnay"
+      ],
+      "established": 1975,
+      "priceRange": "$$$$",
+      "description": "A family estate on Caves Road pouring old-vine Cabernet and world-beating fortifieds, still gloriously free of a tasting fee.",
+      "story": "Graham and Merilyn Hutton turned their Wilyabrup beef farm to vines in 1975 and opened Margaret River's first cellar door in 1978, the year of their first vintage. Today their daughter Annette Baxter and her husband Scott run the estate, making around 3,000 cases a year with a cult following for barrel-aged fortifieds: the Artizan Rare Muscat was named Wine of the Year at the 2022 London Wine Competition. The wines are sold exclusively at the cellar door and through their own shop.",
+      "style": "Boutique",
+      "opens": "10:30",
+      "closes": "16:30",
+      "lat": -33.8036,
+      "lng": 115.0314,
+      "hasRestaurant": false,
+      "bookingRequired": false,
+      "phone": "08 9755 6245",
+      "website": "https://gralyn.com.au",
+      "bookingUrl": "https://gralyn.com.au/pages/premium-wine-tasting-experience",
+      "tastingFee": 0,
+      "image": {
+        "url": "https://gralyn.com.au/cdn/shop/files/Gralyn_Cellar_Door_Front_HERO.webp",
+        "alt": "Gralyn Estate's glass-fronted cellar door under a brooding sky, flanked by a stacked-stone sculpture, gnarled old vines and a towering palm",
+        "verified": "downloaded 2026-07-10, shows the cellar door building, lawn, sculpture and old vine rows"
+      },
+      "briefing": {
+        "icebreaker": "You opened Margaret River's first cellar door in 1978 — what's changed on Caves Road since?",
+        "proMove": "Standard tastings are free and walk-in, but book the ninety-minute premium experience with Scott and Annette to finish inside the original 1978 Gralyn Cellars, normally closed to the public.",
+        "hiddenGem": "The Artizan Rare Muscat beat the world to be crowned Wine of the Year at the 2022 London Wine Competition, and you can only buy it here."
+      },
+      "sommNote": "The region's fortified whisperers: come for 1975-vine Cabernet, leave clutching a half-bottle of Rare Muscat you'll ration for years."
+    },
+    {
+      "id": "mr-thompson-estate",
+      "name": "Thompson Estate",
+      "subregion": "Wilyabrup",
+      "specialty": "Specialist-range Cabernet and Chardonnay from a cardiologist-founded, Halliday five-star estate",
+      "wines": [
+        "The Specialist Cabernet Sauvignon",
+        "Estate Chardonnay",
+        "Estate Cabernet Sauvignon"
+      ],
+      "established": 1994,
+      "priceRange": "$$$",
+      "description": "A Halliday five-red-star estate on Tom Cullity Drive founded by a Perth cardiologist, tasted in the rustic charm of the barrel room.",
+      "story": "Cardiologist Peter Thompson and his wife Jane bought this Wilyabrup property in 1994, planting Chardonnay and Pinot in 1997 and Cabernet the following year. The Four Chambers range nods both to the heart and to the four stages of winemaking: viticulture, vinification, maturation and presentation. A state-of-the-art on-property winery crushed its first vintage in 2009, and James Halliday has rated the estate five red stars year after year.",
+      "style": "Premium",
+      "opens": "10:30",
+      "closes": "16:30",
+      "lat": -33.8094,
+      "lng": 115.061,
+      "hasRestaurant": false,
+      "bookingRequired": false,
+      "phone": "08 9755 6406",
+      "website": "https://thompsonestate.com",
+      "tastingFee": 10,
+      "image": {
+        "url": "https://thompsonestate.com/cdn/shop/files/78_20250224_THOMPSONS_ESTATE_1800x.jpg",
+        "alt": "Aerial view of Thompson Estate's netted vine rows, winery buildings and dam ringed by marri forest",
+        "verified": "downloaded 2026-07-10, shows aerial of vineyard blocks, winery and lake"
+      },
+      "briefing": {
+        "icebreaker": "The founder is a cardiologist — is that why the Four Chambers range is named for the heart?",
+        "proMove": "Cellar door runs Tuesday to Saturday only; book two days ahead by phone or email, and pay the extra $5 to taste The Specialist range. Fees are refunded on purchase.",
+        "hiddenGem": "You can bring a picnic, buy a glass from $10 and wander the sculpture walk on the lawn; the winery itself only arrived on-site in 2009."
+      },
+      "sommNote": "Precision runs in the family here: cardiologist-founded, Halliday five-star, and The Specialist Cabernet is the steady heartbeat of the range."
+    },
+    {
+      "id": "mr-domaine-naturaliste",
+      "name": "Domaine Naturaliste",
+      "subregion": "Wilyabrup",
+      "specialty": "Single-vineyard Chardonnay and Cabernet Sauvignon",
+      "wines": [
+        "Artus Chardonnay",
+        "Morus Cabernet Sauvignon",
+        "Sauvage Sauvignon Blanc"
+      ],
+      "established": 2012,
+      "priceRange": "$$$",
+      "description": "Bruce Dukes' scientist-turned-winemaker project, pouring some of Wilyabrup's most decorated Chardonnay from a glass-walled pavilion among the vines.",
+      "story": "Perth-born agronomist Bruce Dukes spent years winemaking in California's Napa Valley before launching Domaine Naturaliste in 2012, and the trophies arrived almost immediately. The label was named Halliday Wine Companion's Best Value Winery in 2020 and holds Top 5 red-star status, while Dukes himself was crowned WA Winemaker of the Year in the 2026 Ray Jordan WA Wine Review. The glass-walled cellar door on Johnson Road only opened in late 2018 — the wines had already been winning for years.",
+      "style": "Modern",
+      "opens": "10:00",
+      "closes": "17:00",
+      "lat": -33.7491,
+      "lng": 115.0456,
+      "hasRestaurant": false,
+      "bookingRequired": false,
+      "phone": "08 9755 6776",
+      "website": "https://domainenaturaliste.com.au",
+      "bookingUrl": "https://domainenaturaliste.rezdy.com/",
+      "tastingFee": 25,
+      "image": {
+        "url": "https://domainenaturaliste.com.au/cdn/shop/files/DN-cellar-door-header-2_1400x.jpg?v=1613722481",
+        "alt": "Glass-walled cellar door pavilion glowing at dusk beneath a towering gum tree, flanked by vineyard rows",
+        "verified": "downloaded 2026-07-10 from winery site, 1400x636px; shows the Wilyabrup cellar door building, lawn and vines at twilight"
+      },
+      "briefing": {
+        "icebreaker": "Ask how Bruce's Wine Safari works — visitors are bussed from this cellar door to the winery to taste straight from the barrel.",
+        "proMove": "The six-wine flight of the luxury ranges is $25 and redeemable against purchases; charcuterie and cheese boards run 11am to 3pm and are bookable via Rezdy.",
+        "hiddenGem": "The glass pavilion only started pouring in late 2018 — Dukes made the wines for six vintages before he had a cellar door to show them off in."
+      },
+      "sommNote": "If you drink one Chardonnay in Wilyabrup, make it Artus — Dukes' Napa-honed precision with Margaret River fruit is the region in miniature."
+    },
+    {
+      "id": "mr-hay-shed-hill",
+      "name": "Hay Shed Hill",
+      "subregion": "Wilyabrup",
+      "specialty": "Single-block estate wines from 1973 vines",
+      "wines": [
+        "Block 2 Cabernet Sauvignon",
+        "Block 6 Chardonnay",
+        "Block 1 Semillon Sauvignon Blanc"
+      ],
+      "established": 1973,
+      "priceRange": "$$",
+      "description": "One of Wilyabrup's original 1973 plantings, where winemaker-owner Michael Kerrigan bottles the estate block by numbered block beneath the white tower.",
+      "story": "Planted in 1973, Hay Shed Hill farms some of the oldest vines in the Wilyabrup Valley, and since 2006 it has been owned and made by Michael Kerrigan, formerly chief winemaker at Howard Park. The Block Series wines are named for the literal vineyard blocks they grow on — Block 6 Chardonnay, Block 2 Cabernet — earning the estate Halliday's Red 5-Star rating and a place among his ten Best Value Wineries in the 2020 edition. The cellar door shares its lawn with Rustico, the tapas restaurant overlooking the old vines.",
+      "style": "Heritage",
+      "opens": "10:00",
+      "closes": "17:00",
+      "lat": -33.7981,
+      "lng": 115.0665,
+      "hasRestaurant": true,
+      "bookingRequired": false,
+      "phone": "08 9731 5114",
+      "website": "https://hayshedhill.com.au",
+      "tastingFee": 10,
+      "image": {
+        "url": "https://hayshedhill.com.au/cdn/shop/files/HSH_sunset_by_MRBTA_657d5498-130b-4fbe-af2c-3ea1ed444e66_2048x2048.jpg?v=1613157422",
+        "alt": "Gnarled old vine rows in golden evening light in front of the white weatherboard cellar door with its distinctive square tower",
+        "verified": "downloaded 2026-07-10 from winery site, 1000x666px; shows estate vines and the tower cellar door building at sunset"
+      },
+      "briefing": {
+        "icebreaker": "Ask which vineyard block you're looking at from the tasting bench — every Block Series wine is named for a numbered plot on this farm.",
+        "proMove": "There are over 25 wines on tasting, so arrive with a plan: ask to start with the Block Series, and book a table at Rustico for tapas afterwards.",
+        "hiddenGem": "Owner Michael Kerrigan also pours his side label Kerrigan + Berry here — a project with Gavin Berry of West Cape Howe that you'll rarely see elsewhere."
+      },
+      "sommNote": "Fifty-year-old Wilyabrup vines at everyday prices — the Block 2 Cabernet is the quiet overachiever of the valley."
+    },
+    {
+      "id": "mr-brookland-valley",
+      "name": "Brookland Valley",
+      "subregion": "Wilyabrup",
+      "specialty": "Estate Chardonnay beside the Wilyabrup Brook",
+      "wines": [
+        "Estate Chardonnay",
+        "Reserve Cabernet Sauvignon",
+        "Estate Cabernet Merlot"
+      ],
+      "established": 1984,
+      "priceRange": "$$",
+      "description": "A 1984 estate on the banks of the Wilyabrup Brook whose cellar door now pours two histories at once — Brookland Valley and Houghton, WA's oldest wine name.",
+      "story": "Malcolm and Deidre Jones established Brookland Valley in 1984 on a natural amphitheatre above the Wilyabrup Brook, and the estate held Halliday's 5 Red Star rating for ten consecutive years. Hardy's took a half share in 1997 and full ownership in 2004, and under Accolade the cellar door now doubles as the tasting home of Houghton, Western Australia's oldest wine brand, founded in 1836. In 2022 the Swinney family bought the vineyard itself, though the brand and cellar door carry on as before.",
+      "style": "Premium",
+      "opens": "11:00",
+      "closes": "17:00",
+      "lat": -33.795,
+      "lng": 115.0244,
+      "hasRestaurant": false,
+      "bookingRequired": false,
+      "phone": "08 9755 6042",
+      "website": "https://brooklandvalley.com.au",
+      "bookingUrl": "https://distinctionwines.com.au/pages/bookings-brookland-valley-houghton",
+      "image": {
+        "url": "https://brooklandvalley.com.au/cdn/shop/files/DSC_1623_1920x.png?v=1679460052",
+        "alt": "Two visitors walking up a gravel path to a rustic dark-timber estate building with a stone chimney, set in established gardens",
+        "verified": "downloaded 2026-07-10 from winery site, 1920x1278px; shows the estate's timber building, gardens and grounds"
+      },
+      "briefing": {
+        "icebreaker": "Ask why Houghton — a Swan Valley name founded in 1836 — pours its flagship Cabernets here in Wilyabrup alongside Brookland Valley.",
+        "proMove": "Hours shift with the seasons: 11am-5pm October to May, but 11am-4pm June to September — and pre-book a picnic or platter for the verandah overlooking the brook.",
+        "hiddenGem": "The vineyard was quietly bought by the Swinney family of Frankland River fame in 2022, while Accolade kept the brand and cellar door running unchanged."
+      },
+      "sommNote": "Come for the Estate Chardonnay by the brook, stay to taste Houghton's museum-grade Cabernets without driving to the Swan Valley."
+    }
+  ],
+  "wines": [
+    {
+      "id": "mr-lenton-brae-wilyabrup-cabernet",
+      "name": "Wilyabrup Cabernet Sauvignon Malbec Petit Verdot",
+      "wineryId": "mr-lenton-brae",
+      "variety": "Cabernet Sauvignon",
+      "vintage": "2022",
+      "price": "$90",
+      "description": "The estate flagship: Wilyabrup Cabernet given a Bordelais wink with Malbec and Petit Verdot in support.",
+      "sommNote": "Decant for an hour and serve at 17C; the Malbec plushness sits over a classically firm Wilyabrup tannin line.",
+      "rating": 4.6,
+      "pairings": [
+        "chargrilled scotch fillet",
+        "slow-roasted lamb shoulder",
+        "aged cheddar",
+        "beef Wellington"
+      ],
+      "drinkFrom": "2026",
+      "drinkTo": "2038"
+    },
+    {
+      "id": "mr-lenton-brae-wilyabrup-chardonnay",
+      "name": "Wilyabrup Chardonnay",
+      "wineryId": "mr-lenton-brae",
+      "variety": "Chardonnay",
+      "vintage": "2022",
+      "price": "$75",
+      "description": "Single-subregion Chardonnay in the taut, grapefruit-and-flint Margaret River idiom.",
+      "sommNote": "Give it ten minutes out of the ice bucket; the struck-match top note unfurls into white peach.",
+      "rating": 4.5,
+      "pairings": [
+        "grilled marron",
+        "roast chicken",
+        "creamy pasta",
+        "soft washed-rind cheese"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2032",
+      "community": {
+        "score": 4.1,
+        "count": 122,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-lenton-brae-southside-chardonnay",
+      "name": "Southside Chardonnay",
+      "wineryId": "mr-lenton-brae",
+      "variety": "Chardonnay",
+      "vintage": "2024",
+      "price": "$40",
+      "description": "The early-drinking Chardonnay: bright, lightly oaked and unapologetically moreish.",
+      "sommNote": "Their crowd-pleaser by the fire at cellar door; serve well chilled with anything from the deli counter.",
+      "rating": 4.1,
+      "pairings": [
+        "fish and chips",
+        "sushi",
+        "chicken salad",
+        "young cheeses"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2028",
+      "community": {
+        "score": 3.7,
+        "count": 218,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-fermoy-estate-reserve-cabernet",
+      "name": "Reserve Cabernet Sauvignon",
+      "wineryId": "mr-fermoy-estate",
+      "variety": "Cabernet Sauvignon",
+      "vintage": "2020",
+      "price": "$99",
+      "description": "The Decanter Best in Show 2024 winner: 18 months in tight-grained French oak and pure Wilyabrup gravel-soil pedigree.",
+      "sommNote": "Cellar-release poise; decant 60 to 90 minutes and let the cassis and cedar uncoil slowly.",
+      "rating": 4.8,
+      "pairings": [
+        "dry-aged ribeye",
+        "roast lamb rack",
+        "wild mushroom risotto",
+        "hard sheep's cheese"
+      ],
+      "drinkFrom": "2026",
+      "drinkTo": "2040",
+      "community": {
+        "score": 4.2,
+        "count": 217,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-fermoy-estate-reserve-chardonnay",
+      "name": "Reserve Chardonnay",
+      "wineryId": "mr-fermoy-estate",
+      "variety": "Chardonnay",
+      "vintage": "2024",
+      "price": "$80",
+      "description": "Fermoy's top white: maritime-cooled Wilyabrup Chardonnay with precision to match its polish.",
+      "sommNote": "Serve at 10 to 12C, not fridge-cold; the sea-spray salinity is the whole point.",
+      "rating": 4.5,
+      "pairings": [
+        "grilled marron",
+        "pan-fried snapper",
+        "roast chicken",
+        "triple-cream brie"
+      ],
+      "drinkFrom": "2026",
+      "drinkTo": "2033",
+      "community": {
+        "score": 4.2,
+        "count": 185,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-fermoy-estate-chardonnay",
+      "name": "Chardonnay",
+      "wineryId": "mr-fermoy-estate",
+      "variety": "Chardonnay",
+      "vintage": "2024",
+      "price": "$45",
+      "description": "The estate Chardonnay: bright orchard fruit with a maritime line of acidity.",
+      "sommNote": "The smart buy of the range; drinks beautifully now with anything from the grazing menu.",
+      "rating": 4.2,
+      "pairings": [
+        "oysters",
+        "fish tacos",
+        "chicken pasta",
+        "soft cheeses"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2030",
+      "community": {
+        "score": 3.9,
+        "count": 194,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-juniper-estate-the-tribute",
+      "name": "The Tribute",
+      "wineryId": "mr-juniper-estate",
+      "variety": "Cabernet Sauvignon",
+      "vintage": "2018",
+      "price": "$150",
+      "description": "Single-block Cabernet from Block 7 of the 1973 plantings, hand-picked and made only in worthy years.",
+      "sommNote": "Old-vine Wilyabrup Cabernet at full stretch; decant generously and give it protein-rich company.",
+      "rating": 4.7,
+      "pairings": [
+        "chargrilled porterhouse",
+        "slow-braised beef cheek",
+        "roast duck",
+        "vintage cheddar"
+      ],
+      "drinkFrom": "2026",
+      "drinkTo": "2040"
+    },
+    {
+      "id": "mr-juniper-estate-cornerstone-wilyabrup-cabernet",
+      "name": "Cornerstone Wilyabrup Cabernet Sauvignon",
+      "wineryId": "mr-juniper-estate",
+      "variety": "Cabernet Sauvignon",
+      "vintage": "2019",
+      "price": "$80",
+      "description": "The estate's cornerstone indeed: structured, gravelly Cabernet from the home vineyard's oldest rows.",
+      "sommNote": "Classic dusty Wilyabrup tannin; cellar five years or decant an hour and serve with lamb.",
+      "rating": 4.6,
+      "pairings": [
+        "rack of lamb",
+        "beef short ribs",
+        "field mushroom pie",
+        "aged gouda"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2037",
+      "community": {
+        "score": 4.2,
+        "count": 131,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-juniper-estate-cornerstone-wilyabrup-chardonnay",
+      "name": "Cornerstone Wilyabrup Chardonnay",
+      "wineryId": "mr-juniper-estate",
+      "variety": "Chardonnay",
+      "vintage": "2022",
+      "price": "$65",
+      "description": "Plush yet precise single-vineyard Chardonnay that earned 97 points from critic Jeni Port.",
+      "sommNote": "Nine months in French oak and just 12.5% alcohol; poised enough for shellfish, plush enough for poultry.",
+      "rating": 4.7,
+      "pairings": [
+        "grilled marron",
+        "seared scallops",
+        "roast chicken",
+        "creamy mushroom pasta"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2031",
+      "community": {
+        "score": 4.1,
+        "count": 66,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-gralyn-estate-reserve-cabernet",
+      "name": "Reserve Cabernet Sauvignon",
+      "wineryId": "mr-gralyn-estate",
+      "variety": "Cabernet Sauvignon",
+      "vintage": "2023",
+      "price": "$140",
+      "description": "Old-vine Wilyabrup Cabernet from the original 1975 plantings, sold only from the estate.",
+      "sommNote": "Dense, dark-berried and built to keep; the museum vertical at cellar door shows how gracefully it goes the distance.",
+      "rating": 4.5,
+      "pairings": [
+        "chargrilled ribeye",
+        "venison",
+        "braised oxtail",
+        "hard aged cheeses"
+      ],
+      "drinkFrom": "2027",
+      "drinkTo": "2040",
+      "community": {
+        "score": 4.2,
+        "count": 255,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-gralyn-estate-artizan-rare-muscat",
+      "name": "Artizan Rare Muscat",
+      "wineryId": "mr-gralyn-estate",
+      "variety": "Muscat",
+      "vintage": "NV",
+      "price": "$125",
+      "description": "The 375mL barrel-aged fortified that took Wine of the Year at the 2022 London Wine Competition.",
+      "sommNote": "Serve a thimbleful slightly cool with dark chocolate or blue cheese; decades of barrel age in every sip.",
+      "rating": 4.8,
+      "pairings": [
+        "dark chocolate",
+        "blue cheese",
+        "sticky date pudding",
+        "roasted nuts"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2045"
+    },
+    {
+      "id": "mr-gralyn-estate-reserve-chardonnay",
+      "name": "Reserve Chardonnay",
+      "wineryId": "mr-gralyn-estate",
+      "variety": "Chardonnay",
+      "vintage": "2024",
+      "price": "$90",
+      "description": "Small-make estate Chardonnay with the same cellar-door-only exclusivity as the reds.",
+      "sommNote": "Generous, barrel-worked style; let it warm a touch and it fans out beautifully.",
+      "rating": 4.4,
+      "pairings": [
+        "lobster",
+        "roast chicken",
+        "creamy risotto",
+        "brie"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2031"
+    },
+    {
+      "id": "mr-thompson-estate-specialist-cabernet",
+      "name": "The Specialist Cabernet Sauvignon",
+      "wineryId": "mr-thompson-estate",
+      "variety": "Cabernet Sauvignon",
+      "vintage": "2021",
+      "price": "$100",
+      "description": "The estate's top Cabernet, made only from the best barrels in the best years.",
+      "sommNote": "Taut Wilyabrup cassis and fine gravelly tannin; decant an hour and it opens like a textbook.",
+      "rating": 4.6,
+      "pairings": [
+        "roast lamb",
+        "beef fillet",
+        "slow-cooked brisket",
+        "aged cheddar"
+      ],
+      "drinkFrom": "2026",
+      "drinkTo": "2038",
+      "community": {
+        "score": 4.2,
+        "count": 194,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-thompson-estate-chardonnay",
+      "name": "Estate Chardonnay",
+      "wineryId": "mr-thompson-estate",
+      "variety": "Chardonnay",
+      "vintage": "2024",
+      "price": "$60",
+      "description": "Estate-grown Chardonnay from vines first planted in 1997, in the crisp modern Margaret River mould.",
+      "sommNote": "Grapefruit pith and gentle cashew oak; a natural with anything pulled from the Indian Ocean.",
+      "rating": 4.3,
+      "pairings": [
+        "grilled snapper",
+        "prawn linguine",
+        "roast chicken",
+        "young comte"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2031",
+      "community": {
+        "score": 3.8,
+        "count": 267,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-thompson-estate-cabernet",
+      "name": "Estate Cabernet Sauvignon",
+      "wineryId": "mr-thompson-estate",
+      "variety": "Cabernet Sauvignon",
+      "vintage": "2022",
+      "price": "$60",
+      "description": "The estate's calling-card Cabernet: classic Wilyabrup structure without the Specialist price tag.",
+      "sommNote": "Drinks well young with a short decant, but rewards five patient years in the rack.",
+      "rating": 4.4,
+      "pairings": [
+        "ribeye steak",
+        "lamb shanks",
+        "mushroom wellington",
+        "hard cheeses"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2035",
+      "community": {
+        "score": 3.9,
+        "count": 423,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-domaine-naturaliste-artus-chardonnay",
+      "name": "Artus Chardonnay",
+      "wineryId": "mr-domaine-naturaliste",
+      "variety": "Chardonnay",
+      "vintage": "2023",
+      "price": "$66",
+      "description": "Bruce Dukes' flagship wild-fermented Chardonnay, and one of the most consistently decorated whites in Margaret River.",
+      "sommNote": "Serve at 10-12C, not fridge-cold — the struck-match and grapefruit-pith detail needs a little warmth to unfurl.",
+      "rating": 4.7,
+      "pairings": [
+        "grilled marron",
+        "roast chicken",
+        "creamy mushroom pasta",
+        "aged Comté"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2031",
+      "community": {
+        "score": 4.2,
+        "count": 1183,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-domaine-naturaliste-morus-cabernet-sauvignon",
+      "name": "Morus Cabernet Sauvignon",
+      "wineryId": "mr-domaine-naturaliste",
+      "variety": "Cabernet Sauvignon",
+      "vintage": "2022",
+      "price": "$98",
+      "description": "The estate's top Cabernet and its highest-rated wine on Vivino — dense Wilyabrup cassis built for the long haul.",
+      "sommNote": "Decant for a good hour; this is structured, cellar-worthy Cabernet that repays patience over enthusiasm.",
+      "rating": 4.7,
+      "pairings": [
+        "chargrilled ribeye",
+        "slow-roasted lamb shoulder",
+        "beef cheek pie",
+        "hard sheep's cheese"
+      ],
+      "drinkFrom": "2027",
+      "drinkTo": "2040",
+      "community": {
+        "score": 4.3,
+        "count": 480,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-domaine-naturaliste-sauvage-sauvignon-blanc",
+      "name": "Sauvage Sauvignon Blanc",
+      "wineryId": "mr-domaine-naturaliste",
+      "variety": "Sauvignon Blanc",
+      "vintage": "2024",
+      "price": "$40",
+      "description": "A wild-ferment, barrel-worked Sauvignon Blanc that trades tropical shout for texture and savoury poise.",
+      "sommNote": "Forget everything Marlborough taught you — this is Sauvignon for Chardonnay drinkers, all creamy lees and lemon curd.",
+      "rating": 4.4,
+      "pairings": [
+        "natural oysters",
+        "goat's cheese salad",
+        "pan-fried whiting",
+        "asparagus risotto"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2029"
+    },
+    {
+      "id": "mr-hay-shed-hill-block-2-cabernet-sauvignon",
+      "name": "Block 2 Cabernet Sauvignon",
+      "wineryId": "mr-hay-shed-hill",
+      "variety": "Cabernet Sauvignon",
+      "vintage": "2023",
+      "price": "$63",
+      "description": "The estate's flagship Cabernet from the vineyard's Block 2, classic Wilyabrup cassis, cedar and dried herb.",
+      "sommNote": "Give it thirty minutes in a decanter and pour alongside anything from the grill — old-vine Wilyabrup Cabernet in its Sunday best.",
+      "rating": 4.6,
+      "pairings": [
+        "lamb cutlets",
+        "beef wellington",
+        "venison",
+        "vintage cheddar"
+      ],
+      "drinkFrom": "2026",
+      "drinkTo": "2038",
+      "community": {
+        "score": 4.1,
+        "count": 327,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-hay-shed-hill-block-6-chardonnay",
+      "name": "Block 6 Chardonnay",
+      "wineryId": "mr-hay-shed-hill",
+      "variety": "Chardonnay",
+      "vintage": "2025",
+      "price": "$45",
+      "description": "Single-block Chardonnay off the estate's Block 6, worked in oak for a stone-fruit-and-struck-flint style.",
+      "sommNote": "Kerrigan's Howard Park pedigree shows here — ask to taste it against the entry Chardonnay to see what one block of old dirt buys you.",
+      "rating": 4.5,
+      "pairings": [
+        "roast chicken",
+        "seared scallops",
+        "pork belly",
+        "triple-cream brie"
+      ],
+      "drinkFrom": "2026",
+      "drinkTo": "2031",
+      "community": {
+        "score": 4.0,
+        "count": 262,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-hay-shed-hill-block-1-semillon-sauvignon-blanc",
+      "name": "Block 1 Semillon Sauvignon Blanc",
+      "wineryId": "mr-hay-shed-hill",
+      "variety": "Semillon Sauvignon Blanc",
+      "vintage": "2024",
+      "price": "$31.50",
+      "description": "Margaret River's signature white blend from the vineyard's first block — zesty, grassy and unapologetically moreish.",
+      "sommNote": "The region's house style done properly; chill hard and open on the lawn at Rustico with whatever seafood is going.",
+      "rating": 4.3,
+      "pairings": [
+        "fish and chips",
+        "garlic prawns",
+        "fresh oysters",
+        "Vietnamese rice paper rolls"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2027"
+    },
+    {
+      "id": "mr-brookland-valley-estate-chardonnay",
+      "name": "Estate Chardonnay",
+      "wineryId": "mr-brookland-valley",
+      "variety": "Chardonnay",
+      "vintage": "2023",
+      "price": "$56",
+      "description": "The estate's calling card — refined Wilyabrup Chardonnay from vines above the brook that helped earn a decade of Halliday 5 Red Stars.",
+      "sommNote": "White peach and grapefruit with a fine oak seam; drink it on the verandah where the fruit was grown and it tastes a point higher.",
+      "rating": 4.5,
+      "pairings": [
+        "grilled snapper",
+        "chicken with tarragon",
+        "crab linguine",
+        "soft washed-rind cheese"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2030",
+      "community": {
+        "score": 4.1,
+        "count": 262,
+        "source": "Vivino"
+      }
+    },
+    {
+      "id": "mr-brookland-valley-reserve-cabernet-sauvignon",
+      "name": "Reserve Cabernet Sauvignon",
+      "wineryId": "mr-brookland-valley",
+      "variety": "Cabernet Sauvignon",
+      "vintage": "2022",
+      "price": "$80",
+      "description": "The top-tier Brookland Valley Cabernet, a selection of the estate's best Wilyabrup fruit in a polished, age-worthy frame.",
+      "sommNote": "Taste it beside Houghton's CW Ferguson at the shared cellar door — two schools of WA Cabernet in one sitting.",
+      "rating": 4.6,
+      "pairings": [
+        "roast beef",
+        "braised short ribs",
+        "duck ragu",
+        "aged gouda"
+      ],
+      "drinkFrom": "2027",
+      "drinkTo": "2038"
+    },
+    {
+      "id": "mr-brookland-valley-estate-cabernet-merlot",
+      "name": "Estate Cabernet Merlot",
+      "wineryId": "mr-brookland-valley",
+      "variety": "Cabernet Merlot",
+      "vintage": "2020",
+      "price": "$65",
+      "description": "A classic Margaret River claret blend with bottle age already built in, released when it is ready rather than when it is young.",
+      "sommNote": "The 2020 release arrives with the hard edges already melted — a rare cellar-door chance to drink maturity without doing the waiting.",
+      "rating": 4.4,
+      "pairings": [
+        "slow-roasted lamb",
+        "mushroom wellington",
+        "osso buco",
+        "pecorino"
+      ],
+      "drinkFrom": "2025",
+      "drinkTo": "2032"
+    }
+  ]
+}

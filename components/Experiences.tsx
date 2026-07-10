@@ -25,6 +25,13 @@ const Experiences: React.FC = () => {
 
   const sorted = useMemo(() => [...filtered].sort((a, b) => b.rating - a.rating), [filtered]);
 
+  // Only offer chips for categories the region actually stocks — a young
+  // region may not cover the full menu yet.
+  const categories = useMemo(
+    () => CATEGORIES.filter(cat => cat === 'All' || experiences.some(e => e.category === cat)),
+    [experiences]
+  );
+
   return (
     <div className="py-10 animate-fade-in">
       {selected && <GuideModal item={selected} type="experience" onClose={() => setSelected(null)} />}
@@ -37,7 +44,7 @@ const Experiences: React.FC = () => {
 
       {/* Category filter */}
       <div className="flex gap-2 flex-wrap mt-8 mb-10">
-        {CATEGORIES.map(cat => (
+        {categories.map(cat => (
           <button
             key={cat}
             onClick={() => setFilter(cat)}

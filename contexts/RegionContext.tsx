@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo } from 'react';
+import React, { createContext, useContext, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Region, RegionData, Winery, WineDetail, Experience, RegionEvent } from '../types';
 import { REGION_REGISTRY, DEFAULT_REGION_ID, getRegionData } from '../data/regions';
@@ -39,6 +39,10 @@ export const RegionProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       liveRegions: Object.values(REGION_REGISTRY),
     };
   }, [regionId]);
+
+  useEffect(() => {
+    document.title = `Somm — ${value.region.name}, properly`;
+  }, [value.region.name]);
 
   return <RegionContext.Provider value={value}>{children}</RegionContext.Provider>;
 };

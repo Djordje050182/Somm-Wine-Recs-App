@@ -1,0 +1,22 @@
+{
+  "experiences": [
+    {
+      "id": "mr-exp-margaret-river-chocolate-company",
+      "name": "Margaret River Chocolate Company",
+      "category": "Shopping",
+      "subregion": "Wilyabrup",
+      "description": "DRAFT - hours confirmed 9:00am-5:00pm daily (closed Christmas Day), free chocolate samples and production viewing windows. Image and rating pending.",
+      "opens": "09:00",
+      "closes": "17:00",
+      "website": "https://www.chocolatefactory.com.au/"
+    },
+    {
+      "id": "mr-exp-margaret-river-farmers-market",
+      "name": "Margaret River Farmers' Market",
+      "category": "Shopping",
+      "subregion": "Wallcliffe",
+      "description": "DRAFT - Saturday mornings at Margaret River TAFE campus, site margaretriverproduce.org.au. Hours, image, rating pending.",
+      "website": "https://margaretriverproduce.org.au/"
+    }
+  ]
+}

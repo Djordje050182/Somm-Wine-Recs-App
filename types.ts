@@ -6,7 +6,7 @@
 
 export interface ImageAsset {
   url: string;
-  source: 'unsplash' | 'pexels' | 'winery' | 'generated';
+  source: 'unsplash' | 'pexels' | 'winery' | 'venue' | 'generated';
   alt: string;
   credit?: string;
 }

@@ -1,0 +1,197 @@
+{
+  "events": [
+    {
+      "title": "Western Australia Margaret River Pro",
+      "category": "Sport",
+      "month": "April",
+      "location": "Surfers Point, Prevelly",
+      "description": "A stop on the World Surf League Championship Tour, drawing the world's best surfers to the heavy water of Main Break and The Box. Spectating is free from the Surfers Point headland, with a festival village of food, music and local culture alongside the competition.",
+      "url": "https://www.worldsurfleague.com/events/2026/ct"
+    },
+    {
+      "title": "Busselton Jetty Swim",
+      "category": "Sport",
+      "month": "February",
+      "location": "Busselton Foreshore, Geographe Bay",
+      "description": "An open-water classic swum around the 1.8km Busselton Jetty in the turquoise shallows of Geographe Bay. Held over two days with distances for all ages and abilities, it turns the foreshore into a carnival of swimmers and spectators.",
+      "detail": "Next: 13–14 February 2027",
+      "url": "https://busseltonjettyswim.org.au/"
+    },
+    {
+      "title": "Margaret River Readers & Writers Festival",
+      "category": "Arts",
+      "month": "May",
+      "location": "Margaret River town and venues region-wide",
+      "description": "The largest literary festival in regional Western Australia, bringing acclaimed authors, journalists and thinkers to intimate venues among the vines. Expect conversations, workshops and long lunches where books and wine share the table.",
+      "url": "https://mrrwfestival.com/"
+    },
+    {
+      "title": "Whale Watching Season",
+      "category": "Family",
+      "month": "June – November",
+      "location": "Augusta (Flinders Bay) and Dunsborough (Geographe Bay)",
+      "description": "Each winter tens of thousands of humpback, southern right and blue whales migrate along the capes, with daily cruises from Augusta from June and from Dunsborough from September. Geographe Bay becomes a nursery for mothers and calves through spring.",
+      "detail": "Runs annually: Augusta June–August, Dunsborough/Geographe Bay September–early December",
+      "url": "https://www.margaretriver.com/things-to-do/attractions/whale-watching/"
+    },
+    {
+      "title": "Cabin Fever Festival",
+      "category": "Festival",
+      "month": "July",
+      "location": "Venues from Busselton to Margaret River",
+      "description": "The region's winter festival of fire, food and fine tunes, with more than 40 events across ten days, from fireside feasts and immersive wine experiences to live music and late-night celebrations. The antidote to hibernation in the depths of a Margaret River winter.",
+      "detail": "Next: 17–26 July 2026 (10th anniversary edition)",
+      "url": "https://cabinfeverfest.com.au/"
+    },
+    {
+      "title": "CinefestOZ Film Festival",
+      "category": "Festival",
+      "month": "August",
+      "location": "Busselton, Bunbury, Dunsborough and Margaret River",
+      "description": "A nine-day celebration of Australian and French cinema, home to one of the country's richest film prizes. Premieres, red carpets and filmmaker Q&As spread across cinemas, wineries and small-town halls in the South West.",
+      "detail": "Next: 29 August – 6 September 2026",
+      "url": "https://cinefestoz.com/"
+    },
+    {
+      "title": "Margaret River Region Open Studios",
+      "category": "Arts",
+      "month": "September",
+      "location": "Artist studios from Busselton to Augusta",
+      "description": "Australia's largest open studios event, with more than 150 artists throwing open their doors across the capes for sixteen days. Free, self-guided and wonderfully nosy: painters, sculptors, glass-blowers and jewellers at work in sheds, forests and clifftop studios.",
+      "detail": "Next: 12–27 September 2026",
+      "url": "https://mrropenstudios.com.au/"
+    },
+    {
+      "title": "Pair'd Margaret River Region",
+      "category": "Food & Wine",
+      "month": "November",
+      "location": "Beaches, forests, caves and vineyards region-wide",
+      "description": "The successor to Gourmet Escape: a wine-first festival of more than 40 events pairing the region's winemakers with Michelin-starred chefs and musicians. Sommelier-led tastings, beach clubs and long lunches beneath the karri trees.",
+      "detail": "Next: 19–22 November 2026",
+      "url": "https://pairdmargaretriver.com/"
+    },
+    {
+      "title": "IRONMAN Western Australia",
+      "category": "Sport",
+      "month": "December",
+      "location": "Busselton",
+      "description": "A full-distance triathlon built around one of the world's great swim courses, a lap of the Busselton Jetty, followed by a flat, fast ride and run along Geographe Bay. One of the biggest days on the South West sporting calendar.",
+      "detail": "Next: 6 December 2026",
+      "url": "https://www.margaretriver.com/event/ironman-western-australia/"
+    },
+    {
+      "title": "Margaret River Farmers' Market",
+      "category": "Food & Wine",
+      "month": "Year-round (every Saturday)",
+      "location": "Margaret River Education Campus, Bussell Highway",
+      "description": "The region's weekly larder, running since 2002 with a strict local-only rule: stallholders must grow or make what they sell. Come early for artisan pastries, farm eggs, seafood and seasonal vegetables straight from the growers.",
+      "detail": "Every Saturday, 7.30–11.30am, year-round",
+      "url": "https://www.margaretriverfarmersmarket.com.au/"
+    }
+  ],
+  "vintages": [
+    { "year": "2011", "rating": 96, "quality": "Outstanding", "note": "While the eastern states drowned, Margaret River shone: concentrated Cabernet and standout Chardonnay. Buy with confidence; the best reds are still singing." },
+    { "year": "2012", "rating": 94, "quality": "Excellent", "note": "Settled, warm and early, with abundant marri blossom keeping the birds off. Deep-coloured, fine-tanninned Cabernet described locally as 'something truly special'." },
+    { "year": "2013", "rating": 92, "quality": "Very good", "note": "Warm days, warm nights and a long Indian summer. Built-to-age Cabernet with balanced Chardonnay." },
+    { "year": "2014", "rating": 93, "quality": "Excellent", "note": "Storms at flowering cut the crop, concentrating what remained: taut, fine-boned Chardonnay and textured Cabernet with real ageing potential." },
+    { "year": "2015", "rating": 90, "quality": "Very good", "note": "A trickier flowering and extended red ripening. The whites are the buy: intense Sauvignon Blanc and Semillon, long, soft-phenolic Chardonnay." },
+    { "year": "2016", "rating": 92, "quality": "Excellent", "note": "Good winter rains and an early, even vintage. Dense Cabernet and strong whites across the board." },
+    { "year": "2017", "rating": 93, "quality": "Excellent", "note": "A cool, slow season that banked natural acidity: optimal Chardonnay and perfumed, deeply coloured reds that reward patience." },
+    { "year": "2018", "rating": 98, "quality": "Near-perfect", "note": "The benchmark. Widely called the best Cabernet vintage of the decade, with ultra-fine, perfectly ripe tannins. Buy every serious red you can find." },
+    { "year": "2019", "rating": 91, "quality": "Very good", "note": "Late, long and cool. Fresh, intensely flavoured whites with racy acidity; finessed, elegant reds in the mould of 2017." },
+    { "year": "2020", "rating": 95, "quality": "Exceptional", "note": "The earliest harvest on record and one of the smallest crops: tiny yields, huge concentration. Some of the finest Chardonnay the region has produced." },
+    { "year": "2021", "rating": 89, "quality": "Good", "note": "La Niña rain made it a vigneron's vintage: variable, but the proactive made elegant, understated wines. Standout Sauvignon Blanc; polished, fine-tanninned Cabernet from the top estates." },
+    { "year": "2022", "rating": 94, "quality": "Excellent", "note": "A long hang time and a warm finish. Remarkably consistent, pure, classic Cabernet and ripe, complete Chardonnay." },
+    { "year": "2023", "rating": 95, "quality": "Exceptional", "note": "A dry, mild dream run. Hailed by critics as possibly the region's greatest Chardonnay vintage yet, alongside dense, inky, fine-tanninned Cabernet." },
+    { "year": "2024", "rating": 93, "quality": "Excellent", "note": "Very early and compressed, four weeks ahead in places, yet the whites kept their freshness and acidity. Minimal disease; superb potential." }
+  ],
+  "varietyMix": [
+    { "name": "Cabernet Sauvignon", "value": 20 },
+    { "name": "Sauvignon Blanc", "value": 20 },
+    { "name": "Chardonnay", "value": 17 },
+    { "name": "Semillon", "value": 16 },
+    { "name": "Shiraz", "value": 14 },
+    { "name": "Others", "value": 13 }
+  ],
+  "terroir": {
+    "soils": "Most of the region's vines grow along a low ridge of lateritic 'ironstone gravel', free-draining gravelly loams over ancient granite and gneiss, running from Cape Naturaliste to Cape Leeuwin. These poor, well-drained soils hold little water, naturally curbing vigour and yield, which is precisely what fine Cabernet wants.",
+    "climate": "Mediterranean with a profound maritime influence: the ocean wraps the region on three sides, the Indian Ocean to the west and north and the Southern Ocean below Cape Leeuwin. Afternoon sea breezes, the local cousin of Perth's famous 'Fremantle Doctor', sweep in off the Indian Ocean through December and January, cooling the vines and giving one of the most reliably moderate ripening climates in Australia, with a low diurnal range and remarkably even vintages.",
+    "story": "The granite and gneiss beneath these vineyards is among the oldest rock on Earth, a remnant of Gondwana left stranded between two oceans. Yet the wine region itself was founded on science, not romance: agronomist Dr John Gladstones' 1965-66 papers identified the Margaret River area as ideal for premium viticulture, comparing its climate to Bordeaux in a dry year. Perth cardiologist Dr Tom Cullity took the bait, planting Vasse Felix on the gravelly soils beside the Wilyabrup Brook in 1967, and the doctors, farmers and dreamers who followed built one of the world's great Cabernet and Chardonnay regions in under a generation."
+  },
+  "seasons": [
+    {
+      "name": "Summer",
+      "range": "Dec – Feb",
+      "description": "Long, dry beach days as the grapes ripen and the afternoon sea breeze rolls in off the Indian Ocean. Cellar doors at their liveliest, and the earliest whites begin coming off the vine in February.",
+      "avgTemp": "26°C"
+    },
+    {
+      "name": "Autumn",
+      "range": "Mar – May",
+      "description": "Vintage in full swing: harvesters at dawn, ferments perfuming the wineries, and the calm, glassy swells that make autumn the surfers' favourite season, crowned by the Margaret River Pro in April.",
+      "avgTemp": "22°C"
+    },
+    {
+      "name": "Winter",
+      "range": "Jun – Aug",
+      "description": "Green, moody and quiet in the best way. Humpbacks and southern rights arrive off Augusta from June, fireside Cabernet takes over the cellar doors, and Cabin Fever warms July with food, fire and music.",
+      "avgTemp": "17°C"
+    },
+    {
+      "name": "Spring",
+      "range": "Sep – Nov",
+      "description": "Wildflower season paints the capes from September to November while whale mothers and calves rest in Geographe Bay. Open Studios fills the region with art, and Pair'd closes spring with the year's biggest wine weekend.",
+      "avgTemp": "21°C"
+    }
+  ],
+  "subregions": [
+    {
+      "id": "yallingup",
+      "name": "Yallingup",
+      "blurb": "The region's northern gateway, sheltered by Cape Naturaliste, where limestone caves and celebrated surf breaks share the hills with polished boutique estates. Slightly warmer and drier than the heartland, it delivers powerful Chardonnay and plush, generous Cabernet.",
+      "features": ["Cape Naturaliste shelter", "Boutique cellar doors", "Surf and caves"]
+    },
+    {
+      "id": "wilyabrup",
+      "name": "Wilyabrup",
+      "blurb": "The historic heartland where it all began: ironstone gravel over granite along the Wilyabrup Brook, home to Vasse Felix, Cullen and Moss Wood. This is Australia's most hallowed Cabernet dirt, producing structured, fragrant, long-lived reds.",
+      "features": ["Ironstone gravel", "Founding icon estates", "Benchmark Cabernet"]
+    },
+    {
+      "id": "carbunup",
+      "name": "Carbunup",
+      "blurb": "The warmer inland valley running towards Geographe Bay, with more fertile soils and broader vineyards. This is the engine room of the region's everyday signature, vibrant Sauvignon Blanc-Semillon blends and juicy aromatic whites.",
+      "features": ["Warmer valley floors", "SSB country", "Geographe Bay fringe"]
+    },
+    {
+      "id": "wallcliffe",
+      "name": "Wallcliffe",
+      "blurb": "Around the river mouth and Margaret River township, cooler and more ocean-exposed, this is Chardonnay's spiritual home, anchored by Leeuwin Estate, Voyager and Cape Mentelle. The wines trade power for line: taut, mineral and built to age.",
+      "features": ["River-mouth cool", "Icon Chardonnay", "Grand estates"]
+    },
+    {
+      "id": "karridale",
+      "name": "Karridale",
+      "blurb": "The deep south, where karri forest runs down towards Augusta and the vines feel both oceans at once. The coolest, latest-ripening corner of the region, prized for electric, zesty Sauvignon Blanc, Semillon and fine-boned Chardonnay.",
+      "features": ["Coolest subregion", "Karri forest", "Two-ocean influence"]
+    }
+  ],
+  "practical": {
+    "centre": { "lat": -33.9, "lng": 115.07 },
+    "defaultStart": { "name": "Margaret River Town Centre", "lat": -33.9536, "lng": 115.0745 },
+    "timezone": "Australia/Perth"
+  },
+  "ai": {
+    "signatureProducers": [
+      "Vasse Felix",
+      "Cullen Wines",
+      "Moss Wood",
+      "Leeuwin Estate",
+      "Voyager Estate",
+      "Cape Mentelle",
+      "Deep Woods Estate",
+      "Stella Bella"
+    ],
+    "promptContext": "Margaret River is the rare wine region founded on science: Dr John Gladstones' 1965-66 papers pinpointed this Indian Ocean cape as ideal for premium viticulture, and Vasse Felix planted the first vines at Wilyabrup in 1967. Its icons are structured, fragrant Cabernet Sauvignon from the ironstone gravels of Wilyabrup and restrained, age-worthy Chardonnay epitomised by Leeuwin Estate's Art Series, while zesty Sauvignon Blanc-Semillon blends are the everyday regional signature. The climate is remarkably even, maritime on three sides with cooling afternoon sea breezes, so vintages are consistent and even 'lesser' years are reliable. The region crushes only about 2% of Australia's grapes yet accounts for over 20% of its premium wine market, so quality expectations should be set high across the board."
+  }
+}

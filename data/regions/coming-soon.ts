@@ -12,13 +12,6 @@ export const COMING_SOON_REGIONS: ComingSoonRegion[] = [
     eta: 'Next on the list',
   },
   {
-    id: 'margaret-river',
-    name: 'Margaret River',
-    country: 'Australia',
-    strapline: 'Cabernet and Chardonnay between the surf breaks and the karri forests.',
-    eta: 'In the cellar',
-  },
-  {
     id: 'champagne',
     name: 'Champagne',
     country: 'France',

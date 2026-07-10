@@ -1,0 +1,168 @@
+{
+  "experiences": [
+    {
+      "id": "mr-exp-margaret-river-surf-school",
+      "name": "Margaret River Surf School",
+      "category": "Adventure",
+      "subregion": "Wallcliffe",
+      "description": "Teaching people to pop up on waves since 1996, this family-run outfit claims a 99% first-lesson success rate, and its oldest graduate stood up aged 73. Lessons run at sheltered Redgate Beach, a National Park-fringed cove 15 minutes south of Margaret River town.",
+      "image": {
+        "url": "https://margaretriversurfschool.com/wp-content/uploads/2025/04/Daily-Group-Lessons-1.webp",
+        "source": "venue",
+        "alt": "A young student riding a wave upright on a soft-top board while a stoked instructor in a branded red rashie cheers behind her",
+        "verified": "downloaded 2026-07-10, shows student standing mid-wave with celebrating Margaret River Surf School instructor, 960px wide"
+      },
+      "briefing": {
+        "icebreaker": "Their oldest student to stand up in a first lesson was 73 years old, and 99% of beginners get to their feet on day one.",
+        "proMove": "Public lessons pause in July and August for winter swell; book the 10:30am group session between September and June, and meet in the Redgate Beach carpark 15 minutes early.",
+        "hiddenGem": "They also run daily board and wetsuit hire from 7am to 7pm if you would rather freelance your own session."
+      },
+      "rating": 4.7,
+      "priceRange": "$$",
+      "website": "https://margaretriversurfschool.com/",
+      "bookingUrl": "https://margaretriversurfschool.com/book-online/",
+      "phone": "0401 616 200",
+      "opens": "07:00",
+      "closes": "19:00",
+      "sommNote": "Earn your afternoon tasting the honest way: two hours of whitewater graft at Redgate first.",
+      "lat": -34.0391,
+      "lng": 114.9988
+    },
+    {
+      "id": "mr-exp-ngilgi-cave",
+      "name": "Ngilgi Cave Ancient Lands Experience",
+      "category": "Adventure",
+      "subregion": "Yallingup",
+      "description": "Western Australia's oldest tourist attraction has been drawing visitors beneath Yallingup since the 1890s. The self-guided descent covers 350 steps past stalactites, delicate helictites and beautifully coloured shawl formations, book-ended by the above-ground Ancient Lands interpretive trail.",
+      "image": {
+        "url": "https://www.capesfoundation.org.au/wp-content/uploads/2024/12/121992-56-scaled.jpg",
+        "source": "venue",
+        "alt": "A couple gazing up at amber-lit stalactites and flowstone inside a chamber of Ngilgi Cave",
+        "verified": "downloaded 2026-07-10, shows visitors beneath warm-lit stalactite ceiling inside the cave, 2560px wide"
+      },
+      "briefing": {
+        "icebreaker": "This is officially Western Australia's oldest tourist attraction, pulling crowds underground before Perth had electric streetlights.",
+        "proMove": "Allow a full 1.5 hours for the Ancient Lands walk plus the cave's 350 steps, and go early; last entry is 4pm.",
+        "hiddenGem": "Backpack-style baby carriers are banned below ground but front-worn carriers are fine, so young families can still do the full circuit."
+      },
+      "community": { "score": 4.7, "count": 2621, "source": "Google" },
+      "rating": 4.6,
+      "priceRange": "$$",
+      "website": "https://www.capesfoundation.org.au/visit-experiences/ngilgi-cave/",
+      "bookingUrl": "https://www.capesfoundation.org.au/make-a-booking/?attraction=ngilgi-cave",
+      "phone": "08 9757 7411",
+      "opens": "09:00",
+      "closes": "17:00",
+      "sommNote": "Do the cave before your Yallingup tastings; limestone underfoot in the morning explains the wines in your glass by afternoon.",
+      "lat": -33.6424,
+      "lng": 115.0345
+    },
+    {
+      "id": "mr-exp-lake-cave",
+      "name": "Lake Cave",
+      "category": "Adventure",
+      "subregion": "Karridale",
+      "description": "Descend through a sunken karri forest into a collapsed doline to find the South West's only show cave with a permanent underground lake, crowned by the famous 'suspended table', a five-tonne formation that appears to hover above the mirror-still water. Fully guided one-hour tours depart every 40 minutes.",
+      "image": {
+        "url": "https://www.capesfoundation.org.au/wp-content/uploads/2024/08/Lake_Cave-June-2023-001-web.jpeg",
+        "source": "venue",
+        "alt": "Straw stalactites and formations reflected in the glassy underground lake of Lake Cave, with the boardwalk stairs to one side",
+        "verified": "downloaded 2026-07-10, shows the cave chamber and perfectly reflective lake with walkway, 2048px wide"
+      },
+      "briefing": {
+        "icebreaker": "The suspended table weighs over five tonnes yet appears to float just above the lake; nothing else like it exists in any show cave.",
+        "proMove": "Bookings are essential and tours leave every 40 minutes; take the first 9am departure for the quietest, most reflective water.",
+        "hiddenGem": "It is the most active 'dripping' cave in Western Australia, so stand still and you will hear droplets rippling the lake in the dark."
+      },
+      "community": { "score": 4.8, "count": 2384, "source": "Google" },
+      "rating": 4.8,
+      "priceRange": "$$",
+      "website": "https://www.capesfoundation.org.au/visit-experiences/lake-cave/",
+      "bookingUrl": "https://www.capesfoundation.org.au/make-a-booking/?attraction=lake-cave",
+      "phone": "08 9757 7411",
+      "opens": "09:00",
+      "closes": "17:00",
+      "sommNote": "Pair with a Boranup forest drive and a Karridale cellar door; the same limestone ridge shapes both cave and vine.",
+      "lat": -34.0792,
+      "lng": 115.0302
+    },
+    {
+      "id": "mr-exp-naturaliste-charters",
+      "name": "Naturaliste Charters Whale Watching",
+      "category": "Adventure",
+      "subregion": "Yallingup",
+      "description": "Western Australia's longest-running whale watching operator puts you in Geographe Bay among humpbacks, southern rights and, from October, blue whales, with around 250 blue whale sightings logged each season. Dunsborough tours board from Quindalup beach aboard the Indi Maree, departing 10am and 2pm daily from August to November.",
+      "image": {
+        "url": "https://naturalistecharters.com.au/wp-content/uploads/2023/08/whalesightingdunsborough.jpg",
+        "source": "venue",
+        "alt": "A humpback whale surfacing right beside the boat in sun-sparkled water as passengers lean over the rail to photograph it",
+        "verified": "downloaded 2026-07-10, shows humpback alongside vessel with passengers photographing, 1440px wide"
+      },
+      "briefing": {
+        "icebreaker": "Around 250 blue whales, the largest animal ever to exist, pass through Geographe Bay each season from October.",
+        "proMove": "Arrive at the Quindalup boat ramp 15 to 30 minutes before departure and allow up to 3 hours on the water; if the whales no-show, you come back free.",
+        "hiddenGem": "Outside the Dunsborough season they run Augusta departures from mid-May to August, so there is a Naturaliste Charters whale somewhere most of the year."
+      },
+      "rating": 4.7,
+      "priceRange": "$$$",
+      "website": "https://naturalistecharters.com.au/",
+      "bookingUrl": "https://naturalistecharters.com.au/booking/",
+      "phone": "08 9750 5500",
+      "sommNote": "Book the 10am sailing, then dry off over a long Yallingup lunch; sea legs pair surprisingly well with chardonnay.",
+      "lat": -33.6315,
+      "lng": 115.1487
+    },
+    {
+      "id": "mr-exp-cape-to-cape-explorer-tours",
+      "name": "Cape to Cape Explorer Tours",
+      "category": "Adventure",
+      "subregion": "Wallcliffe",
+      "description": "Two-time WA Tourism Awards gold medallists who have guided the 132km Cape to Cape Track since 2010, from single-day walks to the full end-to-end epic. You carry only a day pack while they sort coastal accommodation and in-house catering; the guides all live in the region year-round.",
+      "image": {
+        "url": "https://capetocapetours.com.au/wp-content/uploads/2023/02/contos-hero-shot.jpg",
+        "source": "venue",
+        "alt": "Three walkers with day packs standing on a clifftop above the white sand and turquoise water of Contos Beach on the Cape to Cape Track",
+        "verified": "downloaded 2026-07-10, shows guided hikers overlooking Contos Beach cove on the track, 1980px wide"
+      },
+      "briefing": {
+        "icebreaker": "Their signature walk covers the entire 132km Cape to Cape Track between two working lighthouses.",
+        "proMove": "The full guided end-to-end books out months ahead; the self-guided 3 to 7 day options are the smart shoulder-season play.",
+        "hiddenGem": "They also run a 6-day Walpole Wilderness walk on the Bibbulmun Track for those who have already ticked off the capes."
+      },
+      "rating": 4.8,
+      "priceRange": "$$$",
+      "website": "https://capetocapetours.com.au/",
+      "bookingUrl": "https://capetocapetours.rezdy.com/index",
+      "phone": "0459 452 038",
+      "sommNote": "Ask about their walk-and-wine day formats; a clifftop morning makes the afternoon's cabernet taste properly earned.",
+      "lat": -33.9664,
+      "lng": 115.0717
+    },
+    {
+      "id": "mr-exp-margaret-river-climbing-co",
+      "name": "Margaret River Climbing Co",
+      "category": "Adventure",
+      "subregion": "Wilyabrup",
+      "description": "Founder Mick Dempsey, rock-hopping since age 11, runs deliberately small-group climbing and abseiling sessions on the Wilyabrup sea cliffs, with half-day and full-day combos that add wild caving. Trips run seven days a week, subject to availability, with a near-zero carbon footprint ethos.",
+      "image": {
+        "url": "https://images.squarespace-cdn.com/content/v1/664f3438439da900c2825b8c/a365f517-4950-4d7c-ac3a-1302c31a6401/MRCC-Tim_Campbell-49.jpg?format=1500w",
+        "source": "venue",
+        "alt": "A climber in an orange helmet scaling the layered Wilyabrup sea cliffs on a rope, with a belayer below and the Indian Ocean behind",
+        "verified": "downloaded 2026-07-10, shows roped climber on Wilyabrup sea cliff face above the ocean, 1500px wide"
+      },
+      "briefing": {
+        "icebreaker": "You abseil down weathered sea cliffs with the Indian Ocean crashing directly below your heels.",
+        "proMove": "Group sizes are kept deliberately small, so book ahead; the full-day climb, abseil and caving combo is the best value per adrenaline unit.",
+        "hiddenGem": "The Wilyabrup cliffs sit right on the Cape to Cape Track, so walkers often stumble on climbers mid-pitch."
+      },
+      "community": { "score": 4.7, "count": 30, "source": "Google" },
+      "rating": 4.7,
+      "priceRange": "$$$",
+      "website": "https://www.margaretriverclimbingco.com.au/",
+      "phone": "0415 970 522",
+      "sommNote": "Abseil Wilyabrup in the morning, then taste Wilyabrup cabernet a few kilometres inland; same postcode, very different grip.",
+      "lat": -33.8060,
+      "lng": 114.9981
+    }
+  ]
+}

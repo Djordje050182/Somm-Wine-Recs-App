@@ -35,6 +35,13 @@ const WhatsOn: React.FC = () => {
       .sort((a, b) => monthsUntil(a, now) - monthsUntil(b, now));
   }, [events, category]);
 
+  // Only offer chips for categories with entries — a young region's diary
+  // may not cover the full spread yet.
+  const categories = useMemo(
+    () => CATEGORIES.filter(c => c === 'All' || events.some(e => e.category === c)),
+    [events]
+  );
+
   return (
     <div className="py-10 animate-fade-in max-w-3xl">
       <SectionHeading
@@ -53,7 +60,7 @@ const WhatsOn: React.FC = () => {
       ) : (
         <>
           <div className="flex flex-wrap gap-2 mt-8 mb-8">
-            {CATEGORIES.map(c => (
+            {categories.map(c => (
               <button
                 key={c}
                 onClick={() => setCategory(c)}

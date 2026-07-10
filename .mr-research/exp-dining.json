@@ -1,0 +1,257 @@
+{
+  "experiences": [
+    {
+      "id": "mr-exp-yarri-restaurant-bar",
+      "name": "Yarri Restaurant + Bar",
+      "category": "Dining",
+      "subregion": "Yallingup",
+      "description": "Dunsborough's fine-dining flagbearer, opened by Aaron Carr after two decades running the kitchen at Vasse Felix. The menu heroes ethically sourced WA produce and native ingredients, structured around the six seasons of the Noongar calendar.",
+      "image": {
+        "url": "https://yarri.com.au/wp-content/uploads/2019/06/Yarri-202-1650x1100.jpg",
+        "source": "venue",
+        "alt": "Yarri's illuminated lightbox sign on the restaurant's concrete facade at dusk",
+        "verified": "downloaded 2026-07-10, shows venue exterior with lit Yarri Restaurant + Bar signage at twilight, 1650x1100"
+      },
+      "briefing": {
+        "icebreaker": "Chef Aaron Carr spent over 20 years as head chef at Vasse Felix before opening Yarri, and the menu follows the six seasons of the Noongar calendar.",
+        "proMove": "The kitchen closes at 8.30pm sharp, so book an earlier sitting; it runs Thursday to Monday from 4pm.",
+        "hiddenGem": "The bar is a destination in its own right for a pre-dinner regional wine flight without a reservation."
+      },
+      "community": { "score": 4.8, "count": 1031, "source": "Google" },
+      "rating": 4.8,
+      "priceRange": "$$$",
+      "website": "https://yarri.com.au",
+      "bookingUrl": "https://yarri.com.au/bookings/",
+      "phone": "08 9786 5030",
+      "opens": "16:00",
+      "closes": "20:30",
+      "sommNote": "Order whatever native-ingredient dish sounds strangest; Carr's kitchen never plays it safe, and it never misses.",
+      "lat": -33.6152,
+      "lng": 115.1042
+    },
+    {
+      "id": "mr-exp-blue-manna-bistro",
+      "name": "Blue Manna Bistro",
+      "category": "Dining",
+      "subregion": "Yallingup",
+      "description": "A Dunsborough seafood institution named after the blue manna (blue swimmer) crab, serving Asian-infused seafood with serious wok skills. The chilli crab is the stuff of South West legend, and the room fills accordingly.",
+      "image": {
+        "url": "https://images.squarespace-cdn.com/content/v1/6269ec9183a5462c5a96e096/fe8aac7d-e0ab-4119-abf2-9a7094d1648a/BlueMannaBistro-Dishes.jpg?format=1500w",
+        "source": "venue",
+        "alt": "Overhead spread of Blue Manna dishes including whole chilli crab, prawns and coconut rice",
+        "verified": "downloaded 2026-07-10, shows overhead table of seafood dishes with signature crab, 1024px wide"
+      },
+      "briefing": {
+        "icebreaker": "'Blue manna' is the West Australian name for the blue swimmer crab, the bistro's namesake and signature dish.",
+        "proMove": "Closed Sundays, Mondays and public holidays; book a Friday or Saturday lunch (from 12pm) for crab without the dinner crush.",
+        "hiddenGem": "It sits on the same Cyrillean Way pocket as Yarri, so a bar snack there makes a natural warm-up act."
+      },
+      "community": { "score": 4.8, "count": 1790, "source": "Google" },
+      "rating": 4.7,
+      "priceRange": "$$$",
+      "website": "https://www.bluemannabistro.com.au",
+      "bookingUrl": "https://www.bluemannabistro.com.au/reservations",
+      "phone": "08 9786 5051",
+      "opens": "16:00",
+      "sommNote": "The chilli crab wants an aromatic white; a dry riesling off the list handles the heat beautifully.",
+      "lat": -33.6154,
+      "lng": 115.1040
+    },
+    {
+      "id": "mr-exp-mikis-open-kitchen",
+      "name": "Miki's Open Kitchen",
+      "category": "Dining",
+      "subregion": "Wallcliffe",
+      "description": "An intimate Japanese counter on Margaret River's main street where chef Mikihito Nagai turns West Australian produce into tempura-led omakase theatre. Two sittings a night, everyone facing the flames, and one of the hardest seats to book in the region.",
+      "image": {
+        "url": "https://static.wixstatic.com/media/92671e_1b5da45d7f2b48ddb223a69e0271c594~mv2.png",
+        "source": "venue",
+        "alt": "Chefs in blue working the open kitchen counter while diners watch from surrounding seats",
+        "verified": "downloaded 2026-07-10, shows the open kitchen with chefs cooking and counter diners, 1366x768"
+      },
+      "briefing": {
+        "icebreaker": "Almost every seat faces the open kitchen, so dinner doubles as a live tempura masterclass.",
+        "proMove": "Two sittings a night (from 5.30pm March to October, from 6pm November to February); book the first if you want to linger over sake.",
+        "hiddenGem": "The kitchen answers the phone only between 2.15pm and 5.15pm, a clue to how small and hands-on the operation really is."
+      },
+      "community": { "score": 4.7, "count": 721, "source": "Google" },
+      "rating": 4.8,
+      "priceRange": "$$$",
+      "website": "https://www.mikisopenkitchen.com.au",
+      "bookingUrl": "https://www.mikisopenkitchen.com.au/reservations",
+      "phone": "08 9758 7673",
+      "opens": "17:30",
+      "sommNote": "Trust the omakase and pair it with sake; local produce through a Japanese lens is Margaret River's best plot twist.",
+      "lat": -33.9516,
+      "lng": 115.0738
+    },
+    {
+      "id": "mr-exp-morries",
+      "name": "Morries",
+      "category": "Dining",
+      "subregion": "Wallcliffe",
+      "description": "A long-running main-street favourite in Margaret River town, mixing Asian-influenced share plates with one of the better cocktail programmes south of Perth. Loud, convivial and reliably delicious, often with live music in the corner.",
+      "image": {
+        "url": "https://www.morries.com.au/media/website_designs/6/HOME-PAGE-IMAGE.jpeg",
+        "source": "venue",
+        "alt": "Candlelit dining room at Morries with a live acoustic band playing to full tables",
+        "verified": "downloaded 2026-07-10, shows moody interior with diners, candles and live musicians, 853x1280"
+      },
+      "briefing": {
+        "icebreaker": "Morries has been a Bussell Highway fixture for years, morphing from lunch spot to the town's favourite evening haunt.",
+        "proMove": "Open Tuesday to Saturday from 5pm; grab a bar seat early for cocktails before the dinner rush, or book via their online system.",
+        "hiddenGem": "The share plates are built for grazing, so order in waves rather than all at once and leave room for the specials board."
+      },
+      "community": { "score": 4.6, "count": 1686, "source": "Google" },
+      "rating": 4.5,
+      "priceRange": "$$",
+      "website": "https://www.morries.com.au",
+      "bookingUrl": "https://bookings.nowbookit.com/?accountid=f1bd373f-1b5f-4c6c-b2d5-b428c1c7df58&venueid=3963&theme=dark&colors=hex,eeeeee",
+      "phone": "08 9758 8280",
+      "opens": "17:00",
+      "sommNote": "Start with a cocktail, then let the staff steer you to a local chardonnay for the share plates.",
+      "lat": -33.9534,
+      "lng": 115.0737
+    },
+    {
+      "id": "mr-exp-settlers-tavern",
+      "name": "Settlers Tavern",
+      "category": "Dining",
+      "subregion": "Wallcliffe",
+      "description": "Margaret River's beloved pub, where live music, honest plates and a nationally awarded wine list share the same roof. 'The Tav' pours local back vintages you will not find at the wineries themselves.",
+      "image": {
+        "url": "https://www.settlerstavern.com/wp-content/uploads/2025/09/SETTLERS-TAVERN-HOME-PAGE.jpeg",
+        "source": "venue",
+        "alt": "Settlers Tavern's rusted-steel street sign above the verandah as patrons walk in at dusk",
+        "verified": "downloaded 2026-07-10, shows tavern exterior, signage and street entrance at sunset, 1800x1013"
+      },
+      "briefing": {
+        "icebreaker": "This pub's wine list has won national awards, a running joke among the winemakers who drink here in their work boots.",
+        "proMove": "Open daily from 11am with lunch 11.45am to 3pm and dinner 5pm to 8.45pm; check the gig guide because the best local bands pack the room.",
+        "hiddenGem": "Ask about back-vintage local wines; the cellar holds bottles priced like the pub forgot to check the market."
+      },
+      "community": { "score": 4.2, "count": 2426, "source": "Google" },
+      "rating": 4.4,
+      "priceRange": "$$",
+      "website": "https://www.settlerstavern.com",
+      "bookingUrl": "https://www.settlerstavern.com/book-now/",
+      "phone": "08 9757 2398",
+      "opens": "11:00",
+      "closes": "20:45",
+      "sommNote": "Where the region's winemakers actually drink; scan the list for gems and order the parmy without shame.",
+      "lat": -33.9499,
+      "lng": 115.0739
+    },
+    {
+      "id": "mr-exp-white-elephant-beach-cafe",
+      "name": "White Elephant Beach Café",
+      "category": "Dining",
+      "subregion": "Wallcliffe",
+      "description": "A barefoot beach café perched over Gnarabup's white sand, where surfers, families and caffeine pilgrims collide over big breakfasts and Indian Ocean views. The kind of place that makes 'open till 3pm-ish' a legitimate business model.",
+      "image": {
+        "url": "https://www.whiteelephantcafe.com.au/media/website_pages/moore-vis/Venue-Shoot-Comp12.jpeg",
+        "source": "venue",
+        "alt": "Two guests drinking coffee at the deck rail overlooking Gnarabup beach and the reef",
+        "verified": "downloaded 2026-07-10, shows oceanfront deck with coffees and Gnarabup bay behind, 1280x853"
+      },
+      "briefing": {
+        "icebreaker": "The café's official closing time is '3pm-ish', which tells you everything about the Gnarabup pace of life.",
+        "proMove": "Open daily from 7.30am; arrive before 9am on weekends or join the queue with every surfer in the shire.",
+        "hiddenGem": "The deck looks straight over the Gnarabup boat ramp, prime whale-spotting territory in season."
+      },
+      "community": { "score": 4.4, "count": 2364, "source": "Google" },
+      "rating": 4.4,
+      "priceRange": "$$",
+      "website": "https://www.whiteelephantcafe.com.au",
+      "bookingUrl": "https://www.whiteelephantcafe.com.au/book-now/",
+      "phone": "08 9757 1990",
+      "opens": "07:30",
+      "closes": "15:00",
+      "sommNote": "Come for the flat white and ocean glare, then plan your Wallcliffe tastings from the best breakfast seat in the region.",
+      "lat": -33.9907,
+      "lng": 114.9912
+    },
+    {
+      "id": "mr-exp-beerfarm",
+      "name": "Beerfarm",
+      "category": "Dining",
+      "subregion": "Wilyabrup",
+      "description": "A working dairy farm turned brewery in Metricup, where the beers are poured in a converted milking shed and the paddocks double as a beer garden. Kids, dogs and muddy boots all welcome; pretension is not.",
+      "image": {
+        "url": "https://www.beerfarm.com.au/cdn/shop/files/Beerfarm-Book-a-Table-Tile_1512x.jpg?v=1742424375",
+        "source": "venue",
+        "alt": "Busy picnic-table beer garden at Beerfarm overlooking the farm dam and green paddocks",
+        "verified": "downloaded 2026-07-10, shows crowded outdoor tables with dam and farmland behind, 1512x1512"
+      },
+      "briefing": {
+        "icebreaker": "The brewery occupies an old dairy shed, and the name is literal: it is a farm that grows beer.",
+        "proMove": "The kitchen closes at 3pm most days (4pm Saturdays) while the taps run later; Friday is the late one, with the venue open to 9pm.",
+        "hiddenGem": "Watch their events page for steak nights and paddock parties that never make the tourist brochures."
+      },
+      "community": { "score": 4.5, "count": 1022, "source": "Google" },
+      "rating": 4.5,
+      "priceRange": "$$",
+      "website": "https://www.beerfarm.com.au",
+      "bookingUrl": "https://www.beerfarm.com.au/pages/book-a-table",
+      "opens": "11:00",
+      "closes": "17:00",
+      "sommNote": "Even devoted wine people need a palate reset; the India Pale Lager in the paddock is the region's best intermission.",
+      "lat": -33.7868,
+      "lng": 115.1490
+    },
+    {
+      "id": "mr-exp-cheeky-monkey-brewing",
+      "name": "Cheeky Monkey Brewing Co",
+      "category": "Dining",
+      "subregion": "Wilyabrup",
+      "description": "A lakeside brewpub on Caves Road brewing since 2012, with a generous lawn, a playground and a kitchen open for lunch every day. One of the easiest family stops on the Wilyabrup wine trail.",
+      "image": {
+        "url": "https://cheekymonkey.com.au/cdn/shop/files/Cheeky_Monkey_Brewing_Co_-_Caves_Road.png?v=1781228513&width=1200",
+        "source": "venue",
+        "alt": "Aerial view of the Caves Road brewery beside its lake, lawns and surrounding vineyards",
+        "verified": "downloaded 2026-07-10, shows aerial of lakeside venue with solar-roofed brewery and vines, 1200x800"
+      },
+      "briefing": {
+        "icebreaker": "Cheeky Monkey has been brewing on Caves Road since 2012, making it one of the region's craft-beer elders.",
+        "proMove": "Open every day 11am to 5pm with the kitchen running 11am to 3pm; time your visit for lunch on the lake lawn.",
+        "hiddenGem": "The lake-facing lawn tables go first; the playground keeps small humans occupied while adults work through a tasting paddle."
+      },
+      "rating": 4.2,
+      "priceRange": "$$",
+      "website": "https://cheekymonkey.com.au",
+      "phone": "08 9755 5555",
+      "opens": "11:00",
+      "closes": "17:00",
+      "sommNote": "A civilised beer intermission between Wilyabrup cellar doors; the paddle plus a burger resets everything.",
+      "lat": -33.8142,
+      "lng": 115.0372
+    },
+    {
+      "id": "mr-exp-the-goose",
+      "name": "The Goose",
+      "category": "Dining",
+      "subregion": "Yallingup",
+      "description": "A beach house eatery parked right beside the Busselton Jetty, feeding everyone from dawn coffee walkers to sunset wine drinkers. The view down the longest timber-piled jetty in the southern hemisphere does half the work; the kitchen does the rest.",
+      "image": {
+        "url": "https://images.squarespace-cdn.com/content/v1/630e276f1e51097a977bb28e/b6dac7a1-c9df-4b8a-a528-16c502f7e32d/The+Goose+-+Homepage+Image+A-09.jpg?format=1500w",
+        "source": "venue",
+        "alt": "The Goose lit up at dusk on the Busselton foreshore with the jetty and boat houses beyond",
+        "verified": "downloaded 2026-07-10, shows venue glowing at sunset beside Busselton Jetty across calm water, 1500px wide"
+      },
+      "briefing": {
+        "icebreaker": "The Goose sits at the foot of Busselton Jetty, which stretches 1.8 kilometres into Geographe Bay.",
+        "proMove": "Book a window or deck table for sunset over the bay; the jetty lights up beautifully after dark.",
+        "hiddenGem": "It shifts from café to wine bar through the day, so a late-afternoon visit gets you both menus in one sitting."
+      },
+      "community": { "score": 4.1, "count": 2190, "source": "Google" },
+      "rating": 4.2,
+      "priceRange": "$$",
+      "website": "https://thegoose.com.au",
+      "bookingUrl": "https://thegoose.com.au/book-a-table",
+      "phone": "08 9754 7700",
+      "sommNote": "The lazy lunch here after a jetty stroll is a Geographe Bay rite of passage; ask what local white is open by the glass.",
+      "lat": -33.6446,
+      "lng": 115.3455
+    }
+  ]
+}

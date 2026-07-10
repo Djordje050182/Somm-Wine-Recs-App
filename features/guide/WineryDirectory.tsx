@@ -40,6 +40,13 @@ const WineryDirectory: React.FC = () => {
     [filtered]
   );
 
+  // Only offer chips for corners that actually hold estates — a young region
+  // may declare more subregions than it has listings for yet.
+  const populatedSubregions = useMemo(
+    () => region.subregions.filter(s => wineries.some(w => w.subregion === s.name)),
+    [region.subregions, wineries]
+  );
+
   return (
     <div className="py-10 animate-fade-in">
       {selected && <GuideModal item={selected} type="winery" onClose={() => setSelected(null)} />}
@@ -80,7 +87,7 @@ const WineryDirectory: React.FC = () => {
         >
           All
         </button>
-        {region.subregions.map(s => (
+        {populatedSubregions.map(s => (
           <button
             key={s.id}
             onClick={() => setSubregion(s.name)}

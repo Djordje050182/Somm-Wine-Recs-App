@@ -15,6 +15,13 @@ export class SommTextSession {
   private greeted = false;
   private opening: Promise<void> | null = null;
 
+  // Which region's dynamic variables this session was opened with — callers
+  // recreate the session when the guest switches region.
+  constructor(
+    private vars: Record<string, string> | null = null,
+    public readonly regionId: string | null = null
+  ) {}
+
   private open(): Promise<void> {
     if (this.ws && this.ws.readyState === WebSocket.OPEN) return Promise.resolve();
     if (this.opening) return this.opening;
@@ -32,6 +39,7 @@ export class SommTextSession {
           JSON.stringify({
             type: 'conversation_initiation_client_data',
             conversation_config_override: { conversation: { text_only: true } },
+            ...(this.vars ? { dynamic_variables: this.vars } : {}),
           })
         );
       };

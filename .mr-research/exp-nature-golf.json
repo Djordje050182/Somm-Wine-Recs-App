@@ -1,0 +1,66 @@
+{
+ "experiences": [
+  {
+   "id": "mr-exp-cape-naturaliste-lighthouse",
+   "name": "Cape Naturaliste Lighthouse",
+   "category": "Nature",
+   "subregion": "Yallingup",
+   "description": "A squat 1903 limestone lighthouse at the tip of the cape, run by the Capes Foundation. Guided tours climb 59 steps to the balcony for 360-degree views over Geographe Bay and the Indian Ocean, and the surrounding trails are prime whale-spotting territory from September to December.",
+   "briefing": {
+    "icebreaker": "At just over 20 metres it is one of Australia's shortest lighthouses, yet its clifftop perch makes its light visible some 25 nautical miles out to sea.",
+    "proMove": "Tours run on the hour from 9am; book the first slot and walk a stretch of the Cape to Cape Track before the coaches arrive.",
+    "hiddenGem": "The free whale lookout deck a short stroll from the lighthouse is one of the best land-based humpback viewing points in WA."
+   },
+   "rating": 4.6,
+   "priceRange": "$",
+   "website": "https://www.capesfoundation.org.au/visit-experiences/cape-naturaliste-lighthouse/",
+   "bookingUrl": "https://www.capesfoundation.org.au/make-a-booking/?attraction=cape-naturalise-lighthouse",
+   "phone": "08 9757 7411",
+   "opens": "09:00",
+   "closes": "17:00",
+   "sommNote": "Climb it before a Yallingup tasting; the sea air sharpens the palate wonderfully.",
+   "lat": -33.5371,
+   "lng": 115.0189,
+   "_status": "hours/phone/booking confirmed from capesfoundation.org.au; image + Google rating pending",
+   "image": {
+    "url": "https://www.capesfoundation.org.au/wp-content/uploads/2024/09/CN_lighthouse-003.webp",
+    "source": "venue",
+    "alt": "The squat white Cape Naturaliste Lighthouse at sunset, with its timber viewing boardwalk in the foreground",
+    "verified": "downloaded 2026-07-11 from capesfoundation.org.au (site owner), 2048x1535, shows the lighthouse and boardwalk"
+   }
+  },
+  {
+   "id": "mr-exp-margaret-river-golf-club",
+   "name": "Margaret River Golf Club",
+   "category": "Golf",
+   "subregion": "Wallcliffe",
+   "description": "An 18-hole course threaded through native bushland on Wallcliffe Road, minutes from Margaret River town. Kangaroos graze the fairways at dawn and dusk, and visitors are welcome with essential bookings.",
+   "briefing": {
+    "icebreaker": "You will almost certainly share a fairway with a mob of western grey kangaroos here.",
+    "proMove": "Bookings are essential; reserve online via the club's tee-time calendar before you travel.",
+    "hiddenGem": "It is officially a private members' club, yet visitors are warmly welcomed — a green fee buys you one of WA's top-rated country courses, only 7 km from the town centre."
+   },
+   "rating": 4.3,
+   "priceRange": "$$",
+   "website": "https://www.margaretrivergolfclub.com.au/",
+   "phone": "08 9757 2197",
+   "sommNote": "Nine relaxed holes here is the classic palate-reset between Wallcliffe cellar doors.",
+   "lat": -33.9605,
+   "lng": 115.033,
+   "_status": "phone confirmed from own site; booking URL, image, coords verify, Google rating pending",
+   "image": {
+    "url": "https://www.margaretrivergolfclub.com.au/wp-content/uploads/2024/08/31-1-1024x576.jpg",
+    "source": "venue",
+    "alt": "Aerial view of Margaret River Golf Club fairways threading through native bushland",
+    "verified": "downloaded 2026-07-11 from margaretrivergolfclub.com.au og:image, 1024x576, aerial of fairways in bush"
+   }
+  }
+ ],
+ "_pending": [
+  "Boranup Karri Forest (nature, Karridale)",
+  "Hamelin Bay (nature, Karridale)",
+  "Surfers Point Prevelly (nature, Wallcliffe)",
+  "Dunsborough Lakes Golf Club (golf, Yallingup) - phone (08) 9756 8733, site dlgc.com.au found",
+  "Busselton Golf Club (golf, Yallingup) - phone 08 9753 1050, site busseltongolfclub.com.au found"
+ ]
+}

@@ -253,6 +253,7 @@ const AppShell: React.FC = () => {
               About Somm
             </Link>
             <p className="font-ui text-xs text-ink/30 uppercase tracking-kicker">{region.name} · est. edition</p>
+            <p className="font-ui text-[10px] text-ink/25" title="Build version">{__BUILD_ID__}</p>
           </div>
         </div>
       </footer>

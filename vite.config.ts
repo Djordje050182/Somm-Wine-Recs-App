@@ -1,4 +1,5 @@
 import path from 'path';
+import { execSync } from 'child_process';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -6,6 +7,14 @@ import { VitePWA } from 'vite-plugin-pwa';
 // GitHub Pages serves from a subpath; Vercel serves from root.
 // Set VITE_BASE=/ in Vercel's environment.
 const BASE = process.env.VITE_BASE ?? '/Somm-Wine-Recs-App/';
+
+// Date + commit of this build, shown in the footer so staleness on any
+// device is diagnosable at a glance.
+const buildId = (() => {
+  let sha = 'dev';
+  try { sha = execSync('git rev-parse --short HEAD').toString().trim(); } catch { /* no git */ }
+  return `${new Date().toISOString().slice(0, 10)} · ${sha}`;
+})();
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
@@ -94,6 +103,7 @@ export default defineConfig(({ mode }) => {
       ],
       define: {
         'process.env.VITE_AI_PROXY_URL': JSON.stringify(env.VITE_AI_PROXY_URL),
+        __BUILD_ID__: JSON.stringify(buildId),
       },
       resolve: {
         alias: {

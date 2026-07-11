@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { createHashRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { RegionProvider } from './contexts/RegionContext';
 import { CatalogProvider } from './contexts/CatalogContext';
 import AppShell from './layouts/AppShell';
@@ -15,9 +15,13 @@ import { DEFAULT_REGION_ID } from './data/regions';
 
 // The winery portal carries the charting library — loaded only when a partner opens it
 const PortalPage = lazy(() => import('./features/portal/PortalPage'));
+const DetailPage = lazy(() => import('./features/guide/DetailPage'));
 
-// Hash routing works on GitHub Pages project sites without any 404 tricks and
-// gives shareable deep links: /#/hunter-valley/wines
+// History routing with real URLs — /margaret-river/estates/mr-edwards — so
+// estate pages are crawlable. GitHub Pages serves prerendered HTML for the
+// routes we generate at build time and falls back to 404.html (a copy of the
+// shell) for the rest; Vercel rewrites everything to the shell. Old /#/ links
+// are rewritten to real paths below, before the router reads location.
 
 // After a deploy, an already-open app can request a lazy chunk whose hash no
 // longer exists. One automatic reload picks up the fresh shell; anything else
@@ -53,7 +57,15 @@ const RegionLayout: React.FC = () => (
   </RegionProvider>
 );
 
-export const router = createHashRouter([
+// Legacy hash links (/#/margaret-river/guide) predate history routing —
+// rewrite them to real paths BEFORE the router reads location (this module
+// evaluates at import time, so the shim must live here, not in index.tsx).
+if (window.location.hash.startsWith('#/')) {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  window.history.replaceState(null, '', base + window.location.hash.slice(1));
+}
+
+export const router = createBrowserRouter([
   { path: '/', element: <Navigate to={`/${DEFAULT_REGION_ID}`} replace /> },
   {
     path: '/:regionId',
@@ -63,6 +75,22 @@ export const router = createHashRouter([
       { index: true, element: <HomePage /> },
       { path: 'guide', element: <GuidePage /> },
       { path: 'guide/:tab', element: <GuidePage /> },
+      {
+        path: 'estates/:itemId',
+        element: (
+          <Suspense fallback={<div className="py-20 text-center font-body text-ink/40">Pouring…</div>}>
+            <DetailPage kind="winery" />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'experiences/:itemId',
+        element: (
+          <Suspense fallback={<div className="py-20 text-center font-body text-ink/40">Pouring…</div>}>
+            <DetailPage kind="experience" />
+          </Suspense>
+        ),
+      },
       { path: 'wines', element: <WinesPage /> },
       { path: 'plan', element: <PlanPage /> },
       { path: 'plan/:tab', element: <PlanPage /> },
@@ -82,4 +110,7 @@ export const router = createHashRouter([
       { path: '*', element: <Navigate to="." replace /> },
     ],
   },
-]);
+], {
+  // Vite's base is '/Somm-Wine-Recs-App/' on GitHub Pages and '/' on Vercel.
+  basename: import.meta.env.BASE_URL.replace(/\/$/, '') || '/',
+});

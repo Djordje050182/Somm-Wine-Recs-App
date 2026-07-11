@@ -1,11 +1,11 @@
 import React, { useMemo, useState } from 'react';
 import { MapPin, Clock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
 import { Experience, ExperienceCategory } from '../types';
 import { SectionHeading, EmptyState } from './ui';
 import ImageWithLoader from './ImageWithLoader';
-import GuideModal from './GuideModal';
 
 // Beyond the vines — the region's dining, adventures and diversions,
 // in the same hairline-card idiom as the winery directory.
@@ -13,9 +13,9 @@ import GuideModal from './GuideModal';
 const CATEGORIES: Array<'All' | ExperienceCategory> = ['All', 'Dining', 'Breweries', 'Adventure', 'Nature', 'Golf', 'Shopping', 'Family'];
 
 const Experiences: React.FC = () => {
-  const { region } = useRegion();
+  const { region, regionId } = useRegion();
+  const navigate = useNavigate();
   const { experiences } = useCatalog();
-  const [selected, setSelected] = useState<Experience | null>(null);
   const [filter, setFilter] = useState<'All' | ExperienceCategory>('All');
 
   const filtered = useMemo(
@@ -34,8 +34,6 @@ const Experiences: React.FC = () => {
 
   return (
     <div className="py-10 animate-fade-in">
-      {selected && <GuideModal item={selected} type="experience" onClose={() => setSelected(null)} />}
-
       <SectionHeading
         kicker="Beyond the vines"
         title="When the tasting glasses are down"
@@ -64,7 +62,7 @@ const Experiences: React.FC = () => {
           {sorted.map(exp => (
             <button
               key={exp.id}
-              onClick={() => setSelected(exp)}
+              onClick={() => navigate(`/${regionId}/experiences/${exp.id}`)}
               className="bg-paper text-left group flex flex-col hover:bg-parchment transition-colors"
             >
               <div className="aspect-[3/2] overflow-hidden">

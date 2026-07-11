@@ -1,20 +1,19 @@
 import React, { useMemo, useState } from 'react';
 import { Clock, PawPrint, Baby, UtensilsCrossed, CalendarCheck, Search, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useRegion } from '../../contexts/RegionContext';
 import { useCatalog } from '../../contexts/CatalogContext';
 import { SectionHeading, Tag, EmptyState } from '../../components/ui';
 import ImageWithLoader from '../../components/ImageWithLoader';
-import GuideModal from '../../components/GuideModal';
-import { Winery } from '../../types';
 
 // The winery directory — the region's estates, grouped and filterable by
 // subregion, in the wine-list idiom.
 
 const WineryDirectory: React.FC = () => {
-  const { region } = useRegion();
+  const { region, regionId } = useRegion();
+  const navigate = useNavigate();
   const { wineries, winesForWinery } = useCatalog();
   const [subregion, setSubregion] = useState<string | null>(null);
-  const [selected, setSelected] = useState<Winery | null>(null);
   const [query, setQuery] = useState('');
 
   const filtered = useMemo(() => {
@@ -49,8 +48,6 @@ const WineryDirectory: React.FC = () => {
 
   return (
     <div className="py-10 animate-fade-in">
-      {selected && <GuideModal item={selected} type="winery" onClose={() => setSelected(null)} />}
-
       <SectionHeading
         kicker={`${wineries.length} estates`}
         title={`The cellar doors of ${region.shortName}`}
@@ -120,7 +117,7 @@ const WineryDirectory: React.FC = () => {
           {sorted.map(w => (
             <button
               key={w.id}
-              onClick={() => setSelected(w)}
+              onClick={() => navigate(`/${regionId}/estates/${w.id}`)}
               className="bg-paper text-left group flex flex-col hover:bg-parchment transition-colors"
             >
               <div className="aspect-[3/2] overflow-hidden">

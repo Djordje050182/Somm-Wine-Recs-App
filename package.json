@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run prerender",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prerender": "esbuild scripts/prerender.mts --bundle --format=esm --platform=node --outfile=node_modules/.cache/somm-prerender.mjs --log-level=error && node node_modules/.cache/somm-prerender.mjs"
   },
   "dependencies": {
     "@elevenlabs/react": "^1.9.0",

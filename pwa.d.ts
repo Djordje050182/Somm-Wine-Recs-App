@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 /// <reference types="vite-plugin-pwa/client" />
 
 // Build stamp injected by vite.config.ts — date and commit of the deploy,

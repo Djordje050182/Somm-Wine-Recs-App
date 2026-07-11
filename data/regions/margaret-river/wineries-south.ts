@@ -192,6 +192,7 @@ export const SOUTH_WINERIES: Winery[] = [
     bookingUrl: 'https://www.mchenryhohnen.com.au/pages/cellar-door-1',
     tastingFee: 15,
     image: { url: 'https://www.mchenryhohnen.com.au/cdn/shop/files/MCH_Banner_Image_-_Place_2.png', source: 'winery' as const, alt: 'The circular bar and hanging bottle rack of the Vintners Wine Bar at McHenry Hohnen' },
+    gallery: [{ url: 'https://www.mchenryhohnen.com.au/cdn/shop/files/IMG_8336.jpg', source: 'winery' as const, alt: 'A hosted tasting at the McHenry Hohnen cellar door' }],
     briefing: {
       icebreaker: 'The founder made Cloudy Bay famous before coming home to farm biodynamically; ask what he thinks of Sauvignon Blanc these days.',
       proMove: 'Walk-ins are fine for the standard tasting, but the single-vineyard flight is the point: Calgardup Brook against Burnside shows two Chardonnays a few kilometres and a world apart.',
@@ -223,6 +224,7 @@ export const SOUTH_WINERIES: Winery[] = [
     website: 'https://www.brownhillestate.com.au',
     tastingFee: 0,
     image: { url: 'https://www.brownhillestate.com.au/wp-content/uploads/2025/05/20220527_BHestate_AutWinter_121-scaled.jpg', source: 'winery' as const, alt: 'A Brown Hill winemaker walking the autumn-gold vines at Rosa Brook' },
+    gallery: [{ url: 'https://www.brownhillestate.com.au/wp-content/uploads/2025/04/BH_HomePage_BANNER-scaled.webp', source: 'winery' as const, alt: 'A Brown Hill red beside a vintage postcard of the Perseverance gold mine' }],
     briefing: {
       icebreaker: 'Every wine is named after a Kalgoorlie goldmine, a nod to the family\'s prospecting past; ask which mine paid for the first vines.',
       proMove: 'Tastings are free and the family is often behind the bar; the Reserve wines sell out to the wine club, so buy on the spot.',

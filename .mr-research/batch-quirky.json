@@ -118,7 +118,15 @@
     "proMove": "The $15 tasting is redeemable against any purchase, and the Queen of Hearts Chardonnay is the card to back.",
     "hiddenGem": "Everything is 100% certified organic single-vineyard fruit, a claim almost nobody else on Caves Road can make without footnotes."
    },
-   "sommNote": "Margaret River's best bluff: navy discipline, organic vines, and a Chardonnay that plays a royal flush at mid-table money."
+   "sommNote": "Margaret River's best bluff: navy discipline, organic vines, and a Chardonnay that plays a royal flush at mid-table money.",
+   "gallery": [
+    {
+     "url": "https://fusws.api.aspedia.io/houseofcards-website/banners/home-page/BiancaKatePhotography_HoC_March2025-098.jpg",
+     "source": "winery",
+     "alt": "The Wray family at harvest among the House of Cards vines",
+     "verified": "downloaded 2026-07-11, viewed: family harvest scene in the organic vineyard"
+    }
+   ]
   },
   {
    "id": "mr-ls-merchants",

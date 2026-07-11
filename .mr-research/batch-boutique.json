@@ -38,7 +38,15 @@
     "proMove": "Tastings are complimentary and walk-ins welcome; ask about the Oceans Series, aged eighteen metres beneath Flinders Bay at Augusta, and how the same wine tastes different after a year under the sea.",
     "hiddenGem": "Brian chose this block partly because he could fit an airstrip behind the vines, and the family's aviation obsession is everywhere once you start looking."
    },
-   "sommNote": "The only cellar door in the valley with a trans-continental biplane over the bar and a cellar under the ocean; the wines live up to the stories."
+   "sommNote": "The only cellar door in the valley with a trans-continental biplane over the bar and a cellar under the ocean; the wines live up to the stories.",
+   "gallery": [
+    {
+     "url": "https://www.edwardswines.com.au/wp-content/uploads/2026/03/3.png",
+     "source": "winery",
+     "alt": "Silhouetted guests in the Edwards tasting room, vineyard beyond the glass",
+     "verified": "downloaded 2026-07-11, viewed: tasting room interior looking over the vines"
+    }
+   ]
   },
   {
    "id": "mr-ashbrook",
@@ -77,7 +85,15 @@
     "proMove": "Ask for the Verdelho: it is one of the few serious examples in Australia and rarely leaves the cellar door.",
     "hiddenGem": "The estate sits on Tom Cullity Drive within a short hop of Vasse Felix, Juniper and Thompson, making it the sleeper stop on the region's most storied road."
    },
-   "sommNote": "The connoisseur's detour: nowhere else in the valley does Verdelho this seriously, and the Semillon is built like the Hunter's best."
+   "sommNote": "The connoisseur's detour: nowhere else in the valley does Verdelho this seriously, and the Semillon is built like the Hunter's best.",
+   "gallery": [
+    {
+     "url": "https://ashbrookwines.com.au/wp-content/uploads/2021/10/Ashbrook-First-Vintages-1-1024x683.jpg",
+     "source": "winery",
+     "alt": "Museum bottles of Ashbrook Cabernet from the first vintages, 1980 to 1982",
+     "verified": "downloaded 2026-07-11, viewed: boxed museum bottles 1980-1982, matches the consecutive-vintages story"
+    }
+   ]
   },
   {
    "id": "mr-fraser-gallop",
@@ -157,7 +173,15 @@
     "proMove": "Walk-ins are fine for the standard tasting, but the single-vineyard flight is the point: Calgardup Brook against Burnside shows two Chardonnays a few kilometres and a world apart.",
     "hiddenGem": "Hazel's Vineyard grows Zinfandel, Tempranillo and Grenache alongside the classics; the Zin is the most serious example in the country."
    },
-   "sommNote": "Where Margaret River goes when it wants to argue about terroir: one family, certified biodynamic, and every bottle traceable to a single paddock."
+   "sommNote": "Where Margaret River goes when it wants to argue about terroir: one family, certified biodynamic, and every bottle traceable to a single paddock.",
+   "gallery": [
+    {
+     "url": "https://www.mchenryhohnen.com.au/cdn/shop/files/IMG_8336.jpg",
+     "source": "winery",
+     "alt": "A hosted tasting at the McHenry Hohnen cellar door",
+     "verified": "downloaded 2026-07-11, viewed: tasting-room scene at the marri bench"
+    }
+   ]
   }
  ],
  "wines": [

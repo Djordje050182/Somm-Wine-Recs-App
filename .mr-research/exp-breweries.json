@@ -51,7 +51,15 @@
    "closes": "17:00",
    "sommNote": "The tasting paddle here is what Semillon palates call a sorbet course: bright, cold and rude not to.",
    "lat": -33.6951,
-   "lng": 115.0638
+   "lng": 115.0638,
+   "gallery": [
+    {
+     "url": "https://static.wixstatic.com/media/c21f45_9a552f60c6c94f7898db096c09bf13b2~mv2.jpg",
+     "source": "venue",
+     "alt": "The Wild Hop brewery dog in a branded hoodie, beer in paw",
+     "verified": "downloaded 2026-07-11, viewed: the brewery dog in a Wild Hop hoodie"
+    }
+   ]
   },
   {
    "id": "mr-exp-cbco-brewing",
@@ -79,7 +87,15 @@
    "closes": "17:00",
    "sommNote": "Twenty years of brewing history in a paddock; the lager at the end of a tasting day is practically a regional tradition.",
    "lat": -33.9133,
-   "lng": 115.1439
+   "lng": 115.1439,
+   "gallery": [
+    {
+     "url": "https://venues.cbco.beer/wp-content/uploads/2026/06/CBCo-Brewing-Daniela-Tommasi-Photography-7.webp",
+     "source": "venue",
+     "alt": "Driving golf balls over the dam at CBCo Margaret River",
+     "verified": "downloaded 2026-07-11, viewed: golf swing over the venue dam"
+    }
+   ]
   },
   {
    "id": "mr-exp-margaret-river-brewhouse",
@@ -106,7 +122,15 @@
    "closes": "21:00",
    "sommNote": "When the last cellar door closes at five, the town walks here; join it and argue about the day's best Cabernet over a pale ale.",
    "lat": -33.9428,
-   "lng": 115.0752
+   "lng": 115.0752,
+   "gallery": [
+    {
+     "url": "https://www.margaretriverbeer.co/cdn/shop/files/0U6A9789_websize_2.jpg",
+     "source": "venue",
+     "alt": "Tacos and beers on the Brewhouse deck",
+     "verified": "downloaded 2026-07-11, viewed: overhead tacos and beers"
+    }
+   ]
   },
   {
    "id": "mr-exp-rocky-ridge-taphouse",

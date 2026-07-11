@@ -509,6 +509,7 @@ export const WILYABRUP_WINERIES: Winery[] = [
     website: 'https://www.edwardswines.com.au',
     tastingFee: 0,
     image: { url: 'https://www.edwardswines.com.au/wp-content/uploads/2026/03/1-1.png', source: 'winery' as const, alt: 'Aerial view over the Edwards vineyard, dam and red-dirt track at golden hour' },
+    gallery: [{ url: 'https://www.edwardswines.com.au/wp-content/uploads/2026/03/3.png', source: 'winery' as const, alt: 'Silhouetted guests in the Edwards tasting room, vineyard beyond the glass' }],
     briefing: {
       icebreaker: 'The aeroplane above the tasting bench is Matilda, the 1943 Tiger Moth the founder flew solo from England to Australia in 1990; the Matilda wines are named after her.',
       proMove: 'Tastings are complimentary and walk-ins welcome; ask about the Oceans Series, aged eighteen metres beneath Flinders Bay at Augusta, and how the same wine tastes different after a year under the sea.',
@@ -539,6 +540,7 @@ export const WILYABRUP_WINERIES: Winery[] = [
     website: 'https://ashbrookwines.com.au',
     tastingFee: 0,
     image: { url: 'https://ashbrookwines.com.au/wp-content/uploads/2021/10/Autumn-leaves-Chardy-below-riesling-scaled.jpg', source: 'winery' as const, alt: 'Autumn-gold vine rows at Ashbrook Estate with forest behind' },
+    gallery: [{ url: 'https://ashbrookwines.com.au/wp-content/uploads/2021/10/Ashbrook-First-Vintages-1-1024x683.jpg', source: 'winery' as const, alt: 'Museum bottles of Ashbrook Cabernet from the first vintages, 1980 to 1982' }],
     briefing: {
       icebreaker: 'Ashbrook has notched more than forty consecutive estate vintages under one family, a Wilyabrup record few neighbours can match.',
       proMove: 'Ask for the Verdelho: it is one of the few serious examples in Australia and rarely leaves the cellar door.',
@@ -633,6 +635,7 @@ export const WILYABRUP_WINERIES: Winery[] = [
     bookingUrl: 'https://gracefarm.com.au/pages/cellar-door',
     tastingFee: 10,
     image: { url: 'https://cdn.shopify.com/s/files/1/0706/8261/files/900_x_500_Cellar_Door.jpg', source: 'winery' as const, alt: 'The Grace Farm gate and red-dirt drive under marri trees' },
+    gallery: [{ url: 'https://cdn.shopify.com/s/files/1/0706/8261/files/900_x_500_Cellar_Door2_480x480.jpg', source: 'winery' as const, alt: 'A seated tasting at the Grace Farm cellar door' }],
     briefing: {
       icebreaker: 'The tasting-room timber was milled right here on the farm from fallen mature trees, and the building itself arrived on the back of a truck from Perth.',
       proMove: 'Open Wednesday to Sunday only; time it as the last stop before a Gracetown sunset, five minutes further down the same road.',

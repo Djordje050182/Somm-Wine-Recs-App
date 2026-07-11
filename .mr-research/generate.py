@@ -68,6 +68,9 @@ def winery_ts(w):
         L.append(f"    image: {im},")
     else:
         L.append("    image: { url: '', source: 'winery' as const, alt: '' },  // FIXME: no verified image")
+    gal = [img_ts(g) for g in (w.get('gallery') or []) if g and g.get('url')]
+    if gal:
+        L.append("    gallery: [%s]," % ', '.join(gal))
     if w.get('briefing'):
         L.append(f"    briefing: {briefing_ts(w['briefing'])},")
     if w.get('sommNote'):
@@ -116,6 +119,9 @@ def exp_ts(e):
         L.append(f"    image: {im},")
     else:
         L.append("    image: { url: '', source: 'unsplash' as const, alt: '' },  // FIXME: no verified image")
+    gal = [img_ts(g) for g in (e.get('gallery') or []) if g and g.get('url')]
+    if gal:
+        L.append("    gallery: [%s]," % ', '.join(gal))
     if e.get('briefing'):
         L.append(f"    briefing: {briefing_ts(e['briefing'])},")
     c = e.get('community')

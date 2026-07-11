@@ -207,6 +207,7 @@ export const MARGARET_RIVER_EXPERIENCES_FULL: Experience[] = [
     subregion: 'Wallcliffe',
     description: 'The brewery formerly known as Colonial, founded on this Osmington Road site in 2004 and renamed CBCo in 2020. A big family-friendly farm venue just outside Margaret River town with a beer garden under sail shades, a playground on the lawn, a food-truck kitchen and the full core range brewed in WA on the taps.',
     image: { url: 'https://venues.cbco.beer/wp-content/uploads/2026/06/Margaret-River_Carousel_0009_DJK_CBCoMRBrewery00037-1.jpg', source: 'venue' as const, alt: 'The CBCo beer garden from the bar rail, sail shades over the lawn and playground' },
+    gallery: [{ url: 'https://venues.cbco.beer/wp-content/uploads/2026/06/CBCo-Brewing-Daniela-Tommasi-Photography-7.webp', source: 'venue' as const, alt: 'Driving golf balls over the dam at CBCo Margaret River' }],
     briefing: {
       icebreaker: 'This is where the whole story started in 2004, when it was Colonial Brewing; the name changed in 2020 but the brewhouse never moved.',
       proMove: 'Saturdays run an hour later than the rest of the week; order the paddle and let the kids at the playground while you work through it.',
@@ -274,6 +275,7 @@ export const MARGARET_RIVER_EXPERIENCES_FULL: Experience[] = [
     subregion: 'Wallcliffe',
     description: 'The town\'s own brewery, opened in January 2016 by three local families among the karri trees on Bussell Highway, an easy walk from the main street. Beers are brewed on site under the Margaret River Beer Co label, the kitchen runs all day, and the garden fills with locals and their dogs by mid-afternoon.',
     image: { url: 'https://www.margaretriverbeer.co/cdn/shop/files/118_MR_BrewHouse_211206_Jwyld.jpg', source: 'venue' as const, alt: 'The Brewhouse table from above: share plates, beers and the timber deck' },
+    gallery: [{ url: 'https://www.margaretriverbeer.co/cdn/shop/files/0U6A9789_websize_2.jpg', source: 'venue' as const, alt: 'Tacos and beers on the Brewhouse deck' }],
     briefing: {
       icebreaker: 'Three local families opened this in 2016 so the town would have a brewery it could walk to, and it still feels exactly like that.',
       proMove: 'It is open to 9pm seven days, the latest of the region\'s breweries, so save it for after the cellar doors shut at five.',
@@ -340,6 +342,7 @@ export const MARGARET_RIVER_EXPERIENCES_FULL: Experience[] = [
     subregion: 'Yallingup',
     description: 'A big timber taproom in the Yallingup bushland on Wildwood Road, pouring small-batch beers brewed on site, with chesterfield lounges inside and lawns and gardens running into the trees. Open seven days, with a full kitchen and a steady rotation of limited releases on the taps.',
     image: { url: 'https://static.wixstatic.com/media/c21f45_23c54fd777c8493ba9ac51dfd327dead~mv2.jpg', source: 'venue' as const, alt: 'Inside the Wild Hop taproom: tasting paddles, leather chesterfields and garden beyond' },
+    gallery: [{ url: 'https://static.wixstatic.com/media/c21f45_9a552f60c6c94f7898db096c09bf13b2~mv2.jpg', source: 'venue' as const, alt: 'The Wild Hop brewery dog in a branded hoodie, beer in paw' }],
     briefing: {
       icebreaker: 'This is the newest of the cape\'s bush breweries, and the tap list changes fast enough that the locals check it like a surf report.',
       proMove: 'Take the tasting paddle before you commit to pints, and grab the chesterfields by the glass wall if they are free.',

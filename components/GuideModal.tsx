@@ -347,7 +347,16 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
                 </span>
               )}
             </div>
-            <h2 className="font-display text-3xl md:text-4xl font-medium leading-tight">{currentItem.name}</h2>
+            <div className="flex items-end gap-3">
+              {currentItem.logo && (
+                <img
+                  src={currentItem.logo}
+                  alt={`${currentItem.name} logo`}
+                  className="h-12 w-12 object-contain bg-parchment rounded-sm p-1 shrink-0"
+                />
+              )}
+              <h2 className="font-display text-3xl md:text-4xl font-medium leading-tight">{currentItem.name}</h2>
+            </div>
           </div>
         </div>
 
@@ -375,6 +384,14 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
           {activeTab === 'guide' ? (
             <>
               <p className="font-body text-lg text-ink/70 leading-relaxed">{currentItem.description}</p>
+
+              {/* The long read — the estate's researched history */}
+              {currentItem.story && (
+                <div>
+                  <Kicker className="mb-2">The story</Kicker>
+                  <p className="font-body text-ink/70 leading-relaxed whitespace-pre-line">{currentItem.story}</p>
+                </div>
+              )}
 
               {currentItem.sommNote && (
                 <div className="border-l-2 border-brass pl-4">

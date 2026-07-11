@@ -38,7 +38,15 @@
     "proMove": "Tastings are free and the family is often behind the bar; the Reserve wines sell out to the wine club, so buy on the spot.",
     "hiddenGem": "The whole crop is hand-picked every vintage, something almost no one else at this price point can claim."
    },
-   "sommNote": "The locals' cellar-stocking secret: goldmine names, hand-picked fruit, and prices from another decade out on the quiet Rosa Brook road."
+   "sommNote": "The locals' cellar-stocking secret: goldmine names, hand-picked fruit, and prices from another decade out on the quiet Rosa Brook road.",
+   "gallery": [
+    {
+     "url": "https://www.brownhillestate.com.au/wp-content/uploads/2025/04/BH_HomePage_BANNER-scaled.webp",
+     "source": "winery",
+     "alt": "A Brown Hill red beside a vintage postcard of the Perseverance gold mine",
+     "verified": "downloaded 2026-07-11, viewed: styled bottle with goldmine postcard, matches the mine-name story"
+    }
+   ]
   },
   {
    "id": "mr-hamelin-bay",
@@ -119,7 +127,15 @@
     "proMove": "Open Wednesday to Sunday only; time it as the last stop before a Gracetown sunset, five minutes further down the same road.",
     "hiddenGem": "The Ice Pressed Semillon is the valley's only dessert wine of its kind, and the half bottle disappears faster than planned."
    },
-   "sommNote": "Blink and you miss the gate, which is rather the point: farm-first wines, honest prices, and the surf at the end of the road."
+   "sommNote": "Blink and you miss the gate, which is rather the point: farm-first wines, honest prices, and the surf at the end of the road.",
+   "gallery": [
+    {
+     "url": "https://cdn.shopify.com/s/files/1/0706/8261/files/900_x_500_Cellar_Door2_480x480.jpg",
+     "source": "winery",
+     "alt": "A seated tasting at the Grace Farm cellar door",
+     "verified": "downloaded 2026-07-11, viewed: tasting service scene at the farm cellar door"
+    }
+   ]
   },
   {
    "id": "mr-whicher-ridge",
@@ -160,7 +176,15 @@
     "proMove": "Book the morning garden experience (9 to 12) and roll straight into the noon tasting; Wednesday to Sunday only.",
     "hiddenGem": "The kelpie usually does the welcoming, and the picnic tables among the garden beds are yours if you buy a bottle."
    },
-   "sommNote": "The most original hour in WA wine: a garden that teaches your nose the wine list before the first pour."
+   "sommNote": "The most original hour in WA wine: a garden that teaches your nose the wine list before the first pour.",
+   "gallery": [
+    {
+     "url": "https://whicherridge.com.au/wp-content/uploads/2019/08/Whicher_Ridge-213-1-1650x1100.jpg",
+     "source": "winery",
+     "alt": "A Whicher Ridge Long Road Shiraz among garden produce",
+     "verified": "downloaded 2026-07-11, viewed: flat-lay of the Shiraz among sensory-garden produce"
+    }
+   ]
   }
  ],
  "wines": [

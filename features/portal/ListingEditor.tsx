@@ -1,9 +1,31 @@
-import React, { useState } from 'react';
-import { CheckCircle2 } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { CheckCircle2, ImagePlus, Trash2, Upload } from 'lucide-react';
 import { useCatalog } from '../../contexts/CatalogContext';
 import { partnerStore } from '../../services/commerce';
-import { Winery } from '../../types';
+import { ImageAsset, Winery } from '../../types';
 import { Button, Card, EmptyState } from '../../components/ui';
+
+// Read a chosen file, downscale it on a canvas and return a compact JPEG data
+// URL — the demo store lives in localStorage, so uploads must stay small.
+// Logos keep transparency as PNG at a smaller edge.
+const fileToDataUrl = (file: File, maxEdge: number, asLogo = false): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      const scale = Math.min(1, maxEdge / Math.max(img.width, img.height));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext('2d')!.drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(url);
+      resolve(asLogo ? canvas.toDataURL('image/png') : canvas.toDataURL('image/jpeg', 0.82));
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('unreadable image')); };
+    img.src = url;
+  });
+
+const MAX_PHOTOS = 6;
 
 // The listing editor — what travellers read about the estate. Saves write a
 // partial override to the partner store; the catalogue merges it over the
@@ -46,10 +68,46 @@ const ListingEditor: React.FC<Props> = ({ wineryId }) => {
     bookingRequired: winery?.bookingRequired ?? false,
   }));
   const [saved, setSaved] = useState(false);
+  const [logo, setLogo] = useState<string | undefined>(winery?.logo);
+  const [photos, setPhotos] = useState<ImageAsset[]>(winery?.gallery ?? []);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const logoInput = useRef<HTMLInputElement>(null);
+  const photoInput = useRef<HTMLInputElement>(null);
 
   if (!winery) {
     return <EmptyState title="Nothing to edit yet" body="We couldn't load your listing in this region." />;
   }
+
+  const handleLogoFile = async (file: File | undefined) => {
+    if (!file) return;
+    try {
+      setLogo(await fileToDataUrl(file, 320, true));
+      setSaved(false);
+      setUploadError(null);
+    } catch {
+      setUploadError('That file could not be read as an image.');
+    }
+  };
+
+  const handlePhotoFiles = async (files: FileList | null) => {
+    if (!files?.length) return;
+    try {
+      const room = MAX_PHOTOS - photos.length;
+      const added: ImageAsset[] = [];
+      for (const file of Array.from(files).slice(0, room)) {
+        added.push({
+          url: await fileToDataUrl(file, 1280),
+          source: 'winery',
+          alt: `${winery.name} — uploaded by the estate`,
+        });
+      }
+      setPhotos(p => [...p, ...added]);
+      setSaved(false);
+      setUploadError(null);
+    } catch {
+      setUploadError('One of those files could not be read as an image.');
+    }
+  };
 
   const set = <K extends keyof typeof form>(key: K, value: (typeof form)[K]) => {
     setForm(f => ({ ...f, [key]: value }));
@@ -70,6 +128,8 @@ const ListingEditor: React.FC<Props> = ({ wineryId }) => {
       kidFriendly: form.kidFriendly,
       dogFriendly: form.dogFriendly,
       bookingRequired: form.bookingRequired,
+      logo,
+      gallery: photos.length ? photos : undefined,
     };
     partnerStore.saveListingOverride(wineryId, patch);
     setSaved(true);
@@ -153,6 +213,85 @@ const ListingEditor: React.FC<Props> = ({ wineryId }) => {
               </span>
             </button>
           ))}
+        </div>
+      </Card>
+
+      {/* The pictures */}
+      <Card className="p-6 space-y-5">
+        <div>
+          <h3 className="font-display text-lg text-ink">The pictures</h3>
+          <p className="font-body text-xs text-ink/40 mt-1">
+            Your logo appears on your listing page; photos join the "In pictures" strip travellers browse.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <div className="w-16 h-16 border border-hairline rounded-sm bg-parchment flex items-center justify-center overflow-hidden shrink-0">
+            {logo ? (
+              <img src={logo} alt="Estate logo" className="w-full h-full object-contain p-1" />
+            ) : (
+              <ImagePlus className="w-5 h-5 text-ink/30" />
+            )}
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <Button size="sm" variant="secondary" onClick={() => logoInput.current?.click()}>
+              <Upload className="w-3.5 h-3.5" /> {logo ? 'Replace logo' : 'Upload logo'}
+            </Button>
+            {logo && (
+              <button
+                type="button"
+                onClick={() => { setLogo(undefined); setSaved(false); }}
+                className="font-ui text-xs font-semibold text-ink/50 hover:text-terracotta flex items-center gap-1 transition-colors"
+              >
+                <Trash2 className="w-3.5 h-3.5" /> Remove
+              </button>
+            )}
+          </div>
+          <input
+            ref={logoInput}
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={e => { void handleLogoFile(e.target.files?.[0]); e.target.value = ''; }}
+          />
+        </div>
+
+        <div>
+          <Label>Photos — up to {MAX_PHOTOS}</Label>
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            {photos.map((p, i) => (
+              <div key={i} className="relative group aspect-square border border-hairline rounded-sm overflow-hidden bg-parchment">
+                <img src={p.url} alt={p.alt} className="w-full h-full object-cover" />
+                <button
+                  type="button"
+                  onClick={() => { setPhotos(ph => ph.filter((_, idx) => idx !== i)); setSaved(false); }}
+                  className="absolute top-1 right-1 bg-ink/60 hover:bg-terracotta text-parchment rounded-sm p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                  aria-label="Remove photo"
+                >
+                  <Trash2 className="w-3 h-3" />
+                </button>
+              </div>
+            ))}
+            {photos.length < MAX_PHOTOS && (
+              <button
+                type="button"
+                onClick={() => photoInput.current?.click()}
+                className="aspect-square border border-dashed border-ink/30 hover:border-claret rounded-sm flex flex-col items-center justify-center gap-1 text-ink/40 hover:text-claret transition-colors"
+              >
+                <ImagePlus className="w-5 h-5" />
+                <span className="font-ui text-[10px] font-semibold uppercase tracking-kicker">Add</span>
+              </button>
+            )}
+          </div>
+          <input
+            ref={photoInput}
+            type="file"
+            accept="image/*"
+            multiple
+            className="hidden"
+            onChange={e => { void handlePhotoFiles(e.target.files); e.target.value = ''; }}
+          />
+          {uploadError && <p className="font-body text-xs text-terracotta mt-2">{uploadError}</p>}
         </div>
       </Card>
 

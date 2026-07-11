@@ -313,6 +313,7 @@ export const NORTH_WINERIES: Winery[] = [
     bookingUrl: 'https://www.houseofcardswine.com.au/cellar-door',
     tastingFee: 15,
     image: { url: 'https://fusws.api.aspedia.io/houseofcards-website/pages/cellar%20door/cellardoor%20banner.png', source: 'winery' as const, alt: 'The black corrugated House of Cards winery rising above its vines' },
+    gallery: [{ url: 'https://fusws.api.aspedia.io/houseofcards-website/banners/home-page/BiancaKatePhotography_HoC_March2025-098.jpg', source: 'winery' as const, alt: 'The Wray family at harvest among the House of Cards vines' }],
     briefing: {
       icebreaker: 'The founder cleared mines for the Navy before he ever pruned a vine; ask him which job had better odds.',
       proMove: 'The $15 tasting is redeemable against any purchase, and the Queen of Hearts Chardonnay is the card to back.',
@@ -345,6 +346,7 @@ export const NORTH_WINERIES: Winery[] = [
     bookingUrl: 'https://whicherridge.com.au',
     tastingFee: 15,
     image: { url: 'https://whicherridge.com.au/wp-content/uploads/2026/06/102_20201120_WINES-OF-WA_Geographe_Whicher-Ridge-1650x1098.jpg', source: 'winery' as const, alt: 'Visitors and a kelpie arriving at the Whicher Ridge cellar door past the wine-glass sculpture' },
+    gallery: [{ url: 'https://whicherridge.com.au/wp-content/uploads/2019/08/Whicher_Ridge-213-1-1650x1100.jpg', source: 'winery' as const, alt: 'A Whicher Ridge Long Road Shiraz among garden produce' }],
     briefing: {
       icebreaker: 'The sensory garden was Australia\'s first: you smell the plant in the bed, then hunt the same note in your glass.',
       proMove: 'Book the morning garden experience (9 to 12) and roll straight into the noon tasting; Wednesday to Sunday only.',

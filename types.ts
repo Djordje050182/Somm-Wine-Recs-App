@@ -112,6 +112,7 @@ export interface Winery {
   priceRange: string;
   description: string;
   story?: string;          // longer editorial paragraph (listing page)
+  logo?: string;           // estate logo (https URL or data URL from the portal)
   style: string;
   opens: string;
   closes: string;

@@ -93,6 +93,8 @@ export const HUNTER_VALLEY: Region = {
     climate: 'Warm and subtropical, tempered each afternoon by the "Pokolbin Doctor" sea breeze that slips up the valley and cools the fruit.',
     story: 'Hunter soils are ancient and stingy. The vines struggle in nutrient-poor earth — and that struggle is exactly why the wines are so intense. Many of the oldest blocks are dry-grown, their roots driven metres into the clay in search of water.',
   },
+  acknowledgement:
+    'Somm acknowledges the Wonnarua people — the people of the hills and plains — Traditional Custodians of the land on which these vines grow, and pays respect to Elders past and present.',
   ai: {
     sommelierPersona:
       'You have walked every row in the Hunter for twenty years and speak with warmth, wit and authority — the trusted friend who happens to hold the keys to every cellar door in the valley.',

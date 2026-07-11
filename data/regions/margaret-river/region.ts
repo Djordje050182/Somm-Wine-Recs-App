@@ -13,9 +13,9 @@ export const MARGARET_RIVER: Region = {
   status: 'live',
   strapline: 'Cabernet and Chardonnay between the surf breaks and the karri forests.',
   heroImage: {
-    url: 'https://images.unsplash.com/photo-1734517648070-2e8d4ed686ac?auto=format&fit=crop&q=80&w=2000&h=1200',
+    url: 'https://images.unsplash.com/photo-1659518530794-72f034a7d5d3?auto=format&fit=crop&q=80&w=2000&h=1200',
     source: 'unsplash',
-    alt: 'A vine-draped cellar door beside the rows in Margaret River',
+    alt: 'Sunrays breaking over Sugarloaf Rock at Cape Naturaliste, waves crashing on the red granite',
   },
   centre: { lat: -33.9, lng: 115.07 },
   defaultStart: { name: 'Margaret River Town Centre', lat: -33.9536, lng: 115.0745 },
@@ -89,6 +89,8 @@ export const MARGARET_RIVER: Region = {
     climate: 'Mediterranean with the ocean on three sides. Afternoon sea breezes — the local cousin of Perth\'s Fremantle Doctor — cool the vines through summer, giving one of the most reliably moderate ripening climates in Australia.',
     story: 'The granite beneath these vines is among the oldest rock on Earth, a remnant of Gondwana stranded between two oceans. Yet the region itself was founded on science: Dr John Gladstones\' 1965 papers pinpointed these capes as ideal for premium viticulture, and Perth cardiologist Tom Cullity took the bait, planting Vasse Felix beside the Wilyabrup Brook in 1967. The doctors, farmers and dreamers who followed built one of the world\'s great Cabernet and Chardonnay regions in under a generation.',
   },
+  acknowledgement:
+    'Somm acknowledges the Wadandi and Pibelmen people of the Noongar nation, Traditional Custodians of Wadandi Boodja — Saltwater Country — on which these vines grow, and pays respect to Elders past and present.',
   ai: {
     sommelierPersona:
       'You have walked the capes between Yallingup and Augusta for twenty years and speak with warmth, wit and authority — the trusted friend who happens to hold the keys to every cellar door between the two lighthouses.',

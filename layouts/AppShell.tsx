@@ -242,7 +242,11 @@ const AppShell: React.FC = () => {
       </main>
 
       <footer className="hidden lg:block border-t border-hairline mt-16">
-        <div className="max-w-screen-xl mx-auto px-6 py-10 flex items-baseline justify-between">
+        <div className="max-w-screen-xl mx-auto px-6 py-10 space-y-6">
+          {region.acknowledgement && (
+            <p className="font-body text-sm text-ink/45 italic max-w-3xl">{region.acknowledgement}</p>
+          )}
+          <div className="flex items-baseline justify-between">
           <div>
             <span className="font-display font-semibold text-xl text-ink">Somm</span>
             <span className="font-display text-2xl text-claret">.</span>
@@ -254,6 +258,7 @@ const AppShell: React.FC = () => {
             </Link>
             <p className="font-ui text-xs text-ink/30 uppercase tracking-kicker">{region.name} · est. edition</p>
             <p className="font-ui text-[10px] text-ink/25" title="Build version">{__BUILD_ID__}</p>
+          </div>
           </div>
         </div>
       </footer>

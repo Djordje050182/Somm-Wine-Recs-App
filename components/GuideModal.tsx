@@ -26,12 +26,32 @@ const toAsset = (image: ImageAsset | string | undefined, alt: string): ImageAsse
     ? { url: image, source: 'winery', alt }
     : image ?? { url: '', source: 'winery', alt };
 
-const getClosingStatus = (closes?: string): { label: string; tone: 'success' | 'sale' | 'default' } | null => {
+// Open/closed is judged on the REGION's clock, not the viewer's — a guest in
+// Sydney reading about a Perth-time cellar door is three hours in the future.
+const getClosingStatus = (
+  opens?: string,
+  closes?: string,
+  timeZone?: string
+): { label: string; tone: 'success' | 'sale' | 'default' } | null => {
   if (!closes) return null;
   try {
-    const now = new Date();
+    const parts = new Intl.DateTimeFormat('en-AU', {
+      timeZone,
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
+    }).formatToParts(new Date());
+    const get = (type: string) => Number(parts.find(p => p.type === type)?.value ?? NaN);
+    const nowMinutes = (get('hour') % 24) * 60 + get('minute');
+    if (Number.isNaN(nowMinutes)) return null;
     const [closeHour, closeMinute] = closes.split(':').map(Number);
-    const diff = closeHour * 60 + closeMinute - (now.getHours() * 60 + now.getMinutes());
+    const closeAt = closeHour * 60 + closeMinute;
+    if (opens) {
+      const [openHour, openMinute] = opens.split(':').map(Number);
+      const openAt = openHour * 60 + openMinute;
+      if (nowMinutes < openAt) return { label: `Opens at ${opens}`, tone: 'default' };
+    }
+    const diff = closeAt - nowMinutes;
     if (diff < 0) return { label: 'Closed for the day', tone: 'default' };
     if (diff <= 60) return { label: `Closing soon (${diff}m)`, tone: 'sale' };
     return { label: 'Open now', tone: 'success' };
@@ -77,6 +97,7 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'guide' | 'visitors'>('guide');
   const [currentImage, setCurrentImage] = useState<ImageAsset | null>(null);
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   // On-demand Somm extras
   const [vintageReport, setVintageReport] = useState<string | null>(null);
@@ -117,7 +138,10 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
 
   const aiEnabled = isAIEnabled();
 
-  const closingStatus = useMemo(() => getClosingStatus(currentItem?.closes), [currentItem]);
+  const closingStatus = useMemo(
+    () => getClosingStatus(currentItem?.opens, currentItem?.closes, region.timezone),
+    [currentItem, region.timezone]
+  );
   const bookingLabel = useMemo(() => getBookingLabel(currentItem?.bookingUrl), [currentItem]);
   const heroAsset = useMemo(
     () => currentImage ?? toAsset(currentItem?.image, currentItem?.name ?? ''),
@@ -127,6 +151,32 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
     () => (currentItem?.gallery ?? []).map((g: ImageAsset | string) => toAsset(g, currentItem?.name ?? '')),
     [currentItem]
   );
+
+  // Everything the lightbox can page through: the hero first, then the gallery.
+  const lightboxImages: ImageAsset[] = useMemo(
+    () => [toAsset(currentItem?.image, currentItem?.name ?? ''), ...gallery].filter(a => a.url),
+    [currentItem, gallery]
+  );
+
+  const stepLightbox = React.useCallback(
+    (dir: 1 | -1) => {
+      setLightboxIdx(idx =>
+        idx === null ? null : (idx + dir + lightboxImages.length) % lightboxImages.length
+      );
+    },
+    [lightboxImages.length]
+  );
+
+  React.useEffect(() => {
+    if (lightboxIdx === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { e.stopPropagation(); setLightboxIdx(null); }
+      if (e.key === 'ArrowRight') stepLightbox(1);
+      if (e.key === 'ArrowLeft') stepLightbox(-1);
+    };
+    window.addEventListener('keydown', onKey, true);
+    return () => window.removeEventListener('keydown', onKey, true);
+  }, [lightboxIdx, stepLightbox]);
   const pricing = useMemo(
     () => (currentType === 'wine' && currentItem ? getPricing(currentItem.id) : null),
     [currentType, currentItem, getPricing]
@@ -298,9 +348,15 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
         <div className="md:hidden sticky top-0 z-30 flex justify-center pt-2 pb-1 bg-transparent pointer-events-none">
           <span className="w-10 h-1 rounded-full bg-parchment/70 shadow-sm" />
         </div>
-        {/* Hero */}
+        {/* Hero — tap to view large */}
         <div className="relative h-64 shrink-0">
-          <ImageWithLoader asset={heroAsset} className="w-full h-full" showCredit />
+          <button
+            onClick={() => setLightboxIdx(0)}
+            className="block w-full h-full cursor-zoom-in"
+            aria-label="View photo larger"
+          >
+            <ImageWithLoader asset={heroAsset} className="w-full h-full" showCredit />
+          </button>
           <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent pointer-events-none" />
 
           <div className="absolute top-4 right-4 flex gap-2 z-20">
@@ -548,10 +604,9 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
                     {gallery.map((img, idx) => (
                       <button
                         key={idx}
-                        onClick={() => setCurrentImage(img)}
-                        className={`relative w-24 h-24 shrink-0 overflow-hidden rounded-sm border transition-colors ${
-                          heroAsset.url === img.url ? 'border-claret' : 'border-hairline opacity-80 hover:opacity-100'
-                        }`}
+                        onClick={() => setLightboxIdx(idx + 1)}
+                        className="relative w-24 h-24 shrink-0 overflow-hidden rounded-sm border border-hairline opacity-80 hover:opacity-100 transition-opacity"
+                        aria-label={`View larger: ${img.alt || currentItem.name}`}
                       >
                         <ImageWithLoader asset={img} className="w-full h-full" />
                       </button>
@@ -789,6 +844,57 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
               )}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Lightbox — full-screen view of the hero and gallery */}
+      {lightboxIdx !== null && lightboxImages[lightboxIdx] && (
+        <div
+          className="fixed inset-0 z-[70] bg-ink/95 flex items-center justify-center animate-fade-in"
+          onClick={() => setLightboxIdx(null)}
+        >
+          <button
+            onClick={() => setLightboxIdx(null)}
+            className="absolute top-4 right-4 text-parchment/80 hover:text-parchment p-2"
+            aria-label="Close photo"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          {lightboxImages.length > 1 && (
+            <>
+              <button
+                onClick={e => { e.stopPropagation(); stepLightbox(-1); }}
+                className="absolute left-2 md:left-6 text-parchment/70 hover:text-parchment p-3"
+                aria-label="Previous photo"
+              >
+                <ChevronLeft className="w-8 h-8" />
+              </button>
+              <button
+                onClick={e => { e.stopPropagation(); stepLightbox(1); }}
+                className="absolute right-2 md:right-6 text-parchment/70 hover:text-parchment p-3"
+                aria-label="Next photo"
+              >
+                <ChevronLeft className="w-8 h-8 rotate-180" />
+              </button>
+            </>
+          )}
+          <figure
+            className="max-w-[92vw] max-h-[88vh] flex flex-col items-center gap-3"
+            onClick={e => e.stopPropagation()}
+          >
+            <img
+              src={lightboxImages[lightboxIdx].url}
+              alt={lightboxImages[lightboxIdx].alt || currentItem?.name}
+              referrerPolicy="no-referrer"
+              className="max-w-full max-h-[80vh] object-contain rounded-sm"
+            />
+            <figcaption className="font-ui text-xs text-parchment/70 text-center px-4">
+              {lightboxImages[lightboxIdx].alt || currentItem?.name}
+              {lightboxImages.length > 1 && (
+                <span className="text-parchment/40"> · {lightboxIdx + 1} of {lightboxImages.length}</span>
+              )}
+            </figcaption>
+          </figure>
         </div>
       )}
     </div>

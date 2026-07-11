@@ -64,6 +64,7 @@ export interface Region {
   vintages: VintageRating[];
   seasons: SeasonNote[];
   terroir: { soils: string; climate: string; story: string };
+  acknowledgement?: string; // Acknowledgement of Country — the Traditional Custodians of the region's land
   ai: {
     sommelierPersona: string;
     signatureProducers: string[];

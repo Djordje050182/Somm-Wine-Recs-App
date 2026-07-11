@@ -9,7 +9,7 @@ import { Kicker } from '../../components/ui';
 // than marketing.
 
 const AboutPage: React.FC = () => {
-  const { regionId } = useRegion();
+  const { region, regionId } = useRegion();
 
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 py-14 animate-fade-in">
@@ -67,6 +67,12 @@ const AboutPage: React.FC = () => {
           between you and the cellar door.
         </p>
       </div>
+
+      {region.acknowledgement && (
+        <div className="mt-10 border-l-2 border-brass pl-4">
+          <p className="font-body text-sm text-ink/55 italic leading-relaxed">{region.acknowledgement}</p>
+        </div>
+      )}
 
       <div className="mt-10 flex flex-col sm:flex-row gap-3">
         <Link

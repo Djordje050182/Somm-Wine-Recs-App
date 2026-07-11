@@ -1,0 +1,431 @@
+{
+ "wineries": [
+  {
+   "id": "mr-brown-hill",
+   "name": "Brown Hill Estate",
+   "subregion": "Wallcliffe",
+   "specialty": "Hand-picked, family-made wines named for the Kalgoorlie goldmines",
+   "wines": [
+    "Golden Horseshoe Reserve Chardonnay",
+    "Chaffers Shiraz",
+    "Trafalgar Cabernet Merlot"
+   ],
+   "established": 1995,
+   "priceRange": "$$",
+   "description": "A Rosa Brook family estate where every grape is picked by hand and every label honours a goldfields mine, from Chaffers to Golden Horseshoe.",
+   "story": "The Bailey family planted Brown Hill at Rosa Brook in 1995 and still runs it as a genuine family shift: hand-picking the entire crop each vintage, an increasingly rare act of stubbornness. The wine names, Perseverance, Chaffers, Trafalgar, Golden Horseshoe, honour the Kalgoorlie goldmines of the family's prospecting heritage, and the value across the range remains one of the region's worst-kept secrets among locals.",
+   "style": "Family",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.9524,
+   "lng": 115.1674,
+   "hasRestaurant": false,
+   "rating": 4.4,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "phone": "08 9757 4003",
+   "website": "https://www.brownhillestate.com.au",
+   "tastingFee": 0,
+   "image": {
+    "url": "https://www.brownhillestate.com.au/wp-content/uploads/2025/05/20220527_BHestate_AutWinter_121-scaled.jpg",
+    "source": "winery",
+    "alt": "A Brown Hill winemaker walking the autumn-gold vines at Rosa Brook",
+    "verified": "downloaded 2026-07-11, viewed and verified: their own hero image, vineyard-dominant with winemaker walking the rows"
+   },
+   "briefing": {
+    "icebreaker": "Every wine is named after a Kalgoorlie goldmine, a nod to the family's prospecting past; ask which mine paid for the first vines.",
+    "proMove": "Tastings are free and the family is often behind the bar; the Reserve wines sell out to the wine club, so buy on the spot.",
+    "hiddenGem": "The whole crop is hand-picked every vintage, something almost no one else at this price point can claim."
+   },
+   "sommNote": "The locals' cellar-stocking secret: goldmine names, hand-picked fruit, and prices from another decade out on the quiet Rosa Brook road."
+  },
+  {
+   "id": "mr-hamelin-bay",
+   "name": "Hamelin Bay Wines",
+   "subregion": "Karridale",
+   "specialty": "Five Ashes vineyard Chardonnay and Cabernet from the deep, cool south",
+   "wines": [
+    "Five Ashes Reserve Chardonnay",
+    "Five Ashes Vineyard Cabernet Sauvignon",
+    "Semillon Sauvignon Blanc"
+   ],
+   "established": 1992,
+   "priceRange": "$$",
+   "description": "Karridale's standard-bearer: a 1992 estate above the Rusty Creek valley whose restaurant terrace looks clear over the Five Ashes vines.",
+   "story": "Established in 1992 down where the karri forest runs towards the two oceans, Hamelin Bay Wines farms the Five Ashes vineyard in the region's coolest, latest-ripening corner. The payoff is tension: fine-boned Chardonnay and perfumed Cabernet that ripen weeks behind Wilyabrup. The cellar door and restaurant sit high over the vines and the Rusty Creek valley, and the whale-watching beaches of Hamelin Bay itself are ten minutes down the road.",
+   "style": "Coastal",
+   "opens": "11:00",
+   "closes": "16:00",
+   "lat": -34.1831,
+   "lng": 115.1198,
+   "hasRestaurant": true,
+   "rating": 4.4,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "website": "https://hbwines.com.au",
+   "bookingUrl": "https://hbwines.com.au",
+   "tastingFee": 10,
+   "image": {
+    "url": "https://hbwines.com.au/wp-content/uploads/2022/06/slide04.jpg",
+    "source": "winery",
+    "alt": "Vine rows running up to the Hamelin Bay Wines cellar door at dusk",
+    "verified": "downloaded 2026-07-11, viewed and verified: dusk vineyard rows to cellar door, pink sky"
+   },
+   "briefing": {
+    "icebreaker": "This is the region's deep south: the fruit here ripens weeks after Wilyabrup, and you can taste the cool in the glass.",
+    "proMove": "The restaurant runs Thursday to Sunday lunches and small bites daily; book a terrace table and make it the long stop on a southern loop.",
+    "hiddenGem": "Pair the visit with the stingrays at Hamelin Bay beach ten minutes away, where they glide right up to the shallows."
+   },
+   "sommNote": "The reward for driving past the famous names: Karridale cool in a glass, and a terrace view that makes you cancel the afternoon."
+  },
+  {
+   "id": "mr-grace-farm",
+   "name": "Grace Farm",
+   "subregion": "Wilyabrup",
+   "specialty": "Small-batch estate wines poured just inside the farm gate on Cowaramup Bay Road",
+   "wines": [
+    "Reserve Cabernet Sauvignon",
+    "Chardonnay",
+    "Ice Pressed Semillon"
+   ],
+   "established": 2006,
+   "priceRange": "$$",
+   "description": "A boutique family farm on the Gracetown road whose tiny cellar door was built with timber milled from the property's own fallen trees.",
+   "story": "Grace Farm planted its first vines in 2006 on the road that runs down to Gracetown's surf, and stayed deliberately small: a working farm first, with wines made in modest batches from estate fruit. The cellar door opened just inside the farm gate in a building whose interior timber was milled on the property from fallen mature trees, and the range runs from a decorated Reserve Cabernet to an Ice Pressed Semillon dessert wine you will not find elsewhere in the valley.",
+   "style": "Boutique",
+   "opens": "11:00",
+   "closes": "17:00",
+   "lat": -33.8628,
+   "lng": 114.9895,
+   "hasRestaurant": false,
+   "rating": 4.4,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "phone": "0438 514 831",
+   "website": "https://gracefarm.com.au",
+   "bookingUrl": "https://gracefarm.com.au/pages/cellar-door",
+   "tastingFee": 10,
+   "image": {
+    "url": "https://cdn.shopify.com/s/files/1/0706/8261/files/900_x_500_Cellar_Door.jpg",
+    "source": "winery",
+    "alt": "The Grace Farm gate and red-dirt drive under marri trees",
+    "verified": "downloaded 2026-07-11, viewed and verified: farm-gate entrance with Grace Farm sign and red-dirt road"
+   },
+   "briefing": {
+    "icebreaker": "The tasting-room timber was milled right here on the farm from fallen mature trees, and the building itself arrived on the back of a truck from Perth.",
+    "proMove": "Open Wednesday to Sunday only; time it as the last stop before a Gracetown sunset, five minutes further down the same road.",
+    "hiddenGem": "The Ice Pressed Semillon is the valley's only dessert wine of its kind, and the half bottle disappears faster than planned."
+   },
+   "sommNote": "Blink and you miss the gate, which is rather the point: farm-first wines, honest prices, and the surf at the end of the road."
+  },
+  {
+   "id": "mr-whicher-ridge",
+   "name": "Whicher Ridge Wines",
+   "subregion": "Carbunup",
+   "specialty": "Australia's first wine sensory garden, paired with small-batch wines in the Busselton hinterland",
+   "wines": [
+    "Sauvignon Blanc",
+    "Long Road Shiraz",
+    "Cabernet Sauvignon"
+   ],
+   "established": 2004,
+   "priceRange": "$$",
+   "description": "A Chapman Hill original where tastings begin in Australia's first wine sensory garden: sniff the plant, then find it in the glass.",
+   "story": "Winemaker Cathy Howard and viticulturist Neil Howard founded Whicher Ridge in 2004 on the ridge country south-east of Busselton and made their first wines in 2008. In 2014 they planted the Wine Sensory Garden, the first of its kind in Australia: beds of herbs, flowers and fruits arranged to match the aroma families in their wines, so guests smell lemongrass or blackcurrant leaf in the garden and then chase it through the tasting. Morning garden experiences run before the tasting bench opens at noon.",
+   "style": "Original",
+   "opens": "12:00",
+   "closes": "17:00",
+   "lat": -33.7782,
+   "lng": 115.3273,
+   "hasRestaurant": false,
+   "rating": 4.4,
+   "bookingRequired": true,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "phone": "0448 531 399",
+   "website": "https://whicherridge.com.au",
+   "bookingUrl": "https://whicherridge.com.au",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://whicherridge.com.au/wp-content/uploads/2026/06/102_20201120_WINES-OF-WA_Geographe_Whicher-Ridge-1650x1098.jpg",
+    "source": "winery",
+    "alt": "Visitors and a kelpie arriving at the Whicher Ridge cellar door past the wine-glass sculpture",
+    "verified": "downloaded 2026-07-11, viewed and verified: venue entrance scene with garden, sculpture and vineyard behind"
+   },
+   "briefing": {
+    "icebreaker": "The sensory garden was Australia's first: you smell the plant in the bed, then hunt the same note in your glass.",
+    "proMove": "Book the morning garden experience (9 to 12) and roll straight into the noon tasting; Wednesday to Sunday only.",
+    "hiddenGem": "The kelpie usually does the welcoming, and the picnic tables among the garden beds are yours if you buy a bottle."
+   },
+   "sommNote": "The most original hour in WA wine: a garden that teaches your nose the wine list before the first pour."
+  }
+ ],
+ "wines": [
+  {
+   "id": "mr-brown-hill-golden-horseshoe-chardonnay",
+   "name": "Golden Horseshoe Reserve Chardonnay",
+   "wineryId": "mr-brown-hill",
+   "variety": "Chardonnay",
+   "vintage": "2023",
+   "price": "$50",
+   "description": "The reserve white, named for a legendary Kalgoorlie mine: hand-picked Chardonnay with stone fruit and fine oak.",
+   "sommNote": "The family holds this back for good years only; if it is open, that is your answer.",
+   "rating": 4.4,
+   "pairings": [
+    "roast chicken",
+    "grilled snapper",
+    "creamy pasta",
+    "soft cheeses"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2031",
+   "community": {
+    "score": 4.1,
+    "count": 124,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-brown-hill-chaffers-shiraz",
+   "name": "Chaffers Shiraz",
+   "wineryId": "mr-brown-hill",
+   "variety": "Shiraz",
+   "vintage": "2023",
+   "price": "$28",
+   "description": "Hand-picked estate Shiraz named for the Chaffers mine: dark plum, spice and remarkable polish for the money.",
+   "sommNote": "The best-value red on the Rosa Brook road; buy the six-pack and thank yourself in winter.",
+   "rating": 4.2,
+   "pairings": [
+    "barbecued lamb",
+    "beef stew",
+    "pepperoni pizza",
+    "aged cheddar"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2031",
+   "community": {
+    "score": 3.9,
+    "count": 251,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-brown-hill-trafalgar-cabernet-merlot",
+   "name": "Trafalgar Cabernet Merlot",
+   "wineryId": "mr-brown-hill",
+   "variety": "Cabernet Merlot",
+   "vintage": "2022",
+   "price": "$28",
+   "description": "A supple, leafy Margaret River blend carrying the name of another goldfields digging.",
+   "sommNote": "Drinks two price tiers above its tag; thirty minutes of air is all it asks.",
+   "rating": 4.1,
+   "pairings": [
+    "roast lamb",
+    "shepherd's pie",
+    "field mushrooms",
+    "hard cheeses"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2030",
+   "community": {
+    "score": 4.0,
+    "count": 78,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-hamelin-five-ashes-reserve-chardonnay",
+   "name": "Five Ashes Reserve Chardonnay",
+   "wineryId": "mr-hamelin-bay",
+   "variety": "Chardonnay",
+   "vintage": "2023",
+   "price": "$50",
+   "description": "Karridale Chardonnay off the Five Ashes vineyard: citrus-fine, slow-ripened and cut with cool-climate acidity.",
+   "sommNote": "The deep south's answer to Wallcliffe's icons at half the ticket; serve at 11C.",
+   "rating": 4.3,
+   "pairings": [
+    "abrolhos scallops",
+    "roast chicken",
+    "soft cheeses",
+    "lemon risotto"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2032",
+   "community": {
+    "score": 4.0,
+    "count": 39,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-hamelin-five-ashes-cabernet",
+   "name": "Five Ashes Vineyard Cabernet Sauvignon",
+   "wineryId": "mr-hamelin-bay",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2024",
+   "price": "$40",
+   "description": "Perfumed, fine-boned Cabernet that ripens weeks behind Wilyabrup and keeps its violets to show for it.",
+   "sommNote": "Cooler dirt, prettier wine: decant briefly and resist over-warming it by the fire.",
+   "rating": 4.2,
+   "pairings": [
+    "lamb rack",
+    "duck breast",
+    "beetroot dishes",
+    "hard sheep's cheese"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2034",
+   "community": {
+    "score": 4.0,
+    "count": 142,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-hamelin-ssb",
+   "name": "Semillon Sauvignon Blanc",
+   "wineryId": "mr-hamelin-bay",
+   "variety": "Semillon Sauvignon Blanc",
+   "vintage": "2025",
+   "price": "$25",
+   "description": "The southern take on the regional signature: grassy, citrus-bright and bracing as the beach it is named for.",
+   "sommNote": "Made for the terrace at lunch; the acidity keeps pace with anything from the sea.",
+   "rating": 4.0,
+   "pairings": [
+    "fish and chips",
+    "oysters",
+    "green salads",
+    "goat's curd"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2027"
+  },
+  {
+   "id": "mr-grace-farm-reserve-cabernet",
+   "name": "Reserve Cabernet Sauvignon",
+   "wineryId": "mr-grace-farm",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2019",
+   "price": "$70",
+   "description": "The farm's flagship: small-batch Wilyabrup Cabernet with cassis depth and a decorated show record.",
+   "sommNote": "Made in tiny volumes and sold almost entirely at the gate; decant an hour.",
+   "rating": 4.4,
+   "pairings": [
+    "dry-aged beef",
+    "roast lamb",
+    "wild mushroom dishes",
+    "aged cheddar"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2035",
+   "community": {
+    "score": 4.0,
+    "count": 92,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-grace-farm-chardonnay",
+   "name": "Chardonnay",
+   "wineryId": "mr-grace-farm",
+   "variety": "Chardonnay",
+   "vintage": "2024",
+   "price": "$40",
+   "description": "Estate Chardonnay with white peach and a gentle creamy seam, made in the farm's unhurried style.",
+   "sommNote": "The crowd-pleaser of the range and honestly priced; drink it on the verandah it was made for.",
+   "rating": 4.3,
+   "pairings": [
+    "roast chicken",
+    "grilled marron",
+    "sweetcorn dishes",
+    "brie"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2030",
+   "community": {
+    "score": 4.2,
+    "count": 154,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-grace-farm-ice-pressed-semillon",
+   "name": "Ice Pressed Semillon",
+   "wineryId": "mr-grace-farm",
+   "variety": "Semillon (dessert)",
+   "vintage": "2025",
+   "price": "$35",
+   "description": "The valley's only wine of its kind: Semillon pressed frozen to concentrate honeyed sweetness over bright acidity.",
+   "sommNote": "A 375ml bottle that ends lunches properly; serve well chilled with anything involving stone fruit or blue cheese.",
+   "rating": 4.2,
+   "pairings": [
+    "peach tart",
+    "blue cheese",
+    "crème brûlée",
+    "fresh figs"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2030"
+  },
+  {
+   "id": "mr-whicher-sauvignon-blanc",
+   "name": "Sauvignon Blanc",
+   "wineryId": "mr-whicher-ridge",
+   "variety": "Sauvignon Blanc",
+   "vintage": "2024",
+   "price": "$28",
+   "description": "The sensory garden's teaching wine: gooseberry, lemongrass and blackcurrant leaf you can literally smell in the beds outside.",
+   "sommNote": "Do the garden first, then taste; the aroma hunt turns sceptics into bores at dinner parties, in a good way.",
+   "rating": 4.1,
+   "pairings": [
+    "goat's cheese",
+    "asparagus",
+    "ceviche",
+    "herb salads"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2027"
+  },
+  {
+   "id": "mr-whicher-long-road-shiraz",
+   "name": "Long Road Shiraz",
+   "wineryId": "mr-whicher-ridge",
+   "variety": "Shiraz",
+   "vintage": "2018",
+   "price": "$38",
+   "description": "Peppery, medium-weight Shiraz that shows off the ridge country's cooler nights.",
+   "sommNote": "Named for the road less travelled that gets you here; it suits slow cooking and slower afternoons.",
+   "rating": 4.1,
+   "pairings": [
+    "slow-roasted lamb",
+    "beef casserole",
+    "char-grilled vegetables",
+    "washed-rind cheese"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2030"
+  },
+  {
+   "id": "mr-whicher-cabernet-sauvignon",
+   "name": "Cabernet Sauvignon",
+   "wineryId": "mr-whicher-ridge",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2019",
+   "price": "$40",
+   "description": "Structured hinterland Cabernet with dark berries, bay leaf and a firm, honest finish.",
+   "sommNote": "The Howards are winemaker and viticulturist by trade, and it shows in the tannin work; give it an hour in the decanter.",
+   "rating": 4.2,
+   "pairings": [
+    "ribeye",
+    "roast duck",
+    "lentil dishes",
+    "hard cheeses"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2032"
+  }
+ ]
+}

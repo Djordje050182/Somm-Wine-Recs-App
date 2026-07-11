@@ -10,7 +10,7 @@ import GuideModal from './GuideModal';
 // Beyond the vines — the region's dining, adventures and diversions,
 // in the same hairline-card idiom as the winery directory.
 
-const CATEGORIES: Array<'All' | ExperienceCategory> = ['All', 'Dining', 'Adventure', 'Nature', 'Golf', 'Shopping', 'Family'];
+const CATEGORIES: Array<'All' | ExperienceCategory> = ['All', 'Dining', 'Breweries', 'Adventure', 'Nature', 'Golf', 'Shopping', 'Family'];
 
 const Experiences: React.FC = () => {
   const { region } = useRegion();

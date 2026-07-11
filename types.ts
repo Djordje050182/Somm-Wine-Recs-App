@@ -157,7 +157,7 @@ export interface WineDetail {
   };
 }
 
-export type ExperienceCategory = 'Dining' | 'Adventure' | 'Nature' | 'Golf' | 'Shopping' | 'Family';
+export type ExperienceCategory = 'Dining' | 'Breweries' | 'Adventure' | 'Nature' | 'Golf' | 'Shopping' | 'Family';
 
 export interface Experience {
   id: string;              // 'hv-balloon-aloft'

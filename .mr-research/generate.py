@@ -140,7 +140,7 @@ def exp_ts(e):
 def emit_winery_file(fname, const, comment, batches):
     wineries, wines, img_by_id, name_by_id = [], [], {}, {}
     for b in batches:
-        d = load(b)
+        d = b if isinstance(b, dict) else load(b)
         if not d:
             continue
         for w in d.get('wineries', []):
@@ -190,7 +190,7 @@ def emit_winery_file(fname, const, comment, batches):
 def emit_experiences():
     exps = []
     seen = set()
-    for b in ['exp-dining.json', 'exp-adventure.json', 'exp-nature-golf.json', 'exp-shopping-family.json', 'experiences.json']:
+    for b in ['exp-dining.json', 'exp-breweries.json', 'exp-adventure.json', 'exp-nature-golf.json', 'exp-shopping-family.json', 'experiences.json']:
         d = load(b)
         if not d:
             continue
@@ -202,7 +202,7 @@ def emit_experiences():
                 continue
             seen.add(e['id'])
             exps.append(e)
-    order = {'Dining': 0, 'Adventure': 1, 'Nature': 2, 'Golf': 3, 'Shopping': 4, 'Family': 5}
+    order = {'Dining': 0, 'Breweries': 1, 'Adventure': 2, 'Nature': 3, 'Golf': 4, 'Shopping': 5, 'Family': 6}
     exps.sort(key=lambda e: (order.get(e['category'], 9), e['name']))
     cats = {}
     for e in exps:
@@ -221,18 +221,44 @@ def emit_experiences():
         f.write(header + body)
     return len(exps), cats
 
+def split_mixed_batches(names):
+    """Mixed-subregion batch files (batch-*.json) are routed to the right
+    output file by each winery's subregion. Wines follow their winery."""
+    area = {'Wilyabrup': 'wilyabrup', 'Yallingup': 'north', 'Carbunup': 'north',
+            'Wallcliffe': 'south', 'Karridale': 'south'}
+    out = {k: {'wineries': [], 'wines': []} for k in ('wilyabrup', 'north', 'south')}
+    for name in names:
+        d = load(name)
+        if not d:
+            continue
+        winery_area = {}
+        for w in d.get('wineries', []):
+            key = area.get(w.get('subregion'))
+            if not key:
+                print(f"  ! unknown subregion for {w.get('id')}: {w.get('subregion')}", file=sys.stderr)
+                continue
+            winery_area[w['id']] = key
+            out[key]['wineries'].append(w)
+        for wine in d.get('wines', []):
+            key = winery_area.get(wine.get('wineryId'))
+            if key:
+                out[key]['wines'].append(wine)
+    return out
+
 if __name__ == '__main__':
+    mixed = split_mixed_batches(['batch-large.json', 'batch-boutique.json',
+                                 'batch-quirky.json', 'batch-hidden.json'])
     nw, nwi = emit_winery_file('wineries-wilyabrup.ts', 'WILYABRUP_WINERIES',
                                'Wilyabrup — the founding heartland of Margaret River.',
-                               ['wilyabrup-b1.json', 'wilyabrup.json', 'wilyabrup-b2.json'])
+                               ['wilyabrup-b1.json', 'wilyabrup.json', 'wilyabrup-b2.json', mixed['wilyabrup']])
     print(f'wilyabrup: {nw} wineries, {nwi} wines')
     nw, nwi = emit_winery_file('wineries-north.ts', 'NORTH_WINERIES',
                                'The northern capes — Yallingup, Dunsborough, Eagle Bay and Carbunup.',
-                               ['north.json'])
+                               ['north.json', mixed['north']])
     print(f'north: {nw} wineries, {nwi} wines')
     nw, nwi = emit_winery_file('wineries-south.ts', 'SOUTH_WINERIES',
                                'Wallcliffe and the deep south — the river mouth, Witchcliffe and Karridale.',
-                               ['south.json'])
+                               ['south.json', mixed['south']])
     print(f'south: {nw} wineries, {nwi} wines')
     ne, cats = emit_experiences()
     print(f'experiences: {ne} — {cats}')

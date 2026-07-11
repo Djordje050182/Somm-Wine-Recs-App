@@ -1,0 +1,419 @@
+{
+ "wineries": [
+  {
+   "id": "mr-swings-roundabouts",
+   "name": "Swings & Roundabouts",
+   "subregion": "Yallingup",
+   "specialty": "Playful Kiss Chasey wines, wood-fired pizza and a raucous family beer-garden energy",
+   "wines": [
+    "Kiss Chasey Red",
+    "Sauvignon Blanc Semillon",
+    "Backyard Stories Chardonnay"
+   ],
+   "established": 2004,
+   "priceRange": "$$",
+   "description": "The valley's most cheerfully unbuttoned cellar door: serious Yallingup fruit dressed down with pizza, umbrellas and a fire pit under the gums.",
+   "story": "Swings & Roundabouts set up on Caves Road in 2004 with a simple heresy: wine country should be fun. The Kiss Chasey range wears playground names, the kitchen turns out wood-fired pizzas all afternoon, and the garden, all market umbrellas, fire bowl and lawn games under towering gums, hums like a country fair on weekends. A second outpost pours in Margaret River town, but the Caves Road original is the one with the dirt under its fingernails.",
+   "style": "Playful",
+   "opens": "11:00",
+   "closes": "17:00",
+   "lat": -33.6276,
+   "lng": 115.0681,
+   "hasRestaurant": true,
+   "rating": 4.4,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "website": "https://swings.com.au",
+   "bookingUrl": "https://swings.com.au",
+   "tastingFee": 0,
+   "image": {
+    "url": "https://swings.com.au/cdn/shop/files/newly-renovated-cellar.jpg",
+    "source": "winery",
+    "alt": "The garden at Swings & Roundabouts with umbrellas, fire bowl and gum trees",
+    "verified": "downloaded 2026-07-11, viewed and verified: venue-scale beer-garden scene under gum trees"
+   },
+   "briefing": {
+    "icebreaker": "The wines are named for playground games, but the fruit underneath is serious Yallingup vineyard stock.",
+    "proMove": "Order a wood-fired pizza with your tasting and claim a spot by the fire bowl; the kitchen closes an hour before the venue.",
+    "hiddenGem": "They keep a second cellar door on Bussell Highway in Margaret River town for rainy days when the garden loses its charm."
+   },
+   "sommNote": "The antidote to tasting-room hush: bring the kids, order the pizza, and let the Kiss Chasey rosé do the ice-breaking."
+  },
+  {
+   "id": "mr-happs",
+   "name": "Happs Wines & Commonage Pottery",
+   "subregion": "Yallingup",
+   "specialty": "Pour-your-own tastings, preservative-free reds and a working pottery under one roof",
+   "wines": [
+    "Fuchsia",
+    "Three Hills Shiraz",
+    "PF Red"
+   ],
+   "established": 1978,
+   "priceRange": "$$",
+   "description": "A schoolteacher-built winery where the tasting taps are self-serve, the reds come preservative-free, and the pottery wheel spins next door.",
+   "story": "Erl Happ, a schoolteacher with restless hands, planted vines at Commonage Road in 1978 and built the winery himself, brick by handmade brick. The estate has never stopped experimenting since: its Karridale Three Hills vineyard grows one of the largest variety collections in the state, its preservative-free reds pioneered the style in WA, and the cellar door pours through self-serve taps under a vine-draped canopy. Commonage Pottery, a working studio and gallery, shares the property, and the resident potters teach classes.",
+   "style": "Eclectic",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.6649,
+   "lng": 115.0958,
+   "hasRestaurant": false,
+   "rating": 4.4,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "phone": "08 9755 3300",
+   "website": "https://happs.com.au",
+   "tastingFee": 0,
+   "image": {
+    "url": "https://happs.com.au/cdn/shop/files/untitled_385_of_975_720x.jpg",
+    "source": "winery",
+    "alt": "Pouring a taste from the self-serve wine taps under the vine canopy at Happs",
+    "verified": "downloaded 2026-07-11, viewed and verified: hands at the signature self-pour tasting taps, no faces"
+   },
+   "briefing": {
+    "icebreaker": "Founder Erl Happ built the winery himself out of handmade bricks, and the tasting bar still runs on pour-your-own taps.",
+    "proMove": "Work the self-serve taps methodically from whites to fortifieds, then wander into the pottery and watch the wheel; kids can book a school-holiday clay workshop.",
+    "hiddenGem": "Their Three Hills vineyard down in Karridale grows dozens of varieties, which is why the tap wall reads like a UN roll call."
+   },
+   "sommNote": "Wine country's oddest and most loveable double act: serve yourself from the taps, then buy the goblet it belongs in from the potter next door."
+  },
+  {
+   "id": "mr-house-of-cards",
+   "name": "House of Cards",
+   "subregion": "Yallingup",
+   "specialty": "100% certified organic single-vineyard wines named for the gambler's deck",
+   "wines": [
+    "Queen of Hearts Chardonnay",
+    "The Joker Shiraz",
+    "One Eyed Jack Fortified Shiraz"
+   ],
+   "established": 2011,
+   "priceRange": "$$",
+   "description": "A certified organic single vineyard run by an ex-Navy clearance diver, where every wine is a playing card and every vintage is a declared gamble.",
+   "story": "Travis Wray spent five years as a Royal Australian Navy clearance diver before swapping demolition for viticulture at Curtin University, founding House of Cards with his wife Elizabeth in 2011. The name is the philosophy: winemaking is a gamble and you play the hand you are dealt, so the certified organic, dry-grown estate wines wear names like Queen of Hearts, The Joker and One Eyed Jack. The black corrugated winery rises straight out of the vines at the northern end of Caves Road.",
+   "style": "Organic",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.7352,
+   "lng": 115.0146,
+   "hasRestaurant": false,
+   "rating": 4.4,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "website": "https://www.houseofcardswine.com.au",
+   "bookingUrl": "https://www.houseofcardswine.com.au/cellar-door",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://fusws.api.aspedia.io/houseofcards-website/pages/cellar%20door/cellardoor%20banner.png",
+    "source": "winery",
+    "alt": "The black corrugated House of Cards winery rising above its vines",
+    "verified": "downloaded 2026-07-11, viewed and verified: black winery building over green vine canopy"
+   },
+   "briefing": {
+    "icebreaker": "The founder cleared mines for the Navy before he ever pruned a vine; ask him which job had better odds.",
+    "proMove": "The $15 tasting is redeemable against any purchase, and the Queen of Hearts Chardonnay is the card to back.",
+    "hiddenGem": "Everything is 100% certified organic single-vineyard fruit, a claim almost nobody else on Caves Road can make without footnotes."
+   },
+   "sommNote": "Margaret River's best bluff: navy discipline, organic vines, and a Chardonnay that plays a royal flush at mid-table money."
+  },
+  {
+   "id": "mr-ls-merchants",
+   "name": "LS Merchants",
+   "subregion": "Wilyabrup",
+   "specialty": "Natural-leaning small-batch wines, hand-plunged in open vats in a working shed",
+   "wines": [
+    "Fools Gold Pet Nat",
+    "Butter Barrels Chardonnay",
+    "470 Shiraz"
+   ],
+   "established": 2014,
+   "priceRange": "$$",
+   "description": "The region's natural-wine clubhouse: a working shed on Treeton Road where the ferments are hand-plunged, the labels are hand-drawn and nothing is taken too seriously except the wine.",
+   "story": "LS Merchants, officially Liquid Surprises Pty Ltd, which tells you most of what you need to know, is winemaker Dylan Arvidson's vehicle for chasing interesting fruit across Western Australia and treating it gently: open-top vessels, daily hand plunging, minimal additions. The cellar door is the winery itself, a corrugated shed where tastings happen among forklifts, hoses and barrels, and the range runs from pet nat to serious single-site Shiraz.",
+   "style": "Natural",
+   "opens": "10:30",
+   "closes": "16:30",
+   "lat": -33.8379,
+   "lng": 115.1326,
+   "hasRestaurant": false,
+   "rating": 4.3,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "website": "https://www.lsmerchants.com.au",
+   "bookingUrl": "https://www.lsmerchants.com.au/cellar-door",
+   "tastingFee": 10,
+   "image": {
+    "url": "https://images.squarespace-cdn.com/content/v1/55e54b32e4b02ff4c8f85af1/1693741660819-6LYQF3TPANW4DB5IHHY5/20210924_LSMerchants_DropInn_DR-92_LR.jpg",
+    "source": "winery",
+    "alt": "Inside the LS Merchants working winery shed with banner, hoses and forklift",
+    "verified": "downloaded 2026-07-11, viewed and verified: working winery shed with LS Merchants banner, honest and quirky"
+   },
+   "briefing": {
+    "icebreaker": "LS stands for Liquid Surprises, and the company name is literally Liquid Surprises Pty Ltd.",
+    "proMove": "Tastings are seated and genuinely fun, so book ahead in peak season and let them steer you; the Butter Barrels Chardonnay converts sceptics of both camps.",
+    "hiddenGem": "This is the winery itself, not a showroom: your tasting bench sits metres from the open ferments that made what is in your glass."
+   },
+   "sommNote": "Where the region lets its hair down: hand-plunged, hand-labelled, and the pet nat outsells the postcode's pretensions."
+  }
+ ],
+ "wines": [
+  {
+   "id": "mr-swings-kiss-chasey-red",
+   "name": "Kiss Chasey Red",
+   "wineryId": "mr-swings-roundabouts",
+   "variety": "Red Blend",
+   "vintage": "2024",
+   "price": "$25",
+   "description": "The house party red: a juicy Yallingup blend built for the garden, the pizza and very little ceremony.",
+   "sommNote": "Serve with a light chill and a margherita; overthinking it misses the point.",
+   "rating": 4.0,
+   "pairings": [
+    "wood-fired pizza",
+    "charcuterie",
+    "burgers",
+    "hard cheese"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2028"
+  },
+  {
+   "id": "mr-swings-ssb",
+   "name": "Sauvignon Blanc Semillon",
+   "wineryId": "mr-swings-roundabouts",
+   "variety": "Sauvignon Blanc Semillon",
+   "vintage": "2025",
+   "price": "$25",
+   "description": "The region's everyday signature done with Yallingup brightness: passionfruit, lemongrass and a crisp dry finish.",
+   "sommNote": "The default first glass in the garden; icy cold, no notes.",
+   "rating": 4.0,
+   "pairings": [
+    "fish tacos",
+    "oysters",
+    "green salads",
+    "goat's cheese"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2027"
+  },
+  {
+   "id": "mr-swings-backyard-stories-chardonnay",
+   "name": "Backyard Stories Chardonnay",
+   "wineryId": "mr-swings-roundabouts",
+   "variety": "Chardonnay",
+   "vintage": "2023",
+   "price": "$45",
+   "description": "The grown-up label in the playground: single-site Chardonnay with proper oak and length.",
+   "sommNote": "Proof the playfulness is a choice, not a ceiling; drink it when the pizza oven cools.",
+   "rating": 4.3,
+   "pairings": [
+    "roast chicken",
+    "creamy pasta",
+    "grilled snapper",
+    "brie"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2031"
+  },
+  {
+   "id": "mr-happs-fuchsia",
+   "name": "Fuchsia",
+   "wineryId": "mr-happs",
+   "variety": "Rosé blend",
+   "vintage": "2024",
+   "price": "$25",
+   "description": "The famous shocking-pink cellar-door favourite: aromatic, off-dry and dangerously easy in the sunshine.",
+   "sommNote": "Forty-plus years of picnics have been built on this bottle; serve it very cold and unapologetically.",
+   "rating": 4.0,
+   "pairings": [
+    "spicy noodles",
+    "fruit platters",
+    "soft cheeses",
+    "ham sandwiches"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2027",
+   "community": {
+    "score": 3.8,
+    "count": 221,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-happs-three-hills-shiraz",
+   "name": "Three Hills Shiraz",
+   "wineryId": "mr-happs",
+   "variety": "Shiraz",
+   "vintage": "2022",
+   "price": "$45",
+   "description": "The serious face of Happs: dense, spicy Shiraz off the multi-variety Three Hills vineyard down in Karridale.",
+   "sommNote": "Karridale's cool southern edge gives it a peppery lift; decant thirty minutes and serve with something char-grilled.",
+   "rating": 4.3,
+   "pairings": [
+    "char-grilled rump",
+    "venison",
+    "beef cheek pie",
+    "aged gouda"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2034",
+   "community": {
+    "score": 4.0,
+    "count": 111,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-happs-pf-red",
+   "name": "PF Red",
+   "wineryId": "mr-happs",
+   "variety": "Red Blend",
+   "vintage": "2024",
+   "price": "$30",
+   "description": "The preservative-free pioneer: a soft, plush red bottled with nothing added, from the estate that made the style respectable in WA.",
+   "sommNote": "Drink young and slightly cool; without preservatives it is made for now, not the cellar.",
+   "rating": 4.0,
+   "pairings": [
+    "roast vegetables",
+    "mild curries",
+    "pasta al pomodoro",
+    "cheddar"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2026"
+  },
+  {
+   "id": "mr-hoc-queen-of-hearts-chardonnay",
+   "name": "Queen of Hearts Chardonnay",
+   "wineryId": "mr-house-of-cards",
+   "variety": "Chardonnay",
+   "vintage": "2024",
+   "price": "$45",
+   "description": "The estate's royal flush: organic dry-grown Chardonnay with white peach, struck flint and real length.",
+   "sommNote": "The best-value organic Chardonnay in the region; serve at 11C and let it warm in the glass.",
+   "rating": 4.4,
+   "pairings": [
+    "grilled marron",
+    "roast chicken",
+    "soft cheeses",
+    "sweetcorn risotto"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2031",
+   "community": {
+    "score": 4.3,
+    "count": 222,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-hoc-joker-shiraz",
+   "name": "The Joker Shiraz",
+   "wineryId": "mr-house-of-cards",
+   "variety": "Shiraz",
+   "vintage": "2024",
+   "price": "$35",
+   "description": "Organic single-vineyard Shiraz with dark plum, cracked pepper and a wild card of savoury spice.",
+   "sommNote": "The Joker plays looser than the Cabernets; serve just under room temperature with anything off the grill.",
+   "rating": 4.1,
+   "pairings": [
+    "barbecued lamb",
+    "pepper steak",
+    "ratatouille",
+    "hard cheeses"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2030",
+   "community": {
+    "score": 3.9,
+    "count": 143,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-hoc-one-eyed-jack",
+   "name": "One Eyed Jack Fortified Shiraz",
+   "wineryId": "mr-house-of-cards",
+   "variety": "Fortified Shiraz",
+   "vintage": "NV",
+   "price": "$35",
+   "description": "A wicked little fortified Shiraz, all raisin, treacle and clove, made in tiny organic batches.",
+   "sommNote": "The card up the sleeve for the end of a long lunch; pour small, alongside anything chocolate.",
+   "rating": 4.2,
+   "pairings": [
+    "chocolate desserts",
+    "blue cheese",
+    "salted caramel",
+    "espresso"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2040"
+  },
+  {
+   "id": "mr-ls-fools-gold-pet-nat",
+   "name": "Fools Gold Pet Nat",
+   "wineryId": "mr-ls-merchants",
+   "variety": "Pétillant Naturel",
+   "vintage": "2026",
+   "price": "$26",
+   "description": "Naturally bottle-fermented fizz with a cheerful cloud of harmless, delicious sediment, straight from the shed.",
+   "sommNote": "Chill hard, invert gently once, and drink outdoors; this is sunshine plumbing, not Champagne protocol.",
+   "rating": 4.0,
+   "pairings": [
+    "fried chicken",
+    "oysters",
+    "salty chips",
+    "soft cheeses"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2027"
+  },
+  {
+   "id": "mr-ls-butter-barrels-chardonnay",
+   "name": "Butter Barrels Chardonnay",
+   "wineryId": "mr-ls-merchants",
+   "variety": "Chardonnay",
+   "vintage": "2025",
+   "price": "$35",
+   "description": "The name is a dare and a description: golden, textural Chardonnay that rehabilitates butteriness for the natural set.",
+   "sommNote": "Serve a touch warmer than you think; the texture is the whole show.",
+   "rating": 4.2,
+   "pairings": [
+    "roast chicken",
+    "corn on the cob",
+    "lobster rolls",
+    "triple-cream brie"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2030",
+   "community": {
+    "score": 4.0,
+    "count": 90,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-ls-470-shiraz",
+   "name": "'470' Shiraz",
+   "wineryId": "mr-ls-merchants",
+   "variety": "Shiraz",
+   "vintage": "2024",
+   "price": "$75",
+   "description": "The shed's serious statement: single-site Shiraz, hand-plunged in open vats and bottled with minimal intervention.",
+   "sommNote": "Proof the natural crowd can build for the cellar too; decant an hour and hide the last glass.",
+   "rating": 4.3,
+   "pairings": [
+    "slow-roasted lamb",
+    "duck breast",
+    "wild mushrooms",
+    "washed-rind cheese"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2034"
+  }
+ ]
+}

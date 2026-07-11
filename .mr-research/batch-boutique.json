@@ -1,0 +1,428 @@
+{
+ "wineries": [
+  {
+   "id": "mr-edwards",
+   "name": "Edwards Wines",
+   "subregion": "Wilyabrup",
+   "specialty": "Estate-grown Chardonnay and Cabernet from the corner of Caves and Ellen Brook Roads",
+   "wines": [
+    "Reserve Chardonnay",
+    "Matilda Cabernet Malbec",
+    "Shiraz Grenache Rosé"
+   ],
+   "established": 1994,
+   "priceRange": "$$",
+   "description": "A family-owned single estate where everything in the bottle grew on the farm, poured with zero pretension a stone's throw from the Gracetown turn.",
+   "story": "The Edwards family planted their vineyard at the corner of Caves Road and Ellen Brook Road in 1994 and have kept the whole operation in family hands since: estate fruit only, made and bottled on site. The cellar door pours the full range daily, from the flagship Reserve Chardonnay to the easy-drinking Matilda wines named for the family matriarch.",
+   "style": "Family",
+   "opens": "10:30",
+   "closes": "16:30",
+   "lat": -33.8876,
+   "lng": 115.0385,
+   "hasRestaurant": false,
+   "rating": 4.4,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "phone": "08 9757 7777",
+   "website": "https://www.edwardswines.com.au",
+   "tastingFee": 0,
+   "image": {
+    "url": "https://www.edwardswines.com.au/wp-content/uploads/2026/03/1-1.png",
+    "source": "winery",
+    "alt": "Aerial view over the Edwards vineyard, dam and red-dirt track at golden hour",
+    "verified": "downloaded 2026-07-11, viewed and verified: aerial of estate vineyard with dam and red gravel track"
+   },
+   "briefing": {
+    "icebreaker": "Everything poured here grew within sight of the tasting bench, and the Matilda wines are named for the family matriarch.",
+    "proMove": "Tastings are complimentary and walk-ins are welcome; start with the Reserve Chardonnay against the Matilda Chardonnay to taste the estate at two prices.",
+    "hiddenGem": "The corner block location means you can walk in minutes after a Gracetown beach morning, well before the Caves Road crowds get going."
+   },
+   "sommNote": "The quiet achiever of the Ellen Brook corner: single-estate fruit, family hands, and a Reserve Chardonnay that fights well above its price."
+  },
+  {
+   "id": "mr-ashbrook",
+   "name": "Ashbrook Estate",
+   "subregion": "Wilyabrup",
+   "specialty": "Single-vineyard Semillon, Verdelho and Chardonnay from one of Wilyabrup's 1970s pioneers",
+   "wines": [
+    "Semillon",
+    "Verdelho",
+    "Cabernet Merlot"
+   ],
+   "established": 1975,
+   "priceRange": "$$",
+   "description": "A no-fuss 1975 pioneer on Tom Cullity Drive that has quietly logged more than forty consecutive estate vintages, still family owned and operated.",
+   "story": "The Devitt family planted Ashbrook in 1975 among the forest off what is now Tom Cullity Drive, and by 2022 the estate was marking its 44th consecutive vintage as a family-owned, single-vineyard producer. While neighbours built restaurants and galleries, Ashbrook kept its head down and its prices honest, earning a devoted following for its whites, especially a Verdelho regarded among Australia's best.",
+   "style": "Heritage",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.8246,
+   "lng": 115.0433,
+   "hasRestaurant": false,
+   "rating": 4.4,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "website": "https://ashbrookwines.com.au",
+   "tastingFee": 0,
+   "image": {
+    "url": "https://ashbrookwines.com.au/wp-content/uploads/2021/10/Autumn-leaves-Chardy-below-riesling-scaled.jpg",
+    "source": "winery",
+    "alt": "Autumn-gold vine rows at Ashbrook Estate with forest behind",
+    "verified": "downloaded 2026-07-11, viewed and verified: autumn vineyard rows against forest, no people"
+   },
+   "briefing": {
+    "icebreaker": "Ashbrook has notched more than forty consecutive estate vintages under one family, a Wilyabrup record few neighbours can match.",
+    "proMove": "Ask for the Verdelho: it is one of the few serious examples in Australia and rarely leaves the cellar door.",
+    "hiddenGem": "The estate sits on Tom Cullity Drive within a short hop of Vasse Felix, Juniper and Thompson, making it the sleeper stop on the region's most storied road."
+   },
+   "sommNote": "The connoisseur's detour: nowhere else in the valley does Verdelho this seriously, and the Semillon is built like the Hunter's best."
+  },
+  {
+   "id": "mr-fraser-gallop",
+   "name": "Fraser Gallop Estate",
+   "subregion": "Wilyabrup",
+   "specialty": "Dry-grown Parterre and Palladian Chardonnay and Cabernet from a Halliday five-star estate",
+   "wines": [
+    "Parterre Chardonnay",
+    "Palladian Chardonnay",
+    "Parterre Cabernet Sauvignon"
+   ],
+   "established": 1999,
+   "priceRange": "$$$",
+   "description": "A meticulously groomed Metricup Road estate whose dry-grown Chardonnay and Cabernet have collected international trophies at a startling rate.",
+   "story": "Nigel Gallop planted this Metricup Road vineyard in 1999 and set about making wines with Old World restraint from dry-grown Wilyabrup fruit. The gamble paid off quickly: James Halliday rates the estate five stars, the Parterre Chardonnay was ranked number two in WA at the 2025 WA Good Food Guide awards, and the wines now feature in The Wine Advocate's Australian new-release coverage. The manicured grounds, complete with the Georgian-style Gallop House across the lake, are worth the drive alone.",
+   "style": "Premium",
+   "opens": "11:00",
+   "closes": "16:00",
+   "lat": -33.7854,
+   "lng": 115.0445,
+   "hasRestaurant": false,
+   "rating": 4.6,
+   "bookingRequired": false,
+   "kidFriendly": false,
+   "dogFriendly": false,
+   "phone": "08 9755 7553",
+   "website": "https://www.frasergallopestate.com.au",
+   "tastingFee": 10,
+   "image": {
+    "url": "https://www.frasergallopestate.com.au/wp-content/uploads/2025/04/fraser_gallop_estate_gallop_house_areal-684x1024.jpg",
+    "source": "winery",
+    "alt": "Aerial view of Gallop House across the lake and vine rows at Fraser Gallop Estate",
+    "verified": "downloaded 2026-07-11, viewed and verified: aerial of Georgian-style Gallop House, lake and vineyard"
+   },
+   "briefing": {
+    "icebreaker": "The vines here are dry-grown, no irrigation at all, which is rare even by Wilyabrup's spoilt standards.",
+    "proMove": "Taste the Parterre Chardonnay against the flagship Palladian if it is open; the step up in tension is a masterclass in what oak restraint buys.",
+    "hiddenGem": "Gallop House, the Georgian-style homestead across the lake, hosts long lunches and stays; even from the cellar door it is the region's most photogenic folly."
+   },
+   "sommNote": "Wilyabrup's quiet perfectionist: dry-grown fruit, surgical winemaking, and a Chardonnay pair that embarrasses far dearer bottles."
+  },
+  {
+   "id": "mr-mchenry-hohnen",
+   "name": "McHenry Hohnen",
+   "subregion": "Wallcliffe",
+   "specialty": "Certified biodynamic single-vineyard Chardonnay and alternative varieties from Hazel's and Calgardup Brook",
+   "wines": [
+    "Calgardup Brook Chardonnay",
+    "Hazel's Vineyard Zinfandel",
+    "Rocky Road Shiraz"
+   ],
+   "established": 2004,
+   "priceRange": "$$$",
+   "description": "The biodynamic single-vineyard project of Cape Mentelle founder David Hohnen, poured at a slick Vintners Wine Bar on the Witchcliffe corner.",
+   "story": "David Hohnen, the man who founded Cape Mentelle and Cloudy Bay, teamed up with his brother-in-law Murray McHenry in 2004 to make wines purely from their family vineyards in the region's south. Everything is certified biodynamic, farmed with minimal intervention and bottled by single site, from the taut Calgardup Brook Chardonnay to Australia's most convincing Zinfandel off Hazel's Vineyard. The cellar door doubles as the Vintners Wine Bar, all circular marri bar and bottle halo.",
+   "style": "Biodynamic",
+   "opens": "10:30",
+   "closes": "16:30",
+   "lat": -33.9993,
+   "lng": 115.0926,
+   "hasRestaurant": true,
+   "rating": 4.6,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "website": "https://www.mchenryhohnen.com.au",
+   "bookingUrl": "https://www.mchenryhohnen.com.au/pages/cellar-door-1",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://www.mchenryhohnen.com.au/cdn/shop/files/MCH_Banner_Image_-_Place_2.png",
+    "source": "winery",
+    "alt": "The circular bar and hanging bottle rack of the Vintners Wine Bar at McHenry Hohnen",
+    "verified": "downloaded 2026-07-11, viewed and verified: interior of Vintners Wine Bar, circular bar with bottle halo"
+   },
+   "briefing": {
+    "icebreaker": "The founder made Cloudy Bay famous before coming home to farm biodynamically; ask what he thinks of Sauvignon Blanc these days.",
+    "proMove": "Walk-ins are fine for the standard tasting, but the single-vineyard flight is the point: Calgardup Brook against Burnside shows two Chardonnays a few kilometres and a world apart.",
+    "hiddenGem": "Hazel's Vineyard grows Zinfandel, Tempranillo and Grenache alongside the classics; the Zin is the most serious example in the country."
+   },
+   "sommNote": "Where Margaret River goes when it wants to argue about terroir: one family, certified biodynamic, and every bottle traceable to a single paddock."
+  }
+ ],
+ "wines": [
+  {
+   "id": "mr-edwards-reserve-chardonnay",
+   "name": "Reserve Chardonnay",
+   "wineryId": "mr-edwards",
+   "variety": "Chardonnay",
+   "vintage": "2024",
+   "price": "$50",
+   "description": "The estate flagship white: ripe lemon and lime, white nectarine and a flinty mineral line off the family's oldest Chardonnay rows.",
+   "sommNote": "Serve at 11C rather than fridge-cold; the flint needs a little warmth to speak.",
+   "rating": 4.5,
+   "pairings": [
+    "grilled marron",
+    "roast chicken",
+    "soft washed-rind cheese",
+    "creamy pasta"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2032"
+  },
+  {
+   "id": "mr-edwards-matilda-cabernet-malbec",
+   "name": "Matilda Cabernet Malbec",
+   "wineryId": "mr-edwards",
+   "variety": "Cabernet Malbec",
+   "vintage": "2024",
+   "price": "$28",
+   "description": "Named for the family matriarch: cassis, dark chocolate and red earth in an honest, early-drinking frame.",
+   "sommNote": "Their barbecue red; a light chill in summer does it no harm at all.",
+   "rating": 4.2,
+   "pairings": [
+    "barbecued lamb chops",
+    "beef burgers",
+    "aged cheddar",
+    "sausage rolls"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2030"
+  },
+  {
+   "id": "mr-edwards-shiraz-grenache-rose",
+   "name": "Shiraz Grenache Rosé",
+   "wineryId": "mr-edwards",
+   "variety": "Shiraz Grenache",
+   "vintage": "2025",
+   "price": "$25",
+   "description": "Salmon-pink and lifted, all cranberry, musk and citrus with a delicate dry finish.",
+   "sommNote": "Made for the esky and the Gracetown lookout; drink it young and cold.",
+   "rating": 4.1,
+   "pairings": [
+    "prawns off the barbecue",
+    "fish tacos",
+    "antipasti",
+    "soft feta salads"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2027"
+  },
+  {
+   "id": "mr-ashbrook-semillon",
+   "name": "Semillon",
+   "wineryId": "mr-ashbrook",
+   "variety": "Semillon",
+   "vintage": "2023",
+   "price": "$28",
+   "description": "A single-vineyard Semillon in the taut, age-worthy idiom, picked early and bottled without fuss.",
+   "sommNote": "Buy two: one for tonight's fish, one for the back of the cellar where it will do a Hunter-style transformation.",
+   "rating": 4.3,
+   "pairings": [
+    "whiting or snapper",
+    "oysters",
+    "goat's curd",
+    "asparagus"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2035"
+  },
+  {
+   "id": "mr-ashbrook-verdelho",
+   "name": "Verdelho",
+   "wineryId": "mr-ashbrook",
+   "variety": "Verdelho",
+   "vintage": "2025",
+   "price": "$26",
+   "description": "One of Australia's few serious Verdelhos: tropical fruit with a fresh citrus spine, off vines planted by the founding Devitts.",
+   "sommNote": "The cellar-door cult buy; it rarely reaches shops, so take a case while you can.",
+   "rating": 4.2,
+   "pairings": [
+    "Thai green curry",
+    "grilled prawns",
+    "fresh mango salads",
+    "fish and chips"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2028",
+   "community": {
+    "score": 3.7,
+    "count": 379,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-ashbrook-cabernet-merlot",
+   "name": "Cabernet Merlot",
+   "wineryId": "mr-ashbrook",
+   "variety": "Cabernet Merlot",
+   "vintage": "2020",
+   "price": "$35",
+   "description": "A classically built Wilyabrup blend, all leaf and cassis, from one of the valley's longest continuously farmed single vineyards.",
+   "sommNote": "Forty-plus consecutive vintages of practice show in the tannin polish; decant thirty minutes.",
+   "rating": 4.3,
+   "pairings": [
+    "roast lamb",
+    "beef pie",
+    "hard sheep's cheese",
+    "field mushrooms"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2034"
+  },
+  {
+   "id": "mr-fraser-gallop-parterre-chardonnay",
+   "name": "Parterre Chardonnay",
+   "wineryId": "mr-fraser-gallop",
+   "variety": "Chardonnay",
+   "vintage": "2023",
+   "price": "$40",
+   "description": "Ranked second in WA at the 2025 WA Good Food Guide awards: dry-grown Wilyabrup Chardonnay wound tight around a mineral core.",
+   "sommNote": "Give it ten minutes out of the ice; the struck-match note blossoms into white peach and nougat.",
+   "rating": 4.6,
+   "pairings": [
+    "grilled marron",
+    "roast chicken",
+    "triple-cream brie",
+    "cauliflower gratin"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2033",
+   "community": {
+    "score": 4.0,
+    "count": 1171,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-fraser-gallop-palladian-chardonnay",
+   "name": "Palladian Chardonnay",
+   "wineryId": "mr-fraser-gallop",
+   "variety": "Chardonnay",
+   "vintage": "2022",
+   "price": "$130",
+   "description": "The estate icon, made in tiny quantities with Old World restraint; among the most decorated Chardonnays in the state.",
+   "sommNote": "Cellar-worthy and severe in youth; if you open it now, decant it like a red and serve at 12C.",
+   "rating": 4.7,
+   "pairings": [
+    "butter-poached lobster",
+    "roast turbot",
+    "veal sweetbreads",
+    "aged Comté"
+   ],
+   "drinkFrom": "2027",
+   "drinkTo": "2036",
+   "community": {
+    "score": 4.3,
+    "count": 114,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-fraser-gallop-parterre-cabernet",
+   "name": "Parterre Cabernet Sauvignon",
+   "wineryId": "mr-fraser-gallop",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2018",
+   "price": "$55",
+   "description": "Dry-grown Wilyabrup Cabernet with graphite edges and a long cedar finish, built on the estate's trophy-winning form.",
+   "sommNote": "Drinks like a Margaux understudy at a fraction of the bill; decant an hour.",
+   "rating": 4.5,
+   "pairings": [
+    "dry-aged ribeye",
+    "slow-roasted lamb shoulder",
+    "venison",
+    "hard cheeses"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2038",
+   "community": {
+    "score": 4.0,
+    "count": 1978,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-mchenry-calgardup-chardonnay",
+   "name": "Calgardup Brook Chardonnay",
+   "wineryId": "mr-mchenry-hohnen",
+   "variety": "Chardonnay",
+   "vintage": "2022",
+   "price": "$70",
+   "description": "Biodynamic single-vineyard Chardonnay from limestone country near the coast: saline, taut and slow to unwind.",
+   "sommNote": "The sea-spray salinity is the signature; serve at 11C with anything that swam.",
+   "rating": 4.6,
+   "pairings": [
+    "abrolhos scallops",
+    "pan-fried snapper",
+    "oysters",
+    "young Gruyère"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2033",
+   "community": {
+    "score": 4.1,
+    "count": 185,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-mchenry-hazels-zinfandel",
+   "name": "Hazel's Vineyard Zinfandel",
+   "wineryId": "mr-mchenry-hohnen",
+   "variety": "Zinfandel",
+   "vintage": "2021",
+   "price": "$50",
+   "description": "Australia's most convincing Zinfandel, grown biodynamically on Hazel's Vineyard: dark cherry, spice and a savoury tail.",
+   "sommNote": "Hohnen fell for Zin in California; taste why. Serve just below room temperature with anything char-grilled.",
+   "rating": 4.4,
+   "pairings": [
+    "barbecued pork ribs",
+    "char-grilled sausages",
+    "eggplant parmigiana",
+    "smoked brisket"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2031",
+   "community": {
+    "score": 4.1,
+    "count": 235,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-mchenry-rocky-road-shiraz",
+   "name": "Rocky Road Shiraz",
+   "wineryId": "mr-mchenry-hohnen",
+   "variety": "Shiraz",
+   "vintage": "2023",
+   "price": "$27",
+   "description": "The estate's everyday red: biodynamic single-vineyard Shiraz at a price that shames the category.",
+   "sommNote": "The smart weeknight buy of the whole region; a certified biodynamic single-vineyard wine for under thirty dollars.",
+   "rating": 4.1,
+   "pairings": [
+    "pizza",
+    "lamb kofta",
+    "mushroom risotto",
+    "washed-rind cheese"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2029",
+   "community": {
+    "score": 3.7,
+    "count": 362,
+    "source": "Vivino"
+   }
+  }
+ ]
+}

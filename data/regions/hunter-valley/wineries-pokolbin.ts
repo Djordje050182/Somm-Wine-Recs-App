@@ -38,6 +38,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     bookingUrl: 'https://tyrrells.rezdy.com/',
     tastingFee: 25,
     image: { url: 'https://fusws.api.aspedia.io/tyrrells-website/banners/pages/Tyrrells-Cellar-Door-2025-Hunter-Valley-Tastings.jpg', source: 'winery' as const, alt: "Inside the Tyrrell's cellar door, timber bar and tasting stools" },
+    gallery: [{ url: 'https://fusws.api.aspedia.io/tyrrells-website/cta-images/home-page/old-hut-cellar-door-cta-3-4.jpg', source: 'winery' as const, alt: 'The Tyrrell\'s cellar door entrance, Est. 1858 barrel signs among the roses' }],
     briefing: {
       icebreaker: 'Is it true the Vat 9 still ferments in the old open vats behind Edward\'s 1858 hut?',
       proMove: 'Book ahead â tastings are by appointment â and ask to see the dirt-floored ironbark hut before your flight.',
@@ -70,6 +71,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     bookingUrl: 'https://www.exploretock.com/brokenwoodwines',
     tastingFee: 30,
     image: { url: 'https://www.brokenwood.com.au/wp-content/uploads/2025/08/aboutuspagebanner1.webp', source: 'winery' as const, alt: "The Brokenwood winery and cellar door from the air" },
+    gallery: [{ url: 'https://brokenwood.com.au/wp-content/uploads/2025/07/2640BROMJK2023BrokenwoodExperience163LRRGBFA.webp', source: 'winery' as const, alt: 'A toast in the Brokenwood barrel hall during the tasting experience' }],
     briefing: {
       icebreaker: 'Did the founding syndicate really drive up from Sydney on weekends to work the McDonalds Road block themselves?',
       proMove: 'Book through Tock, taste the Cricket Pitch range first, and leave the Graveyard for the finale it is.',
@@ -101,6 +103,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://audreywilkinson.com.au',
     tastingFee: 25,
     image: { url: 'https://audreywilkinson.com.au/wp-content/uploads/2024/02/home-bg.webp', source: 'winery' as const, alt: "Vines sweeping down to the valley from the Audrey Wilkinson hilltop" },
+    gallery: [{ url: 'https://audreywilkinson.com.au/wp-content/uploads/2024/02/home-bg.webp', source: 'winery' as const, alt: 'Golden morning light over the Audrey Wilkinson hilltop vines and dam' }, { url: 'https://audreywilkinson.com.au/wp-content/uploads/2024/02/AW_Cellar-Door2.webp', source: 'winery' as const, alt: 'The Audrey Wilkinson cellar door at dusk under its great gum' }],
     briefing: {
       icebreaker: 'Was Audrey really making the wines here as a teenager, or is that cellar-door legend?',
       proMove: 'No booking required â arrive before the tour buses, then carry your glass up to the lookout above the cellar door.',
@@ -132,6 +135,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://mountpleasantwines.com.au',
     tastingFee: 20,
     image: { url: 'https://www.mountpleasantwines.com.au/wp-content/uploads/2026/05/mount-pleasant-estate.jpg', source: 'winery' as const, alt: "The Mount Pleasant winery among its vines, Brokenback Range behind" },
+    gallery: [{ url: 'https://www.mountpleasantwines.com.au/wp-content/uploads/2026/05/mount-pleasant-estate.jpg', source: 'winery' as const, alt: 'Mount Pleasant estate from the air, vines wrapped in the foothills' }],
     briefing: {
       icebreaker: 'Are the Old Paddock vines out there really the 1880 plantings O\'Shea inherited?',
       proMove: 'Walk in unbooked, bring the dog, and taste Lovedale beside Elizabeth â same grape, two very different famous blocks.',
@@ -286,6 +290,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://scarboroughwine.com.au',
     tastingFee: 15,
     image: { url: 'https://scarboroughwine.com.au/wp-content/uploads/2025/06/Visit_Us_banner.jpg', source: 'winery' as const, alt: "Sunset over Scarborough's vineyards towards the Brokenback Range" },
+    gallery: [{ url: 'https://scarboroughwine.com.au/wp-content/uploads/2025/06/scarborough-visit.webp', source: 'winery' as const, alt: 'The Scarborough homestead cellar door and gardens on Gillards Road' }],
     briefing: {
       icebreaker: 'Is this really part of the old Lindemans Sunshine vineyard Ian bought in eighty-five?',
       proMove: 'Mind the earlier 4.30 close â come mid-afternoon and taste the Yellow Label against The Obsessive to map the house range.',

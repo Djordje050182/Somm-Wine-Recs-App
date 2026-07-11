@@ -617,6 +617,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     bookingUrl: 'https://margan.com.au/book',
     tastingFee: 10,
     image: { url: 'https://margan-wines.imgix.net/About/A7R05578_DexterKim.jpg?auto=compress&w=1600', source: 'winery' as const, alt: "The rammed-earth entrance to the Margan estate" },
+    gallery: [{ url: 'https://margan-wines.imgix.net/About/A7R05578_DexterKim.jpg', source: 'winery' as const, alt: 'The rammed-earth entrance to Margan through the hedged garden' }, { url: 'https://margan-wines.imgix.net/Restaurant/restaurant_food_fish_table_hands_domcherry.jpg', source: 'winery' as const, alt: 'A plate from the Margan restaurant, fed from its own kitchen garden' }],
     briefing: {
       icebreaker: 'Ask Andrew or Lisa what the volcanic soils of Broke do for Barbera that Pokolbin\'s clay cannot.',
       proMove: 'Book the restaurant before the tasting; the kitchen garden supplies nearly the whole menu and tables vanish.',

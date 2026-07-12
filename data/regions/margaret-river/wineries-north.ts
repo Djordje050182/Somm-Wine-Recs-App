@@ -97,6 +97,7 @@ export const NORTH_WINERIES: Winery[] = [
     website: 'https://aravinaestate.com',
     tastingFee: 0,
     image: { url: 'https://aravinaestate.com/images/homeWhat.webp', source: 'winery' as const, alt: 'Visitors under white umbrellas on the lawn in front of the Aravina Estate homestead and terrace' },
+    gallery: [{ url: 'https://www.aravinaestate.com/images/homeWhat.webp', source: 'winery' as const, alt: 'A summer afternoon on the Aravina lawn, umbrellas and rattan chairs' }],
     briefing: {
       icebreaker: 'Ask what this place was like in its Amberley Estate days — the old guard still remember the Chenin.',
       proMove: 'Restaurant runs Wednesday to Sunday but the cellar door and pizza bar pour seven days — go midweek and have the lawn to yourself.',

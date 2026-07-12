@@ -33,6 +33,7 @@ export const WILYABRUP_WINERIES: Winery[] = [
     bookingUrl: 'https://www.vassefelix.com.au/tasting-room',
     tastingFee: 15,
     image: { url: 'https://sgp1.vultrobjects.com/vasse-felix/_1200x630_crop_center-center_82_none/Vasse-Felix-Estate.jpg', source: 'winery' as const, alt: 'Vineyard rows sweeping up to the white-roofed Vasse Felix cellar door and restaurant buildings under a big sky' },
+    gallery: [{ url: 'https://vasse-felix.imgix.net/Portrait-Hero-Images/estate.jpg?w=1200', source: 'winery' as const, alt: 'The Vasse Felix estate buildings above the vine rows' }],
     briefing: {
       icebreaker: 'Is it true Dr Cullity used peacocks to scare the silvereyes off his first vintage?',
       proMove: 'Walk-ins are fine at the bar, but pay the extra for the $25 Icon tasting to try Tom Cullity and Heytesbury; book the upstairs restaurant well ahead for a window table over the vines.',
@@ -234,6 +235,7 @@ export const WILYABRUP_WINERIES: Winery[] = [
     bookingUrl: 'https://www.fermoy.com.au/products/cellar-door',
     tastingFee: 15,
     image: { url: 'https://www.fermoy.com.au/cdn/shop/files/About_Vineyard_2400x1350px_7.jpg', source: 'winery' as const, alt: 'Aerial view over Fermoy Estate\'s vineyard rows at golden hour, with a dam and stands of eucalypts beyond' },
+    gallery: [{ url: 'https://www.fermoy.com.au/cdn/shop/files/Social_Sharing_Image_1200x628px.jpg', source: 'winery' as const, alt: 'A golden-hour grazing table with Fermoy Cabernet and Chardonnay' }],
     briefing: {
       icebreaker: 'What changed in the vineyard in the lead-up to the 2020 Reserve Cabernet winning Best in Show at Decanter?',
       proMove: 'Walk-ins are welcome but book ahead for a seated tasting; the $15 fee covers up to five wines and is redeemable against any purchase.',

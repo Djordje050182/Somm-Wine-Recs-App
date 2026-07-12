@@ -86,7 +86,15 @@
     "count": 280,
     "source": "Google"
    },
-   "visitorSummary": "Hosts are thanked by name in nearly every review; dogs are welcomed, the sparkling trio has a devoted following, and late walk-ins report being looked after anyway."
+   "visitorSummary": "Hosts are thanked by name in nearly every review; dogs are welcomed, the sparkling trio has a devoted following, and late walk-ins report being looked after anyway.",
+   "gallery": [
+    {
+     "url": "https://www.fermoy.com.au/cdn/shop/files/Social_Sharing_Image_1200x628px.jpg",
+     "source": "winery",
+     "alt": "A golden-hour grazing table with Fermoy Cabernet and Chardonnay",
+     "verified": "downloaded 2026-07-12, viewed and verified from the estate’s own site"
+    }
+   ]
   },
   {
    "id": "mr-juniper-estate",

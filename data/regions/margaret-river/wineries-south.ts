@@ -33,6 +33,7 @@ export const SOUTH_WINERIES: Winery[] = [
     bookingUrl: 'https://bookings.nowbookit.com/?accountid=86f30d57-c1f4-4baa-a159-cfb110fcdcfa&venueid=14431',
     tastingFee: 0,
     image: { url: 'https://do1x6wh6576ht.cloudfront.net/uploads/2026/03/cellar-door-hero-2.webp', source: 'winery' as const, alt: 'Guests tasting wines at the long timber bar inside Leeuwin Estate\'s cellar door' },
+    gallery: [{ url: 'https://do1x6wh6576ht.cloudfront.net/uploads/2021/05/27_20191022_LEEUWIN-ESTATE_Venue-Externals-scaled.jpg', source: 'winery' as const, alt: 'The Leeuwin Estate restaurant lit up at dusk' }],
     briefing: {
       icebreaker: 'Ask which Art Series painting is their favourite — the originals hang in the estate\'s own gallery upstairs.',
       proMove: 'Book the Art Series Chardonnay museum flight: three back-vintage releases poured alongside the current wine in a seated 45-minute tasting.',

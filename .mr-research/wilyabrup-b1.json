@@ -42,7 +42,15 @@
     "count": 959,
     "source": "Google"
    },
-   "visitorSummary": "Visitors call it the full package: a degustation-grade restaurant that books out, the gallery and underground wine vault to wander, and warm tastings that convert red-and-bubbles loyalists to the Chardonnay."
+   "visitorSummary": "Visitors call it the full package: a degustation-grade restaurant that books out, the gallery and underground wine vault to wander, and warm tastings that convert red-and-bubbles loyalists to the Chardonnay.",
+   "gallery": [
+    {
+     "url": "https://vasse-felix.imgix.net/Portrait-Hero-Images/estate.jpg?w=1200",
+     "source": "winery",
+     "alt": "The Vasse Felix estate buildings above the vine rows",
+     "verified": "downloaded 2026-07-12, viewed and verified from the estate’s own site"
+    }
+   ]
   },
   {
    "id": "mr-cullen-wines",

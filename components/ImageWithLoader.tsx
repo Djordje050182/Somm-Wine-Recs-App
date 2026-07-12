@@ -12,11 +12,22 @@ interface ImageWithLoaderProps {
   priority?: boolean; // heroes load eagerly; everything else waits its turn
 }
 
+// Hotlinked estate photography is often multi-megabyte originals — brutal on
+// a phone in a vineyard. Serve everything through the wsrv.nl image CDN
+// (same source image, resized and re-encoded server-side); if the CDN ever
+// fails, fall back to the original URL before giving up.
+export const optimised = (url: string, width = 800): string => {
+  if (!url || url.startsWith('data:') || url.startsWith('blob:')) return url;
+  return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${width}&q=82&output=webp`;
+};
+
 const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({ asset, src, alt, className = '', aspectRatio, showCredit = false, priority = false }) => {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+  const [useOriginal, setUseOriginal] = useState(false);
 
   const url = asset?.url ?? src ?? '';
+  const displayUrl = useOriginal ? url : optimised(url, priority ? 1600 : 800);
   const altText = asset?.alt ?? alt ?? '';
 
   return (
@@ -29,14 +40,18 @@ const ImageWithLoader: React.FC<ImageWithLoaderProps> = ({ asset, src, alt, clas
 
       {!error ? (
         <img
-          src={url}
+          src={displayUrl}
           alt={altText}
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : undefined}
+          decoding="async"
           referrerPolicy="no-referrer"
           className={`w-full h-full object-cover transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           onLoad={() => setLoaded(true)}
-          onError={() => setError(true)}
+          onError={() => {
+            if (useOriginal) setError(true);
+            else { setLoaded(false); setUseOriginal(true); }
+          }}
         />
       ) : (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-parchment text-ink/30 p-4 text-center">

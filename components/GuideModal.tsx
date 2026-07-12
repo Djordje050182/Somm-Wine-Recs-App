@@ -11,7 +11,7 @@ import { useRegion } from '../contexts/RegionContext';
 import { useCatalog } from '../contexts/CatalogContext';
 import { useCart } from '../contexts/CartContext';
 import { ImageAsset } from '../types';
-import ImageWithLoader from './ImageWithLoader';
+import ImageWithLoader, { optimised } from './ImageWithLoader';
 import { buildBookingHandoff, calendarHold, nextDays, BookingHandoff } from '../services/booking';
 import { hasTasted, recordTasting, removeTasting } from '../services/tasteProfile';
 import { Kicker, Button, Tag } from './ui';
@@ -1034,9 +1034,13 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
             onClick={e => e.stopPropagation()}
           >
             <img
-              src={lightboxImages[lightboxIdx].url}
+              src={optimised(lightboxImages[lightboxIdx].url, 1600)}
               alt={lightboxImages[lightboxIdx].alt || currentItem?.name}
               referrerPolicy="no-referrer"
+              onError={e => {
+                const img = e.currentTarget;
+                if (img.src !== lightboxImages[lightboxIdx].url) img.src = lightboxImages[lightboxIdx].url;
+              }}
               className="max-w-full max-h-[80vh] object-contain rounded-sm"
             />
             <figcaption className="font-ui text-xs text-parchment/70 text-center px-4">

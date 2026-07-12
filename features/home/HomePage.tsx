@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CloudSun, Calendar, MessageSquare, Mic as MicIcon } from 'lucide-react';
 import { useRegion } from '../../contexts/RegionContext';
+import { winesForPalate } from '../../services/tasteProfile';
 import { useCatalog } from '../../contexts/CatalogContext';
 import { getCurrentWeather, WeatherData } from '../../services/weatherService';
 import { Kicker, SectionHeading, Button, Tag } from '../../components/ui';
@@ -62,6 +63,8 @@ const HomePage: React.FC = () => {
     ];
     return candidates.filter(c => c.estates.length > 0);
   }, [wineries]);
+
+  const palateWines = useMemo(() => winesForPalate(wines, wineries, 6), [wines, wineries]);
 
   const saleWines = useMemo(
     () => wines.filter(w => getPricing(w.id).isSale),
@@ -215,6 +218,51 @@ const HomePage: React.FC = () => {
         ))}
 
         {/* Wines on offer */}
+        {palateWines.length > 0 && (
+          <section className="py-14 border-b border-hairline">
+            <div className="flex items-end justify-between gap-6 mb-8">
+              <SectionHeading
+                kicker="The Somm remembers"
+                title="For your palate"
+                standfirst="Picked from what you've tasted and loved — bottles you haven't met yet, in the styles you keep coming back to."
+              />
+              <button
+                onClick={() => navigate(`/${regionId}/cellar/tasting-book`)}
+                className="hidden md:flex shrink-0 items-center gap-1.5 font-ui text-xs font-semibold uppercase tracking-kicker text-claret hover:text-claret-deep transition-colors"
+              >
+                Your tasting book <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+            <div className="flex gap-px overflow-x-auto no-scrollbar bg-hairline border border-hairline">
+              {palateWines.map(wine => {
+                const estate = getWinery(wine.wineryId);
+                return (
+                  <button
+                    key={wine.id}
+                    onClick={() => setSelected({ item: wine, type: 'wine' })}
+                    className="bg-paper text-left group w-60 shrink-0 flex flex-col hover:bg-parchment transition-colors"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <ImageWithLoader
+                        asset={wine.image}
+                        className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="p-4 flex-1 flex flex-col">
+                      <p className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-brass mb-1">{wine.variety}</p>
+                      <h3 className="font-display text-lg text-ink leading-snug">{wine.name}</h3>
+                      {estate && (
+                        <p className="font-ui text-[10px] uppercase tracking-kicker text-ink/40 mt-1">{estate.name}</p>
+                      )}
+                      <span className="font-display text-xl text-ink mt-3">{wine.price}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
         {saleWines.length > 0 && (
           <section className="py-14 border-b border-hairline">
             <div className="flex items-end justify-between gap-6 mb-8">

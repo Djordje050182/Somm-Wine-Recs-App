@@ -12,6 +12,8 @@ import { useCatalog } from '../contexts/CatalogContext';
 import { useCart } from '../contexts/CartContext';
 import { ImageAsset } from '../types';
 import ImageWithLoader from './ImageWithLoader';
+import { buildBookingHandoff, calendarHold, nextDays, BookingHandoff } from '../services/booking';
+import { hasTasted, recordTasting, removeTasting } from '../services/tasteProfile';
 import { Kicker, Button, Tag } from './ui';
 
 interface GuideModalProps {
@@ -109,9 +111,28 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
   const [showBooking, setShowBooking] = useState(false);
   const [bookingStep, setBookingStep] = useState(1);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [bookingDate, setBookingDate] = useState(() => nextDays(1)[0].iso);
+  const [bookingParty, setBookingParty] = useState(2);
+  const [handoff, setHandoff] = useState<BookingHandoff | null>(null);
+
+  const closeBooking = () => {
+    setShowBooking(false); setBookingStep(1); setSelectedTime(null); setHandoff(null);
+  };
+
+  // Hourly tasting slots inside the venue's own hours.
+  const bookingSlots = useMemo(() => {
+    const opens = currentItem?.opens ?? '10:00';
+    const closes = currentItem?.closes ?? '17:00';
+    const [oh] = opens.split(':').map(Number);
+    const [ch] = closes.split(':').map(Number);
+    const slots: string[] = [];
+    for (let h = oh; h < ch && slots.length < 8; h++) slots.push(`${String(h).padStart(2, '0')}:00`);
+    return slots.slice(0, 6);
+  }, [currentItem]);
 
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [isFavourite, setIsFavourite] = useState(false);
+  const [tastedTick, setTastedTick] = useState(0); // re-render after tasting-book writes
 
   // Swipe-down to dismiss on phones: the sheet follows the finger when the
   // content is scrolled to the top, and lets go past the threshold.
@@ -536,6 +557,35 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
                     </p>
                   )}
 
+                  {/* The tasting book — one honest tap at the cellar door */}
+                  <div className="flex items-center gap-2">
+                    <Kicker className="mr-1">Your tasting book</Kicker>
+                    {hasTasted(currentItem.id) ? (
+                      <>
+                        <Tag tone="success">In the book</Tag>
+                        <button
+                          onClick={() => { recordTasting({ wineId: currentItem.id, regionId: region.id, loved: true }); setTastedTick(x => x + 1); }}
+                          className="font-ui text-xs font-semibold text-claret hover:text-claret-deep"
+                        >
+                          Loved it
+                        </button>
+                        <button
+                          onClick={() => { removeTasting(currentItem.id); setTastedTick(x => x + 1); }}
+                          className="font-ui text-xs text-ink/40 hover:text-ink"
+                        >
+                          Remove
+                        </button>
+                      </>
+                    ) : (
+                      <button
+                        onClick={() => { recordTasting({ wineId: currentItem.id, regionId: region.id }); setTastedTick(x => x + 1); }}
+                        className="font-ui text-xs font-semibold border border-hairline hover:border-claret hover:text-claret rounded-sm px-3 py-1.5 transition-colors"
+                      >
+                        I tasted this
+                      </button>
+                    )}
+                  </div>
+
                   {/* Price row */}
                   <div className="flex justify-between items-center border border-hairline rounded-sm p-4 gap-4">
                     <div>
@@ -776,18 +826,14 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
         </div>
       </div>
 
-      {/* Booking sheet */}
+      {/* Booking sheet — an honest handoff into the venue's own system */}
       {showBooking && (
         <div className="absolute inset-0 z-[70] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-ink/40" onClick={() => { setShowBooking(false); setBookingStep(1); setSelectedTime(null); }} />
-          <div className="relative bg-paper border border-hairline rounded-sm w-full max-w-sm animate-scale-in">
+          <div className="absolute inset-0 bg-ink/40" onClick={closeBooking} />
+          <div className="relative bg-paper border border-hairline rounded-sm w-full max-w-sm animate-scale-in max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center px-5 py-4 border-b border-hairline">
-              <h3 className="font-display text-lg text-ink">Request a visit</h3>
-              <button
-                onClick={() => { setShowBooking(false); setBookingStep(1); setSelectedTime(null); }}
-                className="text-ink/40 hover:text-ink transition-colors"
-                aria-label="Close booking"
-              >
+              <h3 className="font-display text-lg text-ink">Book a visit</h3>
+              <button onClick={closeBooking} className="text-ink/40 hover:text-ink transition-colors" aria-label="Close booking">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -795,26 +841,53 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
               {bookingStep === 1 ? (
                 <>
                   <div className="mb-5">
-                    <Kicker className="mb-1">Requesting at</Kicker>
+                    <Kicker className="mb-1">Booking at</Kicker>
                     <p className="font-display text-xl text-ink">{currentItem.name}</p>
                   </div>
                   <div className="mb-5">
                     <Kicker className="mb-2">Date</Kicker>
-                    <div className="border border-hairline rounded-sm p-3 text-center font-ui text-sm text-ink">
-                      Today, {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}
+                    <div className="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+                      {nextDays(14).map(d => (
+                        <button
+                          key={d.iso}
+                          onClick={() => setBookingDate(d.iso)}
+                          className={`shrink-0 px-3 py-2 rounded-sm border text-center transition-colors ${
+                            bookingDate === d.iso ? 'bg-claret text-parchment border-claret' : 'border-hairline text-ink/60 hover:border-ink/40'
+                          }`}
+                        >
+                          <span className="block font-ui text-[10px] uppercase tracking-kicker opacity-70">{d.weekday}</span>
+                          <span className="block font-ui text-sm font-semibold">{d.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="mb-5">
+                    <Kicker className="mb-2">Guests</Kicker>
+                    <div className="flex items-center gap-4 border border-hairline rounded-sm px-4 py-2.5 w-fit">
+                      <button
+                        onClick={() => setBookingParty(p => Math.max(1, p - 1))}
+                        className="font-display text-xl text-ink/60 hover:text-claret px-1"
+                        aria-label="Fewer guests"
+                      >−</button>
+                      <span className="font-ui text-sm font-semibold text-ink w-14 text-center">
+                        {bookingParty} {bookingParty === 1 ? 'guest' : 'guests'}
+                      </span>
+                      <button
+                        onClick={() => setBookingParty(p => Math.min(12, p + 1))}
+                        className="font-display text-xl text-ink/60 hover:text-claret px-1"
+                        aria-label="More guests"
+                      >+</button>
                     </div>
                   </div>
                   <div className="mb-6">
-                    <Kicker className="mb-2">Preferred time</Kicker>
-                    <div className="grid grid-cols-2 gap-2">
-                      {['10:30', '11:45', '13:30', '15:00', '17:30'].map(time => (
+                    <Kicker className="mb-2">Preferred time (optional)</Kicker>
+                    <div className="grid grid-cols-3 gap-2">
+                      {bookingSlots.map(time => (
                         <button
                           key={time}
-                          onClick={() => setSelectedTime(time)}
+                          onClick={() => setSelectedTime(selectedTime === time ? null : time)}
                           className={`py-2.5 rounded-sm font-ui text-sm font-semibold border transition-colors ${
-                            selectedTime === time
-                              ? 'bg-claret text-parchment border-claret'
-                              : 'border-hairline text-ink/60 hover:border-ink/40'
+                            selectedTime === time ? 'bg-claret text-parchment border-claret' : 'border-hairline text-ink/60 hover:border-ink/40'
                           }`}
                         >
                           {time}
@@ -822,24 +895,63 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
                       ))}
                     </div>
                   </div>
-                  <Button disabled={!selectedTime} onClick={() => setBookingStep(2)} className="w-full">
-                    Send request
+                  <Button
+                    className="w-full"
+                    onClick={() => {
+                      const h = buildBookingHandoff(currentItem.bookingUrl, currentItem.website, {
+                        date: bookingDate,
+                        time: selectedTime ?? undefined,
+                        party: bookingParty,
+                      });
+                      if (!h) return;
+                      setHandoff(h);
+                      window.open(h.url, '_blank', 'noopener');
+                      setBookingStep(2);
+                    }}
+                  >
+                    Continue on {getBookingLabel(currentItem.bookingUrl) === 'Request a visit' ? 'their site' : getBookingLabel(currentItem.bookingUrl).replace(/^(Book on |Book via |Reserve on |Reserve via )/, '')}
+                    <ExternalLink className="w-4 h-4" />
                   </Button>
+                  <p className="font-body text-xs text-ink/40 mt-3 text-center">
+                    You complete the booking in {currentItem.name}'s own system — Somm never takes a commission.
+                  </p>
                 </>
               ) : (
-                <div className="text-center py-6">
+                <div className="py-2">
                   <Check className="w-8 h-8 text-vine mx-auto mb-4" />
-                  <h3 className="font-display text-2xl text-ink mb-2">Request sent</h3>
-                  <p className="font-body text-ink/60 mb-6">
-                    Your request for {selectedTime} is with {currentItem.name}. They will confirm shortly.
+                  <h3 className="font-display text-2xl text-ink mb-2 text-center">Over to {currentItem.name}</h3>
+                  <p className="font-body text-ink/60 mb-5 text-center text-sm">
+                    We've opened {handoff?.provider ?? 'their booking page'}
+                    {handoff?.prefilled ? ' with your date and party filled in' : ''} — finish the booking there.
+                    Pop a hold in your calendar so the day is safe:
                   </p>
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => { setShowBooking(false); setBookingStep(1); setSelectedTime(null); }}
-                  >
-                    Close
-                  </Button>
+                  {(() => {
+                    const hold = calendarHold(
+                      `Tasting at ${currentItem.name}`,
+                      `${currentItem.name}, ${currentItem.subregion ?? region.name}`,
+                      `Booked via ${handoff?.provider ?? 'their site'}. Party of ${bookingParty}.`,
+                      bookingDate,
+                      selectedTime ?? '11:00'
+                    );
+                    return hold ? (
+                      <div className="flex flex-col gap-2 mb-4">
+                        <a href={hold.gcalUrl} target="_blank" rel="noopener" className="font-ui text-sm font-semibold text-claret hover:text-claret-deep text-center border border-hairline rounded-sm py-2.5">
+                          Add to Google Calendar — {hold.when}
+                        </a>
+                        <a href={hold.icsUrl} download={`somm-${currentItem.id}.ics`} className="font-ui text-xs text-ink/50 hover:text-ink text-center">
+                          …or download for Apple/Outlook (.ics)
+                        </a>
+                      </div>
+                    ) : null;
+                  })()}
+                  <div className="flex gap-2 justify-center">
+                    {handoff && (
+                      <Button variant="secondary" size="sm" onClick={() => window.open(handoff.url, '_blank', 'noopener')}>
+                        Reopen booking page
+                      </Button>
+                    )}
+                    <Button variant="secondary" size="sm" onClick={closeBooking}>Done</Button>
+                  </div>
                 </div>
               )}
             </div>

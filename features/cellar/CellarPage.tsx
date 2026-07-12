@@ -5,12 +5,14 @@ import { useAuth } from '../../contexts/AuthContext';
 import Favorites from '../../components/Favorites';
 import CellarTracker from '../../components/CellarTracker';
 import OrderHistory from './OrderHistory';
+import TastingBook from './TastingBook';
 
 // The user's private space: saved estates and bottles, the cellar they
 // actually own, and everything they've ordered.
 
 const TABS = [
   { id: 'saved', label: 'Saved' },
+  { id: 'tasting-book', label: 'Tasting book' },
   { id: 'my-cellar', label: 'My cellar' },
   { id: 'orders', label: 'Orders' },
 ] as const;
@@ -41,6 +43,7 @@ const CellarPage: React.FC = () => {
       </div>
 
       {active === 'saved' && <Favorites user={user as any} />}
+      {active === 'tasting-book' && <TastingBook />}
       {active === 'my-cellar' && <CellarTracker />}
       {active === 'orders' && <OrderHistory />}
     </div>

@@ -59,7 +59,7 @@ const buildCalendarLinks = (
 
 const VoiceSommInner: React.FC = () => {
   const { region, regionId } = useRegion();
-  const { wineries, experiences } = useCatalog();
+  const { wineries, wines, experiences } = useCatalog();
   const [booking, setBooking] = useState<BookingCard | null>(null);
   const [plan, setPlan] = useState<PlanCard | null>(null);
   const [call, setCall] = useState<CallCard | null>(null);
@@ -165,7 +165,7 @@ const VoiceSommInner: React.FC = () => {
     conversation.startSession({
       agentId: AGENT_ID,
       connectionType: 'webrtc',
-      dynamicVariables: agentRegionVars(region),
+      dynamicVariables: agentRegionVars(region, wines, wineries),
       clientTools: {
         open_booking_page: openBookingPage,
         draw_up_plan: drawUpPlan,

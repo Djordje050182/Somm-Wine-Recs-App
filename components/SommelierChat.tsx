@@ -20,7 +20,7 @@ interface Message {
 
 const SommelierChat: React.FC = () => {
   const { region } = useRegion();
-  const { wineries } = useCatalog();
+  const { wineries, wines } = useCatalog();
 
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -84,7 +84,7 @@ const SommelierChat: React.FC = () => {
       } else {
         if (!sessionRef.current || sessionRef.current.regionId !== region.id) {
           sessionRef.current?.end();
-          sessionRef.current = new SommTextSession(agentRegionVars(region), region.id);
+          sessionRef.current = new SommTextSession(agentRegionVars(region, wines, wineries), region.id);
         }
         reply = await sessionRef.current.ask(text);
       }

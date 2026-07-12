@@ -189,6 +189,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://tamburlaine.com.au',
     tastingFee: 10,
     image: { url: 'http://tamburlaine.com.au/cdn/shop/files/Cellar_Door_Crop_2_0c4e4ab9-7aa3-4143-80e5-7ed3e38b58de.jpg?v=1638760910', source: 'winery' as const, alt: "The vine-covered entrance to the Tamburlaine cellar door" },
+    gallery: [{ url: 'https://tamburlaine.com.au/cdn/shop/files/Cellar_Door_Crop_2_0c4e4ab9-7aa3-4143-80e5-7ed3e38b58de.jpg', source: 'winery' as const, alt: 'The vine-arched brick entrance to the Tamburlaine cellar door' }],
     briefing: {
       icebreaker: 'Ask how long they have been certified organic; the answer predates the fashion by a few decades.',
       proMove: 'Skip politely past the Wine Lovers range and ask for the Reserves; that is where the money is.',
@@ -440,6 +441,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://briarridge.com.au',
     tastingFee: 10,
     image: { url: 'https://www.briarridge.com.au/wp-content/uploads/2026/02/Briar_Ridge_Vineyard_Photo_by_Elfes_Images_2025_CE3_0520_1_2.webp', source: 'winery' as const, alt: "The Briar Ridge cellar door among the trees at Mount View" },
+    gallery: [{ url: 'https://www.briarridge.com.au/wp-content/uploads/2026/02/Briar_Ridge_Vineyard_Photo_by_Elfes_Images_2025_CE3_0520_1_2.webp', source: 'winery' as const, alt: 'The Briar Ridge homestead and gardens in the Mount View amphitheatre' }],
     briefing: {
       icebreaker: 'Ask what Karl Stockhausen changed when he shaped the house style, and what Dairy Hill was before vines.',
       proMove: 'Taste the Dairy Hill Semillon young, then buy two: one for now, one for a five-year sleep.',
@@ -534,6 +536,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://saddlerscreek.com',
     tastingFee: 15,
     image: { url: 'https://saddlerscreek.com/wp-content/uploads/2022/08/Header-image-5.jpg', source: 'winery' as const, alt: "A seated tasting at the Saddler's Creek cellar door" },
+    gallery: [{ url: 'https://saddlerscreek.com/wp-content/uploads/2024/01/home-slider-1.jpg', source: 'winery' as const, alt: 'Live music outside the Bluegrass Room at Saddler\'s Creek' }],
     briefing: {
       icebreaker: 'Ask what the Bluegrass site does that lets Cabernet ripen properly in Semillon country.',
       proMove: 'Book the seated tasting, it is required, and open at 9.30 with the Classic Hunter Semillon.',
@@ -662,6 +665,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     bookingUrl: 'https://krinklewood.com/visit',
     tastingFee: 15,
     image: { url: 'http://krinklewood.com/cdn/shop/files/Aerial_Shot_Krinklewood_16b7ce2b-f125-4bd4-9c6e-f613990d19f0.jpg?v=1753151996', source: 'winery' as const, alt: "The Krinklewood estate from the air, Brokenback Range behind" },
+    gallery: [{ url: 'https://krinklewood.com/cdn/shop/files/Aerial_Shot_Krinklewood_16b7ce2b-f125-4bd4-9c6e-f613990d19f0.jpg', source: 'winery' as const, alt: 'Krinklewood from the air: biodynamic vines, dams and the Broke hills' }],
     briefing: {
       icebreaker: 'Ask what actually goes into the cow horns, and whether the geese respect the biodynamic calendar.',
       proMove: 'Book ahead, then take the Francesca RosÃ© out under the plane trees rather than staying at the bar.',
@@ -722,6 +726,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     website: 'https://winmarkwines.com.au',
     tastingFee: 25,
     image: { url: 'https://winmarkwines.com.au/wp-content/uploads/2026/01/chardonnay_cellardoor_broke.jpg', source: 'winery' as const, alt: "The Winmark tasting room, open to the vineyard" },
+    gallery: [{ url: 'https://winmarkwines.com.au/wp-content/uploads/2025/12/A1_8915.jpg', source: 'winery' as const, alt: 'The great sandstone cave rock among the Winmark vines' }],
     briefing: {
       icebreaker: 'Ask Karin Adcock what convinced her to bet the old Pooles Rock vineyard entirely on one grape.',
       proMove: 'Book the full tasting despite the fee; six Chardonnays from one site is the entire point of coming.',

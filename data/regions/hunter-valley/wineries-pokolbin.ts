@@ -360,6 +360,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://peppertreewines.com.au',
     tastingFee: 15,
     image: { url: 'http://www.peppertreewines.com.au/cdn/shop/files/pepper_Tree_Wines_Cellar_Door_1200.jpg?v=1780025999', source: 'winery' as const, alt: "The Pepper Tree cellar door in its gardens" },
+    gallery: [{ url: 'https://www.peppertreewines.com.au/cdn/shop/files/pepper_Tree_Wines_Cellar_Door_1200.jpg', source: 'winery' as const, alt: 'The Pepper Tree cellar door entrance under bougainvillea' }],
     briefing: {
       icebreaker: 'Do you still get fruit off the old Tallawanta vineyard for the Semillon?',
       proMove: 'Doors open at 9.30, earlier than most â start here, let the dog stretch in the gardens, then work outward.',
@@ -455,6 +456,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://ivanhoewines.com.au',
     tastingFee: 15,
     image: { url: 'https://ivanhoewines.com.au/wp-content/uploads/FEMWAkEo.jpeg', source: 'winery' as const, alt: "The Ivanhoe homestead and verandah" },
+    gallery: [{ url: 'https://ivanhoewines.com.au/wp-content/uploads/Visit_Us_800x600p-1.jpg', source: 'winery' as const, alt: 'The two-storey Ivanhoe cellar door above its vines' }],
     briefing: {
       icebreaker: 'Stephen\'s a Drayton, isn\'t he â how long has the family farmed this slope below the Wilkinson hill?',
       proMove: 'Save the Pressings Shiraz for last; everything tastes delicate after it. Fifteen dollars, no booking required.',
@@ -769,6 +771,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     website: 'https://vindenwines.com.au',
     tastingFee: 25,
     image: { url: 'https://images.squarespace-cdn.com/content/v1/5d54a54e7f30dd0001d6b927/ce3bd24e-1d78-4e00-81d1-cafc5027a819/Vinden+Wines+%7C+Cellar+Door.jpg?format=2500w', source: 'winery' as const, alt: "The tasting table inside Vinden's cellar door, vines beyond" },
+    gallery: [{ url: 'https://images.squarespace-cdn.com/content/v1/5d54a54e7f30dd0001d6b927/1708759847119-X9H53TKXFVUJNGYRKNG1/P1322598.jpg', source: 'winery' as const, alt: 'Dawn over the Vinden rows, wildflowers between the vines' }],
     briefing: {
       icebreaker: 'What\'s in the Headcase Pokolbin Blanc this year â does the blend change with every vintage?',
       proMove: 'Book ahead, taste the Somerset Vineyard classics first, then let the Headcase wines rearrange your idea of the Hunter.',

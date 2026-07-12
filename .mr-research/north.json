@@ -1,419 +1,569 @@
 {
-  "wineries": [
-    {
-      "id": "mr-deep-woods",
-      "name": "Deep Woods Estate",
-      "subregion": "Yallingup",
-      "specialty": "Reserve Cabernet Sauvignon and Chardonnay",
-      "wines": ["Reserve Cabernet Sauvignon", "Reserve Chardonnay", "Harmony Rosé"],
-      "established": 1987,
-      "priceRange": "$$$",
-      "description": "The Fogarty Wine Group flagship in the Yallingup hills, and one of Margaret River's most decorated cellar doors.",
-      "story": "Established in 1987 and part of the Fogarty Wine Group since 2005, Deep Woods climbed from quiet Yallingup hillside estate to national headline act when its 2014 Reserve Cabernet Sauvignon won the Jimmy Watson Memorial Trophy in 2016. Winemaker Julian Langworthy has since kept the Reserve wines on virtually every Australian fine-wine shortlist, while the estate still pours everything from trophy Cabernet to its wildly popular Harmony Rosé.",
-      "style": "Premium",
-      "opens": "10:00",
-      "closes": "17:00",
-      "lat": -33.6896,
-      "lng": 115.0777,
-      "hasRestaurant": false,
-      "bookingRequired": true,
-      "phone": "08 9756 6060",
-      "website": "https://www.deepwoods.wine",
-      "bookingUrl": "https://www.deepwoods.wine/pages/cellar-door",
-      "tastingFee": 10,
-      "image": {
-        "url": "https://www.deepwoods.wine/cdn/shop/files/Deepwoods-Feb-2024-190_2048x.jpg?v=1713927948",
-        "alt": "Vineyard rows rolling across the Yallingup hills at Deep Woods Estate, framed by peppermint trees",
-        "verified": "downloaded 2026-07-10 from deepwoods.wine homepage hero, shows estate vineyard rows and bushland"
-      },
-      "briefing": {
-        "icebreaker": "Ask how the 2014 Reserve Cabernet's Jimmy Watson Trophy in 2016 changed life up here in the Yallingup hills.",
-        "proMove": "The $10 tasting fee is refunded against each purchase, so taste wide and buy the Reserve tier.",
-        "hiddenGem": "The cellar door is closed Tuesdays; time your run Wednesday to Monday and pair it with nearby Commonage Road stops."
-      },
-      "sommNote": "Julian Langworthy's Reserve Cabernet is the benchmark bottling; the Harmony Rosé is the everyday steal the locals actually drink."
-    },
-    {
-      "id": "mr-wise-wine",
-      "name": "Wise Wine",
-      "subregion": "Yallingup",
-      "specialty": "Ocean-view Chardonnay, Shiraz and estate spirits",
-      "wines": ["Leaf Series Reserve Chardonnay", "Eagle Bay Shiraz"],
-      "established": 1992,
-      "priceRange": "$$",
-      "description": "The only Margaret River winery where the vines run down to the sea, with sweeping Geographe Bay views from cellar door and restaurant.",
-      "story": "Wise Wine was formed in 1992 when the former Geographe Bay Estate, planted in 1983, was folded into the neighbouring Eagle Bay Estate by the Wise family. Perched above Eagle Bay at the region's far northern tip, it pairs a limestone-and-timber cellar door with an award-winning vineyard restaurant and its own distillery. It trades on the rarest asset in Margaret River: vineyard rows with an ocean horizon.",
-      "style": "Relaxed",
-      "opens": "10:00",
-      "closes": "17:00",
-      "lat": -33.5772,
-      "lng": 115.0641,
-      "hasRestaurant": true,
-      "bookingRequired": false,
-      "phone": "08 9755 3331",
-      "website": "https://www.wisewine.com.au",
-      "image": {
-        "url": "https://www.wisewine.com.au/wp-content/uploads/2025/01/wise-wine-cellar-door-resized.jpg",
-        "alt": "Guests raising glasses at the limestone and timber tasting bar inside the Wise Wine cellar door",
-        "verified": "downloaded 2026-07-10 from wisewine.com.au homepage, shows the stone-walled cellar door tasting room"
-      },
-      "briefing": {
-        "icebreaker": "Ask which block gets the sea mist off Geographe Bay — this is the only Margaret River vineyard that meets the ocean.",
-        "proMove": "Tasting fees are redeemable on purchase, and the Golden Plate-winning restaurant makes this the natural long-lunch stop of the far north.",
-        "hiddenGem": "The estate also runs its own distillery, so finish the wine flight with a gin tasting."
-      },
-      "sommNote": "Come for the Reserve Chardonnay, stay for the view — vines-to-ocean vistas no other cellar door in the region can match."
-    },
-    {
-      "id": "mr-aravina",
-      "name": "Aravina Estate",
-      "subregion": "Yallingup",
-      "specialty": "Estate-grown wines across twelve varieties, from old-vine Chenin to reserve Cabernet",
-      "wines": ["Wildwood Ridge Reserve Cabernet Sauvignon", "Wildwood Ridge Reserve Chardonnay", "Single Vineyard Block 4 Chenin Blanc"],
-      "established": 2010,
-      "priceRange": "$$",
-      "description": "A grand Yallingup estate with restaurant, brewery and a sports car collection parked beside the cellar door.",
-      "story": "Aravina was born in 2010 when the celebrated former Amberley Estate site on Thornton Road changed hands and was reinvented as a full-blown destination estate. Everything poured is 100 per cent estate grown across a dozen varieties, with the Wildwood Ridge reserve tier at the top of the tree. It is also one of the region's more eccentric stops: the cellar door shares the property with a private sports car collection and the estate's own 8 Waves Brewing Co taphouse.",
-      "style": "Destination",
-      "opens": "10:00",
-      "closes": "17:00",
-      "lat": -33.7042,
-      "lng": 115.0803,
-      "hasRestaurant": true,
-      "bookingRequired": false,
-      "phone": "08 9750 1111",
-      "website": "https://aravinaestate.com",
-      "image": {
-        "url": "https://aravinaestate.com/images/homeWhat.webp",
-        "alt": "Visitors under white umbrellas on the lawn in front of the Aravina Estate homestead and terrace",
-        "verified": "downloaded 2026-07-10 from aravinaestate.com homepage, shows the estate grounds, lawn and main building"
-      },
-      "briefing": {
-        "icebreaker": "Ask what this place was like in its Amberley Estate days — the old guard still remember the Chenin.",
-        "proMove": "Restaurant runs Wednesday to Sunday but the cellar door and pizza bar pour seven days — go midweek and have the lawn to yourself.",
-        "hiddenGem": "The owner's sports car collection is displayed on site; wander in between tastings."
-      },
-      "sommNote": "Every bottle is estate grown — the Block 4 Chenin Blanc is the quiet nod to this site's Amberley heritage."
-    },
-    {
-      "id": "mr-wills-domain",
-      "name": "Wills Domain",
-      "subregion": "Yallingup",
-      "specialty": "Paladin Hill single-site Chardonnay and Shiraz with a hatted restaurant",
-      "wines": ["Paladin Hill Chardonnay", "Paladin Hill Shiraz", "Paladin Hill Matrix"],
-      "established": 1992,
-      "priceRange": "$$$",
-      "description": "A hilltop cellar door and acclaimed restaurant gazing down the Gunyulgup Valley, run by a family with farming roots claimed back to 1383.",
-      "story": "The Haddow family, who trace their farming line back to fourteenth-century Poland, farm 20 hectares of vines across the amphitheatre of the Gunyulgup Valley at Yallingup. The Paladin Hill single-site wines sit at the top of the range, and the restaurant is a fixture among Margaret River's best winery dining rooms. Few cellar doors in the region give you the whole estate — vines, dam and valley — in one sweep from the tasting bench.",
-      "style": "Premium",
-      "opens": "10:00",
-      "closes": "17:00",
-      "lat": -33.7165,
-      "lng": 115.0460,
-      "hasRestaurant": true,
-      "bookingRequired": false,
-      "phone": "08 9755 2327",
-      "website": "https://willsdomain.com.au",
-      "tastingFee": 15,
-      "image": {
-        "url": "https://willsdomain.com.au/cdn/shop/files/Exterior_2.jpg?v=1651034878&width=2048",
-        "alt": "Aerial view over Wills Domain's vineyard rows, dam and winery buildings at sunset in the Gunyulgup Valley",
-        "verified": "downloaded 2026-07-10 from willsdomain.com.au cellar door page, shows estate vineyards, dam and buildings"
-      },
-      "briefing": {
-        "icebreaker": "Ask about the family claim of farming since 1383 — the Haddows tell it well.",
-        "proMove": "The $15 tasting fee comes off any purchase; book the restaurant (Thursday to Monday lunch) before you arrive, not after.",
-        "hiddenGem": "Paladin Hill Matrix is the cellar-door-only style blend collectors quietly cellar."
-      },
-      "sommNote": "Taste the Paladin Hill pair side by side — the valley's morning fog gives the Chardonnay its cut and the Shiraz its spice."
-    },
-    {
-      "id": "mr-windows-estate",
-      "name": "Windows Estate",
-      "subregion": "Yallingup",
-      "specialty": "Small-batch, hand-tended Petit Lot wines",
-      "wines": ["Petit Lot Chardonnay", "Petit Lot Basket Pressed Cabernet Sauvignon"],
-      "established": 1996,
-      "priceRange": "$$$",
-      "description": "A tiny artisan estate where founder Chris Davies has hand-worked the same Yallingup vines since planting them at nineteen.",
-      "story": "Chris Davies planted Windows Estate in 1996 as a teenager and still farms every row by hand with his partner Jo, basket-pressing the lot. The Petit Lot wines are made in minuscule quantities and poured in Zalto stemware at an unhurried, owner-led cellar door on Quininup Road. It is the polar opposite of the big estates: no restaurant theatre, just growers pouring their own work.",
-      "style": "Boutique",
-      "opens": "10:00",
-      "closes": "17:00",
-      "lat": -33.7191,
-      "lng": 115.0303,
-      "hasRestaurant": false,
-      "bookingRequired": false,
-      "phone": "08 9756 6655",
-      "website": "https://www.windowsestate.com",
-      "image": {
-        "url": "https://www.windowsestate.com/wp-content/uploads/2020/12/windows_vintage_2018_cabernet_pick_BW-31.jpg",
-        "alt": "A lone marri tree beside hay bales and vineyard rows on the Windows Estate property, in black and white",
-        "verified": "downloaded 2026-07-10 from windowsestate.com homepage, shows estate paddock and vine rows"
-      },
-      "briefing": {
-        "icebreaker": "Ask Chris what it was like planting a vineyard at nineteen — he has farmed these rows ever since.",
-        "proMove": "Closed Wednesdays; groups over six must book ahead via the cellar door email.",
-        "hiddenGem": "Tastings are poured in Zalto Denkart glassware — a small tell of how seriously they take the details."
-      },
-      "sommNote": "Everything is estate grown, hand picked and basket pressed — the Petit Lot Chardonnay is the one critics keep finding."
-    },
-    {
-      "id": "mr-flametree",
-      "name": "Flametree Wines",
-      "subregion": "Yallingup",
-      "specialty": "Sub-Regional Series (SRS) Chardonnay and Cabernet",
-      "wines": ["SRS Wallcliffe Chardonnay", "Cabernet Sauvignon Merlot", "SRS Wilyabrup Cabernet Sauvignon"],
-      "established": 2007,
-      "priceRange": "$$",
-      "description": "The Geographe Bay winery that won a Jimmy Watson Trophy with its very first vintage and never looked back.",
-      "story": "Founded by the Towner family in 2007, Flametree announced itself immediately: its maiden 2007 Cabernet Merlot took the 2008 Jimmy Watson Memorial Trophy. Under winemaker Cliff Royle the Sub-Regional Series (SRS) has become the calling card, chasing the region's best sites — Wallcliffe for Chardonnay, Wilyabrup for Cabernet. The gabled stone-and-glass cellar door sits by Toby Inlet near Dunsborough, with make-your-own platters for the lawn.",
-      "style": "Premium",
-      "opens": "10:00",
-      "closes": "17:00",
-      "lat": -33.6459,
-      "lng": 115.1851,
-      "hasRestaurant": false,
-      "bookingRequired": false,
-      "phone": "08 9756 8577",
-      "website": "https://flametreewines.com",
-      "image": {
-        "url": "https://flametreewines.com/cdn/shop/files/Flametree_-87.jpg?v=1761081407&width=2400",
-        "alt": "Flametree's gabled stone-and-glass cellar door with white picnic tables on the lawn",
-        "verified": "downloaded 2026-07-10 from flametreewines.com visit page, shows the cellar door building and grounds"
-      },
-      "briefing": {
-        "icebreaker": "Ask about winning the Jimmy Watson with the first wine they ever made — still one of the great debut stories in Australian wine.",
-        "proMove": "Build your own platter and claim a lawn table; takeaway food only after 4pm, so land by mid-afternoon.",
-        "hiddenGem": "The SRS museum releases go back a decade — ask what's open from the back catalogue."
-      },
-      "sommNote": "SRS Wallcliffe Chardonnay is the critics' darling — the 2023 topped Margaret River Chardonnay lists with 98 points from Huon Hooke."
-    }
-  ],
-  "wines": [
-    {
-      "id": "mr-deep-woods-reserve-cabernet",
-      "name": "Reserve Cabernet Sauvignon",
-      "wineryId": "mr-deep-woods",
-      "variety": "Cabernet Sauvignon",
-      "vintage": "2022",
-      "description": "The Jimmy Watson-winning line: dense, cassis-driven Yallingup Cabernet with fine gravelly tannin.",
-      "sommNote": "The 2014 took the 2016 Jimmy Watson Memorial Trophy; the 2022 scored 95-96 from Australian critics.",
-      "rating": 4.7,
-      "pairings": ["dry-aged beef", "lamb rump with rosemary", "hard cheddar", "field mushrooms"],
-      "drinkFrom": "2026",
-      "drinkTo": "2040",
-      "community": { "score": 4.2, "count": 554, "source": "Vivino" }
-    },
-    {
-      "id": "mr-deep-woods-reserve-chardonnay",
-      "name": "Reserve Chardonnay",
-      "wineryId": "mr-deep-woods",
-      "variety": "Chardonnay",
-      "vintage": "2023",
-      "description": "Tightly wound Margaret River Chardonnay with grapefruit pith, struck-match complexity and fine oak.",
-      "sommNote": "Langworthy's white counterpart to the trophy Cabernet, and a regular in Australian top-Chardonnay lists.",
-      "rating": 4.6,
-      "pairings": ["grilled marron", "roast chicken", "creamy pasta", "soft washed-rind cheese"],
-      "drinkFrom": "2026",
-      "drinkTo": "2032"
-    },
-    {
-      "id": "mr-deep-woods-harmony-rose",
-      "name": "Harmony Rosé",
-      "wineryId": "mr-deep-woods",
-      "variety": "Rosé",
-      "vintage": "2024",
-      "description": "Pale, dry, strawberry-and-spice rosé that has become one of Australia's best-value pink wines.",
-      "sommNote": "The volume hero of the estate — routinely outscores rosés at three times the price.",
-      "rating": 4.2,
-      "pairings": ["prawn linguine", "charcuterie", "fish tacos", "soft goat's cheese"],
-      "drinkFrom": "2025",
-      "drinkTo": "2027"
-    },
-    {
-      "id": "mr-wise-leaf-reserve-chardonnay",
-      "name": "Leaf Series Reserve Chardonnay",
-      "wineryId": "mr-wise-wine",
-      "variety": "Chardonnay",
-      "vintage": "2023",
-      "description": "Wise's top Chardonnay from cool, sea-breezed northern vineyards — white peach, grapefruit and toasty oak.",
-      "sommNote": "The Leaf Series is the reserve tier the cellar door pours last for good reason.",
-      "rating": 4.4,
-      "pairings": ["grilled snapper", "chicken with tarragon", "scallops", "triple-cream brie"],
-      "drinkFrom": "2025",
-      "drinkTo": "2031",
-      "community": { "score": 4.1, "count": 50, "source": "Vivino" }
-    },
-    {
-      "id": "mr-wise-eagle-bay-shiraz",
-      "name": "Eagle Bay Shiraz",
-      "wineryId": "mr-wise-wine",
-      "variety": "Shiraz",
-      "vintage": "2022",
-      "description": "Maritime-cool Shiraz from the estate's Eagle Bay blocks, all red plum, cracked pepper and sea-spray freshness.",
-      "sommNote": "Grown metres from Geographe Bay — taste it alongside the Chardonnay to feel the site's cool-climate signature.",
-      "rating": 4.2,
-      "pairings": ["char-grilled kangaroo", "beef short ribs", "hard sheep's cheese", "peppered steak"],
-      "drinkFrom": "2025",
-      "drinkTo": "2032"
-    },
-    {
-      "id": "mr-aravina-wildwood-ridge-cabernet",
-      "name": "Wildwood Ridge Reserve Cabernet Sauvignon",
-      "wineryId": "mr-aravina",
-      "variety": "Cabernet Sauvignon",
-      "vintage": "2024",
-      "price": "$61",
-      "description": "Aravina's reserve Cabernet — blackcurrant, bay leaf and cedar from estate rows in the Yallingup hills.",
-      "sommNote": "The 2013 scored 94 from The Wine Front; the reserve tier carries the estate's best fruit every year.",
-      "rating": 4.4,
-      "pairings": ["roast lamb", "aged rib-eye", "hard cheeses", "venison"],
-      "drinkFrom": "2027",
-      "drinkTo": "2038",
-      "community": { "score": 4.2, "count": 231, "source": "Vivino" }
-    },
-    {
-      "id": "mr-aravina-wildwood-ridge-chardonnay",
-      "name": "Wildwood Ridge Reserve Chardonnay",
-      "wineryId": "mr-aravina",
-      "variety": "Chardonnay",
-      "vintage": "2025",
-      "price": "$61",
-      "description": "Reserve-tier Chardonnay with stone fruit, cashew and a fine chalky line, all from estate vines.",
-      "sommNote": "Aravina's white flagship — built in the modern tight Margaret River style rather than the old buttery one.",
-      "rating": 4.3,
-      "pairings": ["marron", "roast chicken", "creamy mushroom pasta", "gruyère"],
-      "drinkFrom": "2026",
-      "drinkTo": "2031"
-    },
-    {
-      "id": "mr-aravina-block-4-chenin",
-      "name": "Single Vineyard Block 4 Chenin Blanc",
-      "wineryId": "mr-aravina",
-      "variety": "Chenin Blanc",
-      "vintage": "2025",
-      "price": "$37",
-      "description": "Old-block Chenin Blanc with nashi pear, honeysuckle and a saline snap — a Yallingup signature grape.",
-      "sommNote": "Chenin made this site famous in its Amberley days; Block 4 keeps the flame burning.",
-      "rating": 4.2,
-      "pairings": ["fish and chips", "Vietnamese salads", "oysters", "young goat's cheese"],
-      "drinkFrom": "2025",
-      "drinkTo": "2029"
-    },
-    {
-      "id": "mr-wills-domain-paladin-hill-chardonnay",
-      "name": "Paladin Hill Chardonnay",
-      "wineryId": "mr-wills-domain",
-      "variety": "Chardonnay",
-      "vintage": "2025",
-      "price": "$85",
-      "description": "Single-site Gunyulgup Valley Chardonnay — white nectarine, oatmeal and a long mineral tail.",
-      "sommNote": "Top-of-range white from the estate's best hillside rows; the fog line below does the acid work.",
-      "rating": 4.5,
-      "pairings": ["marron with beurre blanc", "roast chicken", "sashimi", "comté"],
-      "drinkFrom": "2026",
-      "drinkTo": "2033"
-    },
-    {
-      "id": "mr-wills-domain-paladin-hill-shiraz",
-      "name": "Paladin Hill Shiraz",
-      "wineryId": "mr-wills-domain",
-      "variety": "Shiraz",
-      "vintage": "2021",
-      "price": "$85",
-      "description": "Perfumed valley-slope Shiraz with dark cherry, white pepper and silky, fine-grained tannin.",
-      "sommNote": "The estate's flagship red — cool-site Margaret River Shiraz rather than a Barossa impersonation.",
-      "rating": 4.3,
-      "pairings": ["duck breast", "slow-roasted lamb shoulder", "beef bourguignon", "aged gouda"],
-      "drinkFrom": "2026",
-      "drinkTo": "2034",
-      "community": { "score": 4.0, "count": 108, "source": "Vivino" }
-    },
-    {
-      "id": "mr-wills-domain-paladin-hill-matrix",
-      "name": "Paladin Hill Matrix",
-      "wineryId": "mr-wills-domain",
-      "variety": "Red Blend",
-      "vintage": "2022",
-      "price": "$110",
-      "description": "The estate's statement blend — a layered, cellar-worthy red assembled only in top years.",
-      "sommNote": "Matrix is the bottle the cellar door saves for the end of the flight; ask for it by name.",
-      "rating": 4.4,
-      "pairings": ["char-grilled rib-eye", "venison", "braised oxtail", "vintage cheddar"],
-      "drinkFrom": "2027",
-      "drinkTo": "2038"
-    },
-    {
-      "id": "mr-windows-petit-lot-chardonnay",
-      "name": "Petit Lot Chardonnay",
-      "wineryId": "mr-windows-estate",
-      "variety": "Chardonnay",
-      "vintage": "2024",
-      "price": "$66",
-      "description": "Hand-picked, wild-fermented Chardonnay from tiny yields — citrus blossom, flint and real drive.",
-      "sommNote": "Vivino has it at 4.3 across vintages; critics rate it among Yallingup's best-value fine Chardonnays.",
-      "rating": 4.5,
-      "pairings": ["abrolhos scallops", "roast chicken", "soft cheeses", "crayfish"],
-      "drinkFrom": "2026",
-      "drinkTo": "2032"
-    },
-    {
-      "id": "mr-windows-petit-lot-cabernet",
-      "name": "Petit Lot Basket Pressed Cabernet Sauvignon",
-      "wineryId": "mr-windows-estate",
-      "variety": "Cabernet Sauvignon",
-      "vintage": "2021",
-      "description": "Basket-pressed Cabernet from hand-tended vines — violets, blackcurrant and a savoury, earthy finish.",
-      "sommNote": "Made the slow way: hand picked, open fermented, basket pressed. Tiny quantities, cellar-door first.",
-      "rating": 4.4,
-      "pairings": ["slow-braised beef cheek", "lamb cutlets", "aged cheddar", "roast duck"],
-      "drinkFrom": "2026",
-      "drinkTo": "2036"
-    },
-    {
-      "id": "mr-flametree-srs-wallcliffe-chardonnay",
-      "name": "SRS Wallcliffe Chardonnay",
-      "wineryId": "mr-flametree",
-      "variety": "Chardonnay",
-      "vintage": "2024",
-      "price": "$95",
-      "description": "Single-block Wallcliffe Chardonnay — grapefruit, struck flint and a surge of natural acidity.",
-      "sommNote": "The 2023 scored 98 from Huon Hooke and topped a field of 100 Margaret River Chardonnays.",
-      "rating": 4.7,
-      "pairings": ["grilled marron", "poached snapper", "roast chicken", "washed-rind cheese"],
-      "drinkFrom": "2026",
-      "drinkTo": "2033",
-      "community": { "score": 4.1, "count": 528, "source": "Vivino" }
-    },
-    {
-      "id": "mr-flametree-cabernet-merlot",
-      "name": "Cabernet Sauvignon Merlot",
-      "wineryId": "mr-flametree",
-      "variety": "Cabernet Merlot",
-      "vintage": "2023",
-      "price": "$35",
-      "description": "The line that won the 2008 Jimmy Watson Trophy in its first vintage — plush blackcurrant and chocolatey tannin.",
-      "sommNote": "One of the region's great value reds; the blend leans on Cabernet with Merlot, Malbec and Petit Verdot.",
-      "rating": 4.2,
-      "pairings": ["beef burgers", "lamb kofta", "pizza", "cheddar"],
-      "drinkFrom": "2025",
-      "drinkTo": "2031",
-      "community": { "score": 3.8, "count": 620, "source": "Vivino" }
-    },
-    {
-      "id": "mr-flametree-srs-wilyabrup-cabernet",
-      "name": "SRS Wilyabrup Cabernet Sauvignon",
-      "wineryId": "mr-flametree",
-      "variety": "Cabernet Sauvignon",
-      "vintage": "2023",
-      "price": "$95",
-      "description": "Flametree's flagship Cabernet from prized Wilyabrup gravels — cassis, dried herbs and long, dusty tannins.",
-      "sommNote": "The SRS red counterpart to the Wallcliffe Chardonnay; museum vintages back to 2011 appear at the cellar door.",
-      "rating": 4.5,
-      "pairings": ["rib-eye", "slow-roasted lamb", "venison pie", "hard cheeses"],
-      "drinkFrom": "2027",
-      "drinkTo": "2039"
-    }
-  ]
+ "wineries": [
+  {
+   "id": "mr-deep-woods",
+   "name": "Deep Woods Estate",
+   "subregion": "Yallingup",
+   "specialty": "Reserve Cabernet Sauvignon and Chardonnay",
+   "wines": [
+    "Reserve Cabernet Sauvignon",
+    "Reserve Chardonnay",
+    "Harmony Rosé"
+   ],
+   "established": 1987,
+   "priceRange": "$$$",
+   "description": "The Fogarty Wine Group flagship in the Yallingup hills, and one of Margaret River's most decorated cellar doors.",
+   "story": "Established in 1987 and part of the Fogarty Wine Group since 2005, Deep Woods climbed from quiet Yallingup hillside estate to national headline act when its 2014 Reserve Cabernet Sauvignon won the Jimmy Watson Memorial Trophy in 2016. Winemaker Julian Langworthy has since kept the Reserve wines on virtually every Australian fine-wine shortlist, while the estate still pours everything from trophy Cabernet to its wildly popular Harmony Rosé.",
+   "style": "Premium",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.6896,
+   "lng": 115.0777,
+   "hasRestaurant": false,
+   "bookingRequired": true,
+   "phone": "08 9756 6060",
+   "website": "https://www.deepwoods.wine",
+   "bookingUrl": "https://www.deepwoods.wine/pages/cellar-door",
+   "tastingFee": 10,
+   "image": {
+    "url": "https://www.deepwoods.wine/cdn/shop/files/Deepwoods-Feb-2024-190_2048x.jpg?v=1713927948",
+    "alt": "Vineyard rows rolling across the Yallingup hills at Deep Woods Estate, framed by peppermint trees",
+    "verified": "downloaded 2026-07-10 from deepwoods.wine homepage hero, shows estate vineyard rows and bushland"
+   },
+   "briefing": {
+    "icebreaker": "Ask how the 2014 Reserve Cabernet's Jimmy Watson Trophy in 2016 changed life up here in the Yallingup hills.",
+    "proMove": "The $10 tasting fee is refunded against each purchase, so taste wide and buy the Reserve tier.",
+    "hiddenGem": "The cellar door is closed Tuesdays; time your run Wednesday to Monday and pair it with nearby Commonage Road stops."
+   },
+   "sommNote": "Julian Langworthy's Reserve Cabernet is the benchmark bottling; the Harmony Rosé is the everyday steal the locals actually drink.",
+   "community": {
+    "score": 4.6,
+    "count": 54,
+    "source": "Google"
+   },
+   "visitorSummary": "Reviewers describe it as the tasting that outshone bigger names, with standout value; the Albariño and blanc de blancs get repeat mentions."
+  },
+  {
+   "id": "mr-wise-wine",
+   "name": "Wise Wine",
+   "subregion": "Yallingup",
+   "specialty": "Ocean-view Chardonnay, Shiraz and estate spirits",
+   "wines": [
+    "Leaf Series Reserve Chardonnay",
+    "Eagle Bay Shiraz"
+   ],
+   "established": 1992,
+   "priceRange": "$$",
+   "description": "The only Margaret River winery where the vines run down to the sea, with sweeping Geographe Bay views from cellar door and restaurant.",
+   "story": "Wise Wine was formed in 1992 when the former Geographe Bay Estate, planted in 1983, was folded into the neighbouring Eagle Bay Estate by the Wise family. Perched above Eagle Bay at the region's far northern tip, it pairs a limestone-and-timber cellar door with an award-winning vineyard restaurant and its own distillery. It trades on the rarest asset in Margaret River: vineyard rows with an ocean horizon.",
+   "style": "Relaxed",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.5772,
+   "lng": 115.0641,
+   "hasRestaurant": true,
+   "bookingRequired": false,
+   "phone": "08 9755 3331",
+   "website": "https://www.wisewine.com.au",
+   "image": {
+    "url": "https://www.wisewine.com.au/wp-content/uploads/2025/01/wise-wine-cellar-door-resized.jpg",
+    "alt": "Guests raising glasses at the limestone and timber tasting bar inside the Wise Wine cellar door",
+    "verified": "downloaded 2026-07-10 from wisewine.com.au homepage, shows the stone-walled cellar door tasting room"
+   },
+   "briefing": {
+    "icebreaker": "Ask which block gets the sea mist off Geographe Bay — this is the only Margaret River vineyard that meets the ocean.",
+    "proMove": "Tasting fees are redeemable on purchase, and the Golden Plate-winning restaurant makes this the natural long-lunch stop of the far north.",
+    "hiddenGem": "The estate also runs its own distillery, so finish the wine flight with a gin tasting."
+   },
+   "sommNote": "Come for the Reserve Chardonnay, stay for the view — vines-to-ocean vistas no other cellar door in the region can match."
+  },
+  {
+   "id": "mr-aravina",
+   "name": "Aravina Estate",
+   "subregion": "Yallingup",
+   "specialty": "Estate-grown wines across twelve varieties, from old-vine Chenin to reserve Cabernet",
+   "wines": [
+    "Wildwood Ridge Reserve Cabernet Sauvignon",
+    "Wildwood Ridge Reserve Chardonnay",
+    "Single Vineyard Block 4 Chenin Blanc"
+   ],
+   "established": 2010,
+   "priceRange": "$$",
+   "description": "A grand Yallingup estate with restaurant, brewery and a sports car collection parked beside the cellar door.",
+   "story": "Aravina was born in 2010 when the celebrated former Amberley Estate site on Thornton Road changed hands and was reinvented as a full-blown destination estate. Everything poured is 100 per cent estate grown across a dozen varieties, with the Wildwood Ridge reserve tier at the top of the tree. It is also one of the region's more eccentric stops: the cellar door shares the property with a private sports car collection and the estate's own 8 Waves Brewing Co taphouse.",
+   "style": "Destination",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.7042,
+   "lng": 115.0803,
+   "hasRestaurant": true,
+   "bookingRequired": false,
+   "phone": "08 9750 1111",
+   "website": "https://aravinaestate.com",
+   "image": {
+    "url": "https://aravinaestate.com/images/homeWhat.webp",
+    "alt": "Visitors under white umbrellas on the lawn in front of the Aravina Estate homestead and terrace",
+    "verified": "downloaded 2026-07-10 from aravinaestate.com homepage, shows the estate grounds, lawn and main building"
+   },
+   "briefing": {
+    "icebreaker": "Ask what this place was like in its Amberley Estate days — the old guard still remember the Chenin.",
+    "proMove": "Restaurant runs Wednesday to Sunday but the cellar door and pizza bar pour seven days — go midweek and have the lawn to yourself.",
+    "hiddenGem": "The owner's sports car collection is displayed on site; wander in between tastings."
+   },
+   "sommNote": "Every bottle is estate grown — the Block 4 Chenin Blanc is the quiet nod to this site's Amberley heritage.",
+   "community": {
+    "score": 4.2,
+    "count": 558,
+    "source": "Google"
+   },
+   "visitorSummary": "Reviewers love the gardens, the kids' menus and colouring kits, and the complimentary tasting after lunch; it earns its family-day-out reputation."
+  },
+  {
+   "id": "mr-wills-domain",
+   "name": "Wills Domain",
+   "subregion": "Yallingup",
+   "specialty": "Paladin Hill single-site Chardonnay and Shiraz with a hatted restaurant",
+   "wines": [
+    "Paladin Hill Chardonnay",
+    "Paladin Hill Shiraz",
+    "Paladin Hill Matrix"
+   ],
+   "established": 1992,
+   "priceRange": "$$$",
+   "description": "A hilltop cellar door and acclaimed restaurant gazing down the Gunyulgup Valley, run by a family with farming roots claimed back to 1383.",
+   "story": "The Haddow family, who trace their farming line back to fourteenth-century Poland, farm 20 hectares of vines across the amphitheatre of the Gunyulgup Valley at Yallingup. The Paladin Hill single-site wines sit at the top of the range, and the restaurant is a fixture among Margaret River's best winery dining rooms. Few cellar doors in the region give you the whole estate — vines, dam and valley — in one sweep from the tasting bench.",
+   "style": "Premium",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.7165,
+   "lng": 115.046,
+   "hasRestaurant": true,
+   "bookingRequired": false,
+   "phone": "08 9755 2327",
+   "website": "https://willsdomain.com.au",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://willsdomain.com.au/cdn/shop/files/Exterior_2.jpg?v=1651034878&width=2048",
+    "alt": "Aerial view over Wills Domain's vineyard rows, dam and winery buildings at sunset in the Gunyulgup Valley",
+    "verified": "downloaded 2026-07-10 from willsdomain.com.au cellar door page, shows estate vineyards, dam and buildings"
+   },
+   "briefing": {
+    "icebreaker": "Ask about the family claim of farming since 1383 — the Haddows tell it well.",
+    "proMove": "The $15 tasting fee comes off any purchase; book the restaurant (Thursday to Monday lunch) before you arrive, not after.",
+    "hiddenGem": "Paladin Hill Matrix is the cellar-door-only style blend collectors quietly cellar."
+   },
+   "sommNote": "Taste the Paladin Hill pair side by side — the valley's morning fog gives the Chardonnay its cut and the Shiraz its spice."
+  },
+  {
+   "id": "mr-windows-estate",
+   "name": "Windows Estate",
+   "subregion": "Yallingup",
+   "specialty": "Small-batch, hand-tended Petit Lot wines",
+   "wines": [
+    "Petit Lot Chardonnay",
+    "Petit Lot Basket Pressed Cabernet Sauvignon"
+   ],
+   "established": 1996,
+   "priceRange": "$$$",
+   "description": "A tiny artisan estate where founder Chris Davies has hand-worked the same Yallingup vines since planting them at nineteen.",
+   "story": "Chris Davies planted Windows Estate in 1996 as a teenager and still farms every row by hand with his partner Jo, basket-pressing the lot. The Petit Lot wines are made in minuscule quantities and poured in Zalto stemware at an unhurried, owner-led cellar door on Quininup Road. It is the polar opposite of the big estates: no restaurant theatre, just growers pouring their own work.",
+   "style": "Boutique",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.7191,
+   "lng": 115.0303,
+   "hasRestaurant": false,
+   "bookingRequired": false,
+   "phone": "08 9756 6655",
+   "website": "https://www.windowsestate.com",
+   "image": {
+    "url": "https://www.windowsestate.com/wp-content/uploads/2020/12/windows_vintage_2018_cabernet_pick_BW-31.jpg",
+    "alt": "A lone marri tree beside hay bales and vineyard rows on the Windows Estate property, in black and white",
+    "verified": "downloaded 2026-07-10 from windowsestate.com homepage, shows estate paddock and vine rows"
+   },
+   "briefing": {
+    "icebreaker": "Ask Chris what it was like planting a vineyard at nineteen — he has farmed these rows ever since.",
+    "proMove": "Closed Wednesdays; groups over six must book ahead via the cellar door email.",
+    "hiddenGem": "Tastings are poured in Zalto Denkart glassware — a small tell of how seriously they take the details."
+   },
+   "sommNote": "Everything is estate grown, hand picked and basket pressed — the Petit Lot Chardonnay is the one critics keep finding.",
+   "community": {
+    "score": 4.7,
+    "count": 120,
+    "source": "Google"
+   },
+   "visitorSummary": "Small, personal and organic: reviewers call it a real gem, singling out unhurried hosting and structured wines from a maker several call their favourite in the region."
+  },
+  {
+   "id": "mr-flametree",
+   "name": "Flametree Wines",
+   "subregion": "Yallingup",
+   "specialty": "Sub-Regional Series (SRS) Chardonnay and Cabernet",
+   "wines": [
+    "SRS Wallcliffe Chardonnay",
+    "Cabernet Sauvignon Merlot",
+    "SRS Wilyabrup Cabernet Sauvignon"
+   ],
+   "established": 2007,
+   "priceRange": "$$",
+   "description": "The Geographe Bay winery that won a Jimmy Watson Trophy with its very first vintage and never looked back.",
+   "story": "Founded by the Towner family in 2007, Flametree announced itself immediately: its maiden 2007 Cabernet Merlot took the 2008 Jimmy Watson Memorial Trophy. Under winemaker Cliff Royle the Sub-Regional Series (SRS) has become the calling card, chasing the region's best sites — Wallcliffe for Chardonnay, Wilyabrup for Cabernet. The gabled stone-and-glass cellar door sits by Toby Inlet near Dunsborough, with make-your-own platters for the lawn.",
+   "style": "Premium",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.6459,
+   "lng": 115.1851,
+   "hasRestaurant": false,
+   "bookingRequired": false,
+   "phone": "08 9756 8577",
+   "website": "https://flametreewines.com",
+   "image": {
+    "url": "https://flametreewines.com/cdn/shop/files/Flametree_-87.jpg?v=1761081407&width=2400",
+    "alt": "Flametree's gabled stone-and-glass cellar door with white picnic tables on the lawn",
+    "verified": "downloaded 2026-07-10 from flametreewines.com visit page, shows the cellar door building and grounds"
+   },
+   "briefing": {
+    "icebreaker": "Ask about winning the Jimmy Watson with the first wine they ever made — still one of the great debut stories in Australian wine.",
+    "proMove": "Build your own platter and claim a lawn table; takeaway food only after 4pm, so land by mid-afternoon.",
+    "hiddenGem": "The SRS museum releases go back a decade — ask what's open from the back catalogue."
+   },
+   "sommNote": "SRS Wallcliffe Chardonnay is the critics' darling — the 2023 topped Margaret River Chardonnay lists with 98 points from Huon Hooke.",
+   "community": {
+    "score": 4.8,
+    "count": 182,
+    "source": "Google"
+   },
+   "visitorSummary": "Tastings tailored to the guest are the theme, with the SRS Wallcliffe Chardonnay repeatedly named the standout; visitors report staying long past their pour."
+  }
+ ],
+ "wines": [
+  {
+   "id": "mr-deep-woods-reserve-cabernet",
+   "name": "Reserve Cabernet Sauvignon",
+   "wineryId": "mr-deep-woods",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2022",
+   "description": "The Jimmy Watson-winning line: dense, cassis-driven Yallingup Cabernet with fine gravelly tannin.",
+   "sommNote": "The 2014 took the 2016 Jimmy Watson Memorial Trophy; the 2022 scored 95-96 from Australian critics.",
+   "rating": 4.7,
+   "pairings": [
+    "dry-aged beef",
+    "lamb rump with rosemary",
+    "hard cheddar",
+    "field mushrooms"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2040",
+   "community": {
+    "score": 4.2,
+    "count": 554,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-deep-woods-reserve-chardonnay",
+   "name": "Reserve Chardonnay",
+   "wineryId": "mr-deep-woods",
+   "variety": "Chardonnay",
+   "vintage": "2023",
+   "description": "Tightly wound Margaret River Chardonnay with grapefruit pith, struck-match complexity and fine oak.",
+   "sommNote": "Langworthy's white counterpart to the trophy Cabernet, and a regular in Australian top-Chardonnay lists.",
+   "rating": 4.6,
+   "pairings": [
+    "grilled marron",
+    "roast chicken",
+    "creamy pasta",
+    "soft washed-rind cheese"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2032"
+  },
+  {
+   "id": "mr-deep-woods-harmony-rose",
+   "name": "Harmony Rosé",
+   "wineryId": "mr-deep-woods",
+   "variety": "Rosé",
+   "vintage": "2024",
+   "description": "Pale, dry, strawberry-and-spice rosé that has become one of Australia's best-value pink wines.",
+   "sommNote": "The volume hero of the estate — routinely outscores rosés at three times the price.",
+   "rating": 4.2,
+   "pairings": [
+    "prawn linguine",
+    "charcuterie",
+    "fish tacos",
+    "soft goat's cheese"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2027"
+  },
+  {
+   "id": "mr-wise-leaf-reserve-chardonnay",
+   "name": "Leaf Series Reserve Chardonnay",
+   "wineryId": "mr-wise-wine",
+   "variety": "Chardonnay",
+   "vintage": "2023",
+   "description": "Wise's top Chardonnay from cool, sea-breezed northern vineyards — white peach, grapefruit and toasty oak.",
+   "sommNote": "The Leaf Series is the reserve tier the cellar door pours last for good reason.",
+   "rating": 4.4,
+   "pairings": [
+    "grilled snapper",
+    "chicken with tarragon",
+    "scallops",
+    "triple-cream brie"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2031",
+   "community": {
+    "score": 4.1,
+    "count": 50,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-wise-eagle-bay-shiraz",
+   "name": "Eagle Bay Shiraz",
+   "wineryId": "mr-wise-wine",
+   "variety": "Shiraz",
+   "vintage": "2022",
+   "description": "Maritime-cool Shiraz from the estate's Eagle Bay blocks, all red plum, cracked pepper and sea-spray freshness.",
+   "sommNote": "Grown metres from Geographe Bay — taste it alongside the Chardonnay to feel the site's cool-climate signature.",
+   "rating": 4.2,
+   "pairings": [
+    "char-grilled kangaroo",
+    "beef short ribs",
+    "hard sheep's cheese",
+    "peppered steak"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2032"
+  },
+  {
+   "id": "mr-aravina-wildwood-ridge-cabernet",
+   "name": "Wildwood Ridge Reserve Cabernet Sauvignon",
+   "wineryId": "mr-aravina",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2024",
+   "price": "$61",
+   "description": "Aravina's reserve Cabernet — blackcurrant, bay leaf and cedar from estate rows in the Yallingup hills.",
+   "sommNote": "The 2013 scored 94 from The Wine Front; the reserve tier carries the estate's best fruit every year.",
+   "rating": 4.4,
+   "pairings": [
+    "roast lamb",
+    "aged rib-eye",
+    "hard cheeses",
+    "venison"
+   ],
+   "drinkFrom": "2027",
+   "drinkTo": "2038",
+   "community": {
+    "score": 4.2,
+    "count": 231,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-aravina-wildwood-ridge-chardonnay",
+   "name": "Wildwood Ridge Reserve Chardonnay",
+   "wineryId": "mr-aravina",
+   "variety": "Chardonnay",
+   "vintage": "2025",
+   "price": "$61",
+   "description": "Reserve-tier Chardonnay with stone fruit, cashew and a fine chalky line, all from estate vines.",
+   "sommNote": "Aravina's white flagship — built in the modern tight Margaret River style rather than the old buttery one.",
+   "rating": 4.3,
+   "pairings": [
+    "marron",
+    "roast chicken",
+    "creamy mushroom pasta",
+    "gruyère"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2031"
+  },
+  {
+   "id": "mr-aravina-block-4-chenin",
+   "name": "Single Vineyard Block 4 Chenin Blanc",
+   "wineryId": "mr-aravina",
+   "variety": "Chenin Blanc",
+   "vintage": "2025",
+   "price": "$37",
+   "description": "Old-block Chenin Blanc with nashi pear, honeysuckle and a saline snap — a Yallingup signature grape.",
+   "sommNote": "Chenin made this site famous in its Amberley days; Block 4 keeps the flame burning.",
+   "rating": 4.2,
+   "pairings": [
+    "fish and chips",
+    "Vietnamese salads",
+    "oysters",
+    "young goat's cheese"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2029"
+  },
+  {
+   "id": "mr-wills-domain-paladin-hill-chardonnay",
+   "name": "Paladin Hill Chardonnay",
+   "wineryId": "mr-wills-domain",
+   "variety": "Chardonnay",
+   "vintage": "2025",
+   "price": "$85",
+   "description": "Single-site Gunyulgup Valley Chardonnay — white nectarine, oatmeal and a long mineral tail.",
+   "sommNote": "Top-of-range white from the estate's best hillside rows; the fog line below does the acid work.",
+   "rating": 4.5,
+   "pairings": [
+    "marron with beurre blanc",
+    "roast chicken",
+    "sashimi",
+    "comté"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2033"
+  },
+  {
+   "id": "mr-wills-domain-paladin-hill-shiraz",
+   "name": "Paladin Hill Shiraz",
+   "wineryId": "mr-wills-domain",
+   "variety": "Shiraz",
+   "vintage": "2021",
+   "price": "$85",
+   "description": "Perfumed valley-slope Shiraz with dark cherry, white pepper and silky, fine-grained tannin.",
+   "sommNote": "The estate's flagship red — cool-site Margaret River Shiraz rather than a Barossa impersonation.",
+   "rating": 4.3,
+   "pairings": [
+    "duck breast",
+    "slow-roasted lamb shoulder",
+    "beef bourguignon",
+    "aged gouda"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2034",
+   "community": {
+    "score": 4.0,
+    "count": 108,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-wills-domain-paladin-hill-matrix",
+   "name": "Paladin Hill Matrix",
+   "wineryId": "mr-wills-domain",
+   "variety": "Red Blend",
+   "vintage": "2022",
+   "price": "$110",
+   "description": "The estate's statement blend — a layered, cellar-worthy red assembled only in top years.",
+   "sommNote": "Matrix is the bottle the cellar door saves for the end of the flight; ask for it by name.",
+   "rating": 4.4,
+   "pairings": [
+    "char-grilled rib-eye",
+    "venison",
+    "braised oxtail",
+    "vintage cheddar"
+   ],
+   "drinkFrom": "2027",
+   "drinkTo": "2038"
+  },
+  {
+   "id": "mr-windows-petit-lot-chardonnay",
+   "name": "Petit Lot Chardonnay",
+   "wineryId": "mr-windows-estate",
+   "variety": "Chardonnay",
+   "vintage": "2024",
+   "price": "$66",
+   "description": "Hand-picked, wild-fermented Chardonnay from tiny yields — citrus blossom, flint and real drive.",
+   "sommNote": "Vivino has it at 4.3 across vintages; critics rate it among Yallingup's best-value fine Chardonnays.",
+   "rating": 4.5,
+   "pairings": [
+    "abrolhos scallops",
+    "roast chicken",
+    "soft cheeses",
+    "crayfish"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2032"
+  },
+  {
+   "id": "mr-windows-petit-lot-cabernet",
+   "name": "Petit Lot Basket Pressed Cabernet Sauvignon",
+   "wineryId": "mr-windows-estate",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2021",
+   "description": "Basket-pressed Cabernet from hand-tended vines — violets, blackcurrant and a savoury, earthy finish.",
+   "sommNote": "Made the slow way: hand picked, open fermented, basket pressed. Tiny quantities, cellar-door first.",
+   "rating": 4.4,
+   "pairings": [
+    "slow-braised beef cheek",
+    "lamb cutlets",
+    "aged cheddar",
+    "roast duck"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2036"
+  },
+  {
+   "id": "mr-flametree-srs-wallcliffe-chardonnay",
+   "name": "SRS Wallcliffe Chardonnay",
+   "wineryId": "mr-flametree",
+   "variety": "Chardonnay",
+   "vintage": "2024",
+   "price": "$95",
+   "description": "Single-block Wallcliffe Chardonnay — grapefruit, struck flint and a surge of natural acidity.",
+   "sommNote": "The 2023 scored 98 from Huon Hooke and topped a field of 100 Margaret River Chardonnays.",
+   "rating": 4.7,
+   "pairings": [
+    "grilled marron",
+    "poached snapper",
+    "roast chicken",
+    "washed-rind cheese"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2033",
+   "community": {
+    "score": 4.1,
+    "count": 528,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-flametree-cabernet-merlot",
+   "name": "Cabernet Sauvignon Merlot",
+   "wineryId": "mr-flametree",
+   "variety": "Cabernet Merlot",
+   "vintage": "2023",
+   "price": "$35",
+   "description": "The line that won the 2008 Jimmy Watson Trophy in its first vintage — plush blackcurrant and chocolatey tannin.",
+   "sommNote": "One of the region's great value reds; the blend leans on Cabernet with Merlot, Malbec and Petit Verdot.",
+   "rating": 4.2,
+   "pairings": [
+    "beef burgers",
+    "lamb kofta",
+    "pizza",
+    "cheddar"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2031",
+   "community": {
+    "score": 3.8,
+    "count": 620,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-flametree-srs-wilyabrup-cabernet",
+   "name": "SRS Wilyabrup Cabernet Sauvignon",
+   "wineryId": "mr-flametree",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2023",
+   "price": "$95",
+   "description": "Flametree's flagship Cabernet from prized Wilyabrup gravels — cassis, dried herbs and long, dusty tannins.",
+   "sommNote": "The SRS red counterpart to the Wallcliffe Chardonnay; museum vintages back to 2011 appear at the cellar door.",
+   "rating": 4.5,
+   "pairings": [
+    "rib-eye",
+    "slow-roasted lamb",
+    "venison pie",
+    "hard cheeses"
+   ],
+   "drinkFrom": "2027",
+   "drinkTo": "2039"
+  }
+ ]
 }

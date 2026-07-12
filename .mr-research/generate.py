@@ -75,6 +75,13 @@ def winery_ts(w):
         L.append(f"    briefing: {briefing_ts(w['briefing'])},")
     if w.get('sommNote'):
         L.append(f"    sommNote: {ts_str(w['sommNote'])},")
+    c = w.get('community')
+    if c and c.get('score') and c.get('count'):
+        L.append("    community: { score: %s, count: %s, source: 'Google' as const }," % (c['score'], c['count']))
+    if w.get('visitorSummary'):
+        L.append(f"    visitorSummary: {ts_str(w['visitorSummary'])},")
+    if w.get('videoUrl'):
+        L.append(f"    videoUrl: {ts_str(w['videoUrl'])},")
     L.append('  },')
     return '\n'.join(L)
 
@@ -138,6 +145,10 @@ def exp_ts(e):
     L.append(f"    opens: {ts_str(e.get('opens', '09:00'))},")
     L.append(f"    closes: {ts_str(e.get('closes', '17:00'))},")
     L.append(f"    sommNote: {ts_str(e.get('sommNote', ''))},")
+    if e.get('visitorSummary'):
+        L.append(f"    visitorSummary: {ts_str(e['visitorSummary'])},")
+    if e.get('videoUrl'):
+        L.append(f"    videoUrl: {ts_str(e['videoUrl'])},")
     L.append(f"    lat: {e['lat']},")
     L.append(f"    lng: {e['lng']},")
     L.append('  },')

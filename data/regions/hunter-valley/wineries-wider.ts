@@ -103,6 +103,8 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
       hiddenGem: 'Some of the estate\'s vines are among Pokolbin\'s oldest, hiding in plain sight on unfashionable McDonalds Road.',
     },
     sommNote: 'One of the only Hunter Rieslings in existence. Order it, watch the locals raise an eyebrow, then watch them ask for a glass.',
+    community: { score: 4.5, count: 210, source: 'Google' as const },
+    visitorSummary: 'Chocolate-and-wine pairings and kids\' paddle boards make this a family favourite in the reviews, with hosts keeping every generation entertained.',
   },
   {
     id: 'hv-piggs-peake',
@@ -223,6 +225,8 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
       hiddenGem: 'Nothing here is bought in and nothing leaves early; the house rule is patience, enforced without exception.',
     },
     sommNote: 'Estate fruit only, and they hold wines back until they\'re ready. Patience as a business model — it works.',
+    community: { score: 4.7, count: 421, source: 'Google' as const },
+    visitorSummary: 'Beginners are looked after here, say the reviews: patient hosts who make wine easy, with a note to book ahead for groups as patio seating is limited.',
   },
   {
     id: 'hv-savannah-estate',
@@ -283,6 +287,8 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
       hiddenGem: 'Michael Hope was a pharmacist before 1994; the amphitheatre came later, the Shiraz obsession came first.',
     },
     sommNote: 'Come for the concert, stay for The Ripper. It has headlined more Hunter dinner tables than any act on the amphitheatre bill.',
+    community: { score: 3.8, count: 656, source: 'Google' as const },
+    visitorSummary: 'Tastings hosted with theatre — one sommelier, Gary, has his own fan club in the reviews — though opinions on the food side run mixed.',
   },
   {
     id: 'hv-bimbadgen',
@@ -315,6 +321,8 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
       hiddenGem: 'The Signature Semillons are single-vineyard bottlings built to cellar a decade, which the tower\'s photographers rarely discover.',
     },
     sommNote: 'Everyone photographs the bell tower. The clever ones photograph it from the tasting bench, Signature Semillon in hand.',
+    community: { score: 4.4, count: 783, source: 'Google' as const },
+    visitorSummary: 'The views get top billing in almost every review, with the restaurant and friendly hosts close behind; the odd kitchen miss doesn\'t dent the affection.',
   },
   {
     id: 'hv-thomas-allen',
@@ -468,6 +476,8 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
       hiddenGem: 'The whole estate was planted from bare paddock in 2000, cottages and all, by one family, plank by plank.',
     },
     sommNote: 'Order the long lunch, ask for the Impressions Shiraz, and let the Brokenback Range do the table decoration.',
+    community: { score: 4.3, count: 383, source: 'Google' as const },
+    visitorSummary: 'The three-course lunch among the vines is the draw, with cabins for those who stay; praise for value and setting, with occasional notes on portion and pace.',
   },
 
   // --- Lovedale ---------------------------------------------------------------
@@ -530,6 +540,8 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
       hiddenGem: 'They have grown Hunter Cabernet since 1989, a variety most locals wrote off as a fool\'s errand decades ago.',
     },
     sommNote: 'Cabernet in the Hunter is meant to be a fool\'s errand. The Bluegrass has been making fools of the doubters since 1989.',
+    community: { score: 4.8, count: 502, source: 'Google' as const },
+    visitorSummary: 'Live music on weekends, kids\' tasting paddles with activity sheets, and hosts whose names fill the reviews; several call it the best wines of their Hunter trip.',
   },
   {
     id: 'hv-wandin-estate',

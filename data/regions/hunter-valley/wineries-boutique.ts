@@ -44,6 +44,8 @@ export const BOUTIQUE_WINERIES: Winery[] = [
       hiddenGem: 'The estate presses its own olives too; the grove shares the ridge with the vines.',
     },
     sommNote: 'The 2014 Aged Hunter Semillon is the quiet flex here — a decade of patience poured by the family who waited.',
+    community: { score: 4.8, count: 497, source: 'Google' as const },
+    visitorSummary: 'The views, the pizza truck and the resident labradors are the holy trinity of these reviews; visitors book return trips before they leave.',
   },
   {
     id: 'hv-ernest-hill',
@@ -81,6 +83,8 @@ export const BOUTIQUE_WINERIES: Winery[] = [
       hiddenGem: 'Sunday hours are short — the family close at three to have dinner together.',
     },
     sommNote: 'Four generations on the labels and usually one of them behind the bar — ask which wine is theirs.',
+    community: { score: 4.9, count: 296, source: 'Google' as const },
+    visitorSummary: 'Kangaroos lounging among the vines open half the reviews; dogs are welcome, and the hosts\' storytelling keeps this boutique door on repeat-visit lists.',
   },
   {
     id: 'hv-david-hook',

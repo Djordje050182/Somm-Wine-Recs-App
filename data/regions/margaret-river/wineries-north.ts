@@ -39,6 +39,8 @@ export const NORTH_WINERIES: Winery[] = [
       hiddenGem: 'The cellar door is closed Tuesdays; time your run Wednesday to Monday and pair it with nearby Commonage Road stops.',
     },
     sommNote: 'Julian Langworthy\'s Reserve Cabernet is the benchmark bottling; the Harmony Rosé is the everyday steal the locals actually drink.',
+    community: { score: 4.6, count: 54, source: 'Google' as const },
+    visitorSummary: 'Reviewers describe it as the tasting that outshone bigger names, with standout value; the Albariño and blanc de blancs get repeat mentions.',
   },
   {
     id: 'mr-wise-wine',
@@ -101,6 +103,8 @@ export const NORTH_WINERIES: Winery[] = [
       hiddenGem: 'The owner\'s sports car collection is displayed on site; wander in between tastings.',
     },
     sommNote: 'Every bottle is estate grown — the Block 4 Chenin Blanc is the quiet nod to this site\'s Amberley heritage.',
+    community: { score: 4.2, count: 558, source: 'Google' as const },
+    visitorSummary: 'Reviewers love the gardens, the kids\' menus and colouring kits, and the complimentary tasting after lunch; it earns its family-day-out reputation.',
   },
   {
     id: 'mr-wills-domain',
@@ -163,6 +167,8 @@ export const NORTH_WINERIES: Winery[] = [
       hiddenGem: 'Tastings are poured in Zalto Denkart glassware — a small tell of how seriously they take the details.',
     },
     sommNote: 'Everything is estate grown, hand picked and basket pressed — the Petit Lot Chardonnay is the one critics keep finding.',
+    community: { score: 4.7, count: 120, source: 'Google' as const },
+    visitorSummary: 'Small, personal and organic: reviewers call it a real gem, singling out unhurried hosting and structured wines from a maker several call their favourite in the region.',
   },
   {
     id: 'mr-flametree',
@@ -194,6 +200,8 @@ export const NORTH_WINERIES: Winery[] = [
       hiddenGem: 'The SRS museum releases go back a decade — ask what\'s open from the back catalogue.',
     },
     sommNote: 'SRS Wallcliffe Chardonnay is the critics\' darling — the 2023 topped Margaret River Chardonnay lists with 98 points from Huon Hooke.',
+    community: { score: 4.8, count: 182, source: 'Google' as const },
+    visitorSummary: 'Tastings tailored to the guest are the theme, with the SRS Wallcliffe Chardonnay repeatedly named the standout; visitors report staying long past their pour.',
   },
   {
     id: 'mr-credaro',
@@ -226,6 +234,8 @@ export const NORTH_WINERIES: Winery[] = [
       hiddenGem: 'The Eredita range honours the family\'s Italian roots, including a Fragola made from the same curious strawberry-scented variety Cesare planted in 1922.',
     },
     sommNote: 'A century of Margaret River in one family: order the Eredita Fragola if you want a story no other cellar door in the region can pour.',
+    community: { score: 4.8, count: 88, source: 'Google' as const },
+    visitorSummary: 'The view and lawn picnics are the setting, the 1000 Crowns range the star; hosts are praised by name in almost every review.',
   },
   {
     id: 'mr-swings-roundabouts',

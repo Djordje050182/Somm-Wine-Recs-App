@@ -78,6 +78,8 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'Graveyard sits in the Langton\'s Classification alongside Grange â the top table of Australian wine, from a plot surveyed for coffins.',
     },
     sommNote: 'The Graveyard vineyard was gazetted as a cemetery in 1882. Nobody was ever buried there — the vines got the plot instead.',
+    community: { score: 4.3, count: 592, source: 'Google' as const },
+    visitorSummary: 'The clever four-bar cellar door and polished, professional tastings define the reviews; a few find it busier and more commercial than the boutique doors, which is rather the point.',
   },
   {
     id: 'hv-audrey-wilkinson',
@@ -142,6 +144,8 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'O\'Shea trained in France before he was twenty, which is why a 1920s Hunter winery ran on Burgundian instincts.',
     },
     sommNote: 'Ask for the museum tasting. An aged Elizabeth at a tenner more than the current release is the best-value old wine in the country.',
+    community: { score: 4.5, count: 230, source: 'Google' as const },
+    visitorSummary: 'The history lands hardest: reviewers love hearing about O\'Shea and standing beside vines from 1880, with hosts who walk guests out to the rows they\'re drinking from.',
   },
   {
     id: 'hv-lakes-folly',
@@ -203,6 +207,8 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'The family lost the brand to corporate owners for decades and bought their own name back in 2001.',
     },
     sommNote: 'The founding vineyard settled a shopkeeper’s bad debt in 1895. Taste the Hector and decide who got the better deal.',
+    community: { score: 4.7, count: 649, source: 'Google' as const },
+    visitorSummary: 'Hosts remembered by name in review after review, colouring pages for the kids, and the Hunter Heroes tasting with local cheese the recurring recommendation.',
   },
   {
     id: 'hv-mcguigan',
@@ -234,6 +240,8 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'The winemaking team has taken International Winemaker of the Year four times â a record no supermarket shelf would suggest.',
     },
     sommNote: 'Skip the supermarket labels and go straight to Bin 9000 — the Semillon the show judges see is a different animal entirely.',
+    community: { score: 4.5, count: 614, source: 'Google' as const },
+    visitorSummary: 'Reliable, knowledgeable tastings at scale; reviewers call out staff by name and rate the member benefits.',
   },
   {
     id: 'hv-hungerford-hill',
@@ -389,6 +397,8 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'The first name wasn\'t merely taken â it was Hermitage, and the French objected. Hence the second time.',
     },
     sommNote: 'Tempus Two means “second time” — Lisa McGuigan launched it after the first name was already taken. The pewter labels are hand-applied.',
+    community: { score: 4.6, count: 397, source: 'Google' as const },
+    visitorSummary: 'The $10 tasting is called the valley\'s best bargain, with a huge range and hosts who tailor the pour; the Montepulciano keeps stealing the show.',
   },
   {
     id: 'hv-usher-tinkler',
@@ -451,6 +461,8 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'Cabernet is nearly extinct in the Hunter â most growers pulled it decades ago; Ivanhoe kept the faith.',
     },
     sommNote: 'If most Hunter Shiraz is a string quartet, the Pressings is a brass band. Come hungry for tannin.',
+    community: { score: 4.8, count: 444, source: 'Google' as const },
+    visitorSummary: 'Danny\'s humour is practically a listed attraction: reviews describe laugh-filled tastings, exquisite gardens dotted with sculptures, and the best cheese boards of the trip.',
   },
   {
     id: 'hv-draytons',
@@ -575,6 +587,8 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'The Petersons keep a still-wine estate over at Mount View â this corner house was built to do bubbles and nothing else.',
     },
     sommNote: 'Sparkling breakfast is a Hunter institution — oysters and bubbles at 9am, and absolutely nobody judges you.',
+    community: { score: 4.6, count: 1476, source: 'Google' as const },
+    visitorSummary: 'The sparkling house doubles as one of the valley\'s favourite long lunches: reviewers rave about the restaurant, the chapel weddings, and Easter tastings that turn into afternoons.',
   },
   {
     id: 'hv-de-iuliis',
@@ -606,6 +620,8 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'LDR stands for light dry red, the old Australian pub order â a wink at what Hunter locals actually drank.',
     },
     sommNote: 'Mike De Iuliis has fruit from the storied Steven vineyard and the good sense not to get in its way.',
+    community: { score: 4.7, count: 202, source: 'Google' as const },
+    visitorSummary: 'The blending-bench masterclass is the standout — make your own signature blend — alongside winery tours and paired tastings reviewers rate among the valley\'s best.',
   },
   {
     id: 'hv-meerea-park',
@@ -667,6 +683,8 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'Thommo grew up in McLaren Vale â it took a South Australian to make the modern benchmark Hunter Semillon.',
     },
     sommNote: 'No Chardonnay, no rosé, no distractions. Two varieties, done properly — the valley’s most disciplined cellar door.',
+    community: { score: 4.7, count: 257, source: 'Google' as const },
+    visitorSummary: 'The terroir-sample Explorer tasting earns rave reviews for making Semillon and Shiraz make sense; hosts strike the balance of knowledge and good stories.',
   },
   {
     id: 'hv-silkman',
@@ -757,6 +775,8 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'Guy and Sandra planted this as a family dream in 1998; their son turned it into a cult label in his twenties.',
     },
     sommNote: 'The Headcase wines are where Angus Vinden lets the handbrake off — skin contact, wild ferments, and the occasional stroke of genius.',
+    community: { score: 4.8, count: 197, source: 'Google' as const },
+    visitorSummary: 'Unhurried is the word: reviews describe hours slipping by, tastings poured by the owner himself, and stays in the vineyard accommodation.',
   },
   {
     id: 'hv-glandore',
@@ -787,5 +807,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
       hiddenGem: 'It carries the humblest rating on this stretch of Broke Road, which regulars quietly treat as their own good luck.',
     },
     sommNote: 'The unhurried tasting on the strip — if the icon cellar doors are booked out, start here and thank us later.',
+    community: { score: 4.8, count: 207, source: 'Google' as const },
+    visitorSummary: 'Personalised $15 tastings with chocolate pairings and a balcony over the vines; the barrel-burning nights get special mentions.',
   },
 ];

@@ -39,6 +39,8 @@ export const SOUTH_WINERIES: Winery[] = [
       hiddenGem: 'The gallery above the restaurant holds the full collection of commissioned Art Series label paintings, free to wander through.',
     },
     sommNote: 'The Art Series Chardonnay, first made in 1980, is the wine that put Margaret River Chardonnay on the world map — Decanter once named the 1981 the best Chardonnay in the world.',
+    community: { score: 4.4, count: 699, source: 'Google' as const },
+    visitorSummary: 'The long lunch is the recurring love letter: terrace tables, wine-paired tasting menus, dietary needs handled without fuss, Art Series tastings that tell the story, and kookaburras supervising the lawns.',
   },
   {
     id: 'mr-voyager-estate',
@@ -71,6 +73,8 @@ export const SOUTH_WINERIES: Winery[] = [
       hiddenGem: 'The restaurant runs Wednesday to Sunday only, noon to five — the vineyard-view tables go first, so reserve ahead.',
     },
     sommNote: 'The whole vineyard is certified organic — one of the largest organic conversions in Margaret River — and the MJW bottlings honour founder Michael John Wright.',
+    community: { score: 4.6, count: 669, source: 'Google' as const },
+    visitorSummary: 'Guests praise the estate tours and the wine-paired long lunch, with the rose gardens a highlight; the one practical tip that recurs is to arrange transport ahead, as taxis out here are scarce.',
   },
   {
     id: 'mr-xanadu-wines',
@@ -103,6 +107,8 @@ export const SOUTH_WINERIES: Winery[] = [
       hiddenGem: 'Cellar Door-only wines and back-vintage museum releases are poured on site and never leave the property.',
     },
     sommNote: 'Sunday tastings carry a 10 per cent surcharge and final pours are at 4:30pm — plan Xanadu as an early stop, not a last one.',
+    community: { score: 4.5, count: 606, source: 'Google' as const },
+    visitorSummary: 'The restaurant draws the praise: beautifully presented set menus in a lovely setting, though a few reviewers note service can drift on busy afternoons.',
   },
   {
     id: 'mr-cape-mentelle',
@@ -135,6 +141,8 @@ export const SOUTH_WINERIES: Winery[] = [
       hiddenGem: 'There are pétanque lanes, swings and picnic tables in the garden — bring a baguette and make an afternoon of it.',
     },
     sommNote: 'Founder David Hohnen used the proceeds of Cape Mentelle\'s success to establish Cloudy Bay — the two wineries share a family tree.',
+    community: { score: 4.6, count: 233, source: 'Google' as const },
+    visitorSummary: 'The vineyard-to-barrel tours with nine-wine tastings win consistent praise, and kids are welcomed along; the one recurring gripe is that the tasting fee isn\'t redeemed against purchases.',
   },
   {
     id: 'mr-stella-bella',
@@ -167,6 +175,8 @@ export const SOUTH_WINERIES: Winery[] = [
       hiddenGem: 'You can bring your own picnic and a leashed dog, buy wine by the glass, and spread out on the grassed area among the vines, a rare BYO-food policy for a winery of this standing.',
     },
     sommNote: 'Southern Margaret River in a glass: cooler sites, brighter acid lines, and a Luminosa Chardonnay that quietly outpunches far pricier neighbours.',
+    community: { score: 4.8, count: 241, source: 'Google' as const },
+    visitorSummary: 'Relaxed, uncrowded, and close enough to town to reach by bike; reviewers highlight patient hosts who steer by taste rather than script.',
   },
   {
     id: 'mr-mchenry-hohnen',
@@ -199,6 +209,7 @@ export const SOUTH_WINERIES: Winery[] = [
       hiddenGem: 'Hazel\'s Vineyard grows Zinfandel, Tempranillo and Grenache alongside the classics; the Zin is the most serious example in the country.',
     },
     sommNote: 'Where Margaret River goes when it wants to argue about terroir: one family, certified biodynamic, and every bottle traceable to a single paddock.',
+    community: { score: 4.6, count: 41, source: 'Google' as const },
   },
   {
     id: 'mr-brown-hill',
@@ -231,6 +242,8 @@ export const SOUTH_WINERIES: Winery[] = [
       hiddenGem: 'The whole crop is hand-picked every vintage, something almost no one else at this price point can claim.',
     },
     sommNote: 'The locals\' cellar-stocking secret: goldmine names, hand-picked fruit, and prices from another decade out on the quiet Rosa Brook road.',
+    community: { score: 4.9, count: 648, source: 'Google' as const },
+    visitorSummary: 'One of the region\'s best-loved cellar doors on tour circuits: family hosts greeted by name in review after review, and a steady drumbeat of \'best wines we tasted all trip\'.',
   },
   {
     id: 'mr-hamelin-bay',

@@ -37,6 +37,8 @@ const estateEntry = (e: Winery): string => {
     e.description,
     e.story ?? '',
     e.sommNote ? `Somm's note: ${e.sommNote}` : '',
+    e.community ? `Google rating: ${e.community.score} from ${e.community.count} reviews.` : '',
+    e.visitorSummary ? `What visitors say: ${e.visitorSummary}` : '',
     `Cellar door: ${e.opens}–${e.closes}. Tasting fee: $${e.tastingFee}.${e.bookingRequired ? ' Booking required.' : ''}`,
     [e.phone, e.website].filter(Boolean).length
       ? `Contact: ${[e.phone, e.website].filter(Boolean).join(' · ')}`

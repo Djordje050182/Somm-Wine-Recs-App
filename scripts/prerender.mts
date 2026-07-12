@@ -63,6 +63,8 @@ const wineryArticle = (regionName: string, w: Winery): string => `
     ${w.story ? `<p>${esc(w.story)}</p>` : ''}
     <p>${esc(w.specialty)}. Cellar door open ${esc(w.opens)}–${esc(w.closes)}. Tasting ${w.tastingFee === 0 ? 'free' : `$${w.tastingFee} per person`}${w.bookingRequired ? ', booking required' : ', walk-ins welcome'}.</p>
     ${w.sommNote ? `<p><em>The Somm's note: ${esc(w.sommNote)}</em></p>` : ''}
+    ${w.community ? `<p>Rated ${w.community.score} on Google from ${w.community.count.toLocaleString()} reviews.</p>` : ''}
+    ${w.visitorSummary ? `<p>What visitors say: ${esc(w.visitorSummary)}</p>` : ''}
     ${w.wines?.length ? `<p>Signature wines: ${esc(w.wines.join(', '))}.</p>` : ''}
     ${w.website ? `<p><a href="${esc(w.website)}">Estate website</a></p>` : ''}
   </article>`;

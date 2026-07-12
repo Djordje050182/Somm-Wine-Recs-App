@@ -136,6 +136,13 @@ export interface Winery {
     proMove: string;
     hiddenGem: string;
   };
+  community?: {            // the venue's own crowd rating, harvested not invented
+    score: number;
+    count: number;
+    source: 'Google';
+  };
+  visitorSummary?: string; // recurring themes from public reviews, summarised honestly
+  videoUrl?: string;       // the estate's own film (YouTube), embedded on the listing
 }
 
 export interface WineDetail {
@@ -179,6 +186,8 @@ export interface Experience {
     count: number;
     source: 'Google';
   };
+  visitorSummary?: string; // recurring themes from public reviews, summarised honestly
+  videoUrl?: string;       // the venue's own film (YouTube)
   rating: number;
   priceRange: string;
   website?: string;

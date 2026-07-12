@@ -1,437 +1,461 @@
 {
-  "wineries": [
-    {
-      "id": "mr-leeuwin-estate",
-      "name": "Leeuwin Estate",
-      "subregion": "Wallcliffe",
-      "specialty": "Chardonnay",
-      "wines": [
-        "Art Series Chardonnay",
-        "Art Series Cabernet Sauvignon",
-        "Art Series Riesling"
-      ],
-      "established": 1974,
-      "priceRange": "$$$$",
-      "description": "One of Margaret River's five founding estates, whose Art Series Chardonnay routinely gatecrashes lists of the world's great white wines.",
-      "story": "Denis and Tricia Horgan turned a cattle farm into a wine estate after Robert Mondavi himself identified the site in the early 1970s, and the family still runs it today. Since the 1980 vintage every Art Series label has carried a commissioned work by a leading Australian artist, and the estate's open-air concerts have hosted everyone from the London Philharmonic to Tom Jones on the lawn in front of the karri trees.",
-      "style": "Premium",
-      "opens": "10:00",
-      "closes": "17:00",
-      "lat": -34.0134,
-      "lng": 115.0656,
-      "hasRestaurant": true,
-      "rating": 4.4,
-      "bookingRequired": false,
-      "kidFriendly": true,
-      "dogFriendly": false,
-      "phone": "08 9759 0000",
-      "website": "https://leeuwinestate.com.au",
-      "bookingUrl": "https://bookings.nowbookit.com/?accountid=86f30d57-c1f4-4baa-a159-cfb110fcdcfa&venueid=14431",
-      "image": {
-        "url": "https://do1x6wh6576ht.cloudfront.net/uploads/2026/03/cellar-door-hero-2.webp",
-        "alt": "Guests tasting wines at the long timber bar inside Leeuwin Estate's cellar door",
-        "verified": "downloaded 2026-07-10, shows the cellar door tasting room with guests at the bar and bottle displays"
-      },
-      "briefing": {
-        "icebreaker": "Ask which Art Series painting is their favourite — the originals hang in the estate's own gallery upstairs.",
-        "proMove": "Book the Art Series Chardonnay museum flight: three back-vintage releases poured alongside the current wine in a seated 45-minute tasting.",
-        "hiddenGem": "The gallery above the restaurant holds the full collection of commissioned Art Series label paintings, free to wander through."
-      },
-      "sommNote": "The Art Series Chardonnay, first made in 1980, is the wine that put Margaret River Chardonnay on the world map — Decanter once named the 1981 the best Chardonnay in the world."
-    },
-    {
-      "id": "mr-voyager-estate",
-      "name": "Voyager Estate",
-      "subregion": "Wallcliffe",
-      "specialty": "Chardonnay",
-      "wines": [
-        "MJW Chardonnay",
-        "Chardonnay",
-        "Cabernets"
-      ],
-      "established": 1978,
-      "priceRange": "$$$",
-      "description": "White Cape Dutch gables, manicured rose gardens and certified-organic vineyards make Voyager the most photographed estate on Stevens Road.",
-      "story": "First planted in 1978 and bought in 1991 by mining magnate Michael Wright, who modelled the whitewashed buildings and formal gardens on South Africa's Cape Dutch wine estates. His daughter Alexandra now owns it, the entire vineyard is certified organic, and the MJW wines named for Michael himself sit at the top of the range.",
-      "style": "Premium",
-      "opens": "10:00",
-      "closes": "17:00",
-      "lat": -33.9951,
-      "lng": 115.0539,
-      "hasRestaurant": true,
-      "rating": 4.6,
-      "bookingRequired": false,
-      "kidFriendly": true,
-      "dogFriendly": false,
-      "phone": "08 9757 6354",
-      "website": "https://www.voyagerestate.com.au",
-      "bookingUrl": "https://www.voyagerestate.com.au/tastings-experiences",
-      "image": {
-        "url": "https://www.voyagerestate.com.au/assets/images/contentblock/photos/VGR_Experiences_FullBanner_Header-min68-WULFQU.jpg",
-        "alt": "Netted vineyard rows at Voyager Estate glowing at sunset beneath tall eucalypts",
-        "verified": "downloaded 2026-07-10, shows estate vineyard rows under bird netting with karri trees behind"
-      },
-      "briefing": {
-        "icebreaker": "Ask why the buildings look South African — the whole estate is modelled on Cape Dutch wine farms.",
-        "proMove": "Book the Discover Voyager private tour with paired snacks; it gets you out among the organic vines and into the winery itself.",
-        "hiddenGem": "The restaurant runs Wednesday to Sunday only, noon to five — the vineyard-view tables go first, so reserve ahead."
-      },
-      "sommNote": "The whole vineyard is certified organic — one of the largest organic conversions in Margaret River — and the MJW bottlings honour founder Michael John Wright."
-    },
-    {
-      "id": "mr-xanadu-wines",
-      "name": "Xanadu Wines",
-      "subregion": "Wallcliffe",
-      "specialty": "Cabernet Sauvignon",
-      "wines": [
-        "Reserve Chardonnay",
-        "Reserve Cabernet Sauvignon",
-        "Xanadu Chardonnay"
-      ],
-      "established": 1977,
-      "priceRange": "$$$",
-      "description": "A 1977 pioneer named after Coleridge's pleasure dome, now one of the region's most decorated producers of Cabernet and Chardonnay.",
-      "story": "Irish doctor John Lagan planted Xanadu in 1977 and named it for the 'stately pleasure dome' of Coleridge's Kubla Khan. The Rathbone family bought the estate in 2005 and, with long-serving winemaker Glenn Goodall, turned it into a trophy magnet — its Cabernets and Chardonnays are perennial show winners. The stone-fronted cellar door on Boodjidup Road pours everything from the easy Circa 77 range to museum releases.",
-      "style": "Premium",
-      "opens": "10:00",
-      "closes": "17:00",
-      "lat": -33.9709,
-      "lng": 115.0458,
-      "hasRestaurant": true,
-      "rating": 4.5,
-      "bookingRequired": false,
-      "kidFriendly": true,
-      "dogFriendly": false,
-      "phone": "08 9758 9500",
-      "website": "https://xanaduwines.com",
-      "bookingUrl": "https://xanaduwines.com/cellar-door/",
-      "tastingFee": 30,
-      "image": {
-        "url": "https://xanaduwines.com/wp-content/uploads/XAN_Header-CD.jpg",
-        "alt": "Stone-walled entrance to Xanadu's cellar door with a branded barrel table under the verandah",
-        "verified": "downloaded 2026-07-10, shows the cellar door building entrance, stone wall and barrel seating"
-      },
-      "briefing": {
-        "icebreaker": "Ask about the name — it comes from Coleridge's Kubla Khan, chosen by founding doctor John Lagan in 1977.",
-        "proMove": "Take the $30 Flagship Tasting: five Stevens Road and Reserve wines, the same bottlings that hoover up trophies on the show circuit.",
-        "hiddenGem": "Cellar Door-only wines and back-vintage museum releases are poured on site and never leave the property."
-      },
-      "sommNote": "Sunday tastings carry a 10 per cent surcharge and final pours are at 4:30pm — plan Xanadu as an early stop, not a last one."
-    },
-    {
-      "id": "mr-cape-mentelle",
-      "name": "Cape Mentelle",
-      "subregion": "Wallcliffe",
-      "specialty": "Cabernet Sauvignon",
-      "wines": [
-        "Heritage Cabernet Sauvignon",
-        "Chardonnay",
-        "Heritage Shiraz"
-      ],
-      "established": 1970,
-      "priceRange": "$$$",
-      "description": "A founding-five estate whose back-to-back Jimmy Watson trophies in 1983 and 1984 announced Margaret River Cabernet to the nation.",
-      "story": "David Hohnen planted Cape Mentelle in 1970, and its 1982 and 1983 Cabernets won consecutive Jimmy Watson trophies — the wins that made the region's name (Hohnen went on to found Cloudy Bay in Marlborough). The cellar door sits just four kilometres from Margaret River township on the road to the beach, with a photo history of the estate hung in the rammed-earth Barrel Hall behind it.",
-      "style": "Premium",
-      "opens": "10:00",
-      "closes": "17:00",
-      "lat": -33.9675,
-      "lng": 115.0373,
-      "hasRestaurant": false,
-      "rating": 4.6,
-      "bookingRequired": false,
-      "kidFriendly": true,
-      "dogFriendly": false,
-      "phone": "08 9757 0812",
-      "website": "https://www.capementelle.com.au",
-      "bookingUrl": "https://capementelle1.rezdy.com",
-      "tastingFee": 10,
-      "image": {
-        "url": "https://www.capementelle.com.au/assets/images/contentblock/photos/66_20181116_CAPE-MENTELLE_Cabernet-Sauvignon-Wine-Tasting-Event-FESFXG.jpg",
-        "alt": "Tasting event among barrels inside Cape Mentelle's rammed-earth Barrel Hall",
-        "verified": "downloaded 2026-07-10, shows the Barrel Hall interior with barrel rows and historic photo display"
-      },
-      "briefing": {
-        "icebreaker": "Ask about the back-to-back Jimmy Watson wins — the 1983 and 1984 trophies that put Margaret River Cabernet on the map.",
-        "proMove": "The $10 tasting fee is redeemable against any bottle, and the cellar door pours rare wines exclusive to the winery.",
-        "hiddenGem": "There are pétanque lanes, swings and picnic tables in the garden — bring a baguette and make an afternoon of it."
-      },
-      "sommNote": "Founder David Hohnen used the proceeds of Cape Mentelle's success to establish Cloudy Bay — the two wineries share a family tree."
-    }
-  ],
-  "wines": [
-    {
-      "id": "mr-leeuwin-art-series-chardonnay",
-      "name": "Art Series Chardonnay",
-      "wineryId": "mr-leeuwin-estate",
-      "variety": "Chardonnay",
-      "vintage": "2023",
-      "price": "$159",
-      "description": "Australia's benchmark Chardonnay: intense grapefruit and white peach wrapped in seamless French oak, built to age two decades.",
-      "sommNote": "Sourced overwhelmingly from Block 20, planted in 1976 — among the oldest Chardonnay vines in the region.",
-      "rating": 4.8,
-      "pairings": [
-        "Marron",
-        "Roast chicken",
-        "Brie de Meaux",
-        "Abrolhos scallops"
-      ],
-      "drinkFrom": "2026",
-      "drinkTo": "2040",
-      "community": {
-        "score": 4.3,
-        "count": 9643,
-        "source": "Vivino"
-      }
-    },
-    {
-      "id": "mr-leeuwin-art-series-cabernet-sauvignon",
-      "name": "Art Series Cabernet Sauvignon",
-      "wineryId": "mr-leeuwin-estate",
-      "variety": "Cabernet Sauvignon",
-      "vintage": "2022",
-      "price": "$102",
-      "description": "A fragrant, fine-boned Cabernet with cassis, bay leaf and cedar — the quieter, equally age-worthy sibling of the famous Chardonnay.",
-      "sommNote": "Leeuwin's Cabernet blocks sit on gravelly loam a few kilometres from the Indian Ocean, giving the wine its signature freshness.",
-      "rating": 4.6,
-      "pairings": [
-        "Lamb rump",
-        "Beef cheek",
-        "Aged cheddar",
-        "Field mushrooms"
-      ],
-      "drinkFrom": "2027",
-      "drinkTo": "2042",
-      "community": {
-        "score": 4.2,
-        "count": 7349,
-        "source": "Vivino"
-      }
-    },
-    {
-      "id": "mr-leeuwin-art-series-riesling",
-      "name": "Art Series Riesling",
-      "wineryId": "mr-leeuwin-estate",
-      "variety": "Riesling",
-      "vintage": "2025",
-      "price": "$27",
-      "description": "A rare Margaret River Riesling — lime blossom and slatey acidity at a price that embarrasses the rest of the list.",
-      "sommNote": "The bargain of the Art Series range and a favourite with the restaurant's marron dishes.",
-      "rating": 4.2,
-      "pairings": [
-        "Oysters",
-        "Sashimi",
-        "Thai salads",
-        "Goat's cheese"
-      ],
-      "drinkFrom": "2026",
-      "drinkTo": "2032",
-      "community": {
-        "score": 3.6,
-        "count": 3691,
-        "source": "Vivino"
-      }
-    },
-    {
-      "id": "mr-voyager-mjw-chardonnay",
-      "name": "MJW Chardonnay",
-      "wineryId": "mr-voyager-estate",
-      "variety": "Chardonnay",
-      "vintage": "2022",
-      "price": "$140",
-      "description": "Voyager's flagship: a single-block, wild-ferment Chardonnay of nervy grapefruit, struck match and fine oak.",
-      "sommNote": "Named for founder Michael John Wright and drawn from the estate's best old Gin Gin clone blocks.",
-      "rating": 4.7,
-      "pairings": [
-        "Marron",
-        "Roast chicken",
-        "Creamy pasta",
-        "Comté"
-      ],
-      "drinkFrom": "2026",
-      "drinkTo": "2036"
-    },
-    {
-      "id": "mr-voyager-chardonnay",
-      "name": "Chardonnay",
-      "wineryId": "mr-voyager-estate",
-      "variety": "Chardonnay",
-      "vintage": "2023",
-      "price": "$70",
-      "description": "The estate Chardonnay: white peach and grapefruit with a creamy, oak-framed mid-palate from certified-organic fruit.",
-      "sommNote": "Consistently one of the region's most reliable serious Chardonnays under $75.",
-      "rating": 4.5,
-      "pairings": [
-        "Grilled fish",
-        "Chicken",
-        "Soft cheeses",
-        "Corn dishes"
-      ],
-      "drinkFrom": "2026",
-      "drinkTo": "2033",
-      "community": {
-        "score": 4.0,
-        "count": 2039,
-        "source": "Vivino"
-      }
-    },
-    {
-      "id": "mr-voyager-cabernets",
-      "name": "Cabernets",
-      "wineryId": "mr-voyager-estate",
-      "variety": "Cabernet Sauvignon",
-      "vintage": "2023",
-      "price": "$60",
-      "description": "The successor to Voyager's long-running Cabernet Sauvignon Merlot: blackcurrant, dried herbs and polished tannin.",
-      "sommNote": "The earlier Cabernet Sauvignon Merlot bottlings under this lineage score 4.1 from over 2,400 Vivino reviews.",
-      "rating": 4.4,
-      "pairings": [
-        "Lamb shoulder",
-        "Beef fillet",
-        "Hard cheeses",
-        "Mushroom dishes"
-      ],
-      "drinkFrom": "2027",
-      "drinkTo": "2038"
-    },
-    {
-      "id": "mr-xanadu-reserve-chardonnay",
-      "name": "Reserve Chardonnay",
-      "wineryId": "mr-xanadu-wines",
-      "variety": "Chardonnay",
-      "vintage": "2024",
-      "price": "$130",
-      "description": "Xanadu's top white: coiled grapefruit and nectarine with flinty complexity from the estate's best Boodjidup blocks.",
-      "sommNote": "Only made in vintages that justify it — the 2020 sold at cellar door for more than the current release.",
-      "rating": 4.6,
-      "pairings": [
-        "Marron",
-        "Roast chicken",
-        "Triple-cream brie",
-        "Scallops"
-      ],
-      "drinkFrom": "2026",
-      "drinkTo": "2035",
-      "community": {
-        "score": 4.1,
-        "count": 461,
-        "source": "Vivino"
-      }
-    },
-    {
-      "id": "mr-xanadu-reserve-cabernet-sauvignon",
-      "name": "Reserve Cabernet Sauvignon",
-      "wineryId": "mr-xanadu-wines",
-      "variety": "Cabernet Sauvignon",
-      "vintage": "2023",
-      "price": "$140",
-      "description": "The estate's flagship red: pure cassis, cedar and gravelly tannin from Xanadu's oldest Cabernet vines.",
-      "sommNote": "Winemaker Glenn Goodall's Cabernets are among the most consistently awarded in Margaret River.",
-      "rating": 4.6,
-      "pairings": [
-        "Lamb rack",
-        "Beef rib",
-        "Aged cheddar",
-        "Venison"
-      ],
-      "drinkFrom": "2028",
-      "drinkTo": "2043",
-      "community": {
-        "score": 4.2,
-        "count": 396,
-        "source": "Vivino"
-      }
-    },
-    {
-      "id": "mr-xanadu-chardonnay",
-      "name": "Xanadu Chardonnay",
-      "wineryId": "mr-xanadu-wines",
-      "variety": "Chardonnay",
-      "vintage": "2024",
-      "price": "$40",
-      "description": "The estate-label Chardonnay that regularly punches far above its price at wine shows.",
-      "sommNote": "The smart buy on the list — same winemaking team and vineyards as the Reserve at a third of the price.",
-      "rating": 4.3,
-      "pairings": [
-        "Grilled fish",
-        "Chicken",
-        "Fresh cheeses",
-        "Prawns"
-      ],
-      "drinkFrom": "2026",
-      "drinkTo": "2031",
-      "community": {
-        "score": 3.9,
-        "count": 1232,
-        "source": "Vivino"
-      }
-    },
-    {
-      "id": "mr-cape-mentelle-heritage-cabernet-sauvignon",
-      "name": "Heritage Cabernet Sauvignon",
-      "wineryId": "mr-cape-mentelle",
-      "variety": "Cabernet Sauvignon",
-      "vintage": "2022",
-      "price": "$105",
-      "description": "The direct descendant of the Jimmy Watson-winning Cabernets: dense blackcurrant, gravel and cedar built for the long haul.",
-      "sommNote": "This is the flagship Cabernet lineage that dates to the original 1970 plantings on Wallcliffe Road.",
-      "rating": 4.6,
-      "pairings": [
-        "Beef rib",
-        "Lamb shoulder",
-        "Aged cheddar",
-        "Venison"
-      ],
-      "drinkFrom": "2028",
-      "drinkTo": "2045",
-      "community": {
-        "score": 4.2,
-        "count": 3076,
-        "source": "Vivino"
-      }
-    },
-    {
-      "id": "mr-cape-mentelle-chardonnay",
-      "name": "Chardonnay",
-      "wineryId": "mr-cape-mentelle",
-      "variety": "Chardonnay",
-      "vintage": "2023",
-      "price": "$60",
-      "description": "A refined estate Chardonnay of complex richness and minerality, long a quiet achiever beside the famous Cabernet.",
-      "sommNote": "Regularly one of the best-value serious Chardonnays among the founding-five estates.",
-      "rating": 4.4,
-      "pairings": [
-        "Roast chicken",
-        "Crayfish",
-        "Soft cheeses",
-        "Pork belly"
-      ],
-      "drinkFrom": "2026",
-      "drinkTo": "2032",
-      "community": {
-        "score": 4.1,
-        "count": 1741,
-        "source": "Vivino"
-      }
-    },
-    {
-      "id": "mr-cape-mentelle-heritage-shiraz",
-      "name": "Heritage Shiraz",
-      "wineryId": "mr-cape-mentelle",
-      "variety": "Shiraz",
-      "vintage": "2022",
-      "price": "$98",
-      "description": "An exceptional terroir Shiraz with strong regional identity and the structure to improve for a decade or more.",
-      "sommNote": "Cape Mentelle's Shiraz vines are among the oldest in Margaret River — a rarity in Cabernet country.",
-      "rating": 4.4,
-      "pairings": [
-        "Char-grilled steak",
-        "Kangaroo",
-        "Hard cheeses",
-        "Barbecued lamb"
-      ],
-      "drinkFrom": "2027",
-      "drinkTo": "2040"
-    }
-  ]
+ "wineries": [
+  {
+   "id": "mr-leeuwin-estate",
+   "name": "Leeuwin Estate",
+   "subregion": "Wallcliffe",
+   "specialty": "Chardonnay",
+   "wines": [
+    "Art Series Chardonnay",
+    "Art Series Cabernet Sauvignon",
+    "Art Series Riesling"
+   ],
+   "established": 1974,
+   "priceRange": "$$$$",
+   "description": "One of Margaret River's five founding estates, whose Art Series Chardonnay routinely gatecrashes lists of the world's great white wines.",
+   "story": "Denis and Tricia Horgan turned a cattle farm into a wine estate after Robert Mondavi himself identified the site in the early 1970s, and the family still runs it today. Since the 1980 vintage every Art Series label has carried a commissioned work by a leading Australian artist, and the estate's open-air concerts have hosted everyone from the London Philharmonic to Tom Jones on the lawn in front of the karri trees.",
+   "style": "Premium",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -34.0134,
+   "lng": 115.0656,
+   "hasRestaurant": true,
+   "rating": 4.4,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "phone": "08 9759 0000",
+   "website": "https://leeuwinestate.com.au",
+   "bookingUrl": "https://bookings.nowbookit.com/?accountid=86f30d57-c1f4-4baa-a159-cfb110fcdcfa&venueid=14431",
+   "image": {
+    "url": "https://do1x6wh6576ht.cloudfront.net/uploads/2026/03/cellar-door-hero-2.webp",
+    "alt": "Guests tasting wines at the long timber bar inside Leeuwin Estate's cellar door",
+    "verified": "downloaded 2026-07-10, shows the cellar door tasting room with guests at the bar and bottle displays"
+   },
+   "briefing": {
+    "icebreaker": "Ask which Art Series painting is their favourite — the originals hang in the estate's own gallery upstairs.",
+    "proMove": "Book the Art Series Chardonnay museum flight: three back-vintage releases poured alongside the current wine in a seated 45-minute tasting.",
+    "hiddenGem": "The gallery above the restaurant holds the full collection of commissioned Art Series label paintings, free to wander through."
+   },
+   "sommNote": "The Art Series Chardonnay, first made in 1980, is the wine that put Margaret River Chardonnay on the world map — Decanter once named the 1981 the best Chardonnay in the world.",
+   "community": {
+    "score": 4.4,
+    "count": 699,
+    "source": "Google"
+   },
+   "visitorSummary": "The long lunch is the recurring love letter: terrace tables, wine-paired tasting menus, dietary needs handled without fuss, Art Series tastings that tell the story, and kookaburras supervising the lawns."
+  },
+  {
+   "id": "mr-voyager-estate",
+   "name": "Voyager Estate",
+   "subregion": "Wallcliffe",
+   "specialty": "Chardonnay",
+   "wines": [
+    "MJW Chardonnay",
+    "Chardonnay",
+    "Cabernets"
+   ],
+   "established": 1978,
+   "priceRange": "$$$",
+   "description": "White Cape Dutch gables, manicured rose gardens and certified-organic vineyards make Voyager the most photographed estate on Stevens Road.",
+   "story": "First planted in 1978 and bought in 1991 by mining magnate Michael Wright, who modelled the whitewashed buildings and formal gardens on South Africa's Cape Dutch wine estates. His daughter Alexandra now owns it, the entire vineyard is certified organic, and the MJW wines named for Michael himself sit at the top of the range.",
+   "style": "Premium",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.9951,
+   "lng": 115.0539,
+   "hasRestaurant": true,
+   "rating": 4.6,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "phone": "08 9757 6354",
+   "website": "https://www.voyagerestate.com.au",
+   "bookingUrl": "https://www.voyagerestate.com.au/tastings-experiences",
+   "image": {
+    "url": "https://www.voyagerestate.com.au/assets/images/contentblock/photos/VGR_Experiences_FullBanner_Header-min68-WULFQU.jpg",
+    "alt": "Netted vineyard rows at Voyager Estate glowing at sunset beneath tall eucalypts",
+    "verified": "downloaded 2026-07-10, shows estate vineyard rows under bird netting with karri trees behind"
+   },
+   "briefing": {
+    "icebreaker": "Ask why the buildings look South African — the whole estate is modelled on Cape Dutch wine farms.",
+    "proMove": "Book the Discover Voyager private tour with paired snacks; it gets you out among the organic vines and into the winery itself.",
+    "hiddenGem": "The restaurant runs Wednesday to Sunday only, noon to five — the vineyard-view tables go first, so reserve ahead."
+   },
+   "sommNote": "The whole vineyard is certified organic — one of the largest organic conversions in Margaret River — and the MJW bottlings honour founder Michael John Wright.",
+   "community": {
+    "score": 4.6,
+    "count": 669,
+    "source": "Google"
+   },
+   "visitorSummary": "Guests praise the estate tours and the wine-paired long lunch, with the rose gardens a highlight; the one practical tip that recurs is to arrange transport ahead, as taxis out here are scarce."
+  },
+  {
+   "id": "mr-xanadu-wines",
+   "name": "Xanadu Wines",
+   "subregion": "Wallcliffe",
+   "specialty": "Cabernet Sauvignon",
+   "wines": [
+    "Reserve Chardonnay",
+    "Reserve Cabernet Sauvignon",
+    "Xanadu Chardonnay"
+   ],
+   "established": 1977,
+   "priceRange": "$$$",
+   "description": "A 1977 pioneer named after Coleridge's pleasure dome, now one of the region's most decorated producers of Cabernet and Chardonnay.",
+   "story": "Irish doctor John Lagan planted Xanadu in 1977 and named it for the 'stately pleasure dome' of Coleridge's Kubla Khan. The Rathbone family bought the estate in 2005 and, with long-serving winemaker Glenn Goodall, turned it into a trophy magnet — its Cabernets and Chardonnays are perennial show winners. The stone-fronted cellar door on Boodjidup Road pours everything from the easy Circa 77 range to museum releases.",
+   "style": "Premium",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.9709,
+   "lng": 115.0458,
+   "hasRestaurant": true,
+   "rating": 4.5,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "phone": "08 9758 9500",
+   "website": "https://xanaduwines.com",
+   "bookingUrl": "https://xanaduwines.com/cellar-door/",
+   "tastingFee": 30,
+   "image": {
+    "url": "https://xanaduwines.com/wp-content/uploads/XAN_Header-CD.jpg",
+    "alt": "Stone-walled entrance to Xanadu's cellar door with a branded barrel table under the verandah",
+    "verified": "downloaded 2026-07-10, shows the cellar door building entrance, stone wall and barrel seating"
+   },
+   "briefing": {
+    "icebreaker": "Ask about the name — it comes from Coleridge's Kubla Khan, chosen by founding doctor John Lagan in 1977.",
+    "proMove": "Take the $30 Flagship Tasting: five Stevens Road and Reserve wines, the same bottlings that hoover up trophies on the show circuit.",
+    "hiddenGem": "Cellar Door-only wines and back-vintage museum releases are poured on site and never leave the property."
+   },
+   "sommNote": "Sunday tastings carry a 10 per cent surcharge and final pours are at 4:30pm — plan Xanadu as an early stop, not a last one.",
+   "community": {
+    "score": 4.5,
+    "count": 606,
+    "source": "Google"
+   },
+   "visitorSummary": "The restaurant draws the praise: beautifully presented set menus in a lovely setting, though a few reviewers note service can drift on busy afternoons."
+  },
+  {
+   "id": "mr-cape-mentelle",
+   "name": "Cape Mentelle",
+   "subregion": "Wallcliffe",
+   "specialty": "Cabernet Sauvignon",
+   "wines": [
+    "Heritage Cabernet Sauvignon",
+    "Chardonnay",
+    "Heritage Shiraz"
+   ],
+   "established": 1970,
+   "priceRange": "$$$",
+   "description": "A founding-five estate whose back-to-back Jimmy Watson trophies in 1983 and 1984 announced Margaret River Cabernet to the nation.",
+   "story": "David Hohnen planted Cape Mentelle in 1970, and its 1982 and 1983 Cabernets won consecutive Jimmy Watson trophies — the wins that made the region's name (Hohnen went on to found Cloudy Bay in Marlborough). The cellar door sits just four kilometres from Margaret River township on the road to the beach, with a photo history of the estate hung in the rammed-earth Barrel Hall behind it.",
+   "style": "Premium",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -33.9675,
+   "lng": 115.0373,
+   "hasRestaurant": false,
+   "rating": 4.6,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "phone": "08 9757 0812",
+   "website": "https://www.capementelle.com.au",
+   "bookingUrl": "https://capementelle1.rezdy.com",
+   "tastingFee": 10,
+   "image": {
+    "url": "https://www.capementelle.com.au/assets/images/contentblock/photos/66_20181116_CAPE-MENTELLE_Cabernet-Sauvignon-Wine-Tasting-Event-FESFXG.jpg",
+    "alt": "Tasting event among barrels inside Cape Mentelle's rammed-earth Barrel Hall",
+    "verified": "downloaded 2026-07-10, shows the Barrel Hall interior with barrel rows and historic photo display"
+   },
+   "briefing": {
+    "icebreaker": "Ask about the back-to-back Jimmy Watson wins — the 1983 and 1984 trophies that put Margaret River Cabernet on the map.",
+    "proMove": "The $10 tasting fee is redeemable against any bottle, and the cellar door pours rare wines exclusive to the winery.",
+    "hiddenGem": "There are pétanque lanes, swings and picnic tables in the garden — bring a baguette and make an afternoon of it."
+   },
+   "sommNote": "Founder David Hohnen used the proceeds of Cape Mentelle's success to establish Cloudy Bay — the two wineries share a family tree.",
+   "community": {
+    "score": 4.6,
+    "count": 233,
+    "source": "Google"
+   },
+   "visitorSummary": "The vineyard-to-barrel tours with nine-wine tastings win consistent praise, and kids are welcomed along; the one recurring gripe is that the tasting fee isn't redeemed against purchases."
+  }
+ ],
+ "wines": [
+  {
+   "id": "mr-leeuwin-art-series-chardonnay",
+   "name": "Art Series Chardonnay",
+   "wineryId": "mr-leeuwin-estate",
+   "variety": "Chardonnay",
+   "vintage": "2023",
+   "price": "$159",
+   "description": "Australia's benchmark Chardonnay: intense grapefruit and white peach wrapped in seamless French oak, built to age two decades.",
+   "sommNote": "Sourced overwhelmingly from Block 20, planted in 1976 — among the oldest Chardonnay vines in the region.",
+   "rating": 4.8,
+   "pairings": [
+    "Marron",
+    "Roast chicken",
+    "Brie de Meaux",
+    "Abrolhos scallops"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2040",
+   "community": {
+    "score": 4.3,
+    "count": 9643,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-leeuwin-art-series-cabernet-sauvignon",
+   "name": "Art Series Cabernet Sauvignon",
+   "wineryId": "mr-leeuwin-estate",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2022",
+   "price": "$102",
+   "description": "A fragrant, fine-boned Cabernet with cassis, bay leaf and cedar — the quieter, equally age-worthy sibling of the famous Chardonnay.",
+   "sommNote": "Leeuwin's Cabernet blocks sit on gravelly loam a few kilometres from the Indian Ocean, giving the wine its signature freshness.",
+   "rating": 4.6,
+   "pairings": [
+    "Lamb rump",
+    "Beef cheek",
+    "Aged cheddar",
+    "Field mushrooms"
+   ],
+   "drinkFrom": "2027",
+   "drinkTo": "2042",
+   "community": {
+    "score": 4.2,
+    "count": 7349,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-leeuwin-art-series-riesling",
+   "name": "Art Series Riesling",
+   "wineryId": "mr-leeuwin-estate",
+   "variety": "Riesling",
+   "vintage": "2025",
+   "price": "$27",
+   "description": "A rare Margaret River Riesling — lime blossom and slatey acidity at a price that embarrasses the rest of the list.",
+   "sommNote": "The bargain of the Art Series range and a favourite with the restaurant's marron dishes.",
+   "rating": 4.2,
+   "pairings": [
+    "Oysters",
+    "Sashimi",
+    "Thai salads",
+    "Goat's cheese"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2032",
+   "community": {
+    "score": 3.6,
+    "count": 3691,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-voyager-mjw-chardonnay",
+   "name": "MJW Chardonnay",
+   "wineryId": "mr-voyager-estate",
+   "variety": "Chardonnay",
+   "vintage": "2022",
+   "price": "$140",
+   "description": "Voyager's flagship: a single-block, wild-ferment Chardonnay of nervy grapefruit, struck match and fine oak.",
+   "sommNote": "Named for founder Michael John Wright and drawn from the estate's best old Gin Gin clone blocks.",
+   "rating": 4.7,
+   "pairings": [
+    "Marron",
+    "Roast chicken",
+    "Creamy pasta",
+    "Comté"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2036"
+  },
+  {
+   "id": "mr-voyager-chardonnay",
+   "name": "Chardonnay",
+   "wineryId": "mr-voyager-estate",
+   "variety": "Chardonnay",
+   "vintage": "2023",
+   "price": "$70",
+   "description": "The estate Chardonnay: white peach and grapefruit with a creamy, oak-framed mid-palate from certified-organic fruit.",
+   "sommNote": "Consistently one of the region's most reliable serious Chardonnays under $75.",
+   "rating": 4.5,
+   "pairings": [
+    "Grilled fish",
+    "Chicken",
+    "Soft cheeses",
+    "Corn dishes"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2033",
+   "community": {
+    "score": 4.0,
+    "count": 2039,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-voyager-cabernets",
+   "name": "Cabernets",
+   "wineryId": "mr-voyager-estate",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2023",
+   "price": "$60",
+   "description": "The successor to Voyager's long-running Cabernet Sauvignon Merlot: blackcurrant, dried herbs and polished tannin.",
+   "sommNote": "The earlier Cabernet Sauvignon Merlot bottlings under this lineage score 4.1 from over 2,400 Vivino reviews.",
+   "rating": 4.4,
+   "pairings": [
+    "Lamb shoulder",
+    "Beef fillet",
+    "Hard cheeses",
+    "Mushroom dishes"
+   ],
+   "drinkFrom": "2027",
+   "drinkTo": "2038"
+  },
+  {
+   "id": "mr-xanadu-reserve-chardonnay",
+   "name": "Reserve Chardonnay",
+   "wineryId": "mr-xanadu-wines",
+   "variety": "Chardonnay",
+   "vintage": "2024",
+   "price": "$130",
+   "description": "Xanadu's top white: coiled grapefruit and nectarine with flinty complexity from the estate's best Boodjidup blocks.",
+   "sommNote": "Only made in vintages that justify it — the 2020 sold at cellar door for more than the current release.",
+   "rating": 4.6,
+   "pairings": [
+    "Marron",
+    "Roast chicken",
+    "Triple-cream brie",
+    "Scallops"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2035",
+   "community": {
+    "score": 4.1,
+    "count": 461,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-xanadu-reserve-cabernet-sauvignon",
+   "name": "Reserve Cabernet Sauvignon",
+   "wineryId": "mr-xanadu-wines",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2023",
+   "price": "$140",
+   "description": "The estate's flagship red: pure cassis, cedar and gravelly tannin from Xanadu's oldest Cabernet vines.",
+   "sommNote": "Winemaker Glenn Goodall's Cabernets are among the most consistently awarded in Margaret River.",
+   "rating": 4.6,
+   "pairings": [
+    "Lamb rack",
+    "Beef rib",
+    "Aged cheddar",
+    "Venison"
+   ],
+   "drinkFrom": "2028",
+   "drinkTo": "2043",
+   "community": {
+    "score": 4.2,
+    "count": 396,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-xanadu-chardonnay",
+   "name": "Xanadu Chardonnay",
+   "wineryId": "mr-xanadu-wines",
+   "variety": "Chardonnay",
+   "vintage": "2024",
+   "price": "$40",
+   "description": "The estate-label Chardonnay that regularly punches far above its price at wine shows.",
+   "sommNote": "The smart buy on the list — same winemaking team and vineyards as the Reserve at a third of the price.",
+   "rating": 4.3,
+   "pairings": [
+    "Grilled fish",
+    "Chicken",
+    "Fresh cheeses",
+    "Prawns"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2031",
+   "community": {
+    "score": 3.9,
+    "count": 1232,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-cape-mentelle-heritage-cabernet-sauvignon",
+   "name": "Heritage Cabernet Sauvignon",
+   "wineryId": "mr-cape-mentelle",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2022",
+   "price": "$105",
+   "description": "The direct descendant of the Jimmy Watson-winning Cabernets: dense blackcurrant, gravel and cedar built for the long haul.",
+   "sommNote": "This is the flagship Cabernet lineage that dates to the original 1970 plantings on Wallcliffe Road.",
+   "rating": 4.6,
+   "pairings": [
+    "Beef rib",
+    "Lamb shoulder",
+    "Aged cheddar",
+    "Venison"
+   ],
+   "drinkFrom": "2028",
+   "drinkTo": "2045",
+   "community": {
+    "score": 4.2,
+    "count": 3076,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-cape-mentelle-chardonnay",
+   "name": "Chardonnay",
+   "wineryId": "mr-cape-mentelle",
+   "variety": "Chardonnay",
+   "vintage": "2023",
+   "price": "$60",
+   "description": "A refined estate Chardonnay of complex richness and minerality, long a quiet achiever beside the famous Cabernet.",
+   "sommNote": "Regularly one of the best-value serious Chardonnays among the founding-five estates.",
+   "rating": 4.4,
+   "pairings": [
+    "Roast chicken",
+    "Crayfish",
+    "Soft cheeses",
+    "Pork belly"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2032",
+   "community": {
+    "score": 4.1,
+    "count": 1741,
+    "source": "Vivino"
+   }
+  },
+  {
+   "id": "mr-cape-mentelle-heritage-shiraz",
+   "name": "Heritage Shiraz",
+   "wineryId": "mr-cape-mentelle",
+   "variety": "Shiraz",
+   "vintage": "2022",
+   "price": "$98",
+   "description": "An exceptional terroir Shiraz with strong regional identity and the structure to improve for a decade or more.",
+   "sommNote": "Cape Mentelle's Shiraz vines are among the oldest in Margaret River — a rarity in Cabernet country.",
+   "rating": 4.4,
+   "pairings": [
+    "Char-grilled steak",
+    "Kangaroo",
+    "Hard cheeses",
+    "Barbecued lamb"
+   ],
+   "drinkFrom": "2027",
+   "drinkTo": "2040"
+  }
+ ]
 }

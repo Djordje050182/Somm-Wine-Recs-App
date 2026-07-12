@@ -39,6 +39,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'Upstairs is a wine museum and an art gallery with rotating exhibitions from the Holmes a Court Collection, free to wander before your tasting.',
     },
     sommNote: 'The founding estate is still the region\'s finishing school: taste Filius against Tom Cullity and you can trace exactly how Wilyabrup Cabernet grows up.',
+    community: { score: 4.7, count: 959, source: 'Google' as const },
+    visitorSummary: 'Visitors call it the full package: a degustation-grade restaurant that books out, the gallery and underground wine vault to wander, and warm tastings that convert red-and-bubbles loyalists to the Chardonnay.',
   },
   {
     id: 'mr-cullen-wines',
@@ -71,6 +73,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'The Spiral Garden tour walks you through the biodynamic gardens that supply the restaurant, and the estate has been certified carbon neutral since the mid-2000s.',
     },
     sommNote: 'Taste Diana Madeline young and you will see why the Cullens never chased power: it is the quietest great Cabernet in Australia.',
+    community: { score: 4.3, count: 392, source: 'Google' as const },
+    visitorSummary: 'The spiral-garden and biodynamics tour is the sleeper hit, and the dining room earns repeat visits: reviewers describe returning specifically because the first lunch was \'absolute perfection\'.',
   },
   {
     id: 'mr-moss-wood',
@@ -135,6 +139,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'Ask about the museum tasting: the cellar still holds back vintages of the named Cabernets, and the 1981 \'Andrew\' is the wine that put Woodlands on the map.',
     },
     sommNote: 'Free tastings within sight of some of Wilyabrup\'s oldest Cabernet vines is the best-value hour in Margaret River.',
+    community: { score: 4.9, count: 241, source: 'Google' as const },
+    visitorSummary: 'Reviewers treat it as a hidden gem worth guarding: complimentary tastings of serious wines, one of the region\'s best cheese and charcuterie boards, and a firm consensus that you must book.',
   },
   {
     id: 'mr-pierro',
@@ -166,6 +172,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'L.T.C. officially stands for \'a Little Touch of Chardonnay\', the small percentage barrel-fermented into the Semillon Sauvignon Blanc blend.',
     },
     sommNote: 'Pierro Chardonnay is the worked, generous counterpoint to the region\'s leaner modern style; drink one of each and pick a side.',
+    community: { score: 4.7, count: 90, source: 'Google' as const },
+    visitorSummary: 'The Chardonnay draws comparisons to fine Meursault in the reviews; tastings are described as generous, personal and true to the estate\'s own-fruit-only philosophy.',
   },
   {
     id: 'mr-lenton-brae',
@@ -198,6 +206,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'The winery building is heritage-listed by the Shire of Busselton, a rare civic honour for a working cellar door.',
     },
     sommNote: 'One of Wilyabrup\'s founding names: come for the heritage rammed-earth room, stay for Cabernet built along quietly classical lines.',
+    community: { score: 4.8, count: 104, source: 'Google' as const },
+    visitorSummary: 'Family-run warmth is the constant: dogs playing with the wine dogs, build-your-own cheeseboards from the little deli, and afternoons that swallow whole days.',
   },
   {
     id: 'mr-fermoy-estate',
@@ -230,6 +240,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'The estate sleeps guests too: The Lodge, a four-bedroom homestead among the vines, can be booked for the full winery-stay experience.',
     },
     sommNote: 'Wilyabrup\'s quiet achiever: the Reserve Cabernet that beat 18,000 wines at Decanter still pours at an unhurried cellar door.',
+    community: { score: 4.9, count: 280, source: 'Google' as const },
+    visitorSummary: 'Hosts are thanked by name in nearly every review; dogs are welcomed, the sparkling trio has a devoted following, and late walk-ins report being looked after anyway.',
   },
   {
     id: 'mr-juniper-estate',
@@ -262,6 +274,7 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'In summer the estate hosts monthly Woodfired Pizza Sundowners on the lawn, and you\'re welcome to bring your own picnic to spread under the peppermint trees.',
     },
     sommNote: 'Fifty-year-old Wilyabrup vines, a $10 tasting and museum bottles on pour: quietly one of the best-value stops on Tom Cullity Drive.',
+    community: { score: 4.9, count: 238, source: 'Google' as const },
   },
   {
     id: 'mr-gralyn-estate',
@@ -294,6 +307,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'The Artizan Rare Muscat beat the world to be crowned Wine of the Year at the 2022 London Wine Competition, and you can only buy it here.',
     },
     sommNote: 'The region\'s fortified whisperers: come for 1975-vine Cabernet, leave clutching a half-bottle of Rare Muscat you\'ll ration for years.',
+    community: { score: 4.7, count: 168, source: 'Google' as const },
+    visitorSummary: 'Free, generous tastings of genuinely rare wines; reviewers who visited ten wineries in a day repeatedly crown this one, and anniversary pilgrimages are a theme.',
   },
   {
     id: 'mr-thompson-estate',
@@ -357,6 +372,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'The glass pavilion only started pouring in late 2018 — Dukes made the wines for six vintages before he had a cellar door to show them off in.',
     },
     sommNote: 'If you drink one Chardonnay in Wilyabrup, make it Artus — Dukes\' Napa-honed precision with Margaret River fruit is the region in miniature.',
+    community: { score: 4.9, count: 109, source: 'Google' as const },
+    visitorSummary: 'Wine flights with charcuterie among the vines, no crowds and no rushing; several reviewers rank it above every other cellar door of their trip.',
   },
   {
     id: 'mr-hay-shed-hill',
@@ -388,6 +405,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'Owner Michael Kerrigan also pours his side label Kerrigan + Berry here — a project with Gavin Berry of West Cape Howe that you\'ll rarely see elsewhere.',
     },
     sommNote: 'Fifty-year-old Wilyabrup vines at everyday prices — the Block 2 Cabernet is the quiet overachiever of the valley.',
+    community: { score: 4.9, count: 614, source: 'Google' as const },
+    visitorSummary: 'First-timers and old hands both leave glowing: hosts who tailor the tasting, patient explanations of blocks and weather, and a view visitors keep photographing.',
   },
   {
     id: 'mr-brookland-valley',
@@ -420,6 +439,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'The vineyard was quietly bought by the Swinney family of Frankland River fame in 2022, while Accolade kept the brand and cellar door running unchanged.',
     },
     sommNote: 'Come for the Estate Chardonnay by the brook, stay to taste Houghton\'s museum-grade Cabernets without driving to the Swan Valley.',
+    community: { score: 4.7, count: 53, source: 'Google' as const },
+    visitorSummary: 'The creekside setting and terrace platters set the scene, with Charlie the resident border collie greeting guests at the door in review after review.',
   },
   {
     id: 'mr-howard-park',
@@ -452,6 +473,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'The Wine Chapel runs a dedicated methode traditionnelle sparkling experience with local charcuterie, a Champagne-house ritual you would not expect on Miamup Road.',
     },
     sommNote: 'Come for Margaret River Cabernet, stay for the Great Southern Riesling on the same bar: two great WA regions poured under one feng shui roof.',
+    community: { score: 4.7, count: 168, source: 'Google' as const },
+    visitorSummary: 'Reviewers arrive expecting a big-name churn and leave converted: personal hosting despite the scale, with the Jeté sparkling and Riesling the wines people carry out by the case.',
   },
   {
     id: 'mr-amelia-park',
@@ -484,6 +507,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'Ask about the Museum releases, back vintages going as far as 2009 Shiraz and Cabernet Merlot that show how quickly this young estate found its stride.',
     },
     sommNote: 'The slickest of Margaret River\'s new guard: taste the Reserve Cabernet, then let the restaurant talk you into staying for lunch.',
+    community: { score: 4.6, count: 289, source: 'Google' as const },
+    visitorSummary: 'Known among reviewers as one of the region\'s most generous tastings, with knowledgeable hosts; the restaurant\'s kitchen is widely praised even when front-of-house gets stretched.',
   },
   {
     id: 'mr-edwards',
@@ -547,6 +572,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'The estate sits on Tom Cullity Drive within a short hop of Vasse Felix, Juniper and Thompson, making it the sleeper stop on the region\'s most storied road.',
     },
     sommNote: 'The connoisseur\'s detour: nowhere else in the valley does Verdelho this seriously, and the Semillon is built like the Hunter\'s best.',
+    community: { score: 4.8, count: 32, source: 'Google' as const },
+    visitorSummary: 'Reviewers regularly find a founding family member behind the bar: history-first tastings, big flavours from a small outfit, and the Riesling a repeated surprise favourite.',
   },
   {
     id: 'mr-fraser-gallop',
@@ -578,6 +605,8 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'Gallop House, the Georgian-style homestead across the lake, hosts long lunches and stays; even from the cellar door it is the region\'s most photogenic folly.',
     },
     sommNote: 'Wilyabrup\'s quiet perfectionist: dry-grown fruit, surgical winemaking, and a Chardonnay pair that embarrasses far dearer bottles.',
+    community: { score: 4.7, count: 46, source: 'Google' as const },
+    visitorSummary: 'Personalised estate tours and warm hosting are the theme, and the double brie on the cheeseboard has its own fan club.',
   },
   {
     id: 'mr-ls-merchants',

@@ -84,7 +84,7 @@
    },
    "community": {
     "score": 4.7,
-    "count": 721,
+    "count": 702,
     "source": "Google"
    },
    "rating": 4.8,
@@ -95,7 +95,8 @@
    "opens": "17:30",
    "sommNote": "Trust the omakase and pair it with sake; local produce through a Japanese lens is Margaret River's best plot twist.",
    "lat": -33.9516,
-   "lng": 115.0738
+   "lng": 115.0738,
+   "visitorSummary": "Reviewers rank it among the best meals in the state: counter seats watching the chefs work, exceptional cocktails and sake, and comparisons to hatted restaurants at half the ceremony."
   },
   {
    "id": "mr-exp-morries",
@@ -116,7 +117,7 @@
    },
    "community": {
     "score": 4.6,
-    "count": 1686,
+    "count": 1665,
     "source": "Google"
    },
    "rating": 4.5,
@@ -127,7 +128,8 @@
    "opens": "17:00",
    "sommNote": "Start with a cocktail, then let the staff steer you to a local chardonnay for the share plates.",
    "lat": -33.9534,
-   "lng": 115.0737
+   "lng": 115.0737,
+   "visitorSummary": "Tapas-style plates that reviewers rave about — the ceviche and pork belly especially — with happy-hour cocktails; book, or charm your way into the pre-7pm slot."
   },
   {
    "id": "mr-exp-settlers-tavern",
@@ -148,7 +150,7 @@
    },
    "community": {
     "score": 4.2,
-    "count": 2426,
+    "count": 2410,
     "source": "Google"
    },
    "rating": 4.4,
@@ -160,7 +162,8 @@
    "closes": "20:45",
    "sommNote": "Where the region's winemakers actually drink; scan the list for gems and order the parmy without shame.",
    "lat": -33.9499,
-   "lng": 115.0739
+   "lng": 115.0739,
+   "visitorSummary": "The town's reliable feed: big menu, gluten-free handled properly, live-music energy; food reviews run hot and cold but the vibe carries it."
   },
   {
    "id": "mr-exp-white-elephant-beach-cafe",

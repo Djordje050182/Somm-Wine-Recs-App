@@ -271,6 +271,8 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
         crowdLabel: 'Wines on Vivino',
         crowdAvg: avg,
         crowdCount: totalCount,
+        googleAvg: currentItem.community?.score ?? null,
+        googleCount: currentItem.community?.count ?? 0,
         ratedWines: [...rated].sort((a: any, b: any) => b.community.score - a.community.score),
       };
     }
@@ -281,6 +283,8 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
         crowdLabel: 'On Google',
         crowdAvg: currentItem.community?.score ?? null,
         crowdCount: currentItem.community?.count ?? 0,
+        googleAvg: null,
+        googleCount: 0,
         ratedWines: [],
       };
     }
@@ -665,6 +669,23 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
                 </div>
               )}
 
+              {/* The estate's own film */}
+              {currentItem.videoUrl && (
+                <div>
+                  <Kicker className="mb-3">In motion</Kicker>
+                  <div className="aspect-video border border-hairline rounded-sm overflow-hidden">
+                    <iframe
+                      src={currentItem.videoUrl}
+                      title={`${currentItem.name} — film`}
+                      className="w-full h-full"
+                      allow="accelerometer; encrypted-media; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* Actions */}
               {(currentType === 'winery' || currentType === 'experience') && (
                 <div className="flex flex-wrap gap-3">
@@ -763,6 +784,14 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
                           <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">{visitorsWord.kind === 'winery' ? 'Cellar door' : 'Our rating'}</div>
                         </div>
                       )}
+                      {visitorsWord.googleAvg && (
+                        <div className="text-center">
+                          <div className="font-display text-2xl text-claret">{visitorsWord.googleAvg.toFixed(1)}</div>
+                          <div className="font-ui text-[10px] uppercase font-semibold tracking-kicker text-ink/40">
+                            On Google{visitorsWord.googleCount > 0 ? ` (${visitorsWord.googleCount.toLocaleString()})` : ''}
+                          </div>
+                        </div>
+                      )}
                       {visitorsWord.crowdAvg && (
                         <div className="text-center">
                           <div className="font-display text-2xl text-claret">{visitorsWord.crowdAvg.toFixed(1)}</div>
@@ -779,6 +808,16 @@ const GuideModal: React.FC<GuideModalProps> = ({ item: initialItem, type: initia
                       )}
                     </div>
                   </div>
+
+                  {currentItem.visitorSummary && (
+                    <div className="border-l-2 border-brass pl-4">
+                      <Kicker className="mb-2">What they keep saying</Kicker>
+                      <p className="font-body text-ink/70 leading-relaxed">{currentItem.visitorSummary}</p>
+                      <p className="font-ui text-[10px] uppercase tracking-kicker text-ink/30 mt-2">
+                        Summarised from public visitor reviews · themes only, nothing invented
+                      </p>
+                    </div>
+                  )}
 
                   {visitorsWord.ratedWines.length > 0 ? (
                     <div>

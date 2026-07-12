@@ -93,7 +93,13 @@
      "alt": "Museum bottles of Ashbrook Cabernet from the first vintages, 1980 to 1982",
      "verified": "downloaded 2026-07-11, viewed: boxed museum bottles 1980-1982, matches the consecutive-vintages story"
     }
-   ]
+   ],
+   "community": {
+    "score": 4.8,
+    "count": 32,
+    "source": "Google"
+   },
+   "visitorSummary": "Reviewers regularly find a founding family member behind the bar: history-first tastings, big flavours from a small outfit, and the Riesling a repeated surprise favourite."
   },
   {
    "id": "mr-fraser-gallop",
@@ -133,7 +139,13 @@
     "proMove": "Taste the Parterre Chardonnay against the flagship Palladian if it is open; the step up in tension is a masterclass in what oak restraint buys.",
     "hiddenGem": "Gallop House, the Georgian-style homestead across the lake, hosts long lunches and stays; even from the cellar door it is the region's most photogenic folly."
    },
-   "sommNote": "Wilyabrup's quiet perfectionist: dry-grown fruit, surgical winemaking, and a Chardonnay pair that embarrasses far dearer bottles."
+   "sommNote": "Wilyabrup's quiet perfectionist: dry-grown fruit, surgical winemaking, and a Chardonnay pair that embarrasses far dearer bottles.",
+   "community": {
+    "score": 4.7,
+    "count": 46,
+    "source": "Google"
+   },
+   "visitorSummary": "Personalised estate tours and warm hosting are the theme, and the double brie on the cheeseboard has its own fan club."
   },
   {
    "id": "mr-mchenry-hohnen",
@@ -181,7 +193,12 @@
      "alt": "A hosted tasting at the McHenry Hohnen cellar door",
      "verified": "downloaded 2026-07-11, viewed: tasting-room scene at the marri bench"
     }
-   ]
+   ],
+   "community": {
+    "score": 4.6,
+    "count": 41,
+    "source": "Google"
+   }
   }
  ],
  "wines": [

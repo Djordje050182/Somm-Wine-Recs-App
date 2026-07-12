@@ -330,6 +330,7 @@ export const NORTH_WINERIES: Winery[] = [
       hiddenGem: 'Everything is 100% certified organic single-vineyard fruit, a claim almost nobody else on Caves Road can make without footnotes.',
     },
     sommNote: 'Margaret River\'s best bluff: navy discipline, organic vines, and a Chardonnay that plays a royal flush at mid-table money.',
+    videoUrl: 'https://www.youtube-nocookie.com/embed/CLCh3HLAyWg',
   },
   {
     id: 'mr-whicher-ridge',
@@ -363,5 +364,6 @@ export const NORTH_WINERIES: Winery[] = [
       hiddenGem: 'The kelpie usually does the welcoming, and the picnic tables among the garden beds are yours if you buy a bottle.',
     },
     sommNote: 'The most original hour in WA wine: a garden that teaches your nose the wine list before the first pour.',
+    videoUrl: 'https://player.vimeo.com/video/353498434',
   },
 ];

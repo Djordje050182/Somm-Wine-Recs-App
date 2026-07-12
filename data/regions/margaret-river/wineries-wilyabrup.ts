@@ -638,6 +638,7 @@ export const WILYABRUP_WINERIES: Winery[] = [
       hiddenGem: 'This is the winery itself, not a showroom: your tasting bench sits metres from the open ferments that made what is in your glass.',
     },
     sommNote: 'Where the region lets its hair down: hand-plunged, hand-labelled, and the pet nat outsells the postcode\'s pretensions.',
+    videoUrl: 'https://www.youtube-nocookie.com/embed/lE5I2e8eyGE',
   },
   {
     id: 'mr-grace-farm',

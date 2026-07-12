@@ -46,6 +46,7 @@ export const BOUTIQUE_WINERIES: Winery[] = [
     sommNote: 'The 2014 Aged Hunter Semillon is the quiet flex here — a decade of patience poured by the family who waited.',
     community: { score: 4.8, count: 497, source: 'Google' as const },
     visitorSummary: 'The views, the pizza truck and the resident labradors are the holy trinity of these reviews; visitors book return trips before they leave.',
+    videoUrl: 'https://www.youtube-nocookie.com/embed/wtlUobmT7FE',
   },
   {
     id: 'hv-ernest-hill',

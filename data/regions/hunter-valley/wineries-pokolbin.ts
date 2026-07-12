@@ -465,6 +465,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     sommNote: 'If most Hunter Shiraz is a string quartet, the Pressings is a brass band. Come hungry for tannin.',
     community: { score: 4.8, count: 444, source: 'Google' as const },
     visitorSummary: 'Danny\'s humour is practically a listed attraction: reviews describe laugh-filled tastings, exquisite gardens dotted with sculptures, and the best cheese boards of the trip.',
+    videoUrl: 'https://www.youtube-nocookie.com/embed/ld1t1DdVJtw',
   },
   {
     id: 'hv-draytons',
@@ -591,6 +592,7 @@ export const POKOLBIN_WINERIES: Winery[] = [
     sommNote: 'Sparkling breakfast is a Hunter institution — oysters and bubbles at 9am, and absolutely nobody judges you.',
     community: { score: 4.6, count: 1476, source: 'Google' as const },
     visitorSummary: 'The sparkling house doubles as one of the valley\'s favourite long lunches: reviewers rave about the restaurant, the chapel weddings, and Easter tastings that turn into afternoons.',
+    videoUrl: 'https://www.youtube-nocookie.com/embed/e1AhsHmpZhk',
   },
   {
     id: 'hv-de-iuliis',

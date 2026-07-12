@@ -545,6 +545,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
     sommNote: 'Cabernet in the Hunter is meant to be a fool\'s errand. The Bluegrass has been making fools of the doubters since 1989.',
     community: { score: 4.8, count: 502, source: 'Google' as const },
     visitorSummary: 'Live music on weekends, kids\' tasting paddles with activity sheets, and hosts whose names fill the reviews; several call it the best wines of their Hunter trip.',
+    videoUrl: 'https://www.youtube-nocookie.com/embed/5sXe8XnhKqw',
   },
   {
     id: 'hv-wandin-estate',
@@ -733,6 +734,7 @@ export const WIDER_HUNTER_WINERIES: Winery[] = [
       hiddenGem: 'These blocks made Pooles Rock\'s celebrated whites long before 2016; the pedigree predates the name on the gate.',
     },
     sommNote: 'One grape, one obsession. Taste the Chardonnays in a row and you\'ll hear the same vineyard speaking in six different registers.',
+    videoUrl: 'https://player.vimeo.com/video/1162122987',
   },
   {
     id: 'hv-stomp',

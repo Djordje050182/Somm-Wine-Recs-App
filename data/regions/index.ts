@@ -1,6 +1,7 @@
 import { RegionData } from '../../types';
 import { HUNTER_VALLEY_DATA } from './hunter-valley';
 import { MARGARET_RIVER_DATA } from './margaret-river';
+import { BAROSSA_VALLEY_DATA } from './barossa-valley';
 
 export { COMING_SOON_REGIONS } from './coming-soon';
 
@@ -8,6 +9,7 @@ export { COMING_SOON_REGIONS } from './coming-soon';
 export const REGION_REGISTRY: Record<string, RegionData> = {
   'hunter-valley': HUNTER_VALLEY_DATA,
   'margaret-river': MARGARET_RIVER_DATA,
+  'barossa-valley': BAROSSA_VALLEY_DATA,
 };
 
 export const DEFAULT_REGION_ID = 'hunter-valley';

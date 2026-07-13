@@ -5,13 +5,6 @@ import { ComingSoonRegion } from '../../types';
 
 export const COMING_SOON_REGIONS: ComingSoonRegion[] = [
   {
-    id: 'barossa-valley',
-    name: 'Barossa Valley',
-    country: 'Australia',
-    strapline: 'Old-vine Shiraz and Lutheran bakeries — Australia’s grandest red wine country.',
-    eta: 'Next on the list',
-  },
-  {
     id: 'champagne',
     name: 'Champagne',
     country: 'France',

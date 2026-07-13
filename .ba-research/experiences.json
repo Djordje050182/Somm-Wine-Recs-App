@@ -1,0 +1,207 @@
+{
+ "experiences": [
+  {
+   "id": "ba-maggie-beers-farm-shop",
+   "name": "Maggie Beer's Farm Shop",
+   "category": "Dining",
+   "subregion": "Nuriootpa & Greenock",
+   "description": "The pheasant farm where Australia's favourite cook built her empire \u2014 tastings of verjuice and p\u00e2t\u00e9, a lakeside eatery deck, and native turtles in the dam.",
+   "image": {
+    "url": "https://lirp.cdn-website.com/40eb30f7/dms3rep/multi/opt/The+Farm+2020-292-1920w.jpg",
+    "source": "venue",
+    "alt": "The Farm Eatery deck over the dam at Maggie Beer's Farm Shop",
+    "verified": "downloaded 2026-07-13, viewed: lakeside deck and farm shop buildings"
+   },
+   "briefing": {
+    "icebreaker": "This is the original pheasant farm where Maggie and Colin Beer started in the 1970s \u2014 the export empire of verjuice and quince paste began at this dam.",
+    "proMove": "Free tastings run all day; time your visit for lunch on the eatery deck and watch for the native turtles in the dam.",
+    "hiddenGem": "The daily cooking demonstrations often use whatever the kitchen garden produced that morning."
+   },
+   "community": {
+    "score": 4.5,
+    "count": 2520
+   },
+   "rating": 4.6,
+   "priceRange": "$$",
+   "website": "https://www.maggiebeersfarmshop.com.au",
+   "phone": "(08) 8562 4477",
+   "opens": "10:00",
+   "closes": "16:00",
+   "sommNote": "Buy the verjuice and ask how to cook with it \u2014 the answer comes with more enthusiasm than any wine pairing in the valley.",
+   "lat": -34.4844,
+   "lng": 138.9767
+  },
+  {
+   "id": "ba-vintners-bar-grill",
+   "name": "Vintners Bar & Grill",
+   "category": "Dining",
+   "subregion": "Angaston",
+   "description": "The Barossa's grand dining institution on the Angaston road \u2014 three decades of white-linen lunches, a legendary local wine list and vineyard views from the terrace.",
+   "image": {
+    "url": "https://static.wixstatic.com/media/851d2f_b9496839b298409f874456ab0759fb71~mv2.jpg/v1/fill/w_1200,h_800,al_c,q_85/vintners-terrace.jpg",
+    "source": "venue",
+    "alt": "Sunset over the garden terrace at Vintners Bar & Grill",
+    "verified": "downloaded 2026-07-13, viewed: terrace table and garden at golden hour"
+   },
+   "briefing": {
+    "icebreaker": "Vintners has fed the Barossa's winemakers since 1994 \u2014 deals are done and vintages toasted at these tables.",
+    "proMove": "Lunch runs seven days, but dinner is Monday to Saturday only. Ask the sommelier for something local you can't buy retail.",
+    "hiddenGem": "The wine list runs deep on back-vintage Barossa reds bought on release \u2014 some are cheaper here than at auction."
+   },
+   "community": {
+    "score": 4.6,
+    "count": 689
+   },
+   "rating": 4.6,
+   "priceRange": "$$$",
+   "website": "https://www.vintners.com.au",
+   "phone": "(08) 8564 2488",
+   "opens": "12:00",
+   "closes": "21:00",
+   "sommNote": "Order the local dry-grown Shiraz the sommelier suggests and the kitchen's steak \u2014 this is the restaurant the winemakers kept for themselves.",
+   "lat": -34.4933,
+   "lng": 139.0268
+  },
+  {
+   "id": "ba-rehn-bier",
+   "name": "Rehn Bier Brewhouse Cellar Door",
+   "category": "Breweries",
+   "subregion": "Tanunda",
+   "description": "The Barossa's craft micro-brewery in the Old Mill on Tanunda's main street \u2014 hand-built beers poured by the family that brews them, since 2012.",
+   "image": {
+    "url": "https://www.rehnbier.com.au/wp-content/uploads/2018/03/JK7_6165-min.jpg",
+    "source": "venue",
+    "alt": "The taproom bar at Rehn Bier's brewhouse cellar door",
+    "verified": "downloaded 2026-07-13, viewed: taproom interior with tap list and bar"
+   },
+   "briefing": {
+    "icebreaker": "Rehn Bier has brewed in the Barossa since 2012 \u2014 a beer cellar door in a valley of wine cellar doors.",
+    "proMove": "Order the tasting paddle and work through the range; the brewer is usually the one pouring.",
+    "hiddenGem": "Sunday Brewhouse Tunes brings live music to the old mill yard \u2014 the locals' quiet secret for a Sunday session."
+   },
+   "rating": 4.6,
+   "priceRange": "$",
+   "website": "https://www.rehnbier.com.au",
+   "phone": "0409 434 702",
+   "opens": "11:00",
+   "closes": "17:00",
+   "sommNote": "After two days of Shiraz your palate will thank you for the Weizen \u2014 beer is the Barossa's best-kept palate cleanser.",
+   "lat": -34.5245,
+   "lng": 138.9596
+  },
+  {
+   "id": "ba-balloon-adventures",
+   "name": "Balloon Adventures Barossa Valley",
+   "category": "Adventure",
+   "subregion": "Tanunda",
+   "description": "Dawn hot-air balloon flights over the vineyards and ranges of the Barossa, finished with a champagne breakfast back on the ground.",
+   "image": {
+    "url": "https://balloonadventures.com.au/wp-content/uploads/2023/07/DJI_0577a-scaled-1.jpg",
+    "source": "venue",
+    "alt": "A Balloon Adventures balloon drifting over the Barossa at dawn",
+    "verified": "downloaded 2026-07-13, viewed: branded balloon over valley landscape"
+   },
+   "briefing": {
+    "icebreaker": "The Barossa at sunrise from a basket is the only way to read the valley's geography in one glance \u2014 vines, ranges and the palm avenue all at once.",
+    "proMove": "Flights launch at dawn and depend on the weather; book early in your stay so a windy morning can be rescheduled.",
+    "hiddenGem": "Winter flights are the locals' pick \u2014 the coldest mornings give the stillest air and the sharpest light."
+   },
+   "rating": 4.7,
+   "priceRange": "$$$$",
+   "website": "https://balloonadventures.com.au",
+   "phone": "(08) 8562 3111",
+   "opens": "06:00",
+   "closes": "10:00",
+   "sommNote": "Do this on your first morning: every cellar door conversation afterwards starts with the view from the basket.",
+   "lat": -34.5236,
+   "lng": 138.96
+  },
+  {
+   "id": "ba-whispering-wall",
+   "name": "The Whispering Wall",
+   "category": "Nature",
+   "subregion": "Lyndoch & Williamstown",
+   "description": "The curved 1902 dam wall of Barossa Reservoir carries a whisper 140 metres from one end to the other \u2014 an acoustic marvel that has delighted visitors for a century.",
+   "image": {
+    "url": "https://www.sawater.com.au/__data/assets/image/0006/791304/Barossa-2.JPG",
+    "source": "venue",
+    "alt": "Gum trees reflected in Barossa Reservoir at the Whispering Wall reserve",
+    "verified": "viewed on SA Water's own site 2026-07-13: reservoir and golden gums"
+   },
+   "briefing": {
+    "icebreaker": "Whisper into the wall at one end and a friend 140 metres away hears you perfectly \u2014 the parabola was an engineering accident, not a design.",
+    "proMove": "Go early or late; between tour buses you get the wall to yourselves and the acoustics feel like magic rather than a queue.",
+    "hiddenGem": "When it opened in 1902 this was the highest arched-concrete dam in Australia \u2014 engineers travelled from London to study it."
+   },
+   "rating": 4.5,
+   "priceRange": "Free",
+   "website": "https://www.sawater.com.au/reservoir-reserves/reservoir-reserves/barossa",
+   "opens": "08:30",
+   "closes": "17:00",
+   "sommNote": "The right leg-stretch between Lyndoch tastings \u2014 and the best free entertainment in the valley.",
+   "lat": -34.644,
+   "lng": 138.8495
+  },
+  {
+   "id": "ba-farmers-market",
+   "name": "Barossa Farmers Market",
+   "category": "Shopping",
+   "subregion": "Angaston",
+   "description": "Saturday mornings in the old Vintners shed at Angaston \u2014 the valley's growers, bakers and smallgoods makers selling what they made that week.",
+   "image": {
+    "url": "https://www.barossafarmersmarket.com/wp-content/uploads/2023/06/DSC_0012-1280x1280.jpg",
+    "source": "venue",
+    "alt": "Saturday morning crowds outside the Vintners shed at the Barossa Farmers Market",
+    "verified": "downloaded 2026-07-13, viewed: market stalls and heritage shed"
+   },
+   "briefing": {
+    "icebreaker": "The Barossa fed itself for 180 years before it fed the wine world \u2014 this market is where that food culture still trades.",
+    "proMove": "It runs 7:30 to 11:30am Saturdays only; go hungry, breakfast on a Silesian mettwurst roll and coffee.",
+    "hiddenGem": "Look for the seasonal stalls \u2014 quinces, almonds and blood plums straight off farms you drove past yesterday."
+   },
+   "community": {
+    "score": 4.4,
+    "count": 892
+   },
+   "rating": 4.5,
+   "priceRange": "$",
+   "website": "https://barossafarmersmarket.com",
+   "opens": "07:30",
+   "closes": "11:30",
+   "sommNote": "Build your picnic here on Saturday morning, then take it to a cellar door lawn \u2014 the Barossa's perfect equation.",
+   "lat": -34.4924,
+   "lng": 139.0271
+  },
+  {
+   "id": "ba-seppeltsfield-rd-distillers",
+   "name": "Seppeltsfield Rd Distillers",
+   "category": "Shopping",
+   "subregion": "Marananga & Seppeltsfield",
+   "description": "A family gin distillery on the famous palm-lined road \u2014 botanical gins tasted on decks under the gums, with Friday knock-offs a local ritual.",
+   "image": {
+    "url": "https://seppeltsfieldroaddistillers.com.au/cdn/shop/files/FRONT-V2-2.png?width=1600",
+    "source": "venue",
+    "alt": "The tasting deck terraces under the gums at Seppeltsfield Rd Distillers",
+    "verified": "downloaded 2026-07-13, viewed: timber decks, umbrellas and gum trees"
+   },
+   "briefing": {
+    "icebreaker": "Husband-and-wife team Jon and Nicole Durdin built this distillery on the road that made fortified wine famous \u2014 their gins borrow the valley's botanicals.",
+    "proMove": "The gin tasting paddle with nibbles is the move; Fridays they pour until 7pm for knock-offs.",
+    "hiddenGem": "Their Barossa Shiraz Gin is steeped on local Shiraz grapes \u2014 gin for wine people, and the region's cleverest crossover."
+   },
+   "community": {
+    "score": 4.8,
+    "count": 227
+   },
+   "rating": 4.8,
+   "priceRange": "$$",
+   "website": "https://seppeltsfieldroaddistillers.com.au",
+   "phone": "(08) 7081 2000",
+   "opens": "11:00",
+   "closes": "17:00",
+   "sommNote": "Between Seppeltsfield's Tawnys and Two Hands' Shiraz, a Shiraz Gin and tonic under the gums is the pause your palate is begging for.",
+   "lat": -34.4847,
+   "lng": 138.9405
+  }
+ ]
+}

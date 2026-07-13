@@ -1,0 +1,98 @@
+{
+ "seppeltsfield": {
+  "lat": -34.4896,
+  "lng": 138.9191,
+  "src": "nominatim",
+  "match": "730, Seppeltsfield Road, South Australia, 5355, Australia"
+ },
+ "yalumba": {
+  "lat": -34.5133,
+  "lng": 139.0551,
+  "src": "nominatim",
+  "match": "Yalumba, 40, Eden Valley Road, Angaston, South Australia, 5353, Austra"
+ },
+ "henschke": {
+  "lat": -34.5315,
+  "lng": 139.1442,
+  "src": "photon:Henschke Cellars, Keyneton",
+  "match": "Henschke Winery Road Keyneton South Australia"
+ },
+ "rockford": {
+  "lat": -34.557,
+  "lng": 138.961,
+  "src": "osm-poi",
+  "match": "Rockford Winery (OSM)"
+ },
+ "torbreck": {
+  "lat": -34.479,
+  "lng": 138.9512,
+  "src": "osm-poi",
+  "match": "Torbreck (OSM winery)"
+ },
+ "langmeil": {
+  "lat": -34.5082,
+  "lng": 138.9637,
+  "src": "osm-poi",
+  "match": "Langmeil Winery (OSM)"
+ },
+ "turkeyflat": {
+  "lat": -34.5354,
+  "lng": 138.9609,
+  "src": "nominatim-structured",
+  "match": "Bethany Road, Tanunda, South Australia, 5352, Australia"
+ },
+ "charlesmelton": {
+  "lat": -34.5574,
+  "lng": 138.9617,
+  "src": "nominatim-structured",
+  "match": "Krondorf Road, Krondorf, Tanunda, South Australia, 5352, Australia"
+ },
+ "chateautanunda": {
+  "lat": -34.5279,
+  "lng": 138.9643,
+  "src": "osm-poi",
+  "match": "Chateau Tanunda (OSM)"
+ },
+ "peterlehmann": {
+  "lat": -34.5063,
+  "lng": 138.9677,
+  "src": "osm-poi",
+  "match": "Peter Lehmann Wines (OSM)"
+ },
+ "elderton": {
+  "lat": -34.4766,
+  "lng": 138.9946,
+  "src": "nominatim",
+  "match": "Tanunda Road, Nuriootpa, South Australia, 5355, Australia"
+ },
+ "kalleske": {
+  "lat": -34.4581,
+  "lng": 138.9284,
+  "src": "nominatim",
+  "match": "Kalleske Wines, 6, Murray Street, Greenock, South Australia, 5360, Aus"
+ },
+ "twohands": {
+  "lat": -34.4465,
+  "lng": 138.769,
+  "src": "photon",
+  "match": "Neldner Road Freeling South Australia"
+ },
+ "bethany": {
+  "lat": -34.5354,
+  "lng": 138.9609,
+  "src": "nominatim-structured",
+  "match": "Bethany Road, Tanunda, South Australia, 5352, Australia"
+ },
+ "hentleyfarm": {
+  "lat": -34.4936,
+  "lng": 138.9106,
+  "src": "osm-poi",
+  "match": "Hentley Farm (photon+OSM agree)"
+ },
+ "davidfranz": {
+  "lat": -34.5014,
+  "lng": 138.9636,
+  "src": "osm-poi",
+  "match": "David Franz (OSM winery)"
+ }
+}

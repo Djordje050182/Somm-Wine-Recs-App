@@ -1,0 +1,130 @@
+{
+ "bethany": {
+  "name": "Bethany Wines",
+  "rating": 4.7,
+  "count": 144,
+  "lat": -34.5461,
+  "lng": 138.99,
+  "addr": "378 Bethany Rd, Tanunda SA 5352, Australia"
+ },
+ "charlesmelton": {
+  "name": "Charles Melton Wines",
+  "rating": 4.8,
+  "count": 137,
+  "lat": -34.5618,
+  "lng": 138.9655,
+  "addr": "194 Krondorf Rd, Krondorf SA 5352, Australia"
+ },
+ "chateautanunda": {
+  "name": "Ch\u00e2teau Tanunda",
+  "rating": 4.5,
+  "count": 594,
+  "lat": -34.5276,
+  "lng": 138.9643,
+  "addr": "9 Basedow Rd, Tanunda SA 5352, Australia"
+ },
+ "davidfranz": {
+  "name": "David Franz Cellardoor",
+  "rating": 4.7,
+  "count": 301,
+  "lat": -34.5013,
+  "lng": 138.9623,
+  "addr": "94 Stelzer Rd, Stone Well SA 5352, Australia"
+ },
+ "elderton": {
+  "name": "Elderton Wines - Barossa Valley Wineries",
+  "rating": 4.7,
+  "count": 183,
+  "lat": -34.4771,
+  "lng": 139.0017,
+  "addr": "3\\u002F5 Tanunda Rd, Nuriootpa SA 5355, Australia"
+ },
+ "henschke": {
+  "name": "Henschke",
+  "rating": 4.8,
+  "count": 237,
+  "lat": -34.5209,
+  "lng": 139.1492,
+  "addr": "1428 Keyneton Rd, Keyneton SA 5353, Australia"
+ },
+ "hentleyfarm": {
+  "name": "Hentley Farm",
+  "rating": 4.8,
+  "count": 512,
+  "lat": -34.4935,
+  "lng": 138.9106,
+  "addr": "Gerald Roberts Rd, Jenke Rd, Seppeltsfield SA 5355, Australi"
+ },
+ "kalleske": {
+  "name": "Kalleske Wines",
+  "rating": 4.9,
+  "count": 223,
+  "lat": -34.458,
+  "lng": 138.9284,
+  "addr": "6 Murray St, Greenock SA 5360, Australia"
+ },
+ "langmeil": {
+  "name": "Langmeil Winery - Home of Barossa Valley's Oldest Shiraz Vineyard",
+  "rating": 4.8,
+  "count": 320,
+  "lat": -34.5083,
+  "lng": 138.9632,
+  "addr": "Corner Langmeil and, Para Rd, Tanunda SA 5352, Australia"
+ },
+ "peterlehmann": {
+  "name": "Peter Lehmann Wines",
+  "rating": 4.4,
+  "count": 219,
+  "lat": -34.5063,
+  "lng": 138.9677,
+  "addr": "Para Rd, Tanunda SA 5352, Australia"
+ },
+ "rockford": {
+  "name": "Rockford Wines",
+  "rating": 4.8,
+  "count": 615,
+  "lat": -34.5572,
+  "lng": 138.9612,
+  "addr": "131 Krondorf Rd, Tanunda SA 5352, Australia"
+ },
+ "seppeltsfield": {
+  "name": "Seppeltsfield Wines",
+  "rating": 4.4,
+  "count": 748,
+  "lat": -34.4893,
+  "lng": 138.9181,
+  "addr": "730 Seppeltsfield Rd, Seppeltsfield SA 5355, Australia"
+ },
+ "torbreck": {
+  "name": "Torbreck",
+  "rating": 4.7,
+  "count": 235,
+  "lat": -34.4763,
+  "lng": 138.9489,
+  "addr": "348 Roennfeldt Rd, Marananga SA 5355, Australia"
+ },
+ "turkeyflat": {
+  "name": "Turkey Flat Vineyards",
+  "rating": 4.7,
+  "count": 242,
+  "lat": -34.5311,
+  "lng": 138.9583,
+  "addr": "67 Bethany Rd, Tanunda SA 5352, Australia"
+ },
+ "twohands": {
+  "name": "Two Hands Wines",
+  "rating": 4.8,
+  "count": 252,
+  "lat": -34.4876,
+  "lng": 138.9355,
+  "addr": "273 Neldner Rd, Marananga SA 5355, Australia"
+ },
+ "yalumba": {
+  "name": "Yalumba",
+  "rating": 4.6,
+  "count": 427,
+  "lat": -34.5125,
+  "lng": 139.057,
+  "addr": "40 Eden Valley Rd, Angaston SA 5353, Australia"
+ }
+}

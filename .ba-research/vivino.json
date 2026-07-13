@@ -1,0 +1,338 @@
+[
+ {
+  "wineryId": "ba-langmeil",
+  "query": "Langmeil The Freedom 1843 Shiraz",
+  "match": "Langmeil The Freedom 1843 Shiraz 2022",
+  "count": 2000,
+  "avg": 4.5
+ },
+ {
+  "wineryId": "ba-langmeil",
+  "query": "Langmeil Valley Floor Shiraz",
+  "match": "Langmeil Valley Floor Shiraz 2023",
+  "count": 10193,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-langmeil",
+  "query": "Langmeil Orphan Bank Shiraz",
+  "match": "Langmeil Orphan Bank Shiraz 2023",
+  "count": 2903,
+  "avg": 4.3
+ },
+ {
+  "wineryId": "ba-turkey-flat",
+  "query": "Turkey Flat Rose",
+  "match": "Turkey Flat Ros\u00e9 2025",
+  "count": 1310,
+  "avg": 3.8
+ },
+ {
+  "wineryId": "ba-turkey-flat",
+  "query": "Turkey Flat Shiraz",
+  "match": "Turkey Flat Sparkling Shiraz",
+  "count": 166,
+  "avg": 3.9
+ },
+ {
+  "wineryId": "ba-turkey-flat",
+  "query": "Turkey Flat Butchers Block",
+  "match": "Turkey Flat Butcher's Block White 2024",
+  "count": 217,
+  "avg": 3.6
+ },
+ {
+  "wineryId": "ba-rockford",
+  "query": "Rockford Basket Press Shiraz",
+  "match": "Rockford Basket Press Shiraz 1991",
+  "count": 14483,
+  "avg": 4.5
+ },
+ {
+  "wineryId": "ba-rockford",
+  "query": "Rockford Black Shiraz",
+  "match": "Rockford Black Shiraz",
+  "count": 2159,
+  "avg": 4.5
+ },
+ {
+  "wineryId": "ba-rockford",
+  "query": "Rockford Rod and Spur",
+  "match": "Rockford Rod \\u0026 Spur Shiraz - Cabernet 2019",
+  "count": 3209,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-charles-melton",
+  "query": "Charles Melton Nine Popes",
+  "match": "Charles Melton Nine Popes 2012",
+  "count": 2497,
+  "avg": 4.3
+ },
+ {
+  "wineryId": "ba-charles-melton",
+  "query": "Charles Melton Rose of Virginia",
+  "match": "Charles Melton Rose of Virginia 2023",
+  "count": 808,
+  "avg": 3.9
+ },
+ {
+  "wineryId": "ba-charles-melton",
+  "query": "Charles Melton Grains of Paradise",
+  "match": "Charles Melton Grains of Paradise 2008",
+  "count": 559,
+  "avg": 4.3
+ },
+ {
+  "wineryId": "ba-chateau-tanunda",
+  "query": "Chateau Tanunda 100 Year Old Vines Shiraz",
+  "match": "Ch\u00e2teau Tanunda The Ch\u00e2teau 100 Year Old Vines Shiraz 2018",
+  "count": 173,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-chateau-tanunda",
+  "query": "Chateau Tanunda Grand Barossa Shiraz",
+  "match": "Ch\u00e2teau Tanunda Grand Barossa Shiraz 2024",
+  "count": 17914,
+  "avg": 3.9
+ },
+ {
+  "wineryId": "ba-chateau-tanunda",
+  "query": "Chateau Tanunda The Everest Shiraz",
+  "match": "Ch\u00e2teau Tanunda The Ch\u00e2teau Single Vineyard Shiraz 2024",
+  "count": 1019,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-peter-lehmann",
+  "query": "Peter Lehmann Stonewell Shiraz",
+  "match": "Peter Lehmann Stonewell Shiraz 2001",
+  "count": 4870,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-peter-lehmann",
+  "query": "Peter Lehmann Margaret Semillon",
+  "match": "Peter Lehmann The Master's Collection Margaret Semillon 2017",
+  "count": 1018,
+  "avg": 3.8
+ },
+ {
+  "wineryId": "ba-peter-lehmann",
+  "query": "Peter Lehmann Masters Eight Songs Shiraz",
+  "match": "Peter Lehmann The Master's Collection 8 Songs Shiraz 2018",
+  "count": 2837,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-bethany",
+  "query": "Bethany GR Reserve Shiraz",
+  "match": "Bethany GR Reserve Shiraz 2020",
+  "count": 277,
+  "avg": 4.3
+ },
+ {
+  "wineryId": "ba-bethany",
+  "query": "Bethany East Grounds Shiraz",
+  "match": "Bethany East Grounds Shiraz 2021",
+  "count": 56,
+  "avg": 4.3
+ },
+ {
+  "wineryId": "ba-bethany",
+  "query": "Bethany Eden Valley Riesling",
+  "match": "Tim Smith Eden Valley Riesling 2025",
+  "count": 214,
+  "avg": 3.7
+ },
+ {
+  "wineryId": "ba-david-franz",
+  "query": "David Franz Benjamins Promise Shiraz",
+  "match": "David Franz Benjamin's Promise Shiraz 2015",
+  "count": 349,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-david-franz",
+  "query": "David Franz Georgies Walk Cabernet",
+  "match": "David Franz Georgie's Walk Cabernet Sauvignon 2018",
+  "count": 345,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-david-franz",
+  "query": "David Franz Long Gully Road Riesling",
+  "match": "David Franz Long Gully Road S\u00e9millon 2022",
+  "count": 253,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-seppeltsfield",
+  "query": "Seppeltsfield Para 100 Year Old Tawny",
+  "match": "Seppeltsfield Para 21 Year Old Vintage Tawny 2021",
+  "count": 102,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-seppeltsfield",
+  "query": "Seppeltsfield Village Shiraz",
+  "match": "Seppeltsfield Shiraz 2021",
+  "count": 2166,
+  "avg": 3.8
+ },
+ {
+  "wineryId": "ba-seppeltsfield",
+  "query": "Seppeltsfield Para Grand Tawny",
+  "match": "Seppeltsfield Para 21 Year Old Vintage Tawny 2021",
+  "count": 102,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-two-hands",
+  "query": "Two Hands Bellas Garden Shiraz",
+  "match": "Two Hands Bella's Garden Shiraz 2007",
+  "count": 11863,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-two-hands",
+  "query": "Two Hands Gnarly Dudes Shiraz",
+  "match": "Two Hands Gnarly Dudes Shiraz 2024",
+  "count": 17075,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-two-hands",
+  "query": "Two Hands Angels Share Shiraz",
+  "match": "Two Hands Angels' Share Shiraz 2024",
+  "count": 25686,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-torbreck",
+  "query": "Torbreck RunRig",
+  "match": "Torbreck RunRig 2006",
+  "count": 6644,
+  "avg": 4.5
+ },
+ {
+  "wineryId": "ba-torbreck",
+  "query": "Torbreck Woodcutters Shiraz",
+  "match": "Torbreck Woodcutter's Shiraz 2024",
+  "count": 22912,
+  "avg": 3.9
+ },
+ {
+  "wineryId": "ba-torbreck",
+  "query": "Torbreck The Steading",
+  "match": "Torbreck The Steading 2024",
+  "count": 7585,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-hentley-farm",
+  "query": "Hentley Farm The Beauty Shiraz",
+  "match": "Hentley Farm The Beauty Shiraz 2023",
+  "count": 2162,
+  "avg": 4.3
+ },
+ {
+  "wineryId": "ba-hentley-farm",
+  "query": "Hentley Farm The Beast Shiraz",
+  "match": "Hentley Farm The Beast Shiraz 2023",
+  "count": 2394,
+  "avg": 4.4
+ },
+ {
+  "wineryId": "ba-hentley-farm",
+  "query": "Hentley Farm Clos Otto Shiraz",
+  "match": "Hentley Farm Clos Otto 2022",
+  "count": 1142,
+  "avg": 4.5
+ },
+ {
+  "wineryId": "ba-elderton",
+  "query": "Elderton Command Shiraz",
+  "match": "Elderton Command Single Vineyard Shiraz 2022",
+  "count": 5141,
+  "avg": 4.3
+ },
+ {
+  "wineryId": "ba-elderton",
+  "query": "Elderton Ashmead Cabernet Sauvignon",
+  "match": "Elderton Ashmead Cabernet Sauvignon 2021",
+  "count": 2253,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-elderton",
+  "query": "Elderton Barossa Shiraz",
+  "match": "Elderton Barossa GSM 2025",
+  "count": 574,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-kalleske",
+  "query": "Kalleske Greenock Shiraz",
+  "match": "Kalleske Greenock Shiraz 2024",
+  "count": 3101,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-kalleske",
+  "query": "Kalleske Old Vine Grenache",
+  "match": "Kalleske Old Vine Grenache 2024",
+  "count": 832,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-kalleske",
+  "query": "Kalleske Clarrys GSM",
+  "match": "Kalleske Clarry's GSM 2024",
+  "count": 3956,
+  "avg": 3.9
+ },
+ {
+  "wineryId": "ba-yalumba",
+  "query": "Yalumba The Signature Cabernet Shiraz",
+  "match": "Yalumba The Signature Cabernet Sauvignon - Shiraz 2016",
+  "count": 8715,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-yalumba",
+  "query": "Yalumba The Octavius Shiraz",
+  "match": "Yalumba The Octavius Old Vine Shiraz 2019",
+  "count": 2917,
+  "avg": 4.4
+ },
+ {
+  "wineryId": "ba-yalumba",
+  "query": "Yalumba Samuels Collection Bush Vine Grenache",
+  "match": "Yalumba Samuel's Collection Bush Vine Grenache 2024",
+  "count": 5257,
+  "avg": 3.8
+ },
+ {
+  "wineryId": "ba-henschke",
+  "query": "Henschke Hill of Grace",
+  "match": "Henschke Hill of Grace 1984",
+  "count": 4564,
+  "avg": 4.6
+ },
+ {
+  "wineryId": "ba-henschke",
+  "query": "Henschke Mount Edelstone",
+  "match": "Henschke Mount Edelstone 1992",
+  "count": 5629,
+  "avg": 4.4
+ },
+ {
+  "wineryId": "ba-henschke",
+  "query": "Henschke Julius Riesling",
+  "match": "Henschke Julius 2023",
+  "count": 1854,
+  "avg": 3.8
+ }
+]

@@ -16,6 +16,16 @@ import GuideModal from './GuideModal';
 
 // Chart palette per DESIGN.md: claret / brass / vine / ink only.
 const CHART_COLOURS = ['#5E1A26', '#96742E', '#4A5D3A', '#211A16'];
+
+// One standing rule per region — shown under the ranked vintage list.
+const VINTAGE_RULES: Record<string, string> = {
+  'hunter-valley':
+    'The standing rule: young Semillon is a promise, aged Semillon is the payoff. If a cellar door offers anything with ten years on it, say yes before they change their mind.',
+  'margaret-river':
+    'The standing rule: Margaret River Cabernet is remarkably consistent — the year matters less here than almost anywhere. When in doubt, buy the Chardonnay young and the Cabernet old.',
+  'barossa-valley':
+    'The standing rule: great Barossa years make Shiraz that outlives its buyers. Museum releases of 2012, 2018 or 2021 are worth whatever the cellar door asks — and the fortifieds ignore vintage charts entirely.',
+};
 const HAIRLINE = '#E2D9C8';
 const INK = '#211A16';
 
@@ -249,12 +259,13 @@ const RegionExplorer: React.FC = () => {
             When a list or a museum-release shelf offers you a choice of years, these are the ones
             the Somm reaches for.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-            {region.vintages
+          <div className="max-w-3xl">
+            {[...region.vintages]
               .filter(v => v.note)
-              .sort((a, b) => b.rating - a.rating)
-              .map(v => (
-                <div key={v.year} className="flex gap-4 items-baseline border-b border-hairline pb-3">
+              .sort((a, b) => b.rating - a.rating || Number(b.year) - Number(a.year))
+              .map((v, i) => (
+                <div key={v.year} className="flex gap-4 items-baseline border-b border-hairline py-3">
+                  <span className="font-ui text-[10px] font-semibold text-ink/30 shrink-0 w-5 text-right">{i + 1}</span>
                   <span className="font-display text-2xl text-claret shrink-0 w-16">{v.year}</span>
                   <div className="min-w-0">
                     <span className="font-ui text-[10px] font-semibold uppercase tracking-kicker text-brass block">{v.quality} · {v.rating}/100</span>
@@ -263,10 +274,9 @@ const RegionExplorer: React.FC = () => {
                 </div>
               ))}
           </div>
-          <p className="font-body text-sm italic text-ink/50 leading-relaxed mt-6">
-            The standing rule: young Semillon is a promise, aged Semillon is the payoff. If a cellar
-            door offers anything with ten years on it, say yes before they change their mind.
-          </p>
+          {VINTAGE_RULES[region.id] && (
+            <p className="font-body text-sm italic text-ink/50 leading-relaxed mt-6">{VINTAGE_RULES[region.id]}</p>
+          )}
         </div>
       </section>
 

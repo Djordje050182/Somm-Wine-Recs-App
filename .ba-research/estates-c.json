@@ -1,0 +1,1169 @@
+{
+ "wineries": [
+  {
+   "id": "ba-st-hallett",
+   "name": "St Hallett",
+   "subregion": "Tanunda",
+   "specialty": "Old Block Shiraz \u2014 a masterclass in ancient-vine blending from the Krondorf quarter",
+   "wines": [
+    "Old Block Shiraz",
+    "Blackwell Shiraz",
+    "Garden of Eden Shiraz"
+   ],
+   "established": 1944,
+   "priceRange": "$$",
+   "description": "A Barossa institution since 1944, built on a simple creed: only Barossa fruit, with Old Block drawing on vines up to a century and a half old.",
+   "story": "The Lindner family founded St Hallett in 1944 beside St Hallett's Creek in the Krondorf quarter, and the house has never bottled a single grape from outside the Barossa since. Old Block, first made in 1980, assembles parcels from ancient dry-grown vineyards \u2014 some planted in the nineteenth century \u2014 into one of the region's defining Shirazes, while Blackwell honours Stuart Blackwell, the winemaker who poured his working life into the place. The cellar door sits among the vines a few minutes south of Tanunda, with the stone entrance wall announcing the year it all began.",
+   "style": "Classic",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -34.5503,
+   "lng": 138.9459,
+   "hasRestaurant": false,
+   "rating": 4.4,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "website": "https://sthallett.com.au",
+   "bookingUrl": "https://sthallett.com.au",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://sthallett.com.au/cdn/shop/files/Cellar_Door_Header_4_3440x.png",
+    "source": "winery",
+    "alt": "The stone entrance wall at St Hallett, established 1944",
+    "verified": "downloaded 2026-07-14, viewed: estate entrance wall and gardens"
+   },
+   "briefing": {
+    "icebreaker": "Every St Hallett wine is 100% Barossa fruit \u2014 the house has never once bought grapes from outside the valley.",
+    "proMove": "Taste Blackwell immediately before Old Block: same DNA, and the jump in old-vine depth explains the price gap better than any tasting note.",
+    "hiddenGem": "Old Block isn't one vineyard \u2014 it's a blend of ancient blocks, some planted before Federation, that the winery has quietly kept on contract for decades."
+   },
+   "sommNote": "Old Block with a decade on it is one of the Barossa's surest bets \u2014 and Garden of Eden is the honest weeknight version of the same house style.",
+   "community": {
+    "score": 4.4,
+    "count": 245
+   },
+   "visitorSummary": "Visitors praise warm, fuss-free hosting \u2014 walk-in groups looked after without drama \u2014 deep Shiraz knowledge, and a relaxed setting among the vines."
+  },
+  {
+   "id": "ba-grant-burge",
+   "name": "Grant Burge Wines",
+   "subregion": "Tanunda",
+   "specialty": "Fifth-generation Barossa winemaking \u2014 Meshach Shiraz and the Filsell old vines",
+   "wines": [
+    "Meshach Shiraz",
+    "Filsell Shiraz",
+    "The Holy Trinity"
+   ],
+   "established": 1988,
+   "priceRange": "$$",
+   "description": "Grant Burge, fifth generation of a Barossa winemaking dynasty, built his house at Rowland Flat on the strength of the 1920s Filsell vineyard and the mighty Meshach.",
+   "story": "The Burge family have made wine in the Barossa since 1855, and when fifth-generation Grant struck out under his own name in 1988 he anchored the venture on the family's Filsell vineyard at Lyndoch, planted in the 1920s. Meshach \u2014 named for his great-grandfather Meshach Burge \u2014 became the flagship: an old-vine Shiraz built for the long haul. The cellar door on the Rowland Flat rise looks north over the valley, and the Holy Trinity, a Grenache-Shiraz-Mourv\u00e8dre named for the historic church trio of the southern Barossa, keeps the Rh\u00f4ne faith.",
+   "style": "Classic",
+   "opens": "10:00",
+   "closes": "16:30",
+   "lat": -34.5623,
+   "lng": 138.9424,
+   "hasRestaurant": false,
+   "rating": 4.7,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "website": "https://grantburgewines.com.au",
+   "bookingUrl": "https://grantburgewines.com.au/pages/cellar-door",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://grantburgewines.com.au/cdn/shop/files/Grant_Burge_Winery_Vineyards.png?v=1751257589&width=1920",
+    "source": "winery",
+    "alt": "Vine rows running up to the Grant Burge winery at Rowland Flat",
+    "verified": "downloaded 2026-07-14, viewed: vineyard and homestead at golden hour"
+   },
+   "briefing": {
+    "icebreaker": "Meshach is a real person \u2014 Grant's great-grandfather, a nineteenth-century Barossa vigneron whose name now sits on the family's grandest Shiraz.",
+    "proMove": "Ask for Filsell and Meshach side by side; Meshach is drawn from the best rows of the same 1920s vineyard, so you're tasting selection, not just seniority.",
+    "hiddenGem": "The Holy Trinity is named for the three historic churches of the southern Barossa \u2014 and it's the sleeper of the range for Rh\u00f4ne lovers."
+   },
+   "sommNote": "Filsell is the smart buy: centenarian-vine Shiraz at a mid-shelf price, from the vineyard that feeds the flagship.",
+   "community": {
+    "score": 4.7,
+    "count": 383
+   },
+   "visitorSummary": "Reviewers consistently name their hosts and rate the reds tasting among the best of their Barossa run, with warm welcomes from the moment the doors open."
+  },
+  {
+   "id": "ba-jacobs-creek",
+   "name": "Jacob's Creek Visitor Centre",
+   "subregion": "Tanunda",
+   "specialty": "The creek where Barossa wine began in 1847 \u2014 now Australia's most famous label",
+   "wines": [
+    "Double Barrel Shiraz",
+    "Steingarten Riesling"
+   ],
+   "established": 1847,
+   "priceRange": "$",
+   "description": "Johann Gramp planted the colony's first commercial vineyard on the banks of Jacob's Creek in 1847; the visitor centre beside the original site pours the brand the whole world knows.",
+   "story": "In 1847 Bavarian migrant Johann Gramp planted vines on the banks of a modest creek at Rowland Flat, and the wine that followed grew into the most recognised Australian label on Earth. The visitor centre sits in lawns and vineyard beside the original site, with Gramp's stone cottage still standing a short walk away and the actual Jacob's Creek trickling past the picnic tables. Serious drinkers shouldn't scoff: Steingarten, the steep 'stone garden' Riesling planted high on the ranges in 1962, remains one of Australia's quiet white-wine icons.",
+   "style": "Landmark",
+   "opens": "10:00",
+   "closes": "16:30",
+   "lat": -34.5647,
+   "lng": 138.9334,
+   "hasRestaurant": true,
+   "rating": 4.3,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "website": "https://jacobscreek.com",
+   "bookingUrl": "https://jacobscreek.com/pages/tasting-experiences",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://jacobscreek.com/cdn/shop/files/JacobsCottage-JUL22-0008_1.jpg?v=1734545047&width=1600",
+    "source": "winery",
+    "alt": "Johann Gramp's stone cottage and fire pit at Jacob's Creek",
+    "verified": "downloaded 2026-07-14, viewed: heritage cottage, hedges and fire bowl"
+   },
+   "briefing": {
+    "icebreaker": "There is an actual Jacob's Creek \u2014 it runs past the picnic lawns, and Johann Gramp planted the colony's first commercial vines on its banks in 1847.",
+    "proMove": "Book the tasting rather than browsing the shop: the last bookable session is 3:30pm, and the picnic hampers on the lawn are the family-day play.",
+    "hiddenGem": "Walk to Gramp's original stone cottage \u2014 and ask to taste Steingarten, the 1962 high-altitude Riesling that outclasses its own brand's reputation."
+   },
+   "sommNote": "Come for the history, stay for the Steingarten \u2014 an Australian Riesling icon hiding inside the world's most familiar label.",
+   "community": {
+    "score": 4.3,
+    "count": 824
+   },
+   "visitorSummary": "Guests enjoy the wide tasting range, friendly staff, the caf\u00e9 and lawn picnics \u2014 an easy, polished day out at the birthplace of the brand."
+  },
+  {
+   "id": "ba-st-hugo",
+   "name": "St Hugo",
+   "subregion": "Tanunda",
+   "specialty": "The luxury house honouring Hugo Gramp \u2014 polished flights on a vine-draped stone terrace",
+   "wines": [
+    "St Hugo Barossa Shiraz",
+    "St Hugo Cabernet Sauvignon"
+   ],
+   "established": 1983,
+   "priceRange": "$$$",
+   "description": "Named for Hugo Gramp, lost in the 1938 Kyeema air disaster, St Hugo is the Rowland Flat estate where structured Shiraz and Cabernet meet fine dining and vine-shaded stone.",
+   "story": "Hugo Gramp, grandson of the Jacob's Creek founder, ran the family company until 1938, when the Kyeema airliner crashed into Mount Dandenong and took three of Australia's leading wine men at once. The label bearing his name began in 1983 with a Coonawarra Cabernet and grew into a luxury house in its own right; today its Rowland Flat estate pours structured, patient reds on a terrace of old stone and draped vines, with a restaurant to match. It is the Barossa at its most polished \u2014 a deliberate counterpoint to the valley's dusty-boot charm.",
+   "style": "Luxury",
+   "opens": "10:00",
+   "closes": "16:30",
+   "lat": -34.5608,
+   "lng": 138.9377,
+   "hasRestaurant": true,
+   "rating": 4.6,
+   "bookingRequired": true,
+   "kidFriendly": false,
+   "dogFriendly": false,
+   "website": "https://sthugo.com",
+   "bookingUrl": "https://sthugo.com/pages/visit",
+   "tastingFee": 25,
+   "image": {
+    "url": "https://sthugo.com/cdn/shop/files/st-huo-tastings-desktop.jpg?v=1730127493&width=1920",
+    "source": "winery",
+    "alt": "The vine-draped tasting terrace at St Hugo, Rowland Flat",
+    "verified": "downloaded 2026-07-14, viewed: stone terrace, pergola vines and barrel tasting"
+   },
+   "briefing": {
+    "icebreaker": "Hugo Gramp died in the 1938 Kyeema crash alongside two other wine-industry leaders \u2014 a single air disaster that reshaped Australian wine, and this house is his memorial.",
+    "proMove": "Book ahead and pair the flight with lunch; the kitchen is a destination in itself and walk-ins miss the good tables.",
+    "hiddenGem": "The Cabernet tradition here is Coonawarra-born \u2014 taste the Barossa Shiraz against the Cabernet and you're tasting two great Australian regions in one sitting."
+   },
+   "sommNote": "The most cellar-worthy tasting flight in the Rowland Flat corner \u2014 the Shiraz rewards a decade, and the service is properly grown-up.",
+   "community": {
+    "score": 4.6,
+    "count": 533
+   },
+   "visitorSummary": "Visitors call the lunch exceptional \u2014 'incredible quality and value' \u2014 with welcoming staff and a stunning setting."
+  },
+  {
+   "id": "ba-wolf-blass",
+   "name": "Wolf Blass",
+   "subregion": "Nuriootpa & Greenock",
+   "specialty": "The eagle of Bilyara \u2014 Black Label and four Jimmy Watson trophies",
+   "wines": [
+    "Black Label",
+    "Grey Label Cabernet Shiraz"
+   ],
+   "established": 1966,
+   "priceRange": "$$",
+   "description": "Wolfgang Blass arrived from Germany in 1961 with a suitcase and an outsized talent for blending; the eagle-crowned visitor centre on the Sturt Highway tells the tale.",
+   "story": "Wolfgang Blass landed in Australia in 1961 as a young German winemaker on a three-year contract, and by 1966 had struck out alone from a tin shed at Bilyara \u2014 'eagle's nest' in the local language. His genius for blending across regions and varieties rewrote Australian red wine: Black Label won the Jimmy Watson Trophy three years running in the 1970s, a feat never matched. The circular visitor centre on the Sturt Highway, wrapped around its courtyard with the eagle above the door, carries the swagger \u2014 and the trophies \u2014 of the man himself.",
+   "style": "Iconic",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -34.44,
+   "lng": 139.0342,
+   "hasRestaurant": false,
+   "rating": 4.1,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "phone": "(08) 8568 7311",
+   "website": "https://www.wolfblass.com",
+   "bookingUrl": "https://www.wolfblass.com/en-au/visit/cellar-door.html",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://www.wolfblass.com/on/demandware.static/-/Library-Sites-WolfBlassSharedLibrary/default/dwa8f4d56e/general_banners/Cellar_Door_Banner_1920x600.jpg",
+    "source": "winery",
+    "alt": "The circular Wolf Blass visitor centre at Bilyara, from the air",
+    "verified": "downloaded 2026-07-14, viewed: circular building, gardens and vine block aerial"
+   },
+   "briefing": {
+    "icebreaker": "Black Label won the Jimmy Watson Trophy three years straight in the 1970s \u2014 no wine has done it since, and Wolf never let anyone forget it.",
+    "proMove": "The doors open Thursday to Saturday only \u2014 plan accordingly, and ask for the Black Label museum vintages if they're pouring.",
+    "hiddenGem": "Bilyara means 'eagle's nest' \u2014 the whole brand began in a tin shed on this property in 1966, three years after Wolf's boat docked."
+   },
+   "sommNote": "Grey Label is the value play \u2014 the Black Label blending philosophy at a third of the price, and it cellars better than its shelf position suggests.",
+   "community": {
+    "score": 4.1,
+    "count": 99
+   },
+   "visitorSummary": "Reviews are warmer inside than out: the building reads more visitor centre than winery to some, but the unhurried, educational tastings win people over."
+  },
+  {
+   "id": "ba-chateau-yaldara",
+   "name": "Chateau Yaldara",
+   "subregion": "Lyndoch & Williamstown",
+   "specialty": "The ch\u00e2teau a post-war migrant built from salvage \u2014 grandeur on the Lyndoch bend",
+   "wines": [
+    "1847 First Pick Shiraz"
+   ],
+   "established": 1947,
+   "priceRange": "$$",
+   "description": "Hermann Thumm arrived in 1947 with little but determination and built a European ch\u00e2teau from salvaged stone and second-hand machinery on the North Para at Lyndoch.",
+   "story": "Hermann Thumm reached Australia after the war with his winemaking knowledge and not much else, bought a ruined 1867 flour mill on the North Para River, and set about building a ch\u00e2teau to match his memory of Europe \u2014 from salvaged stone, reclaimed timber and machinery nobody else wanted. The result at Lyndoch is the Barossa's most improbable building: marble, antiques, ornamental gardens and a working winery in one. Under the 1847 Wines banner today, the cellar door opens daily from 9am, earlier than almost anyone in the valley \u2014 and its visitors rate it among the Barossa's very best.",
+   "style": "Grand",
+   "opens": "09:00",
+   "closes": "16:00",
+   "lat": -34.5747,
+   "lng": 138.875,
+   "hasRestaurant": false,
+   "rating": 4.9,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "phone": "(08) 8524 0225",
+   "website": "https://www.chateauyaldara.com.au",
+   "bookingUrl": "https://www.chateauyaldara.com.au",
+   "tastingFee": 10,
+   "image": {
+    "url": "https://fusws.api.aspedia.io/yaldara-website/New%20image%20Bank/DJI_0804.jpg",
+    "source": "winery",
+    "alt": "Chateau Yaldara and its gardens from the air",
+    "verified": "downloaded 2026-07-14, viewed: full ch\u00e2teau aerial with fountain gardens"
+   },
+   "briefing": {
+    "icebreaker": "The ch\u00e2teau is built from salvage \u2014 Hermann Thumm scavenged stone, timber and machinery in the lean post-war years and willed a European landmark into existence.",
+    "proMove": "Doors open 9am, hours before the rest of the valley \u2014 make it your first stop and you'll have the marble halls nearly to yourself.",
+    "hiddenGem": "Ask about the antique collection upstairs; Thumm filled the ch\u00e2teau with European furniture and clocks that survived him."
+   },
+   "sommNote": "With a 4.9 from nearly two thousand visitors, this is the Barossa's best-loved surprise \u2014 go for the building, leave with the First Pick Shiraz.",
+   "community": {
+    "score": 4.9,
+    "count": 1875
+   },
+   "visitorSummary": "Visitors call it the best winery experience of their trip \u2014 the grandeur of the ch\u00e2teau, the history tour and generous, affordable tastings all recur in reviews."
+  },
+  {
+   "id": "ba-hemera",
+   "name": "Hemera Estate",
+   "subregion": "Lyndoch & Williamstown",
+   "specialty": "Single-estate Lyndoch wines with an underground barrel hall",
+   "wines": [
+    "Block 5 Cabernet Sauvignon"
+   ],
+   "established": 1999,
+   "priceRange": "$$",
+   "description": "A single-vineyard Lyndoch estate on the Barossa Valley Way, pouring estate-grown wines above one of the region's few underground barrel cellars.",
+   "story": "Hemera \u2014 the Greek goddess of day \u2014 is the name the estate took in 2012, but the vines on this Lyndoch rise date back decades further, planted under the earlier Ross Estate flag from 1999. Everything poured at the cellar door grows within sight of it, block by numbered block, with Block 5 Cabernet Sauvignon the pick of the plantings. Beneath the tasting room sits a proper underground barrel hall, a rarity in the valley, keeping the reds cool through the fierce Barossa summer. Small, quiet and consistently among the region's highest-rated doors.",
+   "style": "Boutique",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -34.5992,
+   "lng": 138.9018,
+   "hasRestaurant": false,
+   "rating": 4.9,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "phone": "(08) 8524 4033",
+   "website": "https://hemeraestate.com.au",
+   "bookingUrl": "https://hemeraestate.com.au",
+   "tastingFee": 10,
+   "image": {
+    "url": "https://hemeraestate.com.au/wp-content/uploads/2017/03/hemera-estate-winery-lyndoch-south-australia.jpg",
+    "source": "winery",
+    "alt": "The Hemera Estate cellar door at golden hour, Lyndoch",
+    "verified": "downloaded 2026-07-14, viewed: estate frontage under gums at sunset"
+   },
+   "briefing": {
+    "icebreaker": "Hemera is the Greek goddess of day \u2014 and everything in your glass grew within sight of the tasting bench.",
+    "proMove": "Bookings are advised; call ahead and ask whether the underground barrel hall is open to walk through.",
+    "hiddenGem": "The blocks are numbered like a field map \u2014 Block 5 Cabernet is the one the locals quietly buy by the case."
+   },
+   "sommNote": "The southern valley's quiet achiever: single-estate discipline, an underground cellar, and a 4.9 rating the big houses would kill for.",
+   "community": {
+    "score": 4.9,
+    "count": 90
+   },
+   "visitorSummary": "Guests praise laid-back, funny, knowledgeable hosts \u2014 Lisa is named repeatedly \u2014 plus old-vine wines and a Grenache Ros\u00e9 that keeps ending up in the boot."
+  },
+  {
+   "id": "ba-tscharke",
+   "name": "Tscharke Wines",
+   "subregion": "Marananga & Seppeltsfield",
+   "specialty": "Sixth-generation Marananga grower gone gloriously alternative \u2014 organics, amphorae and an underground cellar door",
+   "wines": [
+    "Shiraz Shiraz Shiraz",
+    "Stone Well Grenache",
+    "The Master Montepulciano"
+   ],
+   "established": 2001,
+   "priceRange": "$$",
+   "description": "Damien Tscharke grew up on these Marananga and Stone Well vineyards; his organic estate now pours alternative varieties in a striking underground cellar door.",
+   "story": "The Tscharkes have grown grapes at Marananga and Stone Well for six generations, but Damien Tscharke took the inheritance somewhere new: certified organic vineyards, Mediterranean varieties like Montepulciano and Savagnin alongside the family Shiraz and Grenache, and wines named with a wink \u2014 his flagship is literally called Shiraz Shiraz Shiraz. The new cellar door burrows into the Marananga hillside, a vaulted underground room where tastings happen at a circular bar in the cool dark. Visitors rate it among the very best experiences in the valley.",
+   "style": "Progressive",
+   "opens": "10:00",
+   "closes": "16:00",
+   "lat": -34.4864,
+   "lng": 138.9464,
+   "hasRestaurant": false,
+   "rating": 4.9,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "phone": "+61 8 8562 4922",
+   "website": "https://www.tscharke.au",
+   "bookingUrl": "https://www.tscharke.au",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://tscharke.au/cdn/shop/files/DJI_20260108065739_0021_D_2.png?v=1772516693&width=2048",
+    "source": "winery",
+    "alt": "Tscharke's Marananga vineyards at sunrise from the air",
+    "verified": "downloaded 2026-07-14, viewed: drone aerial of estate vineyards at dawn"
+   },
+   "gallery": [
+    {
+     "url": "https://tscharke.au/cdn/shop/files/TS_Underground-Cellar_Hero_1.jpg?v=1771990732&width=2000",
+     "source": "winery",
+     "alt": "The vaulted underground cellar door at Tscharke",
+     "verified": "downloaded 2026-07-14, viewed: underground tasting room with circular bar"
+    }
+   ],
+   "briefing": {
+    "icebreaker": "Six generations of Tscharkes have farmed this dirt, and the current one named his flagship 'Shiraz Shiraz Shiraz' \u2014 tradition with a straight face is not the house style.",
+    "proMove": "Ask to taste the Montepulciano and Savagnin against the classics; the alternative varieties are why the wine trade watches this place.",
+    "hiddenGem": "The tasting room is underground \u2014 a vaulted cellar dug into the Marananga hill, blissfully cool on a 40-degree day. Closed Sundays."
+   },
+   "sommNote": "The most interesting tasting sheet in the western valley: organic farming, serious Grenache, and the courage to plant Italian grapes in Shiraz country.",
+   "community": {
+    "score": 4.9,
+    "count": 232
+   },
+   "visitorSummary": "Several visitors call it their best tasting in Australia \u2014 world-class knowledge, an unforgettable underground room, and Damien's alternative varieties winning sceptics over."
+  },
+  {
+   "id": "ba-whistler",
+   "name": "Whistler Wines",
+   "subregion": "Marananga & Seppeltsfield",
+   "specialty": "The valley's most relaxed lawn \u2014 kids, dogs, kangaroos and seriously drinkable Grenache",
+   "wines": [
+    "Atypical Shiraz",
+    "Double Back Grenache",
+    "Dry As A Bone Ros\u00e9"
+   ],
+   "established": 1999,
+   "priceRange": "$$",
+   "description": "The Pfitzner family's Stone Well cellar door is the Barossa at its most barefoot: tastings on the lawn under big gums, kids and dogs welcome, wines with names like Dry As A Bone.",
+   "story": "The Pfitzner family planted at Stone Well in the 1990s and opened a cellar door that refuses to take itself seriously \u2014 while quietly making wines that do. The lawn under the red gums fills with picnic rugs, children and dogs on weekends; rescued kangaroos have been known to lope past the tasting benches. The names lean larrikin \u2014 Dry As A Bone, Double Back, Atypical \u2014 but the Grenache underneath is proper Stone Well old-soil stuff, and the daily 10:30 open means the lawn is yours before the buses roll.",
+   "style": "Relaxed",
+   "opens": "10:30",
+   "closes": "17:00",
+   "lat": -34.4915,
+   "lng": 138.956,
+   "hasRestaurant": false,
+   "rating": 4.7,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "phone": "(08) 8562 4942",
+   "website": "https://whistlerwines.com.au",
+   "bookingUrl": "https://whistlerwines.com.au/visit/",
+   "tastingFee": 10,
+   "image": {
+    "url": "https://whistlerwines.com.au/wp-content/uploads/2021/03/Cellar-Door-Lawn.jpg",
+    "source": "winery",
+    "alt": "The cellar door lawn under the gums at Whistler Wines",
+    "verified": "downloaded 2026-07-14, viewed: lawn, high tables and cellar door building"
+   },
+   "briefing": {
+    "icebreaker": "This is the cellar door Barossa locals bring their kids and kelpies to \u2014 the lawn is the point as much as the wine.",
+    "proMove": "Claim a table under the big gum before noon on weekends; the lawn fills fast and the shade is currency in summer.",
+    "hiddenGem": "The family has hand-raised rescued kangaroos on the property \u2014 ask nicely and you may hear the roll-call of past residents."
+   },
+   "sommNote": "Don't let the bare feet fool you: the Double Back Grenache is legitimate Stone Well old-vine wine wearing its Sunday-arvo clothes.",
+   "community": {
+    "score": 4.7,
+    "count": 198
+   },
+   "visitorSummary": "Families love it: the big lawn, swings and picnic space for kids, pick-your-own five-wine flights, and staff who take time to get to know you."
+  },
+  {
+   "id": "ba-murray-street",
+   "name": "Murray Street Vineyards",
+   "subregion": "Nuriootpa & Greenock",
+   "specialty": "Greenock's polished small house \u2014 single-district Shiraz poured four days a week",
+   "wines": [
+    "MSV Greenock Shiraz",
+    "The Barossa Shiraz"
+   ],
+   "established": 2001,
+   "priceRange": "$$",
+   "description": "A modern Greenock winery whose gabled sheds rise straight out of the vines, pouring polished single-district Shiraz Thursday to Sunday.",
+   "story": "Founded in 2001 and named for Greenock's main street, Murray Street Vineyards set out to prove the village's red-loam western edge deserved its own name on a label. The winery's row of gabled sheds stands directly behind the home vineyard, and the range reads like a map \u2014 Greenock, Gomersal, the Barossa \u2014 each bottling arguing for its own patch of dirt. The tasting room opens Thursday through Sunday, unhurried by design, and its visitor scores sit among the highest in the northern valley.",
+   "style": "Modern",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -34.4592,
+   "lng": 138.9344,
+   "hasRestaurant": false,
+   "rating": 4.9,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": true,
+   "phone": "(08) 8562 8373",
+   "website": "https://murraystreet.com.au",
+   "bookingUrl": "https://murraystreet.com.au/visit/",
+   "tastingFee": 10,
+   "image": {
+    "url": "https://fusws.api.aspedia.io/murraystreet-website/Banners/Winery%20banner%20blue%20sky.png",
+    "source": "winery",
+    "alt": "The gabled winery buildings of Murray Street Vineyards above the vines, Greenock",
+    "verified": "downloaded 2026-07-14, viewed: winery gables over vine rows"
+   },
+   "gallery": [
+    {
+     "url": "https://fusws.api.aspedia.io/murraystreet-website/Vineyards/murray-street-hero-tasting-room-vineyard.jpg",
+     "source": "winery",
+     "alt": "Vine rows rolling toward the ranges at Murray Street Vineyards",
+     "verified": "downloaded 2026-07-14, viewed: vineyard landscape"
+    }
+   ],
+   "briefing": {
+    "icebreaker": "The range reads like a district map \u2014 Greenock against Gomersal against greater Barossa \u2014 one house arguing the case for village-level terroir.",
+    "proMove": "Thursday to Sunday only; pair it with the Greenock loop \u2014 Kalleske and Greenock Brewers' old town are minutes away.",
+    "hiddenGem": "Greenock's red western loams are quietly considered some of the valley's best Shiraz dirt \u2014 this is the cellar door built to prove it."
+   },
+   "sommNote": "The Greenock Shiraz is the thesis statement: one village, one wine, and a 4.9 visitor score that says the argument lands.",
+   "community": {
+    "score": 4.9,
+    "count": 358
+   },
+   "visitorSummary": "Reviewers praise the beautiful setting, generous platters and a tasting setup that balances modern polish with old-school charm \u2014 the complimentary cheese board gets fond mentions."
+  },
+  {
+   "id": "ba-saltram",
+   "name": "Saltram",
+   "subregion": "Angaston",
+   "specialty": "No. 1 Shiraz since the 1800s \u2014 Angaston's grand old house with Pepperjack at the grill",
+   "wines": [
+    "No. 1 Shiraz",
+    "Mamre Brook Shiraz",
+    "Pepperjack Barossa Red"
+   ],
+   "established": 1859,
+   "priceRange": "$$",
+   "description": "William Salter's 1859 estate on the Angaston road has poured through three centuries; No. 1 Shiraz honours the winery's very first blend, and the Pepperjack grill feeds the faithful.",
+   "story": "William Salter, an English migrant of strong Methodist conviction, founded 'Salter's Ram' \u2014 Saltram \u2014 above Angaston in 1859, and his No. 1 Shiraz descends directly from the estate's first celebrated blend. The homestead still anchors the property, the third-oldest continuously operating winery name in the valley, and the modern era added Pepperjack: the steak-friendly Barossa red that became a national pub-list staple, with a cellar-door grill to match. Cellar door daily; the restaurant fires Wednesday to Sunday.",
+   "style": "Historic",
+   "opens": "10:00",
+   "closes": "17:00",
+   "lat": -34.4952,
+   "lng": 139.0346,
+   "hasRestaurant": true,
+   "rating": 4.3,
+   "bookingRequired": false,
+   "kidFriendly": true,
+   "dogFriendly": false,
+   "phone": "(08) 8561 0200",
+   "website": "https://www.saltramwines.com.au",
+   "bookingUrl": "https://www.saltramwines.com.au/en-au/visit-us/cellar-door.html",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://www.saltramwines.com.au/on/demandware.static/-/Sites-Saltram-Library/default/dwb2e8644f/_Homepage/Homestead.jpg",
+    "source": "winery",
+    "alt": "The Salter family homestead at Saltram, Angaston",
+    "verified": "downloaded 2026-07-14, viewed: stone homestead and lawns"
+   },
+   "briefing": {
+    "icebreaker": "No. 1 Shiraz isn't marketing \u2014 it's the direct descendant of the estate's first flagship blend from the 1800s, and the name never changed.",
+    "proMove": "Book the Pepperjack grill for lunch (Wednesday to Sunday) and let the steak argue the case for the house red.",
+    "hiddenGem": "Mamre Brook is named for the Salter family homestead \u2014 the mid-tier wine with the founder's front door on its conscience."
+   },
+   "sommNote": "Pepperjack with a ribeye is one of Australian wine's most reliable equations, and it was engineered on this very property.",
+   "community": {
+    "score": 4.3,
+    "count": 271
+   },
+   "visitorSummary": "Visitors say it exceeds expectations \u2014 easy walk-in tastings, personal storytelling from staff, and the cheese platters and grounds rounding out the stop."
+  },
+  {
+   "id": "ba-teusner",
+   "name": "Teusner Wines",
+   "subregion": "Nuriootpa & Greenock",
+   "specialty": "The garage band that saved the old vines \u2014 cult Shiraz and Grenache from rescued blocks",
+   "wines": [
+    "The Riebke Shiraz",
+    "Joshua",
+    "Albert Shiraz"
+   ],
+   "established": 2002,
+   "priceRange": "$$",
+   "description": "Kym Teusner started with borrowed gear and a mission to save a block of ancient Grenache from the bulldozer; the wines became cult favourites almost immediately.",
+   "story": "In 2002 a young Kym Teusner learned that a neighbour's block of 1930s bush-vine Grenache in the Ebenezer district was about to be ripped out for a pittance, so he and his brother-in-law scraped together the money to buy the fruit instead. That rescue became Joshua, the winery's founding wine, and the Riebke family vines it saved now headline the label. Two decades on, Teusner remains a winemaker's winery \u2014 no estate vineyards, just long handshake deals with the growers of the northern Barossa's oldest blocks. Tastings run 11 to 4:30, and booking ahead is the way in.",
+   "style": "Cult",
+   "opens": "11:00",
+   "closes": "16:30",
+   "lat": -34.4853,
+   "lng": 138.9729,
+   "hasRestaurant": false,
+   "rating": 4.7,
+   "bookingRequired": true,
+   "kidFriendly": false,
+   "dogFriendly": true,
+   "phone": "(08) 8562 4147",
+   "website": "https://teusner.com.au",
+   "bookingUrl": "https://teusner.com.au/pages/contact",
+   "tastingFee": 15,
+   "image": {
+    "url": "https://teusner.com.au/cdn/shop/files/barrel-shed.jpg?v=1695120255&width=2000",
+    "source": "winery",
+    "alt": "The barrel shed at Teusner Wines, Nuriootpa",
+    "verified": "downloaded 2026-07-14, viewed: barrel rows and open shed door"
+   },
+   "gallery": [
+    {
+     "url": "https://teusner.com.au/cdn/shop/files/Vineyard-Tanunda-10.jpg?v=1695120254&width=2000",
+     "source": "winery",
+     "alt": "Autumn colour in the old vines that supply Teusner",
+     "verified": "downloaded 2026-07-14, viewed: autumn vine rows"
+    }
+   ],
+   "briefing": {
+    "icebreaker": "The whole winery exists because Kym Teusner refused to watch 1930s Grenache get bulldozed for next to nothing \u2014 he bought the fruit and named the wine Joshua.",
+    "proMove": "Call ahead: tastings are small, personal and mostly by appointment, which is exactly why they're good.",
+    "hiddenGem": "Teusner owns almost no vineyards \u2014 the magic is thirty-odd handshake deals with the old families of Ebenezer and the northern valley."
+   },
+   "sommNote": "The Riebke is the people's bottle, Albert is the connoisseur's \u2014 but Joshua, unoaked and perfumed, is the founding story in a glass."
+  }
+ ],
+ "wines": [
+  {
+   "id": "ba-sh-old-block",
+   "name": "Old Block Shiraz",
+   "wineryId": "ba-st-hallett",
+   "variety": "Shiraz",
+   "vintage": "2019",
+   "price": "$120",
+   "description": "The ancient-vine flagship since 1980 \u2014 parcels from centenarian blocks woven into dark, spiced, patient Shiraz.",
+   "sommNote": "One of the wines that defined old-vine Barossa. Give it ten years or a two-hour decant.",
+   "rating": 4.4,
+   "pairings": [
+    "roast beef",
+    "slow-cooked lamb",
+    "aged cheddar"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2040",
+   "community": {
+    "score": 4.3,
+    "count": 2665
+   }
+  },
+  {
+   "id": "ba-sh-blackwell",
+   "name": "Blackwell Shiraz",
+   "wineryId": "ba-st-hallett",
+   "variety": "Shiraz",
+   "vintage": "2021",
+   "price": "$60",
+   "description": "Named for lifelong winemaker Stuart Blackwell \u2014 plush Greenock and Ebenezer fruit in the house's dark-chocolate register.",
+   "sommNote": "The stepping stone to Old Block, and many honest palates prefer its younger energy.",
+   "rating": 4.2,
+   "pairings": [
+    "ribeye",
+    "kangaroo",
+    "hard cheese"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2035",
+   "community": {
+    "score": 4.1,
+    "count": 5195
+   }
+  },
+  {
+   "id": "ba-sh-garden-eden",
+   "name": "Garden of Eden Shiraz",
+   "wineryId": "ba-st-hallett",
+   "variety": "Shiraz",
+   "vintage": "2023",
+   "price": "$28",
+   "description": "Drawn partly from higher Eden Valley fruit \u2014 a fresher, spicier take on the house Shiraz at an everyday price.",
+   "sommNote": "The weeknight St Hallett: valley depth with an Eden Valley lift.",
+   "rating": 4.0,
+   "pairings": [
+    "sausages",
+    "pizza",
+    "mushroom dishes"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2030",
+   "community": {
+    "score": 3.8,
+    "count": 576
+   }
+  },
+  {
+   "id": "ba-gb-meshach",
+   "name": "Meshach Shiraz",
+   "wineryId": "ba-grant-burge",
+   "variety": "Shiraz",
+   "vintage": "2016",
+   "price": "$180",
+   "description": "The family monument \u2014 old-vine Filsell fruit given the full flagship treatment, dense, cedared and built for decades.",
+   "sommNote": "Named for great-grandfather Meshach Burge; drink it like the heirloom it is.",
+   "rating": 4.4,
+   "pairings": [
+    "beef Wellington",
+    "venison",
+    "aged hard cheese"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2042",
+   "community": {
+    "score": 4.4,
+    "count": 4099
+   }
+  },
+  {
+   "id": "ba-gb-filsell",
+   "name": "Filsell Shiraz",
+   "wineryId": "ba-grant-burge",
+   "variety": "Shiraz",
+   "vintage": "2020",
+   "price": "$45",
+   "description": "From the 1920s Filsell vineyard at Lyndoch \u2014 the same old vines that feed Meshach, in a generous mid-weight frame.",
+   "sommNote": "Centenarian vines at a mid-shelf price: the smartest buy on the list.",
+   "rating": 4.1,
+   "pairings": [
+    "lamb shoulder",
+    "beef ribs",
+    "cheddar"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2034",
+   "community": {
+    "score": 4.0,
+    "count": 6728
+   }
+  },
+  {
+   "id": "ba-gb-holy-trinity",
+   "name": "The Holy Trinity",
+   "wineryId": "ba-grant-burge",
+   "variety": "Grenache Shiraz Mourv\u00e8dre",
+   "vintage": "2019",
+   "price": "$40",
+   "description": "The southern Barossa's GSM, named for the district's trio of historic churches \u2014 savoury, red-fruited and Rh\u00f4ne-leaning.",
+   "sommNote": "The quiet achiever of the range; try it against Nine Popes for a Barossa GSM masterclass.",
+   "rating": 4.0,
+   "pairings": [
+    "duck",
+    "pork belly",
+    "charcuterie"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2032",
+   "community": {
+    "score": 4.0,
+    "count": 2577
+   }
+  },
+  {
+   "id": "ba-jc-double-barrel",
+   "name": "Double Barrel Shiraz",
+   "wineryId": "ba-jacobs-creek",
+   "variety": "Shiraz",
+   "vintage": "2021",
+   "price": "$25",
+   "description": "Barossa Shiraz finished in aged whisky barrels \u2014 plush, mocha-edged and one of the country's most popular reds.",
+   "sommNote": "Twenty thousand Vivino ratings don't lie about crowd appeal; taste it at the source with the story attached.",
+   "rating": 4.0,
+   "pairings": [
+    "barbecue",
+    "burgers",
+    "smoked meats"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2029",
+   "community": {
+    "score": 3.9,
+    "count": 20055
+   }
+  },
+  {
+   "id": "ba-jc-steingarten",
+   "name": "Steingarten Riesling",
+   "wineryId": "ba-jacobs-creek",
+   "variety": "Riesling",
+   "vintage": "2022",
+   "price": "$50",
+   "description": "From the stone-garden vineyard hacked into the high ranges in 1962 \u2014 steely, limey Riesling with a serious cellar record.",
+   "sommNote": "The secret icon inside the famous label; ask for it by name at the tasting bar.",
+   "rating": 4.2,
+   "pairings": [
+    "oysters",
+    "sashimi",
+    "green apple salads"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2034"
+  },
+  {
+   "id": "ba-sthugo-shiraz",
+   "name": "St Hugo Barossa Shiraz",
+   "wineryId": "ba-st-hugo",
+   "variety": "Shiraz",
+   "vintage": "2019",
+   "price": "$50",
+   "description": "Structured, cedar-framed Barossa Shiraz in the house's patient, savoury style \u2014 luxury with tannin to earn it.",
+   "sommNote": "Built for the table rather than the trophy shelf; give it protein and time.",
+   "rating": 4.2,
+   "pairings": [
+    "beef fillet",
+    "osso buco",
+    "aged gouda"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2036",
+   "community": {
+    "score": 4.1,
+    "count": 5759
+   }
+  },
+  {
+   "id": "ba-sthugo-cab",
+   "name": "St Hugo Cabernet Sauvignon",
+   "wineryId": "ba-st-hugo",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2022",
+   "price": "$50",
+   "description": "The house's founding style \u2014 Coonawarra-sourced Cabernet, blackcurrant and cedar, poured beside its Barossa siblings.",
+   "sommNote": "Honest label-reading: the fruit is Coonawarra, and it's the point \u2014 Hugo's legacy spans two great regions.",
+   "rating": 4.1,
+   "pairings": [
+    "lamb rack",
+    "ribeye",
+    "hard cheese"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2038",
+   "community": {
+    "score": 4.0,
+    "count": 7089
+   }
+  },
+  {
+   "id": "ba-wb-black-label",
+   "name": "Black Label",
+   "wineryId": "ba-wolf-blass",
+   "variety": "Cabernet Shiraz",
+   "vintage": "2021",
+   "price": "$150",
+   "description": "The triple-Jimmy-Watson legend \u2014 a cross-regional Cabernet-Shiraz blend polished to Wolf's exacting swagger.",
+   "sommNote": "Blending as high art; the trophy cabinet at the visitor centre explains the price.",
+   "rating": 4.3,
+   "pairings": [
+    "beef Wellington",
+    "roast lamb",
+    "aged cheddar"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2040",
+   "community": {
+    "score": 4.2,
+    "count": 3994
+   }
+  },
+  {
+   "id": "ba-wb-grey-label",
+   "name": "Grey Label Cabernet Shiraz",
+   "wineryId": "ba-wolf-blass",
+   "variety": "Cabernet Shiraz",
+   "vintage": "2020",
+   "price": "$45",
+   "description": "The Black Label philosophy one shelf down \u2014 generous, mocha-rich blending with genuine cellar legs.",
+   "sommNote": "The value expression of the house method; patient buyers do well here.",
+   "rating": 4.0,
+   "pairings": [
+    "steak",
+    "lamb chops",
+    "hard cheese"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2033",
+   "community": {
+    "score": 3.9,
+    "count": 2903
+   }
+  },
+  {
+   "id": "ba-yaldara-first-pick",
+   "name": "1847 First Pick Shiraz",
+   "wineryId": "ba-chateau-yaldara",
+   "variety": "Shiraz",
+   "vintage": "2021",
+   "price": "$30",
+   "description": "The ch\u00e2teau's signature under the 1847 banner \u2014 ripe Lyndoch Shiraz with plush fruit and easy polish.",
+   "sommNote": "Taste it in the marble hall Hermann built from salvage; the contrast is the Barossa in one room.",
+   "rating": 4.1,
+   "pairings": [
+    "roast beef",
+    "pasta rag\u00f9",
+    "cheddar"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2030",
+   "community": {
+    "score": 4.1,
+    "count": 443
+   }
+  },
+  {
+   "id": "ba-hemera-block5",
+   "name": "Block 5 Cabernet Sauvignon",
+   "wineryId": "ba-hemera",
+   "variety": "Cabernet Sauvignon",
+   "vintage": "2019",
+   "price": "$55",
+   "description": "The estate's numbered-block Cabernet \u2014 Lyndoch blackcurrant and dusty tannin, raised in the underground hall below the tasting room.",
+   "sommNote": "Single block, single estate, cellar dug into the hill \u2014 the whole philosophy in one bottle.",
+   "rating": 4.2,
+   "pairings": [
+    "lamb cutlets",
+    "ribeye",
+    "hard cheese"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2034"
+  },
+  {
+   "id": "ba-tscharke-sss",
+   "name": "Shiraz Shiraz Shiraz",
+   "wineryId": "ba-tscharke",
+   "variety": "Shiraz",
+   "vintage": "2022",
+   "price": "$30",
+   "description": "The cheekily named estate Shiraz \u2014 organic Marananga fruit, medium-plus body and no pretension whatsoever.",
+   "sommNote": "The name is the mission statement: nothing in the glass but the grape, the dirt and the family.",
+   "rating": 4.0,
+   "pairings": [
+    "barbecue",
+    "pizza",
+    "kangaroo"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2030",
+   "community": {
+    "score": 3.7,
+    "count": 866
+   }
+  },
+  {
+   "id": "ba-tscharke-stonewell-grenache",
+   "name": "Stone Well Grenache",
+   "wineryId": "ba-tscharke",
+   "variety": "Grenache",
+   "vintage": "2021",
+   "price": "$45",
+   "description": "Old-soil Stone Well Grenache farmed organically \u2014 raspberry, earth and a silken line through the finish.",
+   "sommNote": "The serious bottle on the sheet; Stone Well Grenache is the western valley's quiet speciality.",
+   "rating": 4.2,
+   "pairings": [
+    "duck",
+    "pork belly",
+    "Moroccan tagine"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2031",
+   "community": {
+    "score": 4.1,
+    "count": 110
+   }
+  },
+  {
+   "id": "ba-tscharke-master",
+   "name": "The Master Montepulciano",
+   "wineryId": "ba-tscharke",
+   "variety": "Montepulciano",
+   "vintage": "2021",
+   "price": "$35",
+   "description": "Italian grape, Barossa dirt \u2014 dark cherry, savoury herbs and proper grip, from one of the valley's alternative-variety pioneers.",
+   "sommNote": "Order it for the table when someone says they're bored of Shiraz; watch the bottle empty first.",
+   "rating": 4.0,
+   "pairings": [
+    "pasta al rag\u00f9",
+    "salumi",
+    "pizza"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2030",
+   "community": {
+    "score": 3.8,
+    "count": 353
+   }
+  },
+  {
+   "id": "ba-whistler-atypical",
+   "name": "Atypical Shiraz",
+   "wineryId": "ba-whistler",
+   "variety": "Shiraz",
+   "vintage": "2024",
+   "price": "$35",
+   "description": "Bright, juicy, lightly worked Shiraz that lives up to its name \u2014 made for the lawn rather than the cellar.",
+   "sommNote": "Serve it cool under the gums; this is Shiraz in its holiday clothes.",
+   "rating": 4.0,
+   "pairings": [
+    "charcuterie",
+    "barbecued chicken",
+    "picnic fare"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2029",
+   "community": {
+    "score": 4.0,
+    "count": 218
+   }
+  },
+  {
+   "id": "ba-whistler-double-back",
+   "name": "Double Back Grenache",
+   "wineryId": "ba-whistler",
+   "variety": "Grenache",
+   "vintage": "2023",
+   "price": "$40",
+   "description": "Stone Well Grenache with genuine old-soil depth beneath the sunny label \u2014 raspberry, spice and a savoury tail.",
+   "sommNote": "The wine that proves the lawn isn't the whole story.",
+   "rating": 4.1,
+   "pairings": [
+    "duck",
+    "lamb kofta",
+    "hard cheese"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2030",
+   "community": {
+    "score": 4.0,
+    "count": 445
+   }
+  },
+  {
+   "id": "ba-whistler-dryasabone",
+   "name": "Dry As A Bone Ros\u00e9",
+   "wineryId": "ba-whistler",
+   "variety": "Ros\u00e9",
+   "vintage": "2024",
+   "price": "$25",
+   "description": "Does what it says \u2014 bone-dry Grenache ros\u00e9, all strawberry and citrus zest, engineered for hot afternoons.",
+   "sommNote": "The best-named wine in the valley, and the picnic rug's best friend.",
+   "rating": 4.0,
+   "pairings": [
+    "prawns",
+    "fried chicken",
+    "soft cheese"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2026",
+   "community": {
+    "score": 4.0,
+    "count": 310
+   }
+  },
+  {
+   "id": "ba-msv-greenock",
+   "name": "MSV Greenock Shiraz",
+   "wineryId": "ba-murray-street",
+   "variety": "Shiraz",
+   "vintage": "2021",
+   "price": "$40",
+   "description": "The village argument in a bottle \u2014 red-loam Greenock Shiraz, dense and dark with the district's signature ironstone edge.",
+   "sommNote": "Taste it a kilometre from the vines it grew in; village-level Barossa is the future and this is the proof.",
+   "rating": 4.2,
+   "pairings": [
+    "beef short rib",
+    "lamb shanks",
+    "aged cheddar"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2034",
+   "community": {
+    "score": 4.2,
+    "count": 322
+   }
+  },
+  {
+   "id": "ba-msv-barossa",
+   "name": "The Barossa Shiraz",
+   "wineryId": "ba-murray-street",
+   "variety": "Shiraz",
+   "vintage": "2022",
+   "price": "$30",
+   "description": "The wider-valley blend \u2014 generous, chocolatey Barossa Shiraz that sets the baseline for the district bottlings above it.",
+   "sommNote": "Start here, then taste the Greenock against it; the difference is the whole point of the house.",
+   "rating": 4.0,
+   "pairings": [
+    "barbecue",
+    "beef pie",
+    "hard cheese"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2030"
+  },
+  {
+   "id": "ba-saltram-no1",
+   "name": "No. 1 Shiraz",
+   "wineryId": "ba-saltram",
+   "variety": "Shiraz",
+   "vintage": "2017",
+   "price": "$100",
+   "description": "The lineage bottle \u2014 descended from William Salter's first flagship blend, dark and stately in the old Angaston style.",
+   "sommNote": "A wine with an unbroken name since the 1800s; drink it slowly and toast the Methodist who started it.",
+   "rating": 4.2,
+   "pairings": [
+    "roast beef",
+    "oxtail",
+    "aged cheddar"
+   ],
+   "drinkFrom": "2025",
+   "drinkTo": "2037",
+   "community": {
+    "score": 4.1,
+    "count": 1932
+   }
+  },
+  {
+   "id": "ba-saltram-mamre-brook",
+   "name": "Mamre Brook Shiraz",
+   "wineryId": "ba-saltram",
+   "variety": "Shiraz",
+   "vintage": "2021",
+   "price": "$30",
+   "description": "Named for the Salter homestead \u2014 generous mid-weight Barossa Shiraz with the house's savoury throughline.",
+   "sommNote": "The founder's front door is on the label and the value is in the bottle.",
+   "rating": 4.0,
+   "pairings": [
+    "lamb roast",
+    "sausages",
+    "cheddar"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2031",
+   "community": {
+    "score": 3.9,
+    "count": 2481
+   }
+  },
+  {
+   "id": "ba-saltram-pepperjack",
+   "name": "Pepperjack Barossa Red",
+   "wineryId": "ba-saltram",
+   "variety": "Shiraz",
+   "vintage": "2024",
+   "price": "$25",
+   "description": "The steakhouse staple born here \u2014 plush, peppery Barossa red engineered for a medium-rare ribeye.",
+   "sommNote": "Order the grill at the cellar door and complete the equation where it was invented.",
+   "rating": 3.9,
+   "pairings": [
+    "ribeye",
+    "burgers",
+    "pepper sauce anything"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2028",
+   "community": {
+    "score": 3.8,
+    "count": 3209
+   }
+  },
+  {
+   "id": "ba-teusner-riebke",
+   "name": "The Riebke Shiraz",
+   "wineryId": "ba-teusner",
+   "variety": "Shiraz",
+   "vintage": "2021",
+   "price": "$30",
+   "description": "Northern Barossa Shiraz from the grower families Teusner champions \u2014 plush, unforced and absurdly drinkable for the money.",
+   "sommNote": "The people's Teusner: old-vine fruit, handshake economics, honest price.",
+   "rating": 4.0,
+   "pairings": [
+    "barbecue",
+    "lamb chops",
+    "hard cheese"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2030",
+   "community": {
+    "score": 3.9,
+    "count": 4642
+   }
+  },
+  {
+   "id": "ba-teusner-joshua",
+   "name": "Joshua",
+   "wineryId": "ba-teusner",
+   "variety": "Grenache Mataro Shiraz",
+   "vintage": "2021",
+   "price": "$35",
+   "description": "The founding wine \u2014 unoaked Grenache-Mataro-Shiraz from the rescued 1930s vines, perfumed, silky and defiantly fresh.",
+   "sommNote": "This is the wine that saved the vineyard. No oak, no makeup, all fruit.",
+   "rating": 4.1,
+   "pairings": [
+    "duck",
+    "charcuterie",
+    "roast chicken"
+   ],
+   "drinkFrom": "2024",
+   "drinkTo": "2029",
+   "community": {
+    "score": 3.9,
+    "count": 1542
+   }
+  },
+  {
+   "id": "ba-teusner-albert",
+   "name": "Albert Shiraz",
+   "wineryId": "ba-teusner",
+   "variety": "Shiraz",
+   "vintage": "2023",
+   "price": "$50",
+   "description": "The serious single-expression Shiraz \u2014 deep Ebenezer fruit from very old vines, dark, layered and long.",
+   "sommNote": "The connoisseur's Teusner; give it three years and a proper glass.",
+   "rating": 4.2,
+   "pairings": [
+    "beef cheek",
+    "venison",
+    "aged gouda"
+   ],
+   "drinkFrom": "2026",
+   "drinkTo": "2036",
+   "community": {
+    "score": 4.1,
+    "count": 994
+   }
+  }
+ ]
+}

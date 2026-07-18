@@ -43,7 +43,22 @@
     "score": 4.4,
     "count": 748
    },
-   "videoUrl": "https://www.youtube.com/embed/_gfBJHt3Xek"
+   "videoUrl": "https://www.youtube.com/embed/_gfBJHt3Xek",
+   "gallery": [
+    {
+     "url": "https://seppeltsfield.com.au/wp-content/uploads/village-hero.jpg",
+     "source": "winery",
+     "alt": "The Seppeltsfield village and vineyards from the air",
+     "verified": "downloaded 2026-07-18, viewed: estate aerial with chimney and palm rows"
+    },
+    {
+     "url": "https://seppeltsfield.com.au/wp-content/uploads/VISIT-US-V2.jpeg",
+     "source": "winery",
+     "alt": "The tasting hall at Seppeltsfield",
+     "verified": "downloaded 2026-07-18, viewed: circular tasting bars and bottle walls"
+    }
+   ],
+   "visitorSummary": "Visitors call the estate stunning \u2014 the palm avenue, restaurant and JamFactory studios all praised \u2014 with the only grumble being peak-day crowds."
   },
   {
    "id": "ba-two-hands",
@@ -88,7 +103,8 @@
    "community": {
     "score": 4.8,
     "count": 252
-   }
+   },
+   "visitorSummary": "Reviewers enjoy easy walk-in tastings, informative hosts and the Garden Series line-up; long-time fans of the label say the visit deepens the attachment."
   },
   {
    "id": "ba-torbreck",
@@ -133,7 +149,8 @@
    "community": {
     "score": 4.7,
     "count": 235
-   }
+   },
+   "visitorSummary": "Guests describe class and polish \u2014 several name it the best tasting of their trip \u2014 with the Collector's flight and hospitable staff singled out."
   },
   {
    "id": "ba-hentley-farm",
@@ -178,7 +195,8 @@
    "community": {
     "score": 4.8,
     "count": 512
-   }
+   },
+   "visitorSummary": "Visitors praise the intimate stone cellar door, exceptional service, and the surprise degustation in the stables \u2014 'stunning subdued elegance' as one put it."
   },
   {
    "id": "ba-elderton",
@@ -222,7 +240,22 @@
    "community": {
     "score": 4.7,
     "count": 183
-   }
+   },
+   "gallery": [
+    {
+     "url": "https://eldertonwines.com.au/cdn/shop/files/Elderton_Cellar_Door_Drone_Images_-_Dragan_-_hi_res.jpg?v=1732506064",
+     "source": "winery",
+     "alt": "The Elderton homestead and vineyards from above, with the estate name mown into the vines",
+     "verified": "downloaded 2026-07-18, viewed: homestead aerial"
+    },
+    {
+     "url": "https://eldertonwines.com.au/cdn/shop/files/Elderton_Wines_Cellar_Door_view_into_Duke_Cellar_room.jpg?v=1733111061",
+     "source": "winery",
+     "alt": "Looking into the Duke Cellar room at Elderton",
+     "verified": "downloaded 2026-07-18, viewed: interior with wine wall"
+    }
+   ],
+   "visitorSummary": "Reviewers love the restored homestead, the garden verandah outlook and attentive hosts; the vertical tastings draw particular praise."
   },
   {
    "id": "ba-kalleske",
@@ -267,7 +300,8 @@
    "community": {
     "score": 4.9,
     "count": 223
-   }
+   },
+   "visitorSummary": "Guests describe a cosy, welcoming room, friendly and knowledgeable family staff, and characterful organic wines \u2014 the ratings are among the valley's highest."
   },
   {
    "id": "ba-yalumba",
@@ -312,7 +346,8 @@
    "community": {
     "score": 4.6,
     "count": 427
-   }
+   },
+   "visitorSummary": "Visitors love the historic estate, the open fire in the Wine Room, and above all the Cooperage Tour \u2014 guides are repeatedly named and thanked."
   },
   {
    "id": "ba-henschke",
@@ -357,7 +392,8 @@
    "community": {
     "score": 4.8,
     "count": 237
-   }
+   },
+   "visitorSummary": "Reviewers call the drive out 'worth every minute' \u2014 an out-of-the-way gem with passionate guides, six generations of history and the Hill of Grace Experience described as unforgettable."
   }
  ],
  "wines": [

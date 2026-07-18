@@ -34,7 +34,7 @@ const RegionSwitcher: React.FC = () => {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-80 bg-paper border border-hairline rounded-sm shadow-sm z-50 animate-fade-in">
+        <div className="fixed left-3 right-3 top-16 max-h-[75vh] overflow-y-auto sm:absolute sm:left-auto sm:right-0 sm:top-full sm:mt-2 sm:w-80 sm:max-h-[80vh] bg-paper border border-hairline rounded-sm shadow-sm z-50 animate-fade-in">
           <div className="px-4 pt-4 pb-2">
             <p className="kicker">Wine regions</p>
           </div>

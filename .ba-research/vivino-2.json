@@ -1,0 +1,268 @@
+[
+ {
+  "wineryId": "ba-st-hallett",
+  "query": "St Hallett Old Block Shiraz",
+  "match": "St Hallett Old Block Shiraz 2010",
+  "count": 2665,
+  "avg": 4.3
+ },
+ {
+  "wineryId": "ba-st-hallett",
+  "query": "St Hallett Blackwell Shiraz",
+  "match": "St Hallett Blackwell Shiraz 2021",
+  "count": 5195,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-st-hallett",
+  "query": "St Hallett Garden of Eden Shiraz",
+  "match": "St Hallett Garden Of Eden Shiraz 2023",
+  "count": 576,
+  "avg": 3.8
+ },
+ {
+  "wineryId": "ba-grant-burge",
+  "query": "Grant Burge Meshach Shiraz",
+  "match": "Grant Burge Wines Meshach 2016",
+  "count": 4099,
+  "avg": 4.4
+ },
+ {
+  "wineryId": "ba-grant-burge",
+  "query": "Grant Burge Filsell Shiraz",
+  "match": "Grant Burge Wines Filsell Shiraz 2020",
+  "count": 6728,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-grant-burge",
+  "query": "Grant Burge The Holy Trinity",
+  "match": "Grant Burge Wines The Holy Trinity Red Blend 2021",
+  "count": 2577,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-jacobs-creek",
+  "query": "Jacobs Creek Steingarten Riesling",
+  "match": "Jacob's Creek Barossa Survivor Vines Riesling 2023",
+  "count": 22,
+  "avg": 0.0
+ },
+ {
+  "wineryId": "ba-jacobs-creek",
+  "query": "Jacobs Creek Double Barrel Shiraz",
+  "match": "Jacob's Creek Double Barrel Shiraz 2021",
+  "count": 20055,
+  "avg": 3.9
+ },
+ {
+  "wineryId": "ba-jacobs-creek",
+  "query": "Jacobs Creek Reserve Barossa Shiraz",
+  "match": "Jacob's Creek Barossa Survivor Vines Riesling 2023",
+  "count": 22,
+  "avg": 0.0
+ },
+ {
+  "wineryId": "ba-st-hugo",
+  "query": "St Hugo Barossa Shiraz",
+  "match": "St Hugo Barossa Shiraz 2012",
+  "count": 5759,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-st-hugo",
+  "query": "St Hugo Coonawarra Cabernet Sauvignon",
+  "match": "St Hugo Cabernet Sauvignon 2022",
+  "count": 7089,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-st-hugo",
+  "query": "St Hugo Grenache Shiraz Mataro",
+  "match": "St Hugo Barossa Shiraz 2023",
+  "count": 5759,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-wolf-blass",
+  "query": "Wolf Blass Black Label",
+  "match": "Wolf Blass Black Label Red Blend 2021",
+  "count": 3994,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-wolf-blass",
+  "query": "Wolf Blass Grey Label Shiraz",
+  "match": "Wolf Blass Grey Label Cabernet - Shiraz 2012",
+  "count": 2903,
+  "avg": 3.9
+ },
+ {
+  "wineryId": "ba-wolf-blass",
+  "query": "Wolf Blass Yellow Label Cabernet Sauvignon",
+  "match": "Wolf Blass Yellow Label Cabernet Sauvignon 1998",
+  "count": 7635,
+  "avg": 3.4
+ },
+ {
+  "wineryId": "ba-chateau-yaldara",
+  "query": "Chateau Yaldara Shiraz",
+  "match": "Chateau Yaldara - 1847 First Pick Shiraz 2018",
+  "count": 443,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-chateau-yaldara",
+  "query": "Chateau Yaldara Cabernet Sauvignon",
+  "match": "Ch\u00e2teau Tanunda The Ch\u00e2teau Cabernet Sauvignon 2024",
+  "count": 294,
+  "avg": 3.5
+ },
+ {
+  "wineryId": "ba-chateau-yaldara",
+  "query": "Chateau Yaldara Grenache",
+  "match": "Chateau Yaldara - 1847 First Pick Shiraz 2018",
+  "count": 443,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-hemera",
+  "query": "Hemera Estate Block 5 Cabernet Sauvignon",
+  "match": "Forest Hill Block 5 Cabernet Sauvignon 2024",
+  "count": 309,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-hemera",
+  "query": "Hemera Estate Shiraz",
+  "match": "Telera Rae Shiraz 2017",
+  "count": 14,
+  "avg": 0.0
+ },
+ {
+  "wineryId": "ba-hemera",
+  "query": "Hemera Estate GSM",
+  "match": "Barossa Valley Estate GSM (Grenache - Shiraz - Mourv\u00e8dre) 2023",
+  "count": 5828,
+  "avg": 3.7
+ },
+ {
+  "wineryId": "ba-tscharke",
+  "query": "Tscharke Gnadenfrei Shiraz",
+  "match": "Tscharke Shiraz Shiraz Shiraz 2022",
+  "count": 866,
+  "avg": 3.7
+ },
+ {
+  "wineryId": "ba-tscharke",
+  "query": "Tscharke Grenache",
+  "match": "Tscharke Stone Well Grenache 2021",
+  "count": 110,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-tscharke",
+  "query": "Tscharke Montepulciano",
+  "match": "Tscharke The Master Montepulciano 2021",
+  "count": 353,
+  "avg": 3.8
+ },
+ {
+  "wineryId": "ba-whistler",
+  "query": "Whistler Wines Shiraz",
+  "match": "Whistler Wines Atypical Shiraz 2024",
+  "count": 218,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-whistler",
+  "query": "Whistler Wines Grenache",
+  "match": "Whistler Wines Double Back Grenache 2023",
+  "count": 445,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-whistler",
+  "query": "Whistler Dry as a Bone Rose",
+  "match": "Whistler Wines Dry As A Bone Ros\u00e9 2024",
+  "count": 310,
+  "avg": 4.0
+ },
+ {
+  "wineryId": "ba-murray-street",
+  "query": "Murray Street Vineyards Barossa Shiraz",
+  "match": "Murray Street Vineyards (MSV) Greenock 2021",
+  "count": 322,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-murray-street",
+  "query": "Murray Street Vineyards Gomersal Shiraz",
+  "match": "Murray Street Vineyards (MSV) Greenock 2021",
+  "count": 322,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-murray-street",
+  "query": "Murray Street Vineyards GSM",
+  "match": "Murray Street Vineyards (MSV) Greenock 2021",
+  "count": 322,
+  "avg": 4.2
+ },
+ {
+  "wineryId": "ba-saltram",
+  "query": "Saltram No 1 Shiraz",
+  "match": "Saltram Shiraz No. 1 2017",
+  "count": 1932,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-saltram",
+  "query": "Saltram Mamre Brook Shiraz",
+  "match": "Saltram Mamre Brook Shiraz 2021",
+  "count": 2481,
+  "avg": 3.9
+ },
+ {
+  "wineryId": "ba-saltram",
+  "query": "Pepperjack Barossa Shiraz",
+  "match": "Saltram Pepperjack Barossa Red 2024",
+  "count": 3209,
+  "avg": 3.8
+ },
+ {
+  "wineryId": "ba-teusner",
+  "query": "Teusner Riebke Shiraz",
+  "match": "Teusner The Riebke Shiraz 2021",
+  "count": 4642,
+  "avg": 3.9
+ },
+ {
+  "wineryId": "ba-teusner",
+  "query": "Teusner Joshua",
+  "match": "Teusner Joshua 2021",
+  "count": 1542,
+  "avg": 3.9
+ },
+ {
+  "wineryId": "ba-teusner",
+  "query": "Teusner Albert Shiraz",
+  "match": "Teusner Albert 2023",
+  "count": 994,
+  "avg": 4.1
+ },
+ {
+  "wineryId": "ba-jacobs-creek",
+  "query": "Jacobs Creek Steingarten",
+  "match": "Jacob's Creek Sparkling Moscato",
+  "count": 620,
+  "avg": 3.8
+ },
+ {
+  "wineryId": "ba-murray-street",
+  "query": "MSV Black Label Shiraz",
+  "match": "Wynns Black Label Shiraz 2022",
+  "count": 1811,
+  "avg": 3.9
+ }
+]

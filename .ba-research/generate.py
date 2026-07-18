@@ -264,7 +264,7 @@ def split_mixed_batches(names):
     return out
 
 if __name__ == '__main__':
-    mixed = split_mixed_batches(['estates-a.json', 'estates-b.json'])
+    mixed = split_mixed_batches(['estates-a.json', 'estates-b.json', 'estates-c.json'])
     nw, nwi = emit_winery_file('wineries-valley.ts', 'VALLEY_WINERIES',
                                'Tanunda, Marananga and Seppeltsfield — the old-vine heartland.',
                                [mixed['valley']])

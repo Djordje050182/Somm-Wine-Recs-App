@@ -40,5 +40,6 @@ export const EDEN_WINERIES: Winery[] = [
     },
     sommNote: 'If Hill of Grace is beyond the day\'s budget, Mount Edelstone from 1912 vines is a legitimate icon in its own right — and the Julius Riesling shows why Eden Valley whites belong in the same sentence.',
     community: { score: 4.8, count: 237, source: 'Google' as const },
+    visitorSummary: 'Reviewers call the drive out \'worth every minute\' — an out-of-the-way gem with passionate guides, six generations of history and the Hill of Grace Experience described as unforgettable.',
   },
 ];
